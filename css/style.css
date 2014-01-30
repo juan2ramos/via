@@ -1,0 +1,129 @@
+/* 
+    Document   : style
+    Created on : 19/09/2013, 12:23:43 AM
+    Author     : Juan Ramos
+
+*/
+
+a{
+    text-decoration: none
+}
+body{
+    background: #444;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    margin: 0
+}
+ul{
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}
+
+
+/*=================================================================
+header
+===================================================================*/
+
+header{
+    position: relative;
+}
+nav span{
+    display: block;
+} 
+#logo{
+    height: 80px;
+}
+#logo, nav,nav a, .content-head ul {
+    display: inline-block;
+    vertical-align: middle;
+}
+/*=================================================================
+nav
+===================================================================*/
+nav {
+    margin-left: 35px;
+}
+nav a{
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 0.8em;
+    height: 80px;
+    margin: -3px;
+    padding: 27px 14px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+nav a:hover{
+    background:red;
+    color: #ff0
+}
+
+nav a span{
+
+    font-size: 0.7em;
+}
+.background-left{
+    background: url("../images/header-bg.svg");
+    height: 80px;
+    margin-right: 300px;
+    position: absolute;
+    right: 50%;
+    top:20px;
+    width: 3000px;
+}
+.carousel img{
+    min-width: 100%;
+    width: 100%; 
+}
+.container-nav{
+    background: url("../images/header-bg.svg");
+    margin: auto;
+    width: 1028px;
+}
+.content-head{
+    position: absolute;
+    width: 100%;
+    top: 20px;
+}
+.menus li{    
+    line-height: 40px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.menus{    
+    width: 40px;
+}
+.menus li a{
+    color: #ff0;
+}
+.menus li a span{
+    display: block;
+    height: 40px;
+    width: 40px;
+}
+.menus li a:hover span{
+    background: red;
+}
+.redes{
+    border-left: 1px solid #444;
+}
+.redes li:first-child{
+    border-bottom: 1px solid #444;
+    height: 39px;
+}
+/*=================================================================
+state
+===================================================================*/
+
+.activate{
+    background: red;
+    color: #ff0
+}
+
+
+
+
+
+
