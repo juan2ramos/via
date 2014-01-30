@@ -145,7 +145,7 @@ slide
 .flex-direction-nav{
     bottom: 3px;
     left: 50%;
-    margin-left: -20px;
+    margin-left: -60px;
     position: absolute;
 }
 .flex-direction-nav li{
@@ -157,6 +157,14 @@ slide
     position: relative;
 }
 
+/*=================================================================
+footer
+===================================================================*/
+
+footer{
+    background: #1f1f1f url(../images/big-logo.svg) center no-repeat;
+    height: 407px;
+}
 /*=================================================================
 state
 ===================================================================*/
