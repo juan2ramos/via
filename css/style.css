@@ -12,14 +12,14 @@ body{
     background: #444;
     font-family: 'Lato', sans-serif;
     font-size: 16px;
-    margin: 0
 }
 ul{
-    margin: 0;
     list-style: none;
     padding: 0;
 }
-
+body, ul, figure{
+    margin: 0;
+}
 
 /*=================================================================
 header
@@ -34,6 +34,9 @@ nav span{
 #logo{
     height: 80px;
 }
+#logo img{ 
+    height: 80px;
+}
 #logo, nav,nav a, .content-head ul {
     display: inline-block;
     vertical-align: middle;
@@ -42,7 +45,7 @@ nav span{
 nav
 ===================================================================*/
 nav {
-    margin-left: 35px;
+    margin-left: 20px;
 }
 nav a{
     box-sizing: border-box;
@@ -50,7 +53,7 @@ nav a{
     font-size: 0.8em;
     height: 80px;
     margin: -3px;
-    padding: 27px 14px;
+    padding: 27px 13px;
     text-align: center;
     text-transform: uppercase;
 }
@@ -73,14 +76,11 @@ nav a span{
     top:20px;
     width: 3000px;
 }
-.carousel img{
-    min-width: 100%;
-    width: 100%; 
-}
+
 .container-nav{
     background: url("../images/header-bg.svg");
     margin: auto;
-    width: 1028px;
+    width: 1060px;
 }
 .content-head{
     position: absolute;
@@ -113,6 +113,50 @@ nav a span{
     border-bottom: 1px solid #444;
     height: 39px;
 }
+
+/*=================================================================
+slide
+===================================================================*/
+.carousel img{
+    min-width: 100%;
+    width: 100%; 
+}
+ 
+
+.flex-next,.flex-prev{
+    background: #fff;
+    color: #000;
+    display: block;
+    font-size: 2em;
+    font-weight: 900;
+    height: 40px;
+    margin-right: 1px;
+    width: 60px;
+}
+.flex-next:hover,.flex-prev:hover{
+    background: red;
+    color: #ff0;
+
+}
+
+.flex-control-nav{
+    display: none
+}
+.flex-direction-nav{
+    bottom: 3px;
+    left: 50%;
+    margin-left: -20px;
+    position: absolute;
+}
+.flex-direction-nav li{
+    display: inline-block;
+    text-align: center;
+    
+}
+.slider{
+    position: relative;
+}
+
 /*=================================================================
 state
 ===================================================================*/
@@ -121,9 +165,6 @@ state
     background: red;
     color: #ff0
 }
-
-
-
 
 
 

@@ -29,7 +29,42 @@
         <header>
             
             <div class="carousel">
-                <img src="images/brasil_pais_invitado.png" alt="" />
+                <div class="slider slider-reservas" id="">
+                  <ul class="slides">
+                   
+                      <li>
+                        <span class="caption">
+                          <img src="images/slide/img1.jpg">
+                          
+                        </span>
+                      </li>
+                      <li>
+                        <span class="caption">
+                          <img src="images/slide/img2.jpg">
+                          
+                        </span>
+                      </li>
+                      <li>
+                        <span class="caption">
+                          <img src="images/slide/img3.jpg">
+                          
+                        </span>
+                      </li>
+                      <li>
+                        <span class="caption">
+                          <img src="images/slide/img4.jpg">
+                          
+                        </span>
+                      </li>
+                      <li>
+                        <span class="caption">
+                          <img src="images/slide/img5.jpg">
+                          
+                        </span>
+                      </li>
+                    
+                  </ul>
+                </div>
             </div>
             <div class="background-left"></div>
             <div  class="content-head">
@@ -38,7 +73,9 @@
                         <li><a href="#"><span class="activate" >es</span></a></li>
                         <li><a href="#"><span>en</span></a></li>
                     </ul>
-                    <div id="logo"><img src="images/logo-festival-teatro.svg" alt="XIV Festival iberoamericano de teatro de bogotá" /></div>
+                    <figure id="logo">
+                    <img src="images/logo-festival-teatro.svg" alt="XIV Festival iberoamericano de teatro de bogotá" />
+                    </figure>
                     <nav>                  
                         
                             <a href="#" class="activate">Programación<span>Agenda</span></a>
@@ -63,5 +100,6 @@
     </body>
     <!-- JavaScript -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
     <script src="js/script.js"></script>
 </html>
