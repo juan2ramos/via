@@ -9,7 +9,7 @@ a{
     text-decoration: none
 }
 body{
-    background: #444;
+    background: #383838;
     font-family: 'Lato', sans-serif;
     font-size: 16px;
 }
@@ -106,10 +106,10 @@ nav a span{
 .menus li a:hover span{
     background: red;
 }
-.redes{
+.network{
     border-left: 1px solid #444;
 }
-.redes li:first-child{
+.network li:first-child{
     border-bottom: 1px solid #444;
     height: 39px;
 }
@@ -162,8 +162,46 @@ footer
 ===================================================================*/
 
 footer{
-    background: #1f1f1f url(../images/big-logo.svg) center no-repeat;
-    height: 407px;
+    background: #1f1f1f url(../images/big-logo.svg) center -50px no-repeat;
+    text-align: center;
+}
+footer h3{
+    color: #fff;
+    font-size: 1em;
+    font-weight: 400;
+    padding-top: 80px;
+    text-transform: uppercase;
+
+}
+.festival-teatro, .redlat-circulart{
+    display: inline-block;
+    width: 49%;
+}
+.festival-teatro img{
+    width: 250px;
+}
+.footer-below{
+    margin: 60px auto 0;
+    width: 1000px;
+    padding-bottom: 12px;
+    text-align: left;
+}
+.footer-network li{
+    display: inline-block;
+}
+.footer-network li a{
+    background: #fff;
+    border-radius: 50%;    
+    color:#000;
+    display: block;
+    font-weight: 300;
+    height: 40px;
+    line-height: 2.5em;
+    padding: 0 1em;
+
+}
+.redlat-circulart{
+    text-align: right;
 }
 /*=================================================================
 state

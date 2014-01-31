@@ -86,7 +86,7 @@
                             <a href="#">Contacto<span>Contact</span></a>
                         
                     </nav>
-                    <ul class="menus redes">
+                    <ul class="menus network">
                         <li><a href="#">f</a></li>
                         <li><a href="#">t</a></li>
                     </ul>
@@ -98,7 +98,21 @@
 
         </section>
         <footer>
-            
+            <h3>Compartir</h3>
+            <ul class="footer-network">
+                <li><a href="">F</a></li>
+                <li><a href="">T</a></li>
+                <li><a class="plus" href="">+</a></li>
+            </ul>
+            <div class="footer-below">
+                <a class="festival-teatro" href="http://festivaldeteatro.com.co/" >
+                    <img src="images/festival-teatro.svg">
+                </a>
+                <div class="redlat-circulart">
+                    <a href="http://redlat.org/"><img src="images/redlat.svg" alt="Logo Redlat"></a>
+                    <a href="http://circulart.org/"><img src="images/circulart.svg" alt="Logo Circulart"></a>
+                </div>    
+            </div>
         </footer>
     </body>
     <!-- JavaScript -->
