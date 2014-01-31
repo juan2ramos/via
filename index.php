@@ -96,19 +96,21 @@
         </header>
         <!-- content -->
         <div class="bar-red">
-
+        <figure>
+            <img src="images/via.svg">
+        </figure>
         </div>
         <div class="title">
             <h2>Registro para profesionales</h2>
             <form>
-                <input type="text" name="email" >
-                <input type="submit" >
+                <input type="text" name="email" placeholder="CORREO@EJEMPLO.COM">
+                <input type="submit" value="REGISTRAME">
             </form>
             <h1>via</h1>
         </div>
         <section class="content">
-            <article>
-                <h4>VIA 2014</h4>
+            <article class="via">
+                <h3>VIA 2014</h3>
                 <p>
                     El Festival Iberoamericano de Teatro de Bogotá 2.014, realizará la VII edición de su Ventana Internacional de 
                     las Artes –VIA- que se llevará a cabo del 12 al 15 de abril, en las instalaciones de la Cámara de Comercio de 
@@ -150,12 +152,14 @@
             <span>t</span>
             <p>#TODOSTENEMOSQUEVER</p>
         </div>
-
-        <ul class="more-info">
-            <li>XIV FITBogotá 2014 <span>@FITBogota</span> 24 ene Industria cultural en Colombia http://t.co/WrQN8xDoQp @con dencialcol</li>
-            <li>XIV FITBogotá 2014 <span>@FITBogota</span>  27 ene ¿Existe mayor dolor que el de perder la patria? http://t.co/k3g9yHwC1v</li>
-            <li>V FITBogotá 2014 <span>@FITBogota</span> 27 ene @vivianasanti Estamos trabajando en eso. Te invitamos a visitar nuestras redes sociales para estar informada de las novedades @FITBogota</li>
-        </ul>
+        <div class="more-info">
+            <ul>
+                <li><p>XIV FITBogotá 2014 <span>@FITBogota</span> 24 ene Industria cultural en Colombia http://t.co/WrQN8xDoQp @con dencialcol</p></li>
+                <li><p>XIV FITBogotá 2014 <span>@FITBogota</span>  27 ene ¿Existe mayor dolor que el de perder la patria? http://t.co/k3g9yHwC1v</p></li>
+                <li><p>V FITBogotá 2014 <span>@FITBogota</span> 27 ene @vivianasanti Estamos trabajando en eso. Te invitamos a visitar nuestras redes sociales para estar informada de las novedades @FITBogota</p></li>
+            </ul>        
+        </div>
+        
         <!-- footer -->
         <footer>
             <h3>Compartir</h3>

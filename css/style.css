@@ -17,7 +17,7 @@ ul{
     list-style: none;
     padding: 0;
 }
-body, ul, figure{
+body, ul, figure,h1,h2,h4,h3{
     margin: 0;
 }
 
@@ -60,7 +60,7 @@ nav a{
 
 nav a:hover{
     background:red;
-    color: #ff0
+    color: #f2c314;
 }
 
 nav a span{
@@ -96,7 +96,7 @@ nav a span{
     width: 40px;
 }
 .menus li a{
-    color: #ff0;
+    color: #f2c314;
 }
 .menus li a span{
     display: block;
@@ -135,7 +135,7 @@ slide
 }
 .flex-next:hover,.flex-prev:hover{
     background: red;
-    color: #ff0;
+    color: #f2c314;
 
 }
 
@@ -206,13 +206,115 @@ footer h3{
 .redlat-circulart a{
     padding-right: 20px
 }
+
+/*=================================================================
+state
+===================================================================*/
+.bar-red{
+    background: #ea202c;
+    margin-top: -3px;
+    text-align: center;
+}
+.bar-red {
+    color: #f2c314;
+    padding: 10px;
+}
+.bar-red p{
+    font-size: 2em;
+    font-weight: 100;
+    line-height: .5em;
+}
+.content{
+    background: #383838;
+    position: relative;
+    z-index: 30;
+}
+.more-info{
+    background: #fff;
+
+}
+.more-info  ul{
+    margin: auto;
+    padding: 100px;
+    width: 980px;
+}
+
+.more-info li{
+    border-right: 2px solid #383838;
+    display: inline-block;
+    height: 150px;
+    vertical-align: top;
+    width: 323px;
+}
+
+.more-info li:last-child
+{
+    border:none;
+}
+.more-info li p{
+    font-size: .75em;
+    margin: 44px auto;
+    width: 215px;
+}
+.more-info span{
+    color: #f2c314;
+}
+.title {
+    background: #1f1f1f;
+    height: 292px;
+    text-align: center;
+}
+.title h1{
+    color: #ea202c;
+    font-weight: 100;
+    font-size: 15em;
+    line-height: 1em;
+    text-transform: uppercase;
+}
+.title h2{
+    text-align: center;
+    text-transform: uppercase;    
+    color: #fff;
+    font-size: 2.5em;
+    font-weight: 100;
+    margin: 0;
+    padding: 10px 0; 
+}
+
+.title input[type="text"], .title input[type="submit"]{
+    border: 0;
+    height: 40px;
+    margin: 0 -2px;
+    padding: 0 12px;
+    width: 260px;
+}
+.title input[type="submit"]{
+    background: #ea202c;
+    color: #f2c314;
+    cursor: pointer;
+    width: 200px;
+}
+.via{
+    color: #fff;
+    max-width: 980px;
+    margin: 0 auto;
+    padding-top: 43px;
+    text-align: justify;
+}
+.via h3, .via p{
+    font-weight: 100;
+    margin: 20px;
+    width: 755px;
+}
+
+
 /*=================================================================
 state
 ===================================================================*/
 
 .activate{
     background: red;
-    color: #ff0
+    color: #f2c314
 }
 
 
