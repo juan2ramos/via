@@ -26,6 +26,7 @@
 
     </head>
     <body>
+        <!-- Header -->
         <header>
             
             <div class="carousel">
@@ -93,10 +94,69 @@
                 </div>
             </div>
         </header>
-        
-        <section >
+        <!-- content -->
+        <div class="bar-red">
 
+        </div>
+        <div class="title">
+            <h2>Registro para profesionales</h2>
+            <form>
+                <input type="text" name="email" >
+                <input type="submit" >
+            </form>
+            <h1>via</h1>
+        </div>
+        <section class="content">
+            <article>
+                <h4>VIA 2014</h4>
+                <p>
+                    El Festival Iberoamericano de Teatro de Bogotá 2.014, realizará la VII edición de su Ventana Internacional de 
+                    las Artes –VIA- que se llevará a cabo del 12 al 15 de abril, en las instalaciones de la Cámara de Comercio de 
+                    Bogotá y que para la presente versión cuenta nuevamente con la estructura y plataformas de Mercados 
+                    Culturales de Redlat/Circulart.
+                </p>
+                   
+                <p>
+                    VIA, busca consolidar una plataforma exportadora para las artes escénicas de Iberoamérica que, mediante la 
+                    sistematización de experiencias realizadas anteriormente y su integración a una perspectiva de generación 
+                    de una cultura empresarial para las artes, permita proyectar internacionalmente la producción artística de 
+                    este ámbito geográﬁco.
+                </p>
+
+                <p>
+                   Es el espacio propicio para que empresarios culturales, nacionales e internacionales, conozcan las mejores 
+                    propuestas en danza, artes circenses y teatro producidas en Iberoamérica y puedan agendarlas en festivales, 
+                    circuitos artísticos, salas especializadas y ferias culturales de todo el mundo.
+
+                </p>
+
+                <p>
+                   VIA es la oportunidad para ampliar los circuitos de distribución y consumo de los productos culturales, de 
+                    ponerse al día con las nuevas alternativas del mundo de la gestión cultural y sobre todo de abrirse puertas 
+                    hacia la diversidad cultural mundial.
+                </p>
+
+                <p>
+                    Productores, programadores, representantes artísticos, creadores, especialistas en marketing cultural y 
+                    artistas, encontrarán en VIA la oportunidad ideal para intercambiar experiencias de negocios, ampliar los 
+                    circuitos de recepción y consumo de sus productos culturales, ponerse al tanto de las nuevas alternativas de 
+                    gestión cultural con conferencias y talleres y, sobre todo, abrir las puertas del mundo a la diversidad cultural 
+                    iberoamericana.
+                </p>
+            </article>
         </section>
+
+        <div class="bar-red">
+            <span>t</span>
+            <p>#TODOSTENEMOSQUEVER</p>
+        </div>
+
+        <ul class="more-info">
+            <li>XIV FITBogotá 2014 <span>@FITBogota</span> 24 ene Industria cultural en Colombia http://t.co/WrQN8xDoQp @con dencialcol</li>
+            <li>XIV FITBogotá 2014 <span>@FITBogota</span>  27 ene ¿Existe mayor dolor que el de perder la patria? http://t.co/k3g9yHwC1v</li>
+            <li>V FITBogotá 2014 <span>@FITBogota</span> 27 ene @vivianasanti Estamos trabajando en eso. Te invitamos a visitar nuestras redes sociales para estar informada de las novedades @FITBogota</li>
+        </ul>
+        <!-- footer -->
         <footer>
             <h3>Compartir</h3>
             <ul class="footer-network">

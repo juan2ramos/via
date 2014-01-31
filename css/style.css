@@ -182,7 +182,7 @@ footer h3{
 }
 .footer-below{
     margin: 60px auto 0;
-    width: 1000px;
+    width: 980px;
     padding-bottom: 12px;
     text-align: left;
 }
@@ -202,6 +202,9 @@ footer h3{
 }
 .redlat-circulart{
     text-align: right;
+}
+.redlat-circulart a{
+    padding-right: 20px
 }
 /*=================================================================
 state
