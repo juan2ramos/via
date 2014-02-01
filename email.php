@@ -15,7 +15,7 @@ if (!empty($_POST)) {
 	$mail->IsSendmail();
 	$mail->FromName ='Formulario via' ;
 
-	$mail->From = 'VIA@CIRCULART.ORG';
+	$mail->From = 'via@festivaldeteatro.com.co';
 	$mail->Subject = $_POST['asunto'];
 	$mail->MsgHTML('Mensaje con HTML');
 	$template = '<h1>Mensaje enviado desde el formulario de via</h1><br><br>';
@@ -23,7 +23,7 @@ if (!empty($_POST)) {
 	$template .= 'Email: ' . $_POST['email'] .'<br>';
 	$template .= 'Mensaje: <br>' . $_POST['mensaje'] ;
 	$mail->Body = $template;
-	$mail->AddAddress('juan2ramos@gmail.com', '');
+	$mail->AddAddress('via@festivaldeteatro.com.co', '');
  	$mail->Send(); 
 
 	$arrayMsj['success'] = TRUE;
