@@ -4,6 +4,37 @@
     Author     : Juan Ramos
 
 */
+@font-face {
+    font-family: 'network';
+    src:url('fonts/network.eot');
+    src:url('fonts/network.eot?#iefix') format('embedded-opentype'),
+        url('fonts/network.woff') format('woff'),
+        url('fonts/network.ttf') format('truetype'),
+        url('fonts/network.svg#network') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'network';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-twitter:before {
+    content: "\e600";
+}
+.icon-facebook:before {
+    content: "\e601";
+}
 
 a{
     text-decoration: none
@@ -12,6 +43,13 @@ body{
     background: #383838;
     font-family: 'Lato', sans-serif;
     font-size: 16px;
+}
+hr{
+    border: 1px solid red;
+    border-bottom: 0;
+    margin: .8em 0;
+    width: 28px;
+    
 }
 ul{
     list-style: none;
@@ -31,16 +69,16 @@ header{
 nav span{
     display: block;
 } 
-#logo{
+
+#logo, .content-head img ,.logo-via{ 
     height: 80px;
 }
-#logo img{ 
-    height: 80px;
-}
-#logo, nav,nav a, .content-head ul {
+#logo, nav,nav a, .content-head ul, .logo-via {
     display: inline-block;
     vertical-align: middle;
 }
+
+
 /*=================================================================
 nav
 ===================================================================*/
@@ -51,6 +89,7 @@ nav a{
     box-sizing: border-box;
     color: #fff;
     font-size: 0.8em;
+    font-weight: bold;
     height: 80px;
     margin: -3px;
     padding: 27px 13px;
@@ -80,12 +119,15 @@ nav a span{
 .container-nav{
     background: url("../images/header-bg.svg");
     margin: auto;
-    width: 1060px;
+    width: 1305px;
 }
 .content-head{
     position: absolute;
     width: 100%;
     top: 20px;
+}
+.logo-via   {
+    margin-left: -3px;
 }
 .menus li{    
     line-height: 40px;
@@ -112,6 +154,11 @@ nav a span{
 .network li:first-child{
     border-bottom: 1px solid #444;
     height: 39px;
+}
+.network span{
+    box-sizing: border-box;
+    color: #fff;
+    padding-top: 12px;
 }
 
 /*=================================================================
@@ -169,7 +216,7 @@ footer h3{
     color: #fff;
     font-size: 1em;
     font-weight: 400;
-    padding-top: 80px;
+    padding: 80px 0 22px 0;
     text-transform: uppercase;
 
 }
@@ -186,20 +233,25 @@ footer h3{
     padding-bottom: 12px;
     text-align: left;
 }
+
 .footer-network li{
     display: inline-block;
+    padding-right: 10px;
 }
 .footer-network li a{
     background: #fff;
     border-radius: 50%;    
     color:#000;
     display: block;
+    font-size: .8em;
     font-weight: 300;
-    height: 40px;
-    line-height: 2.5em;
-    padding: 0 1em;
-
+    padding: 13px 15px;
 }
+
+.footer-plus{
+    padding: 13px 17px !important;
+}
+
 .redlat-circulart{
     text-align: right;
 }
@@ -208,21 +260,25 @@ footer h3{
 }
 
 /*=================================================================
-state
+content
 ===================================================================*/
 .bar-red{
     background: #ea202c;
     margin-top: -3px;
     text-align: center;
-}
-.bar-red {
-    color: #f2c314;
     padding: 10px;
+}
+.bar-red a{
+    color: #f2c314;
 }
 .bar-red p{
     font-size: 2em;
     font-weight: 100;
     line-height: .5em;
+    margin: 15px;
+}
+.bar-red span{
+    font-size: 1.3em;
 }
 .content{
     background: #383838;
@@ -261,15 +317,28 @@ state
 }
 .title {
     background: #1f1f1f;
-    height: 292px;
     text-align: center;
+}
+.title a{
+    background: #ea202c;
+    color: #f2c314;
+    cursor: pointer;
+    display: block;
+    height: 40px;
+    line-height: 2.5em;
+    margin: auto;
+    padding: 0 12px;
+    width: 200px;
 }
 .title h1{
     color: #ea202c;
     font-weight: 100;
     font-size: 15em;
+    height: 177px;
     line-height: 1em;
+    overflow: hidden;
     text-transform: uppercase;
+    
 }
 .title h2{
     text-align: center;
@@ -281,19 +350,8 @@ state
     padding: 10px 0; 
 }
 
-.title input[type="text"], .title input[type="submit"]{
-    border: 0;
-    height: 40px;
-    margin: 0 -2px;
-    padding: 0 12px;
-    width: 260px;
-}
-.title input[type="submit"]{
-    background: #ea202c;
-    color: #f2c314;
-    cursor: pointer;
-    width: 200px;
-}
+
+
 .via{
     color: #fff;
     max-width: 980px;
@@ -301,12 +359,85 @@ state
     padding-top: 43px;
     text-align: justify;
 }
+.via hr{
+    margin: 7px 0;
+    width: 35px;
+}
 .via h3, .via p{
     font-weight: 100;
-    margin: 20px;
+    margin: 0;
     width: 755px;
 }
+/*=================================================================
+contact
+===================================================================*/
+label{
+    display: block;    
+    font-size: 0.8em;
+    margin: 20px 0 4px;
+    text-transform: uppercase;
+}
+textarea{
+    border: none;
+    color: #383838;
+    font-size: 1em;
+    display: block;
+    margin-left: -1px;
+}
+sup{
+    color:red;
+}
+.assignation{
+    font-size: .6em;
+}
+.contact h1{
+    font-size: 6em;
+    line-height: 3.1em;
+}
+.contact h2{
+    font-size: 1.3em;
+    font-weight: 400;
+}
+.contact input{
+    border: none;
+    color: #383838;
+    font-size: 1em;
+    height: 38px;
+    padding-left: 10px;
+    width: 330px;
 
+}
+.contact input[type=submit]{
+    background: #ea202c;
+    color: #f2c314;
+    cursor: pointer;
+    height: 40px;
+    margin: 10px 0;
+    padding: 0;
+    width: 100px;
+
+}
+.contact sidebar{
+    width: 370px;
+}
+.contact sidebar a{
+    color: #f2c314;
+}
+
+.contact sidebar span{
+    display: block;
+}
+.form {
+    margin-bottom: 100px;
+    width: 600px;
+}
+.form hr{
+    margin-bottom: 50px;
+}
+.form, .contact sidebar{
+    display: inline-block;
+    vertical-align: top;
+}
 
 /*=================================================================
 state
@@ -314,8 +445,98 @@ state
 
 .activate{
     background: red;
-    color: #f2c314
+    color: #f2c314;
+    font-weight: bold;
+}
+/*=================================================================
+select
+===================================================================*/
+
+.select {
+  color: #383838;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  height: 40px;
+  margin-left: -1px;
+  position: relative;
+  width: 342px;
 }
 
+.select-hidden {
+  display: none;
+  padding-right: 10px;
+  visibility: hidden;
+}
 
+.select-options {
+  background-color: #fff;
+  display: none; 
+  list-style: none;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 999;
+}
+.select-options li {
+  border-top: 1px solid #ddd;
+  margin: 0;
+  padding: 12px 0;
+  text-indent: 15px;
+  -webkit-transition: all 0.15s ease-in;
+  -moz-transition: all 0.15s ease-in;
+  -o-transition: all 0.15s ease-in;
+  transition: all 0.15s ease-in;
+}
+.select-options li:hover {
+  background: #ddd;
+  color: #c0392b;
+}
+.select-options li[rel="hide"] {
+  display: none;
+}
+.select-styled {
+  background-color: #fff;
+  bottom: 0;
+  left: 0;
+  padding: 8px 15px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+.select-styled:after {  
+    background: #383838;
+    box-sizing: border-box;
+    content: ">";
+    color: white;    
+    font-weight: bold;
+    height: 24px;
+    padding: 2px 8px;
+    position: absolute;
+    right: 10px;
+    width: 24px;
+    transform:rotate(90deg);
+    -ms-transform:rotate(90deg); 
+    -webkit-transform:rotate(90deg);
+}
+.select-styled:hover {
+  background-color: #eee;
+}
+.select-styled:active, .select-styled.active {
+  background-color: #ddd;
+}
+.select-styled:active:after, .select-styled.active:after {
+    
+    content: "<";
+    transform:rotate(90deg);
+    -ms-transform:rotate(90deg); 
+    -webkit-transform:rotate(90deg);
+}
 

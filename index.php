@@ -83,34 +83,39 @@
                             <a href="#">Artistas<span>Artists</span></a>
                             <a href="#">Portafolios<span>Portfolios</span></a>
                             <a href="#">Programadores<span>Promoters</span></a>
-                            <a href="#">Info Bogotá<span>Bogotá</span></a>
-                            <a href="#">Contacto<span>Contact</span></a>
+                            <a href="http://www.bogota.gov.co/">Info Bogotá<span>Bogotá</span></a>
+                            <a href="contacto.php">Contacto<span>Contact</span></a>
                         
                     </nav>
                     <ul class="menus network">
-                        <li><a href="#">f</a></li>
-                        <li><a href="#">t</a></li>
+                        <li><a href=" https://www.facebook.com/pages/VIA-Ventana-Internacional-de-las-Artes-2012/105076839614385"><span class="icon-facebook"></span></a></li>
+                        <li><a href="https://twitter.com/VIA_2014"><span class="icon-twitter"></span></a></li>
                     </ul>
+                    <div class="logo-via">
+                        <a href="#">
+                            <img src="images/logo-via.svg" alt="Venta internacional de las artes">
+                        </a>
+                    </div>
                 </div>
             </div>
         </header>
         <!-- content -->
         <div class="bar-red">
-        <figure>
-            <img src="images/via.svg">
-        </figure>
+            <figure>
+                <img src="images/via.svg">
+            </figure>
         </div>
         <div class="title">
             <h2>Registro para profesionales</h2>
-            <form>
-                <input type="text" name="email" placeholder="CORREO@EJEMPLO.COM">
-                <input type="submit" value="REGISTRAME">
-            </form>
+            
+                <a class="" href="http://via.festivaldeteatro.com.co/b/m">REGISTRAME</a>
+           
             <h1>via</h1>
         </div>
         <section class="content">
             <article class="via">
                 <h3>VIA 2014</h3>
+                <hr>
                 <p>
                     El Festival Iberoamericano de Teatro de Bogotá 2.014, realizará la VII edición de su Ventana Internacional de 
                     las Artes –VIA- que se llevará a cabo del 12 al 15 de abril, en las instalaciones de la Cámara de Comercio de 
@@ -149,8 +154,8 @@
         </section>
 
         <div class="bar-red">
-            <span>t</span>
-            <p>#TODOSTENEMOSQUEVER</p>
+            <a href="https://twitter.com/VIA_2014"><span class="icon-twitter"></span>
+            <p>#TODOSTENEMOSQUEVER</p></a>
         </div>
         <div class="more-info">
             <ul>
@@ -161,23 +166,7 @@
         </div>
         
         <!-- footer -->
-        <footer>
-            <h3>Compartir</h3>
-            <ul class="footer-network">
-                <li><a href="">F</a></li>
-                <li><a href="">T</a></li>
-                <li><a class="plus" href="">+</a></li>
-            </ul>
-            <div class="footer-below">
-                <a class="festival-teatro" href="http://festivaldeteatro.com.co/" >
-                    <img src="images/festival-teatro.svg">
-                </a>
-                <div class="redlat-circulart">
-                    <a href="http://redlat.org/"><img src="images/redlat.svg" alt="Logo Redlat"></a>
-                    <a href="http://circulart.org/"><img src="images/circulart.svg" alt="Logo Circulart"></a>
-                </div>    
-            </div>
-        </footer>
+        <?php include 'footer.php' ?>
     </body>
     <!-- JavaScript -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
