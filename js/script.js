@@ -15,15 +15,26 @@
   /* Form */ 
 	$('#contact-form').on("submit", function(e) {
         e.preventDefault();
-        var fields = $(":input").serializeArray();
+        var fields = $(':input').serializeArray();
+        select = $('.select-styled').text();
+        message = $('#message').val();
+        fields.push({name: "asunto", value: select});
+        fields.push({name: "mensaje", value: message});
         //$("#results").empty();        
         //$('.bar').css("display", "block");
+
         $.post("email.php", fields, responseForm, 'json');
 
     });
-
-    function responseForm(r) {
+	function responseForm(r) {
         console.log(r);
+        if (r.success == 0) {
+        	alert(r.message);
+        }
+        else{
+        	$('#contact-form').css('display','none');
+        	$('.form').append( "<span class='message'>"+r.message+"<span>" );
+        }
     }
   /* SELECT */
 	 $('select').each(function(){

@@ -55,8 +55,8 @@
 					    <option value="PRODUCCIÓN SHOWCASES">PRODUCCIÓN SHOWCASES</option>
 					    <option value="COORDINACIÓN LOGÍSTICA">COORDINACIÓN LOGÍSTICA</option>
 					</select> 
-				    <label>MEnsaje<sup>*</sup></label>
-				    <textarea rows="10" cols="52"></textarea>
+				    <label>Mensaje<sup>*</sup></label>
+				    <textarea id="message"rows="10" cols="52"></textarea>
 	            	<input  id="submit" type="submit" value="ENVIAR" >
 	            </form>
 	                
