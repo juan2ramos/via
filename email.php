@@ -23,7 +23,7 @@ if (!empty($_POST)) {
 	$template .= 'Email: ' . $_POST['email'] .'<br>';
 	$template .= 'Mensaje: <br>' . $_POST['mensaje'] ;
 	$mail->Body = $template;
-	$mail->AddAddress('via@festivaldeteatro.com.co', '');
+	$mail->AddAddress('juan2ramos@gmail.com', '');
  	$mail->Send(); 
 
 	$arrayMsj['success'] = TRUE;
