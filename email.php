@@ -14,7 +14,7 @@ if (!empty($_POST)) {
 	$mail = new PHPMailer;
 	$mail->IsSendmail();
 	$mail->FromName ='Formulario via' ;
-
+	$mail->CharSet = 'UTF-8';
 	$mail->From = 'via@festivaldeteatro.com.co';
 	$mail->Subject = $_POST['asunto'];
 	$mail->MsgHTML('Mensaje con HTML');
@@ -23,13 +23,13 @@ if (!empty($_POST)) {
 	$template .= 'Email: ' . $_POST['email'] .'<br>';
 	$template .= 'Mensaje: <br>' . $_POST['mensaje'] ;
 	$mail->Body = $template;
-	$mail->AddAddress('juan2ramos@gmail.com', '');
+	$mail->AddAddress('via@festivaldeteatro.com.co', '');
  	$mail->Send(); 
 
 	$arrayMsj['success'] = TRUE;
     $arrayMsj['message'] = 'Felicitaciones, su mensaje a sido enviado con éxito!!';
     echo (json_encode($arrayMsj));
-     
+     exit;
 }else{
 	echo "Error al intentar acceder";
 }
