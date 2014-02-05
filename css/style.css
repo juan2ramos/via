@@ -37,6 +37,7 @@
 }
 
 a{
+    color: #FF0;
     text-decoration: none
 }
 body{
@@ -319,6 +320,10 @@ content
     background: #1f1f1f;
     text-align: center;
 }
+.title-iframe {
+    background: #383838;
+    text-align: center;
+}
 .title a{
     background: #ea202c;
     color: #f2c314;
@@ -368,6 +373,10 @@ content
     margin: 0;
     width: 755px;
 }
+.via .p-iframe{
+    width: 100%;
+}
+
 /*=================================================================
 contact
 ===================================================================*/

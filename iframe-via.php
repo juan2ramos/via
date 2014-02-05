@@ -26,7 +26,7 @@
 
     </head>
     <body>
-        <!-- Header -->
+        <!-- Header 
         <header>
             
             <div class="carousel">
@@ -71,8 +71,8 @@
             <div  class="content-head">
                 <div class="container-nav">
                     <ul class="menus">
-                        <li><a href="index.php"><span class="activate" >es</span></a></li>
-                        <li><a href="en.php"><span>en</span></a></li>
+                        <li><a href="#"><span class="activate" >es</span></a></li>
+                        <li><a href="#"><span>en</span></a></li>
                     </ul>
                     <figure id="logo">
                     <img src="images/logo-festival-teatro.svg" alt="XIV Festival iberoamericano de teatro de bogotá" />
@@ -99,61 +99,107 @@
                 </div>
             </div>
         </header>
-        <!-- content -->
+         content 
         <div class="bar-red">
             <figure>
                 <img src="images/via.svg">
             </figure>
-        </div>
-        <div class="title">
+        </div>-->
+        <div class="title-iframe title ">
             <h2>Registro para profesionales</h2>
             
                 <a class="" href="http://via.festivaldeteatro.com.co/b/m">REGISTRAME</a>
            
-            <h1>via</h1>
+            <!--<h1>via</h1>-->
         </div>
         <section class="content">
             <article class="via">
                 <h3>VIA 2014</h3>
                 <hr>
-                <p>
+                <p class="p-iframe">
                     El Festival Iberoamericano de Teatro de Bogotá 2.014, realizará la VII edición de su Ventana Internacional de 
                     las Artes –VIA- que se llevará a cabo del 12 al 15 de abril, en las instalaciones de la Cámara de Comercio de 
                     Bogotá y que para la presente versión cuenta nuevamente con la estructura y plataformas de Mercados 
                     Culturales de Redlat/Circulart.
+                      <br>
+                      <br>
                 </p>
                    
-                <p>
+                <p class="p-iframe">
                     VIA, busca consolidar una plataforma exportadora para las artes escénicas de Iberoamérica que, mediante la 
                     sistematización de experiencias realizadas anteriormente y su integración a una perspectiva de generación 
                     de una cultura empresarial para las artes, permita proyectar internacionalmente la producción artística de 
                     este ámbito geográﬁco.
+                      <br>
+                      <br>
                 </p>
 
-                <p>
+                <p class="p-iframe">
                    Es el espacio propicio para que empresarios culturales, nacionales e internacionales, conozcan las mejores 
                     propuestas en danza, artes circenses y teatro producidas en Iberoamérica y puedan agendarlas en festivales, 
                     circuitos artísticos, salas especializadas y ferias culturales de todo el mundo.
 
                 </p>
 
-                <p>
+                <p class="p-iframe">
                    VIA es la oportunidad para ampliar los circuitos de distribución y consumo de los productos culturales, de 
                     ponerse al día con las nuevas alternativas del mundo de la gestión cultural y sobre todo de abrirse puertas 
                     hacia la diversidad cultural mundial.
+                     <br>
+                     <br>
                 </p>
 
-                <p>
+                <p class="p-iframe">
                     Productores, programadores, representantes artísticos, creadores, especialistas en marketing cultural y 
                     artistas, encontrarán en VIA la oportunidad ideal para intercambiar experiencias de negocios, ampliar los 
                     circuitos de recepción y consumo de sus productos culturales, ponerse al tanto de las nuevas alternativas de 
                     gestión cultural con conferencias y talleres y, sobre todo, abrir las puertas del mundo a la diversidad cultural 
                     iberoamericana.
+                      <br>
+                      <br>
                 </p>
+                <p class="p-iframe">
+                   Durante las seis anteriores ediciones de VIA, más de 2060 gestores teatrales de más de 40 países, han conocido de primera mano el trabajo de artistas colombianos e iberoamericanos quienes lograron con fructíferos acuerdos, atravesar fronteras y conquistar públicos internacionales.
+                     <br>
+                </p>
+              <p class="p-iframe">&nbsp; </p>
+                <p class="p-iframe">
+                 Los principales componentes  de este año serán:
+                   <br>
+                  Una rueda de negocios.<br>
+                  Muestras artísticas especializadas.<br>
+Programación académica. <br>
+<br>
+              </p>
+              <p class="p-iframe">
+                  Espacios informales para intercambiar experiencias e información que nos permitan conocer todo sobre la actualidad de las artes escénicas iberoamericanas.                </p>
+              <p class="p-iframe">&nbsp;</p>
+              <p class="p-iframe">Así que no deje de hacer parte de esta Ventana  Internacional de las Artes este XIII FITB e inscríbase en la página web&nbsp;<a href="http://www.festivaldeteatro.com.co/" target="_blank">www.festivaldeteatro.com.co</a>&nbsp;  Y siga a diario toda la información de VIA 2012 también a través de nuestras  redes sociales:&nbsp;</p>
+              <p class="p-iframe"><br>
+                <a href="https://www.facebook.com/FestivalTeatroBogota" target="_blank">https://www.facebook.com/FestivalTeatroBogota</a>&nbsp;<br>
+                <a href="https://twitter.com/#!/VIA_2012" target="_blank">https://twitter.com/#!/VIA_2012</a>&nbsp;<br>
+              <a href="https://twitter.com/#!/FITBogot" target="_blank">https://twitter.com/#!/FITBogot</a></p>
+              <p class="p-iframe">&nbsp;</p>
+              <p class="p-iframe">&nbsp;</p>
+              <h3><strong>PRECIOS PARA PARTICIPAR COMO PROMOTOR – PROGRAMADOR</strong></h3>
+              <p class="p-iframe">&nbsp;</p>
+              <p class="p-iframe">Para participantes Internacionales. USD 500 Incluye: Hospedaje 4 noches, desayuno, Transporte hotel-sitio-hotel y a los espectáculos que hacen parte de VIA (en horarios definidos), acreditación, guía (coordinador), materiales, entradas a los espectáculos que hacen parte de VIA.</p>
+              <p class="p-iframe">&nbsp;</p>
+              <p class="p-iframe">Para participantes Colombianos. COP $700.000 Hospedaje 4 noches, desayuno, transporte hotel-sitio-hotel y a los espectáculos que hacen parte de VIA (en horarios definidos), acreditación, guía, materiales, entradas a los espectáculos que hacen parte de VIA.</p>
+              <p class="p-iframe">&nbsp;</p>
+              <p class="p-iframe">Inscripción sin hospedaje:<br>
+Para extranjeros en general. USD 150 Incluye materiales, acreditación e ingreso a los espectáculos de VIA. </p>
+              <p class="p-iframe">&nbsp;</p>
+              <p class="p-iframe">Para colombianos COP $ 300.000 Incluye materiales, acreditación e ingreso a los espectáculos de VIA.</p>
+              <p class="p-iframe">&nbsp;</p>
+              <p class="p-iframe">Cualquier información adicional puede comunicarse con Angélica Castillo o Luis Fernando Zuluaga al correo <a href="mailto:via@festivaldeteatro.com.co">via@festivaldeteatro.com.co</a> o en las páginas web <a href="http://www.festivaldeteatro.com.co" target="_blank">www.festivaldeteatro.com.co</a> y <a href="http://via.festivaldeteatro.com.co"><br>
+              via.festivaldeteatro.com.co</a></p>
+              <p class="p-iframe">&nbsp;</p>
+            </article>
             </article>
         </section>
 
-        <div class="bar-red">
+        <!--<div class="bar-red">
             <a href="https://twitter.com/VIA_2014"><span class="icon-twitter"></span>
             <p>#TODOSTENEMOSQUEVER</p></a>
         </div>
@@ -166,7 +212,7 @@
         </div>
         
         <!-- footer -->
-        <?php include 'footer.php' ?>
+        <?php //include 'footer.php' ?>
     </body>
     <!-- JavaScript -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

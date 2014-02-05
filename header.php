@@ -4,8 +4,8 @@
             <div  class="content-head">
                 <div class="container-nav">
                     <ul class="menus">
-                        <li><a href="#"><span class="activate" >es</span></a></li>
-                        <li><a href="#"><span>en</span></a></li>
+                        <li><a href="index.php"><span class="activate" >es</span></a></li>
+                        <li><a href="en.php"><span>en</span></a></li>
                     </ul>
                     <figure id="logo">
                     <img src="images/logo-festival-teatro.svg" alt="XIV Festival iberoamericano de teatro de bogotá" />
