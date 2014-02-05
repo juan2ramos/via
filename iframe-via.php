@@ -109,7 +109,7 @@
             <h2>Registro para profesionales</h2>
             
                 <a class="" href="http://via.festivaldeteatro.com.co/b/m">REGISTRAME</a>
-           
+            <hr class="hr-iframe">
             <!--<h1>via</h1>-->
         </div>
         <section class="content">

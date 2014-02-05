@@ -368,6 +368,11 @@ content
     margin: 7px 0;
     width: 35px;
 }
+.via hr-iframe{    
+    border-color: #fff;
+    margin: 10px auto;
+    width: 980px;
+}
 .via h3, .via p{
     font-weight: 100;
     margin: 0;
