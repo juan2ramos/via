@@ -121,6 +121,8 @@
                     las Artes –VIA- que se llevará a cabo del 12 al 15 de abril, en las instalaciones de la Cámara de Comercio de 
                     Bogotá y que para la presente versión cuenta nuevamente con la estructura y plataformas de Mercados 
                     Culturales de Redlat/Circulart.
+                      <br>
+                      <br>
                 </p>
                    
                 <p>
@@ -128,6 +130,8 @@
                     sistematización de experiencias realizadas anteriormente y su integración a una perspectiva de generación 
                     de una cultura empresarial para las artes, permita proyectar internacionalmente la producción artística de 
                     este ámbito geográﬁco.
+                      <br>
+                      <br>
                 </p>
 
                 <p>
@@ -141,6 +145,8 @@
                    VIA es la oportunidad para ampliar los circuitos de distribución y consumo de los productos culturales, de 
                     ponerse al día con las nuevas alternativas del mundo de la gestión cultural y sobre todo de abrirse puertas 
                     hacia la diversidad cultural mundial.
+                     <br>
+                     <br>
                 </p>
 
                 <p>
@@ -149,7 +155,46 @@
                     circuitos de recepción y consumo de sus productos culturales, ponerse al tanto de las nuevas alternativas de 
                     gestión cultural con conferencias y talleres y, sobre todo, abrir las puertas del mundo a la diversidad cultural 
                     iberoamericana.
+                      <br>
+                      <br>
                 </p>
+                <p>
+                   Durante las seis anteriores ediciones de VIA, más de 2060 gestores teatrales de más de 40 países, han conocido de primera mano el trabajo de artistas colombianos e iberoamericanos quienes lograron con fructíferos acuerdos, atravesar fronteras y conquistar públicos internacionales.
+                     <br>
+                </p>
+              <p>&nbsp; </p>
+                <p>
+                 Los principales componentes  de este año serán:
+                   <br>
+                  Una rueda de negocios.<br>
+                  Muestras artísticas especializadas.<br>
+Programación académica. <br>
+<br>
+              </p>
+              <p>
+                  Espacios informales para intercambiar experiencias e información que nos permitan conocer todo sobre la actualidad de las artes escénicas iberoamericanas.                </p>
+              <p>&nbsp;</p>
+              <p>Así que no deje de hacer parte de esta Ventana  Internacional de las Artes este XIII FITB e inscríbase en la página web&nbsp;<a href="http://www.festivaldeteatro.com.co/" target="_blank">www.festivaldeteatro.com.co</a>&nbsp;  Y siga a diario toda la información de VIA 2012 también a través de nuestras  redes sociales:&nbsp;</p>
+              <p><br>
+                <a href="https://www.facebook.com/FestivalTeatroBogota" target="_blank">https://www.facebook.com/FestivalTeatroBogota</a>&nbsp;<br>
+                <a href="https://twitter.com/#!/VIA_2012" target="_blank">https://twitter.com/#!/VIA_2012</a>&nbsp;<br>
+              <a href="https://twitter.com/#!/FITBogot" target="_blank">https://twitter.com/#!/FITBogot</a></p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <h3><strong>PRECIOS PARA PARTICIPAR COMO PROMOTOR – PROGRAMADOR</strong></h3>
+              <p>&nbsp;</p>
+              <p>Para participantes Internacionales. USD 500 Incluye: Hospedaje 4 noches, desayuno, Transporte hotel-sitio-hotel y a los espectáculos que hacen parte de VIA (en horarios definidos), acreditación, guía (coordinador), materiales, entradas a los espectáculos que hacen parte de VIA.</p>
+              <p>&nbsp;</p>
+              <p>Para participantes Colombianos. COP $700.000 Hospedaje 4 noches, desayuno, transporte hotel-sitio-hotel y a los espectáculos que hacen parte de VIA (en horarios definidos), acreditación, guía, materiales, entradas a los espectáculos que hacen parte de VIA.</p>
+              <p>&nbsp;</p>
+              <p>Inscripción sin hospedaje:<br>
+Para extranjeros en general. USD 150 Incluye materiales, acreditación e ingreso a los espectáculos de VIA. </p>
+              <p>&nbsp;</p>
+              <p>Para colombianos COP $ 300.000 Incluye materiales, acreditación e ingreso a los espectáculos de VIA.</p>
+              <p>&nbsp;</p>
+              <p>Cualquier información adicional puede comunicarse con Angélica Castillo o Luis Fernando Zuluaga al correo <a href="mailto:via@festivaldeteatro.com.co">via@festivaldeteatro.com.co</a> o en las páginas web <a href="http://www.festivaldeteatro.com.co" target="_blank">www.festivaldeteatro.com.co</a> y <a href="http://via.festivaldeteatro.com.co"><br>
+              via.festivaldeteatro.com.co</a></p>
+              <p>&nbsp;</p>
             </article>
         </section>
 
