@@ -8,7 +8,8 @@
                         <li><a href="en.php"><span>en</span></a></li>
                     </ul>
                     <figure id="logo">
-                    <img src="images/logo-festival-teatro.svg" alt="XIV Festival iberoamericano de teatro de bogotá" />
+                    <a href="http://www.festivaldeteatro.com.co">
+                    <img src="images/logo-festival-teatro.svg" alt="XIV Festival iberoamericano de teatro de bogotá" /></a>
                     </figure>
                     <nav>                  
                         

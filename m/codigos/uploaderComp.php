@@ -37,7 +37,7 @@ if($val["name"]!="")
 		if($imagen["mmdd_imagen_filetype"]=="image/png"||$imagen["mmdd_imagen_filetype"]=="image/jpeg"||$imagen["mmdd_imagen_filetype"]=="image/jpg"||$imagen["mmdd_imagen_filetype"]=="image/gif"){
 		
 			   $path= "/home/redlat/public_html/circulart/files/promotores/imagen/".$imagen["id"];
-			 
+			   chmod($path, 777);
 			   if(copy($val['tmp_name'], $path))
 				{ 
 				
