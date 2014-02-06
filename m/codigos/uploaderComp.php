@@ -46,7 +46,7 @@ if($val["name"]!="")
 			 
 			    $local = $imagen["mmdd_imagen_filename"];
 				// Este es el nombre temporal del archivo mientras dura la transmisión
-				$remoto = $val["name"];
+				$remoto = $imagen["id"];
 				// El tamaño del archivo
 				$tama = $imagen["mmdd_imagen_filesize"];
 				
