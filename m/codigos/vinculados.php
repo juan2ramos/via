@@ -23,7 +23,7 @@ $frm["paso"]=$_GET["paso"];
 
 if($frm["paso"]==1){
 $vinculados = $db->sql_query("SELECT * FROM vinculados WHERE id_grupo_".$frm["area"]."='".$frm["id"]."'");
-while($datos_obras=$db->sql_fetchrow($obras)){
+while($datos_obras=$db->sql_fetchrow($vinculados)){
 	?>
 <table width="300" border="0" cellspacing="0" cellpadding="0">
   <tr>
