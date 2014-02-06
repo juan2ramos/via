@@ -1,0 +1,259 @@
+body{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#000;
+	background-color:#3D1211;
+}
+a{
+	color:#F17127;
+	font-weight:bold;}
+.fecha{
+	font-size: 11px;
+	font-weight:550;
+	color:#333;
+}
+#contenedor {
+	width:916px;
+	margin-top: 20px;
+	margin-right: auto;
+	margin-left: auto;
+}
+#contenedor #cabezote {
+	width:916px;
+	height:125px;
+	float:left;
+	/*background-image: url(../images/estructura/cabezote.png);*/
+}
+#contenedor #cabezote #logo {
+	height:125px;
+	width:916px;
+	float:left;
+	padding: 15px;
+	background-color:#BFD730;
+}
+/*#contenedor #cabezote #menu{
+	height:75px;
+	width:700px;
+	float:left;
+}*/
+/**** este es el ultimo menu***/
+ul.menu
+{
+   list-style:none;
+   margin-top:15px;
+}
+ul.menu li
+{
+   position:relative; /* Las coordenadas de los ul inferiores serán relativas al <li> que los contiene */
+   width:70px;
+   margin-right:1px;
+}
+ul.menu ul
+{
+   position:absolute; /* Esta posición es relativa al <li> que contiene a este <ul> */
+   left:30px; /* Para que no monte sobre el <li> */
+   top:-1px;
+   display:none;
+   list-style:none;
+}
+ul.menu li:hover > ul
+{
+   display:block;
+}
+
+ul.menu> li > ul /* Solo para los ul debajo de los li de primer nivel. */
+{
+   position:absolute;
+   top:12px;
+   left:7px;
+   display:none;
+   list-style:none;
+   z-index:300;
+   
+   
+   
+}
+ul.menu> li > ul li{
+	width:120px;
+	margin-bottom:2px;
+	background-color:#258a9c;
+	padding-left:10px;
+	padding-top:2px;
+	padding-bottom:2px;
+    padding-right:5px;
+	font-size:14px;
+   }
+ul.menu> li > ul li a{
+	color:#000;
+	text-decoration:none;
+	}
+ul.menu> li > ul li a:hover{
+	color:#ccc;
+	text-decoration:none;
+	}  
+ul.menu > li /* Sólo para li de primer nivel */
+{
+   display:inline;
+}
+
+#contenedor #mercado {
+	height: 45px;
+	width: 700px;
+	float: left;
+}
+#contenedor #lema {
+	width:560px;
+	background-color:#FFF;
+	float:left;
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+#contenedor #buscar {
+	width:315px;
+	height:25px;
+	background-color:#FFF;
+	float:left;
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+#contenedor #buscar td {
+	background-color:#CCC;
+}
+#contenedor #contenido {
+	width:916px;
+	float:right;
+	margin-top:15px;
+	/*background-color:#FFF;*/
+}
+#contenedor #contenido .portada {
+	float:left;
+	margin-left:19px;
+}
+#contenedor #contenido .portada a {
+	color:#CCC;
+	text-decoration:none;
+	font-size:9pt;
+}
+#contenedor #contenido #interna {
+	float: left;
+	width: 900px;
+}
+#contenedor #contenido #izquierda {
+	width:550px;
+	float:left;
+    padding-left:25px;
+}
+#contenedor #contenido #derecha {
+	width:300px;
+	float:left;
+	padding-left:25px;
+}
+#contenedor #contenido #disciplina {
+	float:left;
+	width:175px;
+	margin-left:25px;
+}
+#contenedor #contenido #disciplina a {
+	display:block;
+	background-color:#EFEFEF;
+	padding:8px;
+	padding-right:20px;
+	text-align:right;
+	text-decoration:none;
+	color: #999999;
+}
+#contenedor #contenido #disciplina a.musica {
+	background-color:#99CC00;
+	color: #FFFFFF;
+}
+#contenedor #contenido #disciplina a.danza {
+	background-color:#04CBF5;
+	color: #FFFFFF;
+}
+#contenedor #contenido #disciplina a.teatro {
+	background-color:#FF9900;
+	color: #FFFFFF;
+}
+#contenedor #contenido #disciplina a.informacion {
+	background-color:#EF0792;
+	color: #FFFFFF;
+}
+
+#contenedor #contenido #disciplina h1,
+#contenedor #contenido .artista h1 {
+	background-color:#F17127;
+	padding:5px;
+	font-weight:normal;
+	margin:0px;
+	font-size:14pt;
+	color:#FFFFFF;
+}
+
+
+<? if($CFG->mercado==21){ ?>
+<? if($tipo=='danza'){ ?>
+#contenedor #contenido #disciplina h1,
+#contenedor #contenido .artista h1 {
+	background-color:#ffffff;
+	padding:5px;
+	font-weight:normal;
+	margin:0px;
+	font-size:14pt;
+}
+<? } ?>
+<? } ?>
+
+
+
+#contenedor #contenido #disciplina h1.musica,
+#contenedor #contenido .artista h1.musica,
+#contenedor #contenido .artista a.musica {
+	color:#99CC00;
+	text-decoration:none;
+}
+#contenedor #contenido #disciplina h1.danza,
+#contenedor #contenido .artista h1.danza,
+#contenedor #contenido .artista a.danza {
+	color:#04CBF5;
+	text-decoration:none;
+}
+#contenedor #contenido #disciplina h1.teatro,
+#contenedor #contenido .artista h1.teatro,
+#contenedor #contenido .artista a.teatro {
+	color:#FF9900;
+	text-decoration:none;
+}
+#contenedor #contenido .artista {
+	width:660px;
+	float:right;
+	margin-right:20px;
+}
+#contenedor #contenido .artista h2 {
+	color:#666666;
+	background-color:#DFDFDF;
+	padding:5px;
+	font-size:12pt;
+}
+#contenedor #contenido .artista #gallery {
+	width: 100%;
+}
+#contenedor #contenido .artista #gallery ul { 
+	list-style: none; 
+}
+#contenedor #contenido .artista #gallery ul li { 
+	display: inline; 
+}
+#contenedor #contenido .artista #gallery ul img {
+	border: 5px solid #AAAAAA;
+	border-width: 5px 5px 20px;
+	margin-bottom: 10px;
+	margin-right: 10px;
+}
+#contenedor #contenido .artista #gallery ul a:hover img {
+	border: 5px solid #CCCCCC;
+	border-width: 5px 5px 20px;
+}
+#contenedor #pie {
+	width:900px;
+	float:right;
+}
