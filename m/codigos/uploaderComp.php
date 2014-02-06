@@ -46,11 +46,11 @@ if($val["name"]!="")
 			 
 			    $local = $imagen["mmdd_imagen_filename"];
 				// Este es el nombre temporal del archivo mientras dura la transmisión
-				$remoto = $val["tmp_name"];
+				$remoto = $val["name"];
 				// El tamaño del archivo
 				$tama = $imagen["mmdd_imagen_filesize"];
 				
-			if (ftp_put($conn_id, $path,$remoto , FTP_ASCII)) {
+			if (ftp_put($conn_id, $path,$remoto, FTP_ASCII)) {
 			 echo "se ha cargado $file con éxito\n";
 			 $db->sql_query("UPDATE promotores SET imagen='".$imagen["imagen"]."', mmdd_imagen_filename='".$imagen["mmdd_imagen_filename"]."', mmdd_imagen_filetype='".$imagen["mmdd_imagen_filetype"]."',mmdd_imagen_filesize='".$imagen["mmdd_imagen_filesize"]."' WHERE id='".$imagen["id"]."'");
 			} else {
