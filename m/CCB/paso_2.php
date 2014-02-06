@@ -65,7 +65,7 @@ input[type="checkbox"] {
           <tr>
             <td width="310" rowspan="7" align="left" valign="top" ><table width="96%" border="0" cellspacing="0" cellpadding="0" id="imagenGrupo">
               <tr>
-                <td align="center" valign="middle" style="height:400px;"><iframe scrolling="no" width="100%" height="400px" frameborder="0" src="../m/codigos/artista_imagen.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>"></iframe></td>
+                <td align="center" valign="middle" style="height:400px;"><iframe scrolling="no" width="100%" height="400px" frameborder="0" src="http/redlat.org/via/m/codigos/artista_imagen.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>"></iframe></td>
               </tr>
             </table></td>
             <td width="235" align="left" valign="top" class="colorTexto">(*) Nombre del grupo o del artista:</td>
@@ -275,7 +275,7 @@ input[type="checkbox"] {
           <tr>
             <td height="88" align="left" valign="top">&nbsp;</td>
             <td align="left" valign="top" class="colorTexto" >(*) Trayectoria en pdf:</td>
-            <td colspan="2"  valign="top" align="center"><iframe width="355px" height="170px" src="../m/codigos/artistas_trayectoria.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>" scrolling="no" frameborder="0"></iframe></td>
+            <td colspan="2"  valign="top" align="center"><iframe width="355px" height="170px" src="http://redlat.org/via/m/codigos/artistas_trayectoria.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>" scrolling="no" frameborder="0"></iframe></td>
           </tr>
           <tr>
             <td align="left" valign="top">&nbsp;</td>
@@ -319,7 +319,10 @@ input[type="checkbox"] {
             <td height="129" align="left" valign="top">&nbsp;</td>
             <td colspan="3" align="left" valign="top" class="colorTexto personas"><hr />
             Iindique el nombre y documento de la(s) persona(s) que lo(s) representar&aacute;(n) en las citas de la Rueda de Negocios.<br />
-            <br /></td>
+            <br />
+            <div style="width:100%; height:300px">
+            <iframe width="100%" height="300px" frameborder="0" scrolling="no" src="http://redlat.org/via/codigos/vinculados.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>"></iframe>
+            </div></td>
           </tr>
           
           <tr>
@@ -333,16 +336,8 @@ input[type="checkbox"] {
             <td align="left" valign="top">&nbsp;</td>
             <td width="124" align="left" valign="top"><br />
             </td>
-            <td width="291" align="left" valign="top">&nbsp;</td>
+            <td width="291" align="left" valign="top"><input type="submit" id="submit_button" value="Guardar Datos" style="background-color:#F17126; color:#fff; font-weight:bold; border-color:#F17126;"/></td>
           </tr>
         </table>
-        <div id="column-left">
-        <hr style="border-bottom-style: dashed; border-bottom-width: 1px; width:905px; text-align:center; margin-left:10px;"/>
-        <table width="910" align="center" cellpadding="10" cellspacing="10"  class="blanco" style="margin-top: -5px; font-weight: bold;">
-          <td width="110" height="46" align="left" valign="top"><input type="submit" id="submit_button" value="Guardar Datos" style="background-color:#F17126; color:#fff; font-weight:bold; border-color:#F17126;"/></td>
-            <td align="left" valign="top"><em><strong>&quot;Recuerde guardar los datos, antes de subir im&aacute;genes,  archivos PDF's y de continuar.&quot;</strong></em></td>
-            <td width="74" align="left" valign="top"><a href="#" onclick="revisar(entryform)" class="link">Continuar</a></td>
-        </table>
-        </div>
 		</form>
       
