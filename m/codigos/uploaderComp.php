@@ -36,9 +36,32 @@ if($val["name"]!="")
 		
 		if($imagen["mmdd_imagen_filetype"]=="image/png"||$imagen["mmdd_imagen_filetype"]=="image/jpeg"||$imagen["mmdd_imagen_filetype"]=="image/jpg"||$imagen["mmdd_imagen_filetype"]=="image/gif"){
 		
-			    $path= "/home/redlat/public_html/circulart/files/promotores/imagen/".$imagen["id"];
+			    //$path= "/home/redlat/public_html/circulart/files/promotores/imagen/".$imagen["id"];
 			 
-			   if(copy($val['tmp_name'], $path))
+			 
+			 $ftp_server="redlat.org";
+			 $conn_id = ftp_connect($ftp_server);
+			 $login_result = ftp_login($conn_id, 'redlat', '}wQ,g*DJyV}~');
+			 $path="/public_html/circulart/files/promotores/imagen/".$imagen["id"];
+			 
+			    $local = $imagen["mmdd_imagen_filename"];
+				// Este es el nombre temporal del archivo mientras dura la transmisión
+				$remoto = $val["tmp_name"];
+				// El tamaño del archivo
+				$tama = $imagen["mmdd_imagen_filesize"];
+				
+			if (ftp_put($conn_id, $path,$remoto , FTP_ASCII)) {
+			 echo "se ha cargado $file con éxito\n";
+			} else {
+			 echo "Hubo un problema durante la transferencia de $file\n";
+			}
+			
+			ftp_close($conn_id);
+			 
+			 
+	}}}}
+			 
+			  /* if(copy($val['tmp_name'], $path))
 				{ 
 				
 				$db->sql_query("UPDATE promotores SET imagen='".$imagen["imagen"]."', mmdd_imagen_filename='".$imagen["mmdd_imagen_filename"]."', mmdd_imagen_filetype='".$imagen["mmdd_imagen_filetype"]."',mmdd_imagen_filesize='".$imagen["mmdd_imagen_filesize"]."' WHERE id='".$imagen["id"]."'");
@@ -84,4 +107,4 @@ Error no hay imagen para subir. Ingrese el imagen clic <a href="subirICompadores
 <strong>Error no image. Enter the image</strong>, <a href="subirICompadores.php?modo=<?php echo $_POST["modo"]; ?>&amp;mode=paso_2muestra&amp;id_programador=<?php echo $_POST["id_programador"]; ?>">here</a>. <br />
 </div>
 
-<?php }?>
+<?php }?>*/
