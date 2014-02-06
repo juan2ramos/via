@@ -82,8 +82,7 @@
                         
                             <a href="#" class="activate">Programación<span>Agenda</span></a>
                             <a href="#">Artistas<span>Artists</span></a>
-                            <a href="#">Portafolios<span>Portfolios</span></a>
-                            <a href="#">Programadores<span>Promoters</span></a>
+                            <a href="#">Profesionales<span>Professionals</span></a>
                             <a href="http://www.bogota.gov.co/">Info Bogotá<span>Bogotá</span></a>
                             <a href="contacto.php">Contacto<span>Contact</span></a>
                         

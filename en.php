@@ -105,7 +105,7 @@
             </figure>
         </div>
         <div class="title">
-            <h2>Registration FOR Professional</h2>
+            <h2>Registration FOR Professionals</h2>
             
                 <a class="" href="http://via.festivaldeteatro.com.co/b/m">REGISTRATION</a>
            
@@ -164,8 +164,8 @@ Academic agenda.<br>
               <p>So, be part of this International Arts Window in the XIII FITB (International Theater Festival of Bogota) and sign up in the website <a href="http://www.festivaldeteatro.com.co">www.festivaldeteatro.com.co</a> There is daily follow up information about VIA 2012 (?) through our social networks:&nbsp;</p>
               <p><br>
                 <a href="https://www.facebook.com/FestivalTeatroBogota" target="_blank">https://www.facebook.com/FestivalTeatroBogota</a>&nbsp;<br>
-                <a href="https://twitter.com/#!/VIA_2012" target="_blank">https://twitter.com/#!/VIA_2012</a>&nbsp;<br>
-              <a href="https://twitter.com/#!/FITBogot" target="_blank">https://twitter.com/#!/FITBogot</a></p>
+                <a href="https://twitter.com/#!/VIA_2014" target="_blank">https://twitter.com/#!/VIA_2014</a>&nbsp;<br>
+              <a href="https://twitter.com/#!/FITBogota" target="_blank">https://twitter.com/#!/FITBogota</a></p>
               <p>&nbsp;</p>
               <p>&nbsp;</p>
               <h3><strong>PRICES FOR PARTICIPATING AS PROMOTER – PRODUCER</strong></h3>
