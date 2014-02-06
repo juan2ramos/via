@@ -287,7 +287,7 @@ textarea{
             <td colspan="2" align="left" valign="top"><input name="email1" type="text" id="email1" size="40" value="<?=nvl($frm["email1"])?>" /></td>
             <td width="138" rowspan="3" align="left" valign="top"><span> * </span>CV<strong style="font-size:14px"> (curriculum vitae)<br />
             </strong></td>
-            <td rowspan="3" align="left" valign="top"><iframe src="http://redlat.org/via/m/codigos/imagen.php?item/subirHv.php?item=<?=$frm["id_programador"]?>" width="100%" height="160px;" frameborder="0" scrolling="no"></iframe></td>
+            <td rowspan="3" align="left" valign="top"><iframe src="http://redlat.org/via/m/codigos/subirHv.php?item=<?=$frm["id_programador"]?>" width="100%" height="160px;" frameborder="0" scrolling="no"></iframe></td>
           </tr>
           <tr>
             <td align="left" valign="top">Correo 2 <strong style="font-size:14px"><br />
@@ -403,7 +403,7 @@ textarea{
 				            $naturalezasOptions=$db->sql_listbox("SELECT id,nombre FROM emp_naturalezas","Seleccione/Select...",$empresa["id_naturaleza"]); ?>
 			  <table width="100%" cellpadding="5">
 							<tr>
-							<td colspan="2" rowspan="4"><iframe src="http://redlat.org/via/m/codigos/imagen.php?item=<?=$empresa["id"]?>" width="100%" height="290px;" frameborder="0" scrolling="yes"></iframe></td>
+							<td colspan="2" rowspan="4"><iframe src="hhttp://redlat.org/via/m/codigos/imagenLogo.php?item=<?=$empresa["id"]?>" width="100%" height="290px;" frameborder="0" scrolling="yes"></iframe></td>
 							<td width="165"><span> * </span>Instituci&oacute;n <br />
 							  <b>- Institution</b></td>
                             <td width="406"><input size="30" type="text" name="empresa" value="<?=$empresa["empresa"];?>" onkeypress="return sololetras(event)" onblur="limpia()"></td>
@@ -447,7 +447,7 @@ textarea{
 							?>
                             <table width="100%" cellpadding="5">
 							<tr>
-							<td colspan="2" rowspan="4"><iframe src="http://redlat.org/via/m/codigos/imagen.php?item=<?=$empresa["id"]?>" width="100%" height="290px;" frameborder="0" scrolling="yes"></iframe></td>
+							<td colspan="2" rowspan="4"><iframe src="http://redlat.org/via/m/codigos/imagenLogo.php?item=<?=$empresa["id"]?>" width="100%" height="290px;" frameborder="0" scrolling="yes"></iframe></td>
 							<td width="167">(*Instituci&oacute;n<br />
 							  <b>- Institution</b></td>
                             <td width="405"><input size="30" type="text" name="empresa" value="<?=$empresa["empresa"];?>"></td>
