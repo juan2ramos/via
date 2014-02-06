@@ -52,6 +52,7 @@ if($val["name"]!="")
 				
 			if (ftp_put($conn_id, $path,$remoto , FTP_ASCII)) {
 			 echo "se ha cargado $file con éxito\n";
+			 $db->sql_query("UPDATE promotores SET imagen='".$imagen["imagen"]."', mmdd_imagen_filename='".$imagen["mmdd_imagen_filename"]."', mmdd_imagen_filetype='".$imagen["mmdd_imagen_filetype"]."',mmdd_imagen_filesize='".$imagen["mmdd_imagen_filesize"]."' WHERE id='".$imagen["id"]."'");
 			} else {
 			 echo "Hubo un problema durante la transferencia de $file\n";
 			}
