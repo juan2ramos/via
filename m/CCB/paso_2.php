@@ -321,7 +321,7 @@ input[type="checkbox"] {
             Iindique el nombre y documento de la(s) persona(s) que lo(s) representar&aacute;(n) en las citas de la Rueda de Negocios.<br />
             <br />
             <div style="width:100%; height:300px">
-            <iframe width="100%" height="300px" frameborder="0" scrolling="no" src="http://redlat.org/via/codigos/vinculados.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>"&paso=1></iframe>
+            <iframe width="100%" height="300px" frameborder="0" scrolling="no" src="http://redlat.org/via/m/codigos/vinculados.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>"&paso=1></iframe>
             </div></td>
           </tr>
           
