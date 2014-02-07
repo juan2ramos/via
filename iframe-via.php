@@ -108,7 +108,7 @@
         <div class="title-iframe title ">
             <h2>Registro para profesionales</h2>
             
-                <a class="" href="http://via.festivaldeteatro.com.co/b/m">REGISTRAME</a>
+                <a class="" href="http://via.festivaldeteatro.com.co/m" target="_blank">REGISTRAME</a>
             <hr class="hr-iframe">
             <!--<h1>via</h1>-->
         </div>
