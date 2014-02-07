@@ -65,7 +65,7 @@ input[type="checkbox"] {
           <tr>
             <td width="310" rowspan="7" align="left" valign="top" ><table width="96%" border="0" cellspacing="0" cellpadding="0" id="imagenGrupo">
               <tr>
-                <td align="center" valign="middle" style="height:400px;"><iframe scrolling="no" width="100%" height="400px" frameborder="0" src="http/redlat.org/via/m/codigos/artista_imagen.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>"></iframe></td>
+                <td align="center" valign="middle" style="height:400px;"><iframe scrolling="no" width="100%" height="400px" frameborder="0" src="../m/codigos/artista_imagen.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>"></iframe></td>
               </tr>
             </table></td>
             <td width="235" align="left" valign="top" class="colorTexto">(*) Nombre del grupo o del artista:</td>
@@ -275,7 +275,7 @@ input[type="checkbox"] {
           <tr>
             <td height="88" align="left" valign="top">&nbsp;</td>
             <td align="left" valign="top" class="colorTexto" >(*) Trayectoria en pdf:</td>
-            <td colspan="2"  valign="top" align="center"><iframe width="355px" height="170px" src="http://redlat.org/via/m/codigos/artistas_trayectoria.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>" scrolling="no" frameborder="0"></iframe></td>
+            <td colspan="2"  valign="top" align="center"><iframe width="355px" height="170px" src="../m/codigos/artistas_trayectoria.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>" scrolling="no" frameborder="0"></iframe></td>
           </tr>
           <tr>
             <td align="left" valign="top">&nbsp;</td>
@@ -318,10 +318,10 @@ input[type="checkbox"] {
           <tr>
             <td height="129" align="left" valign="top">&nbsp;</td>
             <td colspan="3" align="left" valign="top" class="colorTexto personas"><hr />
-            Iindique el nombre y documento de la(s) persona(s) que lo(s) representar&aacute;(n) en las citas de la Rueda de Negocios.<br />
+            Indique el nombre y documento de las dos personas que lo(s) representar&aacute;(n) en la Rueda de Negocios.<br />
             <br />
             <div style="width:100%; height:300px">
-            <iframe width="100%" height="300px" frameborder="0" scrolling="no" src="http://redlat.org/via/m/codigos/vinculados.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>"&paso=1></iframe>
+            <iframe width="100%" height="300px" frameborder="0" scrolling="no" src="../m/codigos/vinculados.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>&paso=1"></iframe>
             </div></td>
           </tr>
           
