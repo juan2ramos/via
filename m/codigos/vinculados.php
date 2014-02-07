@@ -33,8 +33,8 @@ while($datos_vinculados=$db->sql_fetchrow($vinculados)){
 	?>
 <table width="550" border="0" align="center" cellpadding="0" cellspacing="0" style="border-style:solid;border-bottom:1px dotted #fff;">
   <tr>
-    <td width="244"><?=$datos_vinculado["nombre"]?></td>
-    <td width="192"><?=$datos_vinculado["documento"]?></td>
+    <td width="244"><?=$datos_vinculados["nombre"]?></td>
+    <td width="192"><?=$datos_vinculados["documento"]?></td>
     <td width="114">eliminar</td>
   </tr>
 </table>
@@ -68,7 +68,7 @@ if($frm["paso"]==3){
 		//header('Location:vinculados.php?item='.$frm["id_grupo"].'&area='.$frm["area"].'&paso=1');
 		?>
         <script>
-		window.location="vinculados.php?item='.$frm["id_grupo"].'&area='.$frm["area"].'&paso=1";
+		window.location="vinculados.php?item=<?=$frm["id_grupo"]?>&area='<?=$frm["area"]?>&paso=1";
 		</script>
         <?
 	}	
