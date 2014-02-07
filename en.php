@@ -107,7 +107,7 @@
         <div class="title">
             <h2>Registration FOR Professionals</h2>
             
-                <a class="" href="http://via.festivaldeteatro.com.co/b/m">REGISTRATION</a>
+                <a class="" href="http://via.festivaldeteatro.com.co/m">REGISTRATION</a>
            
             <h1>via</h1>
         </div>
