@@ -29,12 +29,12 @@ if($frm["paso"]==1){
 </div>
 <?php	
 $vinculados = $db->sql_query("SELECT * FROM vinculados WHERE id_grupo_".$frm["area"]."='".$frm["id_grupo"]."'");
-while($datos_obras=$db->sql_fetchrow($obras)){
+while($datos_vinculados=$db->sql_fetchrow($vinculados)){
 	?>
 <table width="550" border="0" align="center" cellpadding="0" cellspacing="0" style="border-style:solid;border-bottom:1px dotted #fff;">
   <tr>
-    <td width="244"><?=$datos_obras["nombre"]?></td>
-    <td width="192"><?=$datos_obras["documento"]?></td>
+    <td width="244"><?=$datos_vinculado["nombre"]?></td>
+    <td width="192"><?=$datos_vinculado["documento"]?></td>
     <td width="114">eliminar</td>
   </tr>
 </table>
@@ -65,6 +65,11 @@ if($frm["paso"]==3){
 	 	$frm["nombre"]=$_POST["nombre"];
 		$frm["documento"]=$_POST["documento"];
 	    $id_vinculado=$db->sql_insert("vinculados", $frm);
-		header('Location:vinculados.php?item='.$frm["id_grupo"].'&area='.$frm["area"].'&paso=1');
+		//header('Location:vinculados.php?item='.$frm["id_grupo"].'&area='.$frm["area"].'&paso=1');
+		?>
+        <script>
+		window.location="vinculados.php?item='.$frm["id_grupo"].'&area='.$frm["area"].'&paso=1";
+		</script>
+        <?
 	}	
 ?>
