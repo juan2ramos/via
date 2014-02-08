@@ -117,7 +117,9 @@ $obras = $db->sql_query("SELECT * FROM archivos_obras_".$area." WHERE id_obras_"
     <td><span class="colorTexto"><b><?php echo $datos_obras["etiqueta"]; ?></b></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="eliminarItemsImagen.php?item=<?php echo $datos_obras["id"]?>&item2=<?php echo $_GET["item"]?>" class="link">Eliminar</a></td>
   </tr>
   <tr>
-    <td><img src="http://redlat.org/circulart/phpThumb/phpThumb.php?src=/home/redlat/www/circulart/tmp/<?=$datos_obras["id"]?>_<?=$area?>_a_<?=$datos_obras["mmdd_archivo_filename"]?>&amp;w=200" border="0"></td>
+    <td>
+    <img src="http://redlat.org/circulart/phpThumb/phpThumb.php?src=/home/redlat/public_html/circulart/tmp/<?=$datos_obras["id"]?>_<?=$area?>_a_<?=$datos_obras["mmdd_archivo_filename"]?>" border="0" width="200px">
+    </td>
   </tr>
 </table>
 <?php
