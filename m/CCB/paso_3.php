@@ -120,7 +120,7 @@ $(document).ready(function() {
     <div style="margin-left:20px;">- A&ntilde;o</div>
     <? } ?>
      <? if($datos_obras["id_generos_".$frm["area"]]==''){?>
-    <div style="margin-left:20px;">- Seleccionar el género</div>
+    <div style="margin-left:20px;">- Seleccionar el g&eacute;nero</div>
     <? } ?>
     <? if($datos_obras["resena"]==''){?>
     <div style="margin-left:20px;">- Ingresar la rese&ntilde; en espa&ntilde;ol</div>

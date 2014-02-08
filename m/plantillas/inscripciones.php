@@ -58,8 +58,8 @@ function confirmar_inscripcion($frm){
 	$db->sql_update("grupos_".$frm["area"], $frm);	
 
 	
-		   /* require("../class.phpmailer.php");
-			
+		   require("../class.phpmailer.php");
+			$result["email"]="cesarvalencia11@gmail.com";
 			$mailer = new PHPMailer();
 			$mailer->IsSMTP();
 			$mailer->Host = 'ssl://smtp.gmail.com:465';
@@ -67,19 +67,22 @@ function confirmar_inscripcion($frm){
 			$mailer->Username = 'cesarvalencia@circulart.org';  // Change this to your gmail adress
 			$mailer->Password = 'v4l3nc14!"#';  // Change this to your gmail password
 			$mailer->From = $result['email'];  // This HAVE TO be your gmail adress
-			$mailer->FromName = 'Artista Circulart2013'; // This is the from name in the email, you can put anything you like here
+			$mailer->FromName = 'Artista VIA2014'; // This is the from name in the email, you can put anything you like here
 			
 			
-			$dest = 'info@circulart.org'; //remplazar por el de info@bogotamusicmarlet.com
-			$body.="El Grupo o Artista ".$result["nombre"]." ha finalizado el proceso de inscripción al mercado de Circulart2013\n\n";	
-			$body.="Atentamente,\n\n";
-			$body.="Circulart2013\n";
-			$body.="info@circulart.org\n";
-			$body.="http://2013.circulart.org/\n";
+			$dest = 'via@circulart.org'; //remplazar por el de info@bogotamusicmarlet.com
+			$body.="El Grupo o Artista ".$result["nombre"]." ha finalizado el proceso de actualización de la inscripción al mercado VIA2014\n\n";	
+			$body.="\n\n";
+			$body.="Milena García\n";
+			$body.="<em>Coordinación de Artistas Rueda de Negocios</em> \n";
+			$body.="VIA 2014 - Ventana Internacional de las Artes\n";
+			$body.="FESTIVAL IBEROAMERICANO DE TEATRO\n";
+			$body.="www.festivaldeteatro.com.co\n";
 			$body.="\n";
+			
 
 			$mailer->Body = $body;
-			$mailer->Subject = 'Notificación de finalización de Inscripción';
+			$mailer->Subject = '[VIA2014] Actualización de inscripción';
 			$mailer->AddAddress($dest);  // This is where you put the email adress of the person you want to mail
 			if(!$mailer->Send())
 			{
@@ -93,26 +96,27 @@ function confirmar_inscripcion($frm){
 			$mailer2->SMTPAuth = TRUE;
 			$mailer2->Username = 'cesarvalencia@circulart.org';  // Change this to your gmail adress
 			$mailer2->Password = 'v4l3nc14!"#';  // Change this to your gmail password
-			$mailer2->From = $_POST['email'];  // This HAVE TO be your gmail adress
-			$mailer2->FromName = 'Circulart2013'; // This is the from name in the email, you can put anything you like here	
-			$mailer2->From = 'info@circulart.org'; 	 //remplazar por el de info@bogotamusicmarlet.com
+			$mailer2->FromName = 'VIA2014'; // This is the from name in the email, you can put anything you like here	
+			$mailer2->From = 'via@circulart.org'; 	 //remplazar por el de info@bogotamusicmarlet.com
 			$dest2 = $result["email"];
-			$body2.= "Estimado(s) ".$result["nombre"]." ha finalizado el proceso de inscripción al mercado de Circulart2013, espere los resultados en la página web\n\n";	
-			$body2.="Cordialmente:\n";
-			$body2.="Circualrt2013\n";
-			$body2.="info@circulart.org\n";
-			$body2.="http://2013.circulart.org/\n";
-			$body2.="\n";
+			$body2.= "Estimado(s) ".$result["nombre"]." ha finalizado el proceso de actualización de la inscripción al mercado VIA2014\n\n";	
+			$body.="\n\n";
+			$body.="Milena García\n";
+			$body.="<em>Coordinación de Artistas Rueda de Negocios</em> \n";
+			$body.="VIA 2014 - Ventana Internacional de las Artes\n";
+			$body.="FESTIVAL IBEROAMERICANO DE TEATRO\n";
+			$body.="www.festivaldeteatro.com.co\n";
+			$body.="\n";
 
 			$mailer2->Body = $body2;
-			$mailer2->Subject = 'Notificación de finalización de Inscripción';
+			$mailer2->Subject = '[VIA2014] Actualización de inscripción';
 			$mailer2->AddAddress($dest2);  // This is where you put the email adress of the person you want to mail
 			if(!$mailer2->Send())
 			{
 		
 			}else{
 				
-				}	*/
+				}	
 			
 	//
 	include("CCB/final.php");
