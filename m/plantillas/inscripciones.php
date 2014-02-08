@@ -100,13 +100,13 @@ function confirmar_inscripcion($frm){
 			$mailer2->From = 'via@circulart.org'; 	 //remplazar por el de info@bogotamusicmarlet.com
 			$dest2 = $result["email"];
 			$body2= "Estimado(s) ".$result["nombre"]." ha finalizado el proceso de actualización de la inscripción al mercado VIA2014\n\n";	
-			$body.="\n\n";
-			$body.="Milena García\n";
-			$body.="<em>Coordinación de Artistas Rueda de Negocios</em> \n";
-			$body.="VIA 2014 - Ventana Internacional de las Artes\n";
-			$body.="FESTIVAL IBEROAMERICANO DE TEATRO\n";
-			$body.="www.festivaldeteatro.com.co\n";
-			$body.="\n";
+			$body2.="\n\n";
+			$body2.="Milena García\n";
+			$body2.="<em>Coordinación de Artistas Rueda de Negocios</em> \n";
+			$body2.="VIA 2014 - Ventana Internacional de las Artes\n";
+			$body2.="FESTIVAL IBEROAMERICANO DE TEATRO\n";
+			$body2.="www.festivaldeteatro.com.co\n";
+			$body2.="\n";
 
 			$mailer2->Body = $body2;
 			$mailer2->Subject = '[VIA2014] Actualización de inscripción';
