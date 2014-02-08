@@ -106,7 +106,7 @@ if($frm["paso"]==1){
 		$obra=$db->sql_fetchrow($obras);
 	 }
 ?>
-<form action="obras.php?item=<?=$frm["id_grupos_".$frm["area"]]?>&area=<?=$frm["area"]?>&paso=2&id_obra=<?=$frm["id_obra"]?>" method="POST" enctype="multipart/form-data" onSubmit="return revisar(this)"> 
+<form action="obras.php?item=<?=$frm["id_grupos_".$frm["area"]]?>&area=<?=$frm["area"]?>&paso=2&id_obra=<?=$frm["id_obra"]?>&id_usuario=<?=$_GET["id_usuario"]?>" method="POST" enctype="multipart/form-data" onSubmit="return revisar(this)"> 
 <input type="hidden" id="id_obra" name="id_obra" value="<?=$frm["id_obra"];?>">
 <input type="hidden" id="id_grupos_<?=$frm["area"]?>" name="id_grupos_<?=$frm["area"]?>" value="<?=$frm["id_grupos_".$frm["area"]]?>">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
