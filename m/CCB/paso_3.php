@@ -7,6 +7,7 @@ footer{
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script>
 function refrescar(){
+	alert("sss");
 		window.location="http://redlat.org/via/m/index.php?modo=<?=$seccion?>&mode=paso_3muestra&id_usuario=<?=$frm["id_usuario"]?>&area=<?=$frm["area"]?>&id_grupo=<?=$frm["id_grupo"]?>";
 	}
 function revisar(frm){
