@@ -205,11 +205,14 @@ Espacio esc&eacute;nico requerido<br>
   <input type="text" size="20" name="en_iluminacion" value="<?=nvl($obra["en_iluminacion"])?>">
   <br>
   <br>
+   <? if($frm["area"]=="teatro"){?>
 Plano Luces (Subir PDF)</p>
       <p><iframe width="100%" height="250px" frameborder="0" scrolling="no" src="subirIluninacion.php?item=<?=$frm["id_grupos_".$frm["area"]]?>&area=<?=$frm["area"]?>&id_obra=<?=$frm["id_obra"]?>"></iframe></p>
       <p>      
       <p>        <br>
-    </p></td>
+    </p>
+   <? } ?> 
+    </td>
     <td width="88" rowspan="15" valign="top">&nbsp;</td>
     <td width="874" rowspan="15" valign="top">
       <div class="titulo_registro">CARGA</div>
