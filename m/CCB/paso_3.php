@@ -7,7 +7,7 @@ footer{
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script>
 function refrescar(){
-		window.location="http://localhost/via/via/m/index.php?modo=<?=$seccion?>&mode=paso_3muestra&id_usuario=<?=$frm["id_usuario"]?>&area=<?=$frm["area"]?>&id_grupo=<?=$frm["id_grupo"]?>";
+		window.location="http://redlat.org/via/m/index.php?modo=<?=$seccion?>&mode=paso_3muestra&id_usuario=<?=$frm["id_usuario"]?>&area=<?=$frm["area"]?>&id_grupo=<?=$frm["id_grupo"]?>";
 	}
 function revisar(frm){
 	
@@ -35,7 +35,7 @@ function actualizar(num){
 		$("#iframe").attr("src",url);
 	}
 function eliminarObra(num){
-	url="http://localhost/via/via/m/codigos/obras.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>&paso=3&id_obra="+num;
+	url="http://redlat.org/via/m/codigos/obras.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>&paso=3&id_obra="+num;
 	$("#iframe").attr("src",url);
 	refrescar();
 	}	
@@ -125,7 +125,7 @@ $(document).ready(function() {
     <? if($datos_obras["resena"]==''){?>
     <div style="margin-left:20px;">- Ingresar la rese&ntilde; en espa&ntilde;ol</div>
     <? } ?>
-    <? if($datos_obras["resena"]==''){?>
+    <? if($datos_obras["en_resena"]==''){?>
     <div style="margin-left:20px;">- Ingresar la rese&ntilde; en ingl&eacute;</div>
     <? } ?>
     <? if($resultado_3[0]==0){?>
