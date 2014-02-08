@@ -25,7 +25,7 @@ $frm["paso"]=$_GET["paso"];
 if($frm["paso"]==1){
 	$vinculados = $db->sql_query("SELECT COUNT(*) FROM vinculados WHERE id_grupo_".$frm["area"]."='".$frm["id_grupo"]."'");
 	$num=$db->sql_fetchrow($vinculados);
-	if($num<2){
+	if($num[0]<2){
 ?>
 <div style="text-align:left; text-transform: uppercase">
 <a href="vinculados.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>&paso=2" style="text-decoration:none"><div style="text-align:center; margin-top:10px; margin-bottom:20px; padding:10px; background-color:#F00; width:150px; font-size:14px; text-decoration:none">[+] agregar</div></a>
