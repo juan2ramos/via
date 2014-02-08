@@ -27,6 +27,7 @@ body{
 
 $obra_id=$_GET["item"];
 $area=$_GET["area"];
+if(isset($_POST["obra"])&&isset($_POST["etiqueta"])&&isset($_POST["url"])){
 if($_POST["obra"]!=""&&$_POST["etiqueta"]!=""&&$_POST["url"]!=""){
  $ordenMax=$db->sql_row("SELECT MAX(orden) FROM archivos_obras_".$area." where id_obras_".$area."='".$_POST["obra"]."'");
  $ordenMax["MAX(orden)"];
@@ -42,7 +43,7 @@ if($_POST["obra"]!=""&&$_POST["etiqueta"]!=""&&$_POST["url"]!=""){
 
 if($resultado !== FALSE){
  $id_audio=$db->sql_insert("archivos_obras_".$area, $archivo);}
-}
+}}
 ?>
 <form action="cargaVideo.php?item=<?php echo $_GET["item"];?>&area=<?php echo $_GET["area"];?>" method="post" enctype="multipart/form-data" name="form1" id="form1">
 <input type="hidden" value="<?php echo $_GET["item"];?>" name="obra" id="obra"/>
