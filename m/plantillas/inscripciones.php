@@ -51,14 +51,14 @@ function confirmar_inscripcion($frm){
 	$seccion="inscripciones";
 
 
-	//$result=$db->sql_row("SELECT * FROM grupos_".$frm["area"]." WHERE id='".$frm["id_grupo"]."'");
+	$result=$db->sql_row("SELECT * FROM grupos_".$frm["area"]." WHERE id='".$frm["id_grupo"]."'");
 	$frm["id"]=$frm["id_grupo"];
 	$frm["ingresado_por"]=1;
 	$frm["terminos"]=1;
 	$db->sql_update("grupos_".$frm["area"], $frm);	
 
 	
-		   require("../class.phpmailer.php");
+		   require("class.phpmailer.php");
 			$result["email"]="cesarvalencia11@gmail.com";
 			$mailer = new PHPMailer();
 			$mailer->IsSMTP();
