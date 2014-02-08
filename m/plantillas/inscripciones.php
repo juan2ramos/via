@@ -468,7 +468,7 @@ function muestra_paso_3($frm){
 	GLOBAL $CFG, $ME, $db;
 	$seccion="inscripciones";
 		$area=$frm["area"];	
-        $frm["id_usuario"]=$_GET["$id_usurio"];
+        //$frm["id_usuario"]=$_GET["$id_usurio"];
 		//$frm["id_grupo"]=$_GET["id_grupo"];
 		$frm["area"]=$area;
 		include("CCB/paso_3.php");
