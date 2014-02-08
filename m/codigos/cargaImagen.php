@@ -25,16 +25,14 @@ body{
 </style>
 <body>
 <?php
-
-$obra_id=$_GET["item"];
-$area=$_GET["area"];
-
 if(isset($_POST["obra"])&&isset($_POST["etiqueta"])){
 if($_POST["obra"]!=""&&$_POST["etiqueta"]!=""){
-
+ $caratula=$_FILES['caratula'];
  $ordenMax=$db->sql_row("SELECT MAX(orden) FROM archivos_obras_".$_POST["area"]." where id_obras_".$_POST["area"]."='".$_POST["obra"]."'");
  $ordenMax["MAX(orden)"];
- $caratula=$_FILES['caratula'];
+
+
+
 if($caratula["name"]!=""){
 	
 	if(preg_match("/php$/i",$caratula["name"])) die("Error:" . __FILE__ . ":" . __LINE__);{ //Anti jáquers
@@ -60,12 +58,10 @@ if($caratula["name"]!=""){
 		
 		if($archivo["mmdd_archivo_filetype"]=="image/png"||$archivo["mmdd_archivo_filetype"]=="image/jpeg"||$archivo["mmdd_archivo_filetype"]=="image/jpg"||$archivo["mmdd_archivo_filetype"]=="image/gif"){
 		
-			  $archivo["id"]=$db->sql_insert("archivos_obras_musica", $archivo);
-			   $path= "/home/redlat/public_html/circulart/tmp/".$archivo["id"]."_".$_POST["area"]."_a_".$caratula["name"];		
+			  $archivo["id"]=$db->sql_insert("archivos_obras_".$_POST["area"], $archivo);
+			   $path= "../../../tmp/".$archivo["id"]."_".$_POST["area"]."_a_".$caratula["name"];		
 				 if(copy($caratula['tmp_name'], $path))
 				  { 
-				  
-				   $id_audio=$db->sql_insert("archivos_obras_".$area, $archivo);
 				   
 					?>
 <script>
@@ -81,13 +77,13 @@ if($caratula["name"]!=""){
                         </div>
 						<?php
 				  }
-		}} 
+		}   } 
 	}
 }}}
 ?>
 <form action="cargaImagen.php?item=<?php echo $_GET["item"];?>&area=<?php echo $_GET["area"];?>" method="post" enctype="multipart/form-data" name="form1" id="form1">
 <input type="hidden" value="<?php echo $_GET["item"];?>" name="obra" id="obra"/>
-<input type="hidden" value="<?php echo $_GET["item"];?>" name="area" id="area"/>
+<input type="hidden" value="<?php echo $_GET["area"];?>" name="area" id="area"/>
 <table width="100%" border="0" cellspacing="0" cellpadding="5">
   <tr>
     <td colspan="2" ><strong>Recuerde que las imagenes deben ser inferiores de 5 Megas de peso, sus dimensiones  [600X400] y el formato [jpg, gif o png].</strong></td>
