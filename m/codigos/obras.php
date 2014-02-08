@@ -171,9 +171,9 @@ No. de intermedios<br>
 Tipo de p&uacute;blico <br>
 <select id="tipo_publico" name="tipo_publico">
   <option value="%" >Seleccione... </option>
-  <option value="1" <? if($obra["tipo_publico"]==1){echo "selected";} ?>>Adultos </option>
-  <option value="2" <? if($obra["tipo_publico"]==1){echo "selected";} ?>>Infantil </option>
-  <option value="3" <? if($obra["tipo_publico"]==1){echo "selected";} ?>>Familiar </option>
+  <option value="1" <? if(isset($obra["tipo_publico"])){if($obra["tipo_publico"]==1){echo "selected";}} ?>>Adultos </option>
+  <option value="2" <? if(isset($obra["tipo_publico"])){if($obra["tipo_publico"]==1){echo "selected";}} ?>>Infantil </option>
+  <option value="3" <? if(isset($obra["tipo_publico"])){if($obra["tipo_publico"]==1){echo "selected";}}?>>Familiar </option>
 </select>
 <br>
 <br>
@@ -264,7 +264,7 @@ Plano Luces (Subir PDF)</p>
   <tr>
     <td width="51%"><iframe width="600px" height="500" frameborder="0" scrolling="auto" src="cargaVideo.php?item=<?=$frm["id_obra"]?>&area=<?=$frm["area"]?>"></iframe></td>
     <td width="0%" rowspan="4">&nbsp;</td>
-    <td colspan="3"><iframe width="450px" height="500" frameborder="0" src="cargaImagen.php?item=<?=$frm["id_obra"]?>&area=<?=$frm["area"]?>"></iframe></td>
+    <td colspan="3"><iframe width="500px" height="500" frameborder="0" src="cargaImagen.php?item=<?=$frm["id_obra"]?>&area=<?=$frm["area"]?>"></iframe></td>
   </tr>
   <tr>
     <td><br>
