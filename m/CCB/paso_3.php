@@ -151,6 +151,6 @@ $(document).ready(function() {
   <tr>
     <td width="61"><a id="regresar" style="color:#FFF" href="index.php?modo=<?=$seccion?>&mode=paso_2muestra&id_usuario=<?=$frm["id_usuario"]?>&area=<?=$frm["area"]?>&id_grupo=<?=$frm["id_grupo"]?>"><div id="agregar" style="text-align:center; margin-top:10px; margin-bottom:20px; padding:15px; background-color:#F00; width:150px; font-size:14px; text-decoration:none; cursor:pointer; text-transform: uppercase">Regresar</div></a></td>
     <td width="660">&nbsp;</td>
-    <td width="149"><input type="submit" value="Continuar" id="submit_button" class="link" style="width:120px; background-color:#F17126; color:#fff; font-weight:bold; border-color:#F17126;"/></td>
+    <td width="149"><input type="submit" value="Continuar" id="submit_button" class="link" style="width:120px; background-color:#F17126; color:#fff; font-weight:bold; border-color:#F17126; cursor:pointer"/></td>
   </tr>
 </table>

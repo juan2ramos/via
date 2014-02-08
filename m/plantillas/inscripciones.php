@@ -123,7 +123,6 @@ function procesar_paso_4($frm){
 	$seccion="inscripciones";
 	$frm["id_usuario"]=$frm["id_usuario"];
 		$frm["id_grupo"]=$frm["id_grupo"];
-		$frm["login"]=$user["login"];
 		$frm["area"]=$frm["area"];
     include("CCB/confirmar_inscripcion.php");
 }
