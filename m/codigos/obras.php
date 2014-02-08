@@ -103,6 +103,7 @@ if($frm["paso"]==1){
 		$obras = $db->sql_query("SELECT * FROM obras_".$frm["area"]." WHERE id_grupos_".$frm["area"]."='".$frm["id_grupos_".$frm["area"]]."' AND id = '".$frm["id_obra"]."'");
 		$obra=$db->sql_fetchrow($obras);
 	 }
+	 
 ?>
 <form action="obras.php?item=<?=$frm["id_grupos_".$frm["area"]]?>&area=<?=$frm["area"]?>&paso=2&id_obra=<?=$frm["id_obra"]?>&id_usuario=<?=$_GET["id_usuario"]?>" method="POST" enctype="multipart/form-data" onSubmit="return revisar(this)"> 
 <input type="hidden" id="id_obra" name="id_obra" value="<?=$frm["id_obra"];?>">
@@ -302,7 +303,7 @@ if($paso==2){
 	$db->sql_query("UPDATE obras_".$frm["area"]." SET obra='".$_POST["obra"]."' WHERE id='".$_POST["id_obra"]."'");
 	$db->sql_query("UPDATE obras_".$frm["area"]." SET anio='".$_POST["anio"]."' WHERE id='".$_POST["id_obra"]."'");
 	$db->sql_query("UPDATE obras_".$frm["area"]." SET autor='".$_POST["autor"]."' WHERE id='".$_POST["id_obra"]."'");
-	//$db->sql_query("UPDATE obras_".$frm["area"]." SET director='".$_POST["director"]."' WHERE id='".$_POST["id_obra"]."'");
+	$db->sql_query("UPDATE obras_".$frm["area"]." SET director='".$_POST["director"]."' WHERE id='".$_POST["id_obra"]."'");
 	if($frm["area"]=="danza"){
 	 $db->sql_query("UPDATE obras_".$frm["area"]." SET coreografo='".$_POST["coreografo"]."' WHERE id='".$_POST["id_obra"]."'");
 	}
