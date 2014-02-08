@@ -7,7 +7,6 @@ footer{
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script>
 function refrescar(){
-	alert("sss");
 		window.location="http://redlat.org/via/m/index.php?modo=<?=$seccion?>&mode=paso_3muestra&id_usuario=<?=$frm["id_usuario"]?>&area=<?=$frm["area"]?>&id_grupo=<?=$frm["id_grupo"]?>";
 	}
 function revisar(frm){
@@ -32,11 +31,11 @@ function actualizar(num){
 		$("#submit_button").css("display","none");
 		$("#regresar").css("display","none");
 		
-		url="http://redlat.org/via/m/codigos/obras.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>&paso=1&id_obra="+num;
+		url="http://redlat.org/via/m/codigos/obras.php?item=<?=$frm["id_grupo"]?>&id_usuario=<?=$frm["id_usuario"]?>&area=<?=$frm["area"]?>&paso=1&id_obra="+num;
 		$("#iframe").attr("src",url);
 	}
 function eliminarObra(num){
-	url="http://redlat.org/via/m/codigos/obras.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>&paso=3&id_obra="+num;
+	url="http://redlat.org/via/m/codigos/obras.php?item=<?=$frm["id_grupo"]?>&id_usuario=<?=$frm["id_usuario"]?>&area=<?=$frm["area"]?>&paso=3&id_obra="+num;
 	$("#iframe").attr("src",url);
 	refrescar();
 	}	
@@ -48,7 +47,7 @@ $(document).ready(function() {
 		$("#submit_button").css("display","none");
 		$("#regresar").css("display","none");
 		
-		url="http://redlat.org/via/m/codigos/obras.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>&paso=1&id_obra=0";
+		url="http://redlat.org/via/m/codigos/obras.php?item=<?=$frm["id_grupo"]?>&id_usuario=<?=$frm["id_usuario"]?>&area=<?=$frm["area"]?>&paso=1&id_obra=0";
 		$("#iframe").attr("src",url);
 		
 		})
