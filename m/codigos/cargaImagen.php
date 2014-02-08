@@ -85,7 +85,7 @@ if($caratula["name"]!=""){
 	}
 }}}
 ?>
-<form action="cargaImagen.php?item=<?php echo $_GET["item"];?>" method="post" enctype="multipart/form-data" name="form1" id="form1">
+<form action="cargaImagen.php?item=<?php echo $_GET["item"];?>&area=<?php echo $_GET["area"];?>" method="post" enctype="multipart/form-data" name="form1" id="form1">
 <input type="hidden" value="<?php echo $_GET["item"];?>" name="obra" id="obra"/>
 <input type="hidden" value="<?php echo $_GET["item"];?>" name="area" id="area"/>
 <table width="100%" border="0" cellspacing="0" cellpadding="5">
