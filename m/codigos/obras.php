@@ -264,7 +264,7 @@ Plano Luces (Subir PDF)</p>
   <tr>
     <td width="51%"><iframe width="600px" height="500" frameborder="0" scrolling="auto" src="cargaVideo.php?item=<?=$frm["id_obra"]?>&area=<?=$frm["area"]?>"></iframe></td>
     <td width="0%" rowspan="4">&nbsp;</td>
-    <td colspan="3"><iframe width="600px" height="500" frameborder="0" src="cargaImagen.php?item=<?=$frm["id_obra"]?>&area=<?=$frm["area"]?>"></iframe></td>
+    <td colspan="3"><iframe width="450px" height="500" frameborder="0" src="cargaImagen.php?item=<?=$frm["id_obra"]?>&area=<?=$frm["area"]?>"></iframe></td>
   </tr>
   <tr>
     <td><br>
