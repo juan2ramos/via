@@ -514,7 +514,6 @@ function muestra_paso_2($frm){
 	GLOBAL $CFG, $ME, $db;
 	$area=$frm["area"];	
 	$id_usurio=$_GET["id_usuario"];
-	$_SESSION[$CFG->sesion_grnic]["user"]["id"];
 	if($id_usurio!=""){
 		$seccion="inscripciones";
 		$frm=$db->sql_row("
@@ -524,7 +523,6 @@ function muestra_paso_2($frm){
 		");
 		$frm["id_usuario"]=$id_usurio;
 		$frm["id_grupo"]=$frm["id"];
-		$frm["login"]=$user["login"];
 		$frm["area"]=$area;
 		
 		include("CCB/paso_2.php");
