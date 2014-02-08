@@ -59,7 +59,7 @@ function confirmar_inscripcion($frm){
 
 	
 		   require("class.phpmailer.php");
-			$result["email"]="cesarvalencia11@gmail.com";
+		
 			$mailer = new PHPMailer();
 			$mailer->IsSMTP();
 			$mailer->Host = 'ssl://smtp.gmail.com:465';
@@ -71,7 +71,7 @@ function confirmar_inscripcion($frm){
 			
 			
 			$dest = 'via@circulart.org'; //remplazar por el de info@bogotamusicmarlet.com
-			$body.="El Grupo o Artista ".$result["nombre"]." ha finalizado el proceso de actualización de la inscripción al mercado VIA2014\n\n";	
+			$body="El Grupo o Artista ".$result["nombre"]." ha finalizado el proceso de actualización de la inscripción al mercado VIA2014\n\n";	
 			$body.="\n\n";
 			$body.="Milena García\n";
 			$body.="<em>Coordinación de Artistas Rueda de Negocios</em> \n";
@@ -99,7 +99,7 @@ function confirmar_inscripcion($frm){
 			$mailer2->FromName = 'VIA2014'; // This is the from name in the email, you can put anything you like here	
 			$mailer2->From = 'via@circulart.org'; 	 //remplazar por el de info@bogotamusicmarlet.com
 			$dest2 = $result["email"];
-			$body2.= "Estimado(s) ".$result["nombre"]." ha finalizado el proceso de actualización de la inscripción al mercado VIA2014\n\n";	
+			$body2= "Estimado(s) ".$result["nombre"]." ha finalizado el proceso de actualización de la inscripción al mercado VIA2014\n\n";	
 			$body.="\n\n";
 			$body.="Milena García\n";
 			$body.="<em>Coordinación de Artistas Rueda de Negocios</em> \n";
