@@ -8,9 +8,9 @@ body{
 	}
 	#carga{
 		display:none;}
-	a{
-		color:#FFF;
-		text-decoration:underline;}	
+		a{color:#fff;}
+table{
+	margin-bottom:10px;}
 	input{
 		width:180px}		
 </style>
@@ -23,11 +23,17 @@ $frm["area"]=$_GET["area"];
 $frm["paso"]=$_GET["paso"];
 //codigo para listar los vinculados a un grupo o artista
 if($frm["paso"]==1){
+	$vinculados = $db->sql_query("SELECT COUNT(*) FROM vinculados WHERE id_grupo_".$frm["area"]."='".$frm["id_grupo"]."'");
+	$num=$db->sql_fetchrow($vinculados);
+	if($num<2){
 ?>
 <div style="text-align:left; text-transform: uppercase">
 <a href="vinculados.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>&paso=2" style="text-decoration:none"><div style="text-align:center; margin-top:10px; margin-bottom:20px; padding:10px; background-color:#F00; width:150px; font-size:14px; text-decoration:none">[+] agregar</div></a>
 </div>
 <?php	
+	}
+
+
 $vinculados = $db->sql_query("SELECT * FROM vinculados WHERE id_grupo_".$frm["area"]."='".$frm["id_grupo"]."'");
 while($datos_vinculados=$db->sql_fetchrow($vinculados)){
 	?>
@@ -35,7 +41,7 @@ while($datos_vinculados=$db->sql_fetchrow($vinculados)){
   <tr>
     <td width="244"><?=$datos_vinculados["nombre"]?></td>
     <td width="192"><?=$datos_vinculados["documento"]?></td>
-    <td width="114">eliminar</td>
+    <td width="114"><a href="vinculados.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>&paso=4&id=<?=$datos_vinculados["id"]?>" style="text-decoration:none;  font-weight:bold; text-transform: uppercase">eliminar</a></td>
   </tr>
 </table>
 <?php
@@ -68,8 +74,17 @@ if($frm["paso"]==3){
 		//header('Location:vinculados.php?item='.$frm["id_grupo"].'&area='.$frm["area"].'&paso=1');
 		?>
         <script>
-		window.location="vinculados.php?item=<?=$frm["id_grupo"]?>&area='<?=$frm["area"]?>&paso=1";
+		window.location="vinculados.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>&paso=1";
 		</script>
         <?
 	}	
+	
+if($frm["paso"]==4){
+	$db->sql_query("delete from vinculados where id='". $_GET["id"]."'");
+	?>
+    <script>
+		window.location="vinculados.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>&paso=1";
+	</script>
+    <?php
+}	
 ?>

@@ -32,18 +32,12 @@ switch(nvl($frm["mode"])){
 	case "paso_3muestra":
 		muestra_paso_3($frm);
 		break;
-	case "paso_2":
-		procesar_paso_1($frm);
-		break;
 	case "paso_2muestra":
 		muestra_paso_2($frm);
 		break;
 	case "eliminar_obra":
 		eliminar_obra($frm);
-		break;	
-	case "eliminar_archivo":
-		eliminar_archivo($frm);
-		break;	
+		break;		
 	case "vertodo":
 		vertodo($frm);
 		break;	
@@ -57,17 +51,14 @@ function confirmar_inscripcion($frm){
 	$seccion="inscripciones";
 
 
-	$result=$db->sql_row("SELECT * FROM grupos_musica WHERE id='".$frm["id_grupo"]."'");
-		
-		if($result["ingresado_por"]==0){
-			
-	        $frm["id"]=$frm["id_grupo"];
-			$frm["ingresado_por"]=1;
-			$frm["terminos"]=1;
-			$db->sql_update("grupos_musica", $frm);	
+	//$result=$db->sql_row("SELECT * FROM grupos_".$frm["area"]." WHERE id='".$frm["id_grupo"]."'");
+	$frm["id"]=$frm["id_grupo"];
+	$frm["ingresado_por"]=1;
+	$frm["terminos"]=1;
+	$db->sql_update("grupos_".$frm["area"], $frm);	
 
 	
-		require("../class.phpmailer.php");
+		   /* require("../class.phpmailer.php");
 			
 			$mailer = new PHPMailer();
 			$mailer->IsSMTP();
@@ -92,8 +83,6 @@ function confirmar_inscripcion($frm){
 			$mailer->AddAddress($dest);  // This is where you put the email adress of the person you want to mail
 			if(!$mailer->Send())
 			{
-			   //echo "Message was not sent<br/ >";
-			   //echo "Mailer Error: " . $mailer->ErrorInfo;
 			}else{
 				
 				}
@@ -120,23 +109,23 @@ function confirmar_inscripcion($frm){
 			$mailer2->AddAddress($dest2);  // This is where you put the email adress of the person you want to mail
 			if(!$mailer2->Send())
 			{
-			  /* echo "Message was not sent<br/ >";
-			   echo "Mailer Error: " . $mailer->ErrorInfo;*/
+		
 			}else{
 				
-				}	
+				}	*/
 			
-			}	
-	include("CCB/paso_1Cierre2.php");
-	//include("CCB/final.php");
+	//
+	include("CCB/final.php");
 }
 
 function procesar_paso_4($frm){
 	GLOBAL $CFG, $ME, $db;
 	$seccion="inscripciones";
-    $frm["id"]=$frm["id_grupo"];
-	include("CCB/paso_1Cierre2.php");
-   //include("CCB/confirmar_inscripcion.php");
+	$frm["id_usuario"]=$frm["id_usuario"];
+		$frm["id_grupo"]=$frm["id_grupo"];
+		$frm["login"]=$user["login"];
+		$frm["area"]=$frm["area"];
+    include("CCB/confirmar_inscripcion.php");
 }
 
 function acceso($frm){
@@ -213,14 +202,14 @@ function verify_login($username, $password) {
 function print_login_form($frm,$newMode="acceso_admin"){
 	GLOBAL $CFG, $ME, $db;
 	$seccion="inscripciones";
-    include("CCB/paso_1Cierre2.php");
-	//include("CCB/login_form.php");
+   // include("CCB/paso_1Cierre2.php");
+	include("CCB/login_form.php");
 }
 
 function procesar_paso_3($frm){
 	GLOBAL $CFG, $ME, $db;
 	$seccion="inscripciones";
-    include("CCB/paso_1Cierre2.php");
+    //include("CCB/paso_1Cierre2.php");
 	//include("CCB/paso_4.php");
 }
 
@@ -232,371 +221,228 @@ function procesar_paso_2($frm){
 
 	if($frm["id_grupo"]!=""){//Ya existe...
 
+    if($frm["area"]=="teatro"){
+
        if($frm["genero1"]=="on"){
-		   $frm["id_grupos_musica"]=$frm["id_grupo"];
-		   $frm["id_generos_musica"]="42";
-		   $genero=$db->sql_row("SELECT * FROM generos_grupo_musica WHERE id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='42'");
+		   $frm["id_grupos_teatro"]=$frm["id_grupo"];
+		   $frm["id_generos_teatro"]="5";
+		   $genero=$db->sql_row("SELECT * FROM generos_grupo_teatro WHERE id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatro='5'");
 		   if($genero["id"]==""){
-		   	$db->sql_insert("generos_grupo_musica",$frm);
+		   	$db->sql_insert("generos_grupo_teatro",$frm);
 		   }
 		}else{
-			 $db->sql_query("delete from generos_grupo_musica where id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='42'");  
+			 $db->sql_query("delete from generos_grupo_teatro where id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatros='5'");  
+		   };
+		   
+       if($frm["genero2"]=="on"){
+		   $frm["id_grupos_teatro"]=$frm["id_grupo"];
+		   $frm["id_generos_teatro"]="1";
+		   $genero=$db->sql_row("SELECT * FROM generos_grupo_teatro WHERE id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatro='1'");
+		   if($genero["id"]==""){
+		   	$db->sql_insert("generos_grupo_teatro",$frm);
+		   }
+		}else{
+			 $db->sql_query("delete from generos_grupo_teatro where id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatros='1'");  
+		   };
+		   
+		if($frm["genero3"]=="on"){
+		   $frm["id_grupos_teatro"]=$frm["id_grupo"];
+		   $frm["id_generos_teatro"]="7";
+		   $genero=$db->sql_row("SELECT * FROM generos_grupo_teatro WHERE id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatro='7'");
+		   if($genero["id"]==""){
+		   	$db->sql_insert("generos_grupo_teatro",$frm);
+		   }
+		}else{
+			 $db->sql_query("delete from generos_grupo_teatro where id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatros='7'");  
 		   };
 		   
 		   
-		   
-		if($frm["genero2"]=="on"){
-		   $frm["id_grupos_musica"]=$frm["id_grupo"];
-		   $frm["id_generos_musica"]="10";
-		   $genero=$db->sql_row("SELECT * FROM generos_grupo_musica WHERE id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='10'");
+	    if($frm["genero4"]=="on"){
+		   $frm["id_grupos_teatro"]=$frm["id_grupo"];
+		   $frm["id_generos_teatro"]="3";
+		   $genero=$db->sql_row("SELECT * FROM generos_grupo_teatro WHERE id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatro='3'");
 		   if($genero["id"]==""){
-		   	$db->sql_insert("generos_grupo_musica",$frm);
+		   	$db->sql_insert("generos_grupo_teatro",$frm);
 		   }
 		}else{
-			 $db->sql_query("delete from generos_grupo_musica where id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='10'");  
-		   };
-		   
-		 
-		 
-		 if($frm["genero2"]=="on"){
-		   $frm["id_grupos_musica"]=$frm["id_grupo"];
-		   $frm["id_generos_musica"]="11";
-		   $genero=$db->sql_row("SELECT * FROM generos_grupo_musica WHERE id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='11'");
-		   if($genero["id"]==""){
-		   	$db->sql_insert("generos_grupo_musica",$frm);
-		   }
-		}else{
-			 $db->sql_query("delete from generos_grupo_musica where id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='11'");  
+			 $db->sql_query("delete from generos_grupo_teatro where id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatros='3'");  
 		   };
 		   
 		   
-		   
-		   
-		if($frm["genero4"]=="on"){
-		   $frm["id_grupos_musica"]=$frm["id_grupo"];
-		   $frm["id_generos_musica"]="6";
-		   $genero=$db->sql_row("SELECT * FROM generos_grupo_musica WHERE id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='6'");
+	    if($frm["genero5"]=="on"){
+		   $frm["id_grupos_teatro"]=$frm["id_grupo"];
+		   $frm["id_generos_teatro"]="8";
+		   $genero=$db->sql_row("SELECT * FROM generos_grupo_teatro WHERE id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatro='8'");
 		   if($genero["id"]==""){
-		   	$db->sql_insert("generos_grupo_musica",$frm);
+		   	$db->sql_insert("generos_grupo_teatro",$frm);
 		   }
 		}else{
-			 $db->sql_query("delete from generos_grupo_musica where id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='6'");  
+			 $db->sql_query("delete from generos_grupo_teatro where id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatros='8'");  
 		   };
 		   
 		   
-		   
-		   
-		if($frm["genero5"]=="on"){
-		   $frm["id_grupos_musica"]=$frm["id_grupo"];
-		   $frm["id_generos_musica"]="5";
-		   $genero=$db->sql_row("SELECT * FROM generos_grupo_musica WHERE id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='5'");
+		 if($frm["genero6"]=="on"){
+		   $frm["id_grupos_teatro"]=$frm["id_grupo"];
+		   $frm["id_generos_teatro"]="10";
+		   $genero=$db->sql_row("SELECT * FROM generos_grupo_teatro WHERE id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatro='10'");
 		   if($genero["id"]==""){
-		   	$db->sql_insert("generos_grupo_musica",$frm);
+		   	$db->sql_insert("generos_grupo_teatro",$frm);
 		   }
 		}else{
-			 $db->sql_query("delete from generos_grupo_musica where id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='5'");  
+			 $db->sql_query("delete from generos_grupo_teatro where id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatros='10'");  
 		   };
 		   
 		   
-		if($frm["genero6"]=="on"){
-		   $frm["id_grupos_musica"]=$frm["id_grupo"];
-		   $frm["id_generos_musica"]="22";
-		   $genero=$db->sql_row("SELECT * FROM generos_grupo_musica WHERE id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='22'");
+	     if($frm["genero7"]=="on"){
+		   $frm["id_grupos_teatro"]=$frm["id_grupo"];
+		   $frm["id_generos_teatro"]="6";
+		   $genero=$db->sql_row("SELECT * FROM generos_grupo_teatro WHERE id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatro='6'");
 		   if($genero["id"]==""){
-		   	$db->sql_insert("generos_grupo_musica",$frm);
+		   	$db->sql_insert("generos_grupo_teatro",$frm);
 		   }
 		}else{
-			 $db->sql_query("delete from generos_grupo_musica where id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='22'");  
+			 $db->sql_query("delete from generos_grupo_teatro where id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatros='6'");  
 		   };
-		   
-		   
-		   
-		if($frm["genero7"]=="on"){
-		   $frm["id_grupos_musica"]=$frm["id_grupo"];
-		   $frm["id_generos_musica"]="20";
-		   $genero=$db->sql_row("SELECT * FROM generos_grupo_musica WHERE id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='20'");
-		   if($genero["id"]==""){
-		   	$db->sql_insert("generos_grupo_musica",$frm);
-		   }
-		}else{
-			 $db->sql_query("delete from generos_grupo_musica where id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='20'");  
-		   };
-		   
 		   
 		   
 		if($frm["genero8"]=="on"){
-		   $frm["id_grupos_musica"]=$frm["id_grupo"];
-		   $frm["id_generos_musica"]="45";
-		   $genero=$db->sql_row("SELECT * FROM generos_grupo_musica WHERE id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='45'");
+		   $frm["id_grupos_teatro"]=$frm["id_grupo"];
+		   $frm["id_generos_teatro"]="11";
+		   $genero=$db->sql_row("SELECT * FROM generos_grupo_teatro WHERE id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatro='11'");
 		   if($genero["id"]==""){
-		   	$db->sql_insert("generos_grupo_musica",$frm);
+		   	$db->sql_insert("generos_grupo_teatro",$frm);
 		   }
 		}else{
-			 $db->sql_query("delete from generos_grupo_musica where id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='45'");  
+			 $db->sql_query("delete from generos_grupo_teatro where id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatros='11'");  
+		   };   	      	   	      		   
+		   
+		   
+		 if($frm["genero9"]=="on"){
+		   $frm["id_grupos_teatro"]=$frm["id_grupo"];
+		   $frm["id_generos_teatro"]="9";
+		   $genero=$db->sql_row("SELECT * FROM generos_grupo_teatro WHERE id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatro='9'");
+		   if($genero["id"]==""){
+		   	$db->sql_insert("generos_grupo_teatro",$frm);
+		   }
+		}else{
+			 $db->sql_query("delete from generos_grupo_teatro where id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatros='9'");  
+		   }; 
+		   
+		   
+		 if($frm["genero10"]=="on"){
+		   $frm["id_grupos_teatro"]=$frm["id_grupo"];
+		   $frm["id_generos_teatro"]="2";
+		   $genero=$db->sql_row("SELECT * FROM generos_grupo_teatro WHERE id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatro='2'");
+		   if($genero["id"]==""){
+		   	$db->sql_insert("generos_grupo_teatro",$frm);
+		   }
+		}else{
+			 $db->sql_query("delete from generos_grupo_teatro where id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatros='2'");  
+		   };    
+    }
+		   
+	if($frm["area"]=="danza"){
+
+      if($frm["genero1"]=="on"){
+		   $frm["id_grupos_danza"]=$frm["id_grupo"];
+		   $frm["id_generos_danza"]="12";
+		   $genero=$db->sql_row("SELECT * FROM generos_grupo_danza WHERE id_grupos_danza='".$frm["id_grupo"]."' AND id_generos_danza='12'");
+		   if($genero["id"]==""){
+		   	$db->sql_insert("generos_grupo_danza",$frm);
+		   }
+		}else{
+			 $db->sql_query("delete from generos_grupo_danza where id_grupos_danza='".$frm["id_grupo"]."' AND id_generos_danza='12'");  
+		   };
+		   
+		   
+	 if($frm["genero2"]=="on"){
+		   $frm["id_grupos_danza"]=$frm["id_grupo"];
+		   $frm["id_generos_danza"]="10";
+		   $genero=$db->sql_row("SELECT * FROM generos_grupo_danza WHERE id_grupos_danza='".$frm["id_grupo"]."' AND id_generos_danza='10'");
+		   if($genero["id"]==""){
+		   	$db->sql_insert("generos_grupo_danza",$frm);
+		   }
+		}else{
+			 $db->sql_query("delete from generos_grupo_danza where id_grupos_danza='".$frm["id_grupo"]."' AND id_generos_danza='10'");  
+		   };
+		   
+		   
+	 if($frm["genero3"]=="on"){
+		   $frm["id_grupos_danza"]=$frm["id_grupo"];
+		   $frm["id_generos_danza"]="2";
+		   $genero=$db->sql_row("SELECT * FROM generos_grupo_danza WHERE id_grupos_danza='".$frm["id_grupo"]."' AND id_generos_danza='2'");
+		   if($genero["id"]==""){
+		   	$db->sql_insert("generos_grupo_danza",$frm);
+		   }
+		}else{
+			 $db->sql_query("delete from generos_grupo_danza where id_grupos_danza='".$frm["id_grupo"]."' AND id_generos_danza='2'");  
 		   };
 		   
 		   
 		   
-		if($frm["genero9"]=="on"){
-		   $frm["id_grupos_musica"]=$frm["id_grupo"];
-		   $frm["id_generos_musica"]="38";
-		   $genero=$db->sql_row("SELECT * FROM generos_grupo_musica WHERE id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='38'");
+	 if($frm["genero4"]=="on"){
+		   $frm["id_grupos_danza"]=$frm["id_grupo"];
+		   $frm["id_generos_danza"]="6";
+		   $genero=$db->sql_row("SELECT * FROM generos_grupo_danza WHERE id_grupos_danza='".$frm["id_grupo"]."' AND id_generos_danza='6'");
 		   if($genero["id"]==""){
-		   	$db->sql_insert("generos_grupo_musica",$frm);
+		   	$db->sql_insert("generos_grupo_danza",$frm);
 		   }
 		}else{
-			 $db->sql_query("delete from generos_grupo_musica where id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='38'");  
+			 $db->sql_query("delete from generos_grupo_danza where id_grupos_danza='".$frm["id_grupo"]."' AND id_generos_danza='6'");  
 		   };
 		   
 		   
 		   
-		if($frm["genero10"]=="on"){
-		   $frm["id_grupos_musica"]=$frm["id_grupo"];
-		   $frm["id_generos_musica"]="46";
-		   $genero=$db->sql_row("SELECT * FROM generos_grupo_musica WHERE id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='46'");
+	 if($frm["genero5"]=="on"){
+		   $frm["id_grupos_danza"]=$frm["id_grupo"];
+		   $frm["id_generos_danza"]="11";
+		   $genero=$db->sql_row("SELECT * FROM generos_grupo_danza WHERE id_grupos_danza='".$frm["id_grupo"]."' AND id_generos_danza='11'");
 		   if($genero["id"]==""){
-		   	$db->sql_insert("generos_grupo_musica",$frm);
+		   	$db->sql_insert("generos_grupo_danza",$frm);
 		   }
 		}else{
-			 $db->sql_query("delete from generos_grupo_musica where id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='46'");  
+			 $db->sql_query("delete from generos_grupo_danza where id_grupos_danza='".$frm["id_grupo"]."' AND id_generos_danza='11'");  
 		   };
 		   
 		   
-		if($frm["genero11"]=="on"){
-		   $frm["id_grupos_musica"]=$frm["id_grupo"];
-		   $frm["id_generos_musica"]="44";
-		   $genero=$db->sql_row("SELECT * FROM generos_grupo_musica WHERE id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='44'");
+		   
+	 if($frm["genero6"]=="on"){
+		   $frm["id_grupos_danza"]=$frm["id_grupo"];
+		   $frm["id_generos_danza"]="9";
+		   $genero=$db->sql_row("SELECT * FROM generos_grupo_danza WHERE id_grupos_danza='".$frm["id_grupo"]."' AND id_generos_danza='9'");
 		   if($genero["id"]==""){
-		   	$db->sql_insert("generos_grupo_musica",$frm);
+		   	$db->sql_insert("generos_grupo_danza",$frm);
 		   }
 		}else{
-			 $db->sql_query("delete from generos_grupo_musica where id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='44'");  
+			 $db->sql_query("delete from generos_grupo_danza where id_grupos_danza='".$frm["id_grupo"]."' AND id_generos_danza='9'");  
 		   };
 		   
 		   
-		if($frm["genero12"]=="on"){
-		   $frm["id_grupos_musica"]=$frm["id_grupo"];
-		   $frm["id_generos_musica"]="41";
-		   $genero=$db->sql_row("SELECT * FROM generos_grupo_musica WHERE id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='41'");
+		   
+	 if($frm["genero7"]=="on"){
+		   $frm["id_grupos_danza"]=$frm["id_grupo"];
+		   $frm["id_generos_danza"]="8";
+		   $genero=$db->sql_row("SELECT * FROM generos_grupo_danza WHERE id_grupos_danza='".$frm["id_grupo"]."' AND id_generos_danza='8'");
 		   if($genero["id"]==""){
-		   	$db->sql_insert("generos_grupo_musica",$frm);
+		   	$db->sql_insert("generos_grupo_danza",$frm);
 		   }
 		}else{
-			 $db->sql_query("delete from generos_grupo_musica where id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='41'");  
-		   };
+			 $db->sql_query("delete from generos_grupo_danza where id_grupos_danza='".$frm["id_grupo"]."' AND id_generos_danza='8'");  
+		   };	   	   	   	   	   	   
 		   
 		   
-		if($frm["genero13"]=="on"){
-		   $frm["id_grupos_musica"]=$frm["id_grupo"];
-		   $frm["id_generos_musica"]="7";
-		   $genero=$db->sql_row("SELECT * FROM generos_grupo_musica WHERE id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='7'");
-		   if($genero["id"]==""){
-		   	$db->sql_insert("generos_grupo_musica",$frm);
-		   }
-		}else{
-			 $db->sql_query("delete from generos_grupo_musica where id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='7'");  
-		   };
 		   
+ }
 		   
-		if($frm["genero14"]=="on"){
-		   $frm["id_grupos_musica"]=$frm["id_grupo"];
-		   $frm["id_generos_musica"]="37";
-		   $genero=$db->sql_row("SELECT * FROM generos_grupo_musica WHERE id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='37'");
-		   if($genero["id"]==""){
-		   	$db->sql_insert("generos_grupo_musica",$frm);
-		   }
-		}else{
-			 $db->sql_query("delete from generos_grupo_musica where id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='37'");  
-		   };
-		   
-		   
-	if($frm["genero15"]=="on"){
-		   $frm["id_grupos_musica"]=$frm["id_grupo"];
-		   $frm["id_generos_musica"]="4";
-		   $genero=$db->sql_row("SELECT * FROM generos_grupo_musica WHERE id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='4'");
-		   if($genero["id"]==""){
-		   	$db->sql_insert("generos_grupo_musica",$frm);
-		   }
-		}else{
-			 $db->sql_query("delete from generos_grupo_musica where id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='4'");  
-		   };
-		   
-		   
-	 if($frm["genero16"]=="on"){
-		   $frm["id_grupos_musica"]=$frm["id_grupo"];
-		   $frm["id_generos_musica"]="43";
-		   $genero=$db->sql_row("SELECT * FROM generos_grupo_musica WHERE id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='43'");
-		   if($genero["id"]==""){
-		   	$db->sql_insert("generos_grupo_musica",$frm);
-		   }
-		}else{
-			 $db->sql_query("delete from generos_grupo_musica where id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='43'");  
-		   };
-		   
-	  if($frm["genero17"]=="on"){
-		   $frm["id_grupos_musica"]=$frm["id_grupo"];
-		   $frm["id_generos_musica"]="13";
-		   $genero=$db->sql_row("SELECT * FROM generos_grupo_musica WHERE id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='13'");
-		   if($genero["id"]==""){
-		   	$db->sql_insert("generos_grupo_musica",$frm);
-		   }
-		}else{
-			 $db->sql_query("delete from generos_grupo_musica where id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='13'");  
-		   };
-		   
-		   
-		if($frm["genero18"]=="on"){
-		   $frm["id_grupos_musica"]=$frm["id_grupo"];
-		   $frm["id_generos_musica"]="39";
-		   $genero=$db->sql_row("SELECT * FROM generos_grupo_musica WHERE id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='39'");
-		   if($genero["id"]==""){
-		   	$db->sql_insert("generos_grupo_musica",$frm);
-		   }
-		}else{
-			 $db->sql_query("delete from generos_grupo_musica where id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='39'");  
-		   };
-		   
-		   
-		if($frm["genero19"]=="on"){
-		   $frm["id_grupos_musica"]=$frm["id_grupo"];
-		   $frm["id_generos_musica"]="40";
-		   $genero=$db->sql_row("SELECT * FROM generos_grupo_musica WHERE id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='40'");
-		   if($genero["id"]==""){
-		   	$db->sql_insert("generos_grupo_musica",$frm);
-		   }
-		}else{
-			 $db->sql_query("delete from generos_grupo_musica where id_grupos_musica='".$frm["id_grupo"]."' AND id_generos_musica='40'");  
-		   };
-		   
-		   
-		   	                                         
-		   
-		   
-	   
-	
+		 
 		$frm["id"]=$frm["id_grupo"];
 		$db->sql_update("grupos_" . $frm["area"], $frm);
 	}
-	include("CCB/paso_1Cierre2.php");
-	//include("CCB/paso_2.php");
-}
-
-function procesar_paso_1($frm){
-	GLOBAL $CFG, $ME, $db;
-	$seccion="inscripciones";
-
-	if($usuario=$db->sql_row("SELECT * FROM usuarios WHERE login='$frm[login]'")){
-		$frm["error"]="El usuario ya existe.";
-		paso_1($frm);
-	}else{
-		if($usuario=$db->sql_row("SELECT * FROM usuarios WHERE email='$frm[email]'")){
-			$frm["error"]="El usuario ya existe.";
-			paso_1($frm);
-		}else{
-			$pss=$frm["password"];
-			$frm["id_nivel"]=8;
-			$frm["password"]=md5($frm["password"]);
-			$frm["id_usuario"]=$db->sql_insert("usuarios",$frm);
-			$frm["area"]="musica";
-			$frm["email"]=$_POST["email"];
-			$frm["terminos"]=1;//acepto los terminos y condiciones
-			$frm["ingresado_por"]="0";//En proceso
-			if(isset($_GET['a'])) {	
-				if($_GET['a']==0){
-					$frm["convenio"]="Circulart2013";
-					$frm["id_grupo"]=$db->sql_insert("grupos_" . $frm["area"], $frm);
-				}else{
-					$frm["convenio"]="Centroamerica";
-					$frm["id_grupo"]=$db->sql_insert("grupos_" . $frm["area"], $frm);
-					}
-			}
-			$db->sql_query("INSERT INTO usuarios_grupos_" . $frm["area"] . " (id_usuario,id_grupo_" . $frm["area"] . ") VALUES('$frm[id_usuario]','$frm[id_grupo]')");
-			
-			if(isset($_GET['a'])) {	
-				if($_GET['a']==0){
-					$db->sql_query("UPDATE usuarios SET nombre='".$frm["nombre"]."', apellido='Circulart2013' WHERE id='$frm[id_usuario]'");
-				}else if($_GET['a']==1){
-						$db->sql_query("UPDATE usuarios SET nombre='".$frm["nombre"]."', apellido='Centroamerica' WHERE id='$frm[id_usuario]'");
-						
-						}
-  			}
-			
-			
-			
-		
-					
-			require("../class.phpmailer.php");
-			$mailer = new PHPMailer();
-			$mailer->IsSMTP();
-			$mailer->Host = 'ssl://smtp.gmail.com:465';
-			$mailer->SMTPAuth = TRUE;
-			$mailer->Username = 'cesarvalencia@circulart.org';  // Change this to your gmail adress
-			$mailer->Password = 'v4l3nc14!"#';  // Change this to your gmail password
-			$mailer->From = $_POST['email'];  // This HAVE TO be your gmail adress
-			$mailer->FromName = 'Artista Circulart2013'; // This is the from name in the email, you can put anything you like here
-			
-			
-			$dest = 'info@circulart.org'; //remplazar por el de info@bogotamusicmarlet.com
-			$body.= "El Grupo o Artista ".$frm["nombre"]." ha creado una cuenta para participar en el mercado del Circulart2013\n\n";	
-			$body.= "Nombre:    ".$frm["nombre"]."\n";
-			$body.= "Usuario:    ".$frm["login"]."\n";	
-			$body.= "Clave:    ".$pss."\n\n";
-			
-			$body.="Atentamente,\n\n";
-			$body.="Circulart2013\n";
-			$body.="info@circulart.org\n";
-			$body.="http://2013.circulart.org/\n";
-			$body.="\n";
-
-			$mailer->Body = $body;
-			$mailer->Subject = 'Notificación de Cuenta Nueva Circulart2013';
-			$mailer->AddAddress($dest);  // This is where you put the email adress of the person you want to mail
-			if(!$mailer->Send())
-			{
-			  /* echo "Message was not sent<br/ >";
-			   echo "Mailer Error: " . $mailer->ErrorInfo;*/
-			}else{
-				
-				}
-				
-			$mailer2 = new PHPMailer();
-			$mailer2->IsSMTP();
-			$mailer2->Host = 'ssl://smtp.gmail.com:465';
-			$mailer2->SMTPAuth = TRUE;
-			$mailer2->Username = 'cesarvalencia@circulart.org';  // Change this to your gmail adress
-			$mailer2->Password = 'v4l3nc14!"#';  // Change this to your gmail password
-			$mailer2->From = $_POST['email'];  // This HAVE TO be your gmail adress
-			$mailer2->FromName = 'Circulart2013'; // This is the from name in the email, you can put anything you like here	
-			$mailer2->From = 'info@circulart.org'; 	 //remplazar por el de info@bogotamusicmarlet.com
-			$dest2 = $frm["email"];
-			$body2.= "Estimado(s) ".$frm["nombre"]." ha creado una cuenta para participar en el mercado de Circulart2013\n\n";	
-			$body2.= "Nombre:    ".$frm["nombre"]."\n";
-			$body2.= "Usuario:    ".$frm["login"]."\n";	
-			$body2.= "Clave:    ".$pss."\n\n";
-			
-			$body2.="Cordialmente:\n";
-			$body2.="Circulart2013\n";
-			$body2.="info@circulart.org\n";
-			$body2.="http://2013.circulart.org/\n";
-			$body2.="\n";
-
-			$mailer2->Body = $body2;
-			$mailer2->Subject = 'Notificación de Cuenta Nueva Circulart2013';
-			$mailer2->AddAddress($dest2);  // This is where you put the email adress of the person you want to mail
-			if(!$mailer2->Send())
-			{
-			  /* echo "Message was not sent<br/ >";
-			   echo "Mailer Error: " . $mailer->ErrorInfo;*/
-			}else{
-				
-				}	
 	
-				
-				include("CCB/paso_1Cierre2.php");
-			//include("CCB/paso_2.php");
-			}
-	}
+	//include("CCB/paso_1Cierre2.php");
+	include("CCB/paso_3.php");
 }
+
 
 
 function muestra_paso_4($frm){
@@ -620,49 +466,27 @@ function muestra_paso_4($frm){
 
 function muestra_paso_3($frm){
 	GLOBAL $CFG, $ME, $db;
-	$area="musica";	
-	$id_usurio=$_SESSION[$CFG->sesion_grnic]["user"]["id"];
-		$seccion="inscripciones";
-		$frm=$db->sql_row("
-			SELECT *
-			FROM grupos_$area
-			WHERE id=(SELECT id_grupo_$area FROM usuarios_grupos_$area WHERE id_usuario = '$id_usurio' LIMIT 1)
-		");
-		$frm["id_usuario"]=$id_usurio;
-		$frm["id_grupo"]=$frm["id"];
+	$seccion="inscripciones";
+		$area=$frm["area"];	
+        $frm["id_usuario"]=$_GET["id_usuario"];
+		$frm["id_grupo"]=$_GET["id_grupo"];
 		$frm["login"]=$user["login"];
 		$frm["area"]=$area;
-		include("CCB/paso_1Cierre2.php");
-		//include("CCB/paso_3.php");
+		include("CCB/paso_3.php");
 	}
 	
 	
-function eliminar_archivo($frm){
-	GLOBAL $CFG, $ME, $db;
-	    $frm["id_usuario"]=$_GET["id_usuario"];
-		$frm["id_grupo"]=$_GET["id_grupo"];
-		$frm["area"]=$_GET["area"];
-		$seccion=$_GET["modo"];
-		
-	$obra["id"]=$_GET["item"];
-	$db->sql_query("delete from archivos_grupos_musica where id='". $obra["id"]."'");
-	include("CCB/paso_1Cierre2.php");
-	//include("CCB/paso_4.php");
 	
-	}		
 	
 function eliminar_obra($frm){
 	GLOBAL $CFG, $ME, $db;
-	    $frm["id_usuario"]=$_GET["id_usuario"];
-		$frm["id_grupo"]=$_GET["id_grupo"];
-		$frm["area"]=$_GET["area"];
-		$seccion=$_GET["modo"];
-		
+	$frm["id_usuario"]=$_GET["id_usuario"];
+	$frm["id_grupo"]=$_GET["id_grupo"];
+	$frm["area"]=$_GET["area"];
+	$seccion="inscripciones";
 	$obra["id"]=$_GET["item"];
-	$db->sql_query("delete from obras_musica where id='". $obra["id"]."'");
-	include("CCB/paso_1Cierre2.php");
-	//include("CCB/paso_3.php");
-	
+	$db->sql_query("delete from obras_".$frm["area"]." where id='". $obra["id"]."'");
+	include("CCB/paso_3.php");
 	}	
 	
 function vertodo($frm){
@@ -679,7 +503,7 @@ function vertodo($frm){
 		$frm["id_grupo"]=$frm["id"];
 		$frm["login"]=$user["login"];
 		$frm["area"]=$area;
-		include("CCB/paso_1Cierre2.php");
+		//include("CCB/paso_1Cierre2.php");
 		//include("CCB/verpaso_2.php");
 		//include("CCB/verpaso_3.php");
 		//include("CCB/verpaso_4.php");	
@@ -687,7 +511,7 @@ function vertodo($frm){
 
 function muestra_paso_2($frm){
 	GLOBAL $CFG, $ME, $db;
-	$area="musica";	
+	$area=$frm["area"];	
 	$id_usurio=$_GET["id_usuario"];
 	$_SESSION[$CFG->sesion_grnic]["user"]["id"];
 	if($id_usurio!=""){
@@ -695,14 +519,14 @@ function muestra_paso_2($frm){
 		$frm=$db->sql_row("
 			SELECT *
 			FROM grupos_$area
-			WHERE id=(SELECT id_grupo_musica FROM usuarios_grupos_musica WHERE id_usuario = '$id_usurio' LIMIT 1)
+			WHERE id=(SELECT id_grupo_$area FROM usuarios_grupos_$area WHERE id_usuario = '$id_usurio' LIMIT 1)
 		");
 		$frm["id_usuario"]=$id_usurio;
 		$frm["id_grupo"]=$frm["id"];
 		$frm["login"]=$user["login"];
 		$frm["area"]=$area;
-		include("CCB/paso_1Cierre2.php");
-		//include("CCB/paso_2.php");
+		
+		include("CCB/paso_2.php");
 	 }else{
 		 paso_1($frm);
 		 }

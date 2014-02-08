@@ -1,5 +1,63 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script>
+function refrescar(){
+		
+	}
+	
+function revisar(frm){
+	if(frm.nombre.value==0){
+		window.alert('Por favor ingrese el nombre');
+		return(false);
+	}
+	
+	if(frm.resena_corta.value==0){
+		window.alert('Por favor ingrese la descripción o reseña');
+		return(false);
+	}
+	
+	if(frm.en_resena_corta.value==0){
+		window.alert('Por favor ingrese la descripción o reseña en inglés');
+		return(false);
+	}
+	
+   if(frm.ciudad.value==0){
+		window.alert('Por favor ingrese la ciudad');
+		return(false);
+	}
+	
+	if(frm.direccion.value==0){
+		window.alert('Por favor ingrese la dirección');
+		return(false);
+	}
+	
+	if(frm.telefono.value==0){
+		window.alert('Por favor ingrese el teléfono');
+		return(false);
+	}
+	
+	if(frm.contacto.value==0){
+		window.alert('Por favor ingrese el nombre de la persona a contactar');
+		return(false);
+	}
+	
+	if(frm.contacto_cc.value==0){
+		window.alert('Por favor ingrese el número de identificación');
+		return(false);
+	}
+	
+	if(frm.contacto_cargo.value==0){
+		window.alert('Por favor ingrese el cargo de la persona a contactar');
+		return(false);
+	}
+	
+	if(frm.website.value==0){
+		window.alert('Por favor ingrese el website');
+		return(false);
+	}
+	
+	return(true);
+}	
+
 $(document).ready(function() {
 					 $.fn.extend( {
 						limiter: function(limit, elem) {
@@ -44,8 +102,11 @@ $(document).ready(function() {
 <style>
 input[type="checkbox"] {
 	width:30px;}
+footer{
+	margin-top:10px;
+}	
 </style>
-		<form name="entryform" action="index.php?mercado=<?=$CFG->mercado?>&a=<?php echo$_GET["a"];?>" method="POST" enctype="multipart/form-data" id="entryform">
+		<form name="entryform" action="index.php" method="POST" enctype="multipart/form-data" id="entryform" onSubmit="return revisar(this)">
 		  <input type="hidden" name="modo" value="<?=$seccion?>" />
           <input type="hidden" name="mode" value="paso_3">
 		  <input type="hidden" name="id_grupo" value="<?=nvl($frm["id_grupo"])?>">
@@ -65,7 +126,7 @@ input[type="checkbox"] {
           <tr>
             <td width="310" rowspan="7" align="left" valign="top" ><table width="96%" border="0" cellspacing="0" cellpadding="0" id="imagenGrupo">
               <tr>
-                <td align="center" valign="middle" style="height:400px;"><iframe scrolling="no" width="100%" height="400px" frameborder="0" src="../m/codigos/artista_imagen.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>"></iframe></td>
+                <td align="center" valign="middle" style="height:400px;"><iframe scrolling="no" width="100%" height="400px" frameborder="0" src="http://reglat.org/via/m/codigos/artista_imagen.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>"></iframe></td>
               </tr>
             </table></td>
             <td width="235" align="left" valign="top" class="colorTexto">(*) Nombre del grupo o del artista:</td>
@@ -77,7 +138,7 @@ input[type="checkbox"] {
           </tr>
           <tr>
             <td align="left" valign="top" class="colorTexto"><p>(*) Descripci&oacute;n o rese&ntilde;a:<br />
-              (700 car&aacute;cteres)
+              (1024 car&aacute;cteres)
             </p></td>
             <td colspan="2" align="right" valign="top" ><table class="resena" width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
@@ -89,7 +150,7 @@ input[type="checkbox"] {
           </tr>
           <tr>
             <td align="left" valign="top" class="colorTexto">(*) Descripci&oacute;n o rese&ntilde;a en ingles:<br />
-(700 caracteres)</td>
+(1024 caracteres)</td>
             <td colspan="2" align="center" valign="top"><table  class="resena2" width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
                   <td align="center"><textarea name="en_resena_corta" id="en_resena_corta" cols="45" rows="15"><?=nvl($frm["en_resena_corta"])?></textarea></td>
@@ -275,7 +336,7 @@ input[type="checkbox"] {
           <tr>
             <td height="88" align="left" valign="top">&nbsp;</td>
             <td align="left" valign="top" class="colorTexto" >(*) Trayectoria en pdf:</td>
-            <td colspan="2"  valign="top" align="center"><iframe width="355px" height="170px" src="../m/codigos/artistas_trayectoria.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>" scrolling="no" frameborder="0"></iframe></td>
+            <td colspan="2"  valign="top" align="center"><iframe width="355px" height="170px" src="http://reglat.org/via/m/codigos/artistas_trayectoria.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>" scrolling="no" frameborder="0"></iframe></td>
           </tr>
           <tr>
             <td align="left" valign="top">&nbsp;</td>
@@ -289,12 +350,15 @@ input[type="checkbox"] {
           <tr>
             <td align="left" valign="top">&nbsp;</td>
             <td align="left" valign="top" class="colorTexto ">Facebook:</td>
-            <td colspan="2" align="center" valign="top"><input name="facebook" id="facebook" size="58" value="<?=nvl($frm["facebook"])?>" /></td>
+            <td colspan="2" align="center" valign="top"><strong>http://www.facebook.com/xxxx/xxx/xxx</strong><br />              
+            <input name="facebook" id="facebook" size="58" value="<? if($frm["facebook"]==''){echo "http://www.facebook.com/";}else{echo $frm["facebook"];}?>" />            
+            </td>
           </tr>
           <tr>
             <td align="left" valign="top">&nbsp;</td>
             <td align="left" valign="top" class="colorTexto ">Twitter:</td>
-            <td colspan="2" align="center" valign="top"><input name="twitter" id="twitter" size="58" value="<?=nvl($frm["twitter"])?>" /></td>
+            <td colspan="2" align="center" valign="top"><strong>@twitter</strong><br />
+			<input name="twitter" id="twitter" size="58" value="<? if($frm["twitter"]==''){echo "@";}else{echo $frm["twitter"];}?>" /></td>
           </tr>
           <tr>
             <td align="left" valign="top"></td>
@@ -320,8 +384,8 @@ input[type="checkbox"] {
             <td colspan="3" align="left" valign="top" class="colorTexto personas"><hr />
             Indique el nombre y documento de las dos personas que lo(s) representar&aacute;(n) en la Rueda de Negocios.<br />
             <br />
-            <div style="width:100%; height:300px">
-            <iframe width="100%" height="300px" frameborder="0" scrolling="no" src="../m/codigos/vinculados.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>&paso=1"></iframe>
+            <div style="width:100%; height:140px">
+            <iframe width="100%" height="140px" frameborder="0" scrolling="no" src="http://reglat.org/via/m/codigos/vinculados.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>&paso=1"></iframe>
             </div></td>
           </tr>
           
@@ -336,7 +400,7 @@ input[type="checkbox"] {
             <td align="left" valign="top">&nbsp;</td>
             <td width="124" align="left" valign="top"><br />
             </td>
-            <td width="291" align="left" valign="top"><input type="submit" id="submit_button" value="Guardar Datos" style="background-color:#F17126; color:#fff; font-weight:bold; border-color:#F17126;"/></td>
+            <td width="291" align="right" valign="top"><input type="submit" id="submit_button" value="Guardar Datos y continuar" style="background-color:#F17126; color:#fff; width:250px; font-weight:bold; border-color:#F17126; cursor:pointer"/></td>
           </tr>
         </table>
 		</form>

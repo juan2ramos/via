@@ -2,24 +2,36 @@
 include("../application.php");
 GLOBAL $CFG, $ME, $db;
 ?>
-<link href="../css/estilos.css" rel="stylesheet" type="text/css">
+<link href="../css/style.css" rel="stylesheet" type="text/css">
 <style>
 body{
-	background-color:#E7D8B1;
-	color:#3D1211;}
-table{
-	font-size:13px;}
-		#carga{
+	margin:0;
+	background:#fff;
+	text-align:center;
+		background-color:#383838
+	}
+	#carga{
 		display:none;}
+	a{
+		color:#FFF;
+		text-decoration:underline;}	
+	#ufile{
+		background-color:#FFF;}	
+	input, textarea{
+		width:300px;}	
+	table{
+		font-size:14px;
+		}	
 </style>
 <body>
 <?php
 
 $obra_id=$_GET["item"];
+$area=$_GET["area"];
  $caratula=$_FILES['caratula'];
  $caratula["name"];
 if($_POST["obra"]!=""&&$_POST["etiqueta"]!=""&&$caratula["name"]!=""){
- $ordenMax=$db->sql_row("SELECT MAX(orden) FROM archivos_obras_musica where id_obras_musica='".$_POST["obra"]."'");
+ $ordenMax=$db->sql_row("SELECT MAX(orden) FROM archivos_obras_".$_POST["area"]." where id_obras_".$_POST["area"]."='".$_POST["obra"]."'");
  $ordenMax["MAX(orden)"];
 
 
@@ -33,7 +45,7 @@ if($caratula["name"]!=""){
 		$str=file_get_contents($caratula["tmp_name"]);
 		$str=base64_encode($str);
 		$archivo["archivo"]=$str;
-		$archivo["id_obras_musica"]=$_POST["obra"];
+		$archivo["id_obras_".$_POST["area"]]=$_POST["obra"];
 	    $archivo["tipo"]=1;
 	    $archivo["etiqueta"]=$_POST["etiqueta"];
 	    $archivo["orden"]=($ordenMax["MAX(orden)"]+1);
@@ -50,7 +62,7 @@ if($caratula["name"]!=""){
 		if($archivo["mmdd_archivo_filetype"]=="image/png"||$archivo["mmdd_archivo_filetype"]=="image/jpeg"||$archivo["mmdd_archivo_filetype"]=="image/jpg"||$archivo["mmdd_archivo_filetype"]=="image/gif"){
 		
 			  $archivo["id"]=$db->sql_insert("archivos_obras_musica", $archivo);
-			   $path= "../../../tmp/".$archivo["id"]."_musica_a_".$caratula["name"];		
+			   $path= "/home/redlat/public_html/circulart/tmp/".$archivo["id"]."_".$_POST["area"]."_a_".$caratula["name"];		
 				 if(copy($caratula['tmp_name'], $path))
 				  { 
 				   
@@ -74,12 +86,13 @@ if($caratula["name"]!=""){
 ?>
 <form action="cargaImagen.php?item=<?php echo $_GET["item"];?>" method="post" enctype="multipart/form-data" name="form1" id="form1">
 <input type="hidden" value="<?php echo $_GET["item"];?>" name="obra" id="obra"/>
+<input type="hidden" value="<?php echo $_GET["item"];?>" name="area" id="area"/>
 <table width="100%" border="0" cellspacing="0" cellpadding="5">
   <tr>
-    <td colspan="2" class="colorTexto"><strong>Recuerde que las imagenes deben ser inferiores de 5 Megas de peso, sus dimensiones  [600X400] y el formato [jpg, gif o png].</strong></td>
+    <td colspan="2" ><strong>Recuerde que las imagenes deben ser inferiores de 5 Megas de peso, sus dimensiones  [600X400] y el formato [jpg, gif o png].</strong></td>
     </tr>
   <tr>
-    <td width="32%" class="colorTexto"><strong>Etiqueta:</strong></td>
+    <td width="32%" ><strong>Etiqueta:</strong></td>
     <td width="68%"><input name="etiqueta" type="text" id="etiqueta" size="65" /></td>
   </tr>
   <tr>
@@ -96,21 +109,22 @@ if($caratula["name"]!=""){
 </form>
 
 <?php 
-$obras = $db->sql_query("SELECT * FROM archivos_obras_musica WHERE id_obras_musica ='".$_GET["item"]."' AND tipo='1'");
+$area=$_GET["area"];
+$obras = $db->sql_query("SELECT * FROM archivos_obras_".$area." WHERE id_obras_".$area."='".$_GET["item"]."' AND tipo='1'");
 	while($datos_obras=$db->sql_fetchrow($obras)){
-		if($datos_obras["orden"]!='0'){
+		
 ?>
 <hr />
-<table width="100%" border="0" cellspacing="5" cellpadding="5">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td width="22%">
-    <img src="http://2013.circulart.org/m/phpThumb/phpThumb.php?src=/var/www/vhosts/redlat.org/circulart.org/tmp/<?=$datos_obras["id"]?>_musica_a_<?=$datos_obras["mmdd_archivo_filename"]?>&amp;w=200" border="0"></td>
-    <td width="62%" valign="top"  class="colorTexto"><b><?php echo $datos_obras["etiqueta"]; ?></b></td>
-    <td width="16%"><a href="eliminarItemsImagen.php?item=<?php echo $datos_obras["id"]?>&item2=<?php echo $_GET["item"]?>" class="link">Eliminar</a></td>
+    <td><span class="colorTexto"><b><?php echo $datos_obras["etiqueta"]; ?></b></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="eliminarItemsImagen.php?item=<?php echo $datos_obras["id"]?>&item2=<?php echo $_GET["item"]?>" class="link">Eliminar</a></td>
+  </tr>
+  <tr>
+    <td><img src="http://redlat.org/circulart/phpThumb/phpThumb.php?src=/home/redlat/www/circulart/tmp/<?=$datos_obras["id"]?>_<?=$area?>_a_<?=$datos_obras["mmdd_archivo_filename"]?>&amp;w=200" border="0"></td>
   </tr>
 </table>
 <?php
-}}
+}
 ?>
 </body>
 </html>
