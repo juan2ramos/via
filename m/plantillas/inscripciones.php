@@ -74,7 +74,7 @@ function confirmar_inscripcion($frm){
 			$body="El Grupo o Artista ".$result["nombre"]." ha finalizado el proceso de actualización de la inscripción al mercado VIA2014\n\n";	
 			$body.="\n\n";
 			$body.="Milena García\n";
-			$body.="<em>Coordinación de Artistas Rueda de Negocios</em> \n";
+			$body.="Coordinación de Artistas Rueda de Negocios \n";
 			$body.="VIA 2014 - Ventana Internacional de las Artes\n";
 			$body.="FESTIVAL IBEROAMERICANO DE TEATRO\n";
 			$body.="www.festivaldeteatro.com.co\n";
@@ -102,7 +102,7 @@ function confirmar_inscripcion($frm){
 			$body2= "Estimado(s) ".$result["nombre"]." ha finalizado el proceso de actualización de la inscripción al mercado VIA2014\n\n";	
 			$body2.="\n\n";
 			$body2.="Milena García\n";
-			$body2.="<em>Coordinación de Artistas Rueda de Negocios</em> \n";
+			$body2.="Coordinación de Artistas Rueda de Negocios\n";
 			$body2.="VIA 2014 - Ventana Internacional de las Artes\n";
 			$body2.="FESTIVAL IBEROAMERICANO DE TEATRO\n";
 			$body2.="www.festivaldeteatro.com.co\n";
