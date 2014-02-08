@@ -31,7 +31,7 @@ function actualizar(num){
 		$("#submit_button").css("display","none");
 		$("#regresar").css("display","none");
 		
-		url="http://reglat.org/via/m/codigos/obras.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>&paso=1&id_obra="+num;
+		url="http://redlat.org/via/m/codigos/obras.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>&paso=1&id_obra="+num;
 		$("#iframe").attr("src",url);
 	}
 function eliminarObra(num){
@@ -47,7 +47,7 @@ $(document).ready(function() {
 		$("#submit_button").css("display","none");
 		$("#regresar").css("display","none");
 		
-		url="http://reglat.org/via/m/codigos/obras.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>&paso=1&id_obra=0";
+		url="http://redlat.org/via/m/codigos/obras.php?item=<?=$frm["id_grupo"]?>&area=<?=$frm["area"]?>&paso=1&id_obra=0";
 		$("#iframe").attr("src",url);
 		
 		})
@@ -76,7 +76,7 @@ $(document).ready(function() {
   <tr>
     <td colspan="3">
     <div id="acciones" style="width:100%; height:600px;">
-    <iframe name="ifrAcc" id="iframe" frameborder="0" scrolling="no" width="100%" height="1900px" src="http://reglat.org/via/m/codigos/blanco.php"></iframe>
+    <iframe name="ifrAcc" id="iframe" frameborder="0" scrolling="no" width="100%" height="1900px" src="http://redlat.org/via/m/codigos/blanco.php"></iframe>
     </div>
     <div id="registros">
 	<table width="93%" border="0" cellspacing="0" cellpadding="0">
@@ -99,7 +99,7 @@ $(document).ready(function() {
 		$datos_obras["obra"];
 		$datos_obras["anio"];
 		$datos_obras["id_generos_".$frm["area"]];
-		$datos_obras["resema"];
+		$datos_obras["resena"];
 		$datos_obras["en_resena"];
 		?>
         <tr style="">
@@ -108,7 +108,7 @@ $(document).ready(function() {
 </td>
             <td valign="top" style="border-left-width: 1px;
 	border-left-style:dashed;	border-left-color: #999; ">
-    <?php if($resultado_3[0]>0 && $datos_obras["obra"]!=''&& $datos_obras["anio"]!=''&& $datos_obras["id_generos_".$frm["area"]]!=''&& $datos_obras["resema"]!='' && $datos_obras["en_resena"]!=''){?>
+    <?php if($resultado_3[0]>0 && $datos_obras["obra"]!=''&& $datos_obras["anio"]!=''&& $datos_obras["id_generos_".$frm["area"]]!=''&& $datos_obras["resena"]!='' && $datos_obras["en_resena"]!=''){?>
     <div style="margin-left:20px; text-transform:uppercase; text-align:center; background-color:#030">completo</div>
     <?php }else{?>
 	<div style="margin-left:20px; text-transform:uppercase; text-align:center; background-color:#F00">incompleto</div>
