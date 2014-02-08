@@ -59,7 +59,7 @@ if($caratula["name"]!=""){
 		if($archivo["mmdd_archivo_filetype"]=="image/png"||$archivo["mmdd_archivo_filetype"]=="image/jpeg"||$archivo["mmdd_archivo_filetype"]=="image/jpg"||$archivo["mmdd_archivo_filetype"]=="image/gif"){
 		
 			  $archivo["id"]=$db->sql_insert("archivos_obras_".$_POST["area"], $archivo);
-			   $path= "../../../tmp/".$archivo["id"]."_".$_POST["area"]."_a_".$caratula["name"];		
+			   $path= "home/redlat/www/circulart/tmp/".$archivo["id"]."_".$_POST["area"]."_a_".$caratula["name"];		
 				 if(copy($caratula['tmp_name'], $path))
 				  { 
 				   
