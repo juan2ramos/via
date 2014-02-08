@@ -28,14 +28,13 @@ body{
 
 $obra_id=$_GET["item"];
 $area=$_GET["area"];
- $caratula=$_FILES['caratula'];
- $caratula["name"];
-if($_POST["obra"]!=""&&$_POST["etiqueta"]!=""&&$caratula["name"]!=""){
+
+if(isset($_POST["obra"])&&isset($_POST["etiqueta"])){
+if($_POST["obra"]!=""&&$_POST["etiqueta"]!=""){
+
  $ordenMax=$db->sql_row("SELECT MAX(orden) FROM archivos_obras_".$_POST["area"]." where id_obras_".$_POST["area"]."='".$_POST["obra"]."'");
  $ordenMax["MAX(orden)"];
-
-
-
+ $caratula=$_FILES['caratula'];
 if($caratula["name"]!=""){
 	
 	if(preg_match("/php$/i",$caratula["name"])) die("Error:" . __FILE__ . ":" . __LINE__);{ //Anti jáquers
@@ -65,6 +64,8 @@ if($caratula["name"]!=""){
 			   $path= "/home/redlat/public_html/circulart/tmp/".$archivo["id"]."_".$_POST["area"]."_a_".$caratula["name"];		
 				 if(copy($caratula['tmp_name'], $path))
 				  { 
+				  
+				   $id_audio=$db->sql_insert("archivos_obras_".$area, $archivo);
 				   
 					?>
 <script>
@@ -82,7 +83,7 @@ if($caratula["name"]!=""){
 				  }
 		}} 
 	}
-}}
+}}}
 ?>
 <form action="cargaImagen.php?item=<?php echo $_GET["item"];?>" method="post" enctype="multipart/form-data" name="form1" id="form1">
 <input type="hidden" value="<?php echo $_GET["item"];?>" name="obra" id="obra"/>
@@ -102,7 +103,7 @@ if($caratula["name"]!=""){
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td><input type="submit" name="enviar" id="enviar" value="Enviar" /></td>
+    <td><input type="submit" name="enviar" id="Submit" value="Enviar" /></td>
   </tr>
 </table>
 
