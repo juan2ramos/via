@@ -51,7 +51,7 @@ if($caratula["name"]!=""){
 		$archivo["mmdd_archivo_filesize"]=$caratula["size"];
 	    
 		
-		$tamanos = getimagesize($val["tmp_name"]);
+		$tamanos = getimagesize($caratula["tmp_name"]);
 		
 		
         if($archivo["mmdd_archivo_filesize"]<8000000&&$tamanos[0]<103000&&$tamanos[1]<80000){
@@ -59,7 +59,7 @@ if($caratula["name"]!=""){
 		if($archivo["mmdd_archivo_filetype"]=="image/png"||$archivo["mmdd_archivo_filetype"]=="image/jpeg"||$archivo["mmdd_archivo_filetype"]=="image/jpg"||$archivo["mmdd_archivo_filetype"]=="image/gif"){
 		
 			  $archivo["id"]=$db->sql_insert("archivos_obras_".$_POST["area"], $archivo);
-			   $path= "home/redlat/www/circulart/tmp/".$archivo["id"]."_".$_POST["area"]."_a_".$caratula["name"];		
+			   $path= "home/redlat/public_hml/circulart/tmp/".$archivo["id"]."_".$_POST["area"]."_a_".$caratula["name"];		
 				 if(copy($caratula['tmp_name'], $path))
 				  { 
 				   
