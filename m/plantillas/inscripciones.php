@@ -467,11 +467,10 @@ function muestra_paso_4($frm){
 function muestra_paso_3($frm){
 	GLOBAL $CFG, $ME, $db;
 	$seccion="inscripciones";
-	$id_usurio=$_SESSION[$CFG->sesion_grnic]["user"]["id"];
+	
 		$area=$frm["area"];	
-        $frm["id_usuario"]=$id_usurio;
+        $frm["id_usuario"]=$_GET["$id_usurio"];
 		$frm["id_grupo"]=$_GET["id_grupo"];
-		$frm["login"]=$user["login"];
 		$frm["area"]=$area;
 		include("CCB/paso_3.php");
 	}

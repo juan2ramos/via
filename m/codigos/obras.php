@@ -26,9 +26,6 @@ table{
 </style>
 <script>
 function regreso(){
-	alert("ssss");
-	// window.parent.refrescar();
-	// window.frameElement.ownerDocument.parentWindow.refrescar();
 	 window.parent.location="http://redlat.org/via/m/index.php?modo=inscripciones&mode=paso_3muestra&id_usuario=<?=$_GET["id_usuario"]?>&area=<?=$_GET["area"]?>&id_grupo=<?=$_GET["item"]?>";
 	}
 	
