@@ -148,13 +148,20 @@ function acceso($frm){
 		");
 		
 		/**validacion si la cuenta esta relacionado con el cgurpo **/
-		$frm["id_usuario"]=$user["id"];
-		$frm["id_grupo"]=$frm["id"];
-		$frm["login"]=$user["login"];
-		$frm["area"]=$area;
-		$db->sql_query("UPDATE usuarios SET nombre='".$frm["nombre"]."', apellido='VIA2014' WHERE id='$frm[id_usuario]'");
-		$db->sql_query("UPDATE grupos_$area SET convenio='VIA2014' WHERE id='$frm[id_grupo]'");		
-		include("CCB/paso_2.php");
+		if($frm["id"]!=""){
+			$frm["id_usuario"]=$user["id"];
+			$frm["id_grupo"]=$frm["id"];
+			$frm["login"]=$user["login"];
+			$frm["area"]=$area;
+			$db->sql_query("UPDATE usuarios SET nombre='".$frm["nombre"]."', apellido='VIA2014' WHERE id='$frm[id_usuario]'");
+			$db->sql_query("UPDATE grupos_$area SET convenio='VIA2014' WHERE id='$frm[id_grupo]'");		
+			include("CCB/paso_2.php");
+		}else{
+			$frm["error2"] = "Login inválido, por favor intente de nuevo.";
+			$newMode="acceso";
+			include("CCB/paso_1.php");
+			}
+	
 	} else {
 		$frm["error2"] = "Login inválido, por favor intente de nuevo.";
 		$newMode="acceso";
@@ -225,7 +232,7 @@ function procesar_paso_2($frm){
 	if($frm["id_grupo"]!=""){//Ya existe...
 
     if($frm["area"]=="teatro"){
-
+      if(isset($frm["genero1"])){
        if($frm["genero1"]=="on"){
 		   $frm["id_grupos_teatro"]=$frm["id_grupo"];
 		   $frm["id_generos_teatro"]="5";
@@ -236,7 +243,9 @@ function procesar_paso_2($frm){
 		}else{
 			 $db->sql_query("delete from generos_grupo_teatro where id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatros='5'");  
 		   };
-		   
+	  }
+		  
+	if(isset($frm["genero2"])){	   
        if($frm["genero2"]=="on"){
 		   $frm["id_grupos_teatro"]=$frm["id_grupo"];
 		   $frm["id_generos_teatro"]="1";
@@ -247,7 +256,9 @@ function procesar_paso_2($frm){
 		}else{
 			 $db->sql_query("delete from generos_grupo_teatro where id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatros='1'");  
 		   };
-		   
+	}
+	
+	if(isset($frm["genero3"])){
 		if($frm["genero3"]=="on"){
 		   $frm["id_grupos_teatro"]=$frm["id_grupo"];
 		   $frm["id_generos_teatro"]="7";
@@ -258,8 +269,10 @@ function procesar_paso_2($frm){
 		}else{
 			 $db->sql_query("delete from generos_grupo_teatro where id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatros='7'");  
 		   };
-		   
-		   
+	}
+	
+	
+	if(isset($frm["genero4"])){	   
 	    if($frm["genero4"]=="on"){
 		   $frm["id_grupos_teatro"]=$frm["id_grupo"];
 		   $frm["id_generos_teatro"]="3";
@@ -270,8 +283,9 @@ function procesar_paso_2($frm){
 		}else{
 			 $db->sql_query("delete from generos_grupo_teatro where id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatros='3'");  
 		   };
-		   
-		   
+	}
+	
+	if(isset($frm["genero5"])){	   
 	    if($frm["genero5"]=="on"){
 		   $frm["id_grupos_teatro"]=$frm["id_grupo"];
 		   $frm["id_generos_teatro"]="8";
@@ -282,8 +296,9 @@ function procesar_paso_2($frm){
 		}else{
 			 $db->sql_query("delete from generos_grupo_teatro where id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatros='8'");  
 		   };
-		   
-		   
+	}
+	
+	if(isset($frm["genero6"])){		   
 		 if($frm["genero6"]=="on"){
 		   $frm["id_grupos_teatro"]=$frm["id_grupo"];
 		   $frm["id_generos_teatro"]="10";
@@ -294,8 +309,10 @@ function procesar_paso_2($frm){
 		}else{
 			 $db->sql_query("delete from generos_grupo_teatro where id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatros='10'");  
 		   };
-		   
-		   
+	}
+	
+	
+	if(isset($frm["genero7"])){	   
 	     if($frm["genero7"]=="on"){
 		   $frm["id_grupos_teatro"]=$frm["id_grupo"];
 		   $frm["id_generos_teatro"]="6";
@@ -306,8 +323,10 @@ function procesar_paso_2($frm){
 		}else{
 			 $db->sql_query("delete from generos_grupo_teatro where id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatros='6'");  
 		   };
-		   
-		   
+	}
+	
+	
+	if(isset($frm["genero8"])){	   
 		if($frm["genero8"]=="on"){
 		   $frm["id_grupos_teatro"]=$frm["id_grupo"];
 		   $frm["id_generos_teatro"]="11";
@@ -318,8 +337,10 @@ function procesar_paso_2($frm){
 		}else{
 			 $db->sql_query("delete from generos_grupo_teatro where id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatros='11'");  
 		   };   	      	   	      		   
-		   
-		   
+	}
+	
+	
+	if(isset($frm["genero9"])){	   
 		 if($frm["genero9"]=="on"){
 		   $frm["id_grupos_teatro"]=$frm["id_grupo"];
 		   $frm["id_generos_teatro"]="9";
@@ -330,8 +351,9 @@ function procesar_paso_2($frm){
 		}else{
 			 $db->sql_query("delete from generos_grupo_teatro where id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatros='9'");  
 		   }; 
-		   
-		   
+	}
+	
+	if(isset($frm["genero10"])){	   
 		 if($frm["genero10"]=="on"){
 		   $frm["id_grupos_teatro"]=$frm["id_grupo"];
 		   $frm["id_generos_teatro"]="2";
@@ -343,9 +365,12 @@ function procesar_paso_2($frm){
 			 $db->sql_query("delete from generos_grupo_teatro where id_grupos_teatro='".$frm["id_grupo"]."' AND id_generos_teatros='2'");  
 		   };    
     }
+	
+	}
 		   
 	if($frm["area"]=="danza"){
 
+if(isset($frm["genero1"])){
       if($frm["genero1"]=="on"){
 		   $frm["id_grupos_danza"]=$frm["id_grupo"];
 		   $frm["id_generos_danza"]="12";
@@ -356,8 +381,9 @@ function procesar_paso_2($frm){
 		}else{
 			 $db->sql_query("delete from generos_grupo_danza where id_grupos_danza='".$frm["id_grupo"]."' AND id_generos_danza='12'");  
 		   };
-		   
-		   
+}
+
+if(isset($frm["genero2"])){		   
 	 if($frm["genero2"]=="on"){
 		   $frm["id_grupos_danza"]=$frm["id_grupo"];
 		   $frm["id_generos_danza"]="10";
@@ -368,8 +394,8 @@ function procesar_paso_2($frm){
 		}else{
 			 $db->sql_query("delete from generos_grupo_danza where id_grupos_danza='".$frm["id_grupo"]."' AND id_generos_danza='10'");  
 		   };
-		   
-		   
+}
+		if(isset($frm["genero3"])){   
 	 if($frm["genero3"]=="on"){
 		   $frm["id_grupos_danza"]=$frm["id_grupo"];
 		   $frm["id_generos_danza"]="2";
@@ -379,10 +405,10 @@ function procesar_paso_2($frm){
 		   }
 		}else{
 			 $db->sql_query("delete from generos_grupo_danza where id_grupos_danza='".$frm["id_grupo"]."' AND id_generos_danza='2'");  
-		   };
+		   };}
 		   
 		   
-		   
+	if(isset($frm["genero4"])){	   
 	 if($frm["genero4"]=="on"){
 		   $frm["id_grupos_danza"]=$frm["id_grupo"];
 		   $frm["id_generos_danza"]="6";
@@ -393,9 +419,9 @@ function procesar_paso_2($frm){
 		}else{
 			 $db->sql_query("delete from generos_grupo_danza where id_grupos_danza='".$frm["id_grupo"]."' AND id_generos_danza='6'");  
 		   };
+	}
 		   
-		   
-		   
+	if(isset($frm["genero5"])){	   
 	 if($frm["genero5"]=="on"){
 		   $frm["id_grupos_danza"]=$frm["id_grupo"];
 		   $frm["id_generos_danza"]="11";
@@ -406,9 +432,9 @@ function procesar_paso_2($frm){
 		}else{
 			 $db->sql_query("delete from generos_grupo_danza where id_grupos_danza='".$frm["id_grupo"]."' AND id_generos_danza='11'");  
 		   };
+	}
 		   
-		   
-		   
+	if(isset($frm["genero6"])){	   
 	 if($frm["genero6"]=="on"){
 		   $frm["id_grupos_danza"]=$frm["id_grupo"];
 		   $frm["id_generos_danza"]="9";
@@ -419,9 +445,9 @@ function procesar_paso_2($frm){
 		}else{
 			 $db->sql_query("delete from generos_grupo_danza where id_grupos_danza='".$frm["id_grupo"]."' AND id_generos_danza='9'");  
 		   };
+	}
 		   
-		   
-		   
+	if(isset($frm["genero7"])){	   
 	 if($frm["genero7"]=="on"){
 		   $frm["id_grupos_danza"]=$frm["id_grupo"];
 		   $frm["id_generos_danza"]="8";
@@ -432,7 +458,7 @@ function procesar_paso_2($frm){
 		}else{
 			 $db->sql_query("delete from generos_grupo_danza where id_grupos_danza='".$frm["id_grupo"]."' AND id_generos_danza='8'");  
 		   };	   	   	   	   	   	   
-		   
+	}
 		   
 		   
  }
