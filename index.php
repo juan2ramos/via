@@ -107,10 +107,10 @@
         </div>
         <div class="title">
             <h2>Registro para profesionales</h2>
-                <a class="" href="http://via.festivaldeteatro.com.co/m">REGISTRAME</a>
-            <h2>Registro para Artistas</h2>
-                <a class="" href="http://via.festivaldeteatro.com.co/m/index.php?modo=inscripciones">REGISTRAME</a>
-            <h1>via</h1>
+                <a class="" href="http://via.festivaldeteatro.com.co/m">REGISTRARME</a>
+                <h2>Registro para Artistas</h2>
+                <a class="" href="http://via.festivaldeteatro.com.co/m/index.php?modo=inscripciones">REGISTRARME</a>
+                <h1>via</h1>
         </div>
         <section class="content">
             <article class="via">
