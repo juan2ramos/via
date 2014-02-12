@@ -24,10 +24,12 @@ body{
 
 		 if($caratula["archivo"]!=""){
 			 ?>
-            <img src="http://redlat.org/circulart/admin/imagen.php?table=archivos_grupos_teatro&amp;field=archivo&amp;id=<?php echo $caratula["id"];?>" width="250"  />      
+             Archivo no mayor a 5 Megas y de 1024X768<br>
+<img src="http://redlat.org/circulart/admin/imagen.php?table=archivos_grupos_teatro&amp;field=archivo&amp;id=<?php echo $caratula["id"];?>" width="250"  />      
                   <?php } else
 			  {  
 			  ?>
+              Archivo no mayor a 5 Megas y 1024X768 de tamaño<br>
             <img src="../images/mercados/imagen.jpg" width="250" />
             <?php } ?>
                   <br>

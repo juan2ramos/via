@@ -44,7 +44,7 @@ if($val["name"]!="")
 		
 		$tamanos = getimagesize($val["tmp_name"]);
 		
-		if($archivo["mmdd_archivo_filesize"]<2000000&&$tamanos[0]<1024&&$tamanos[1]<768){
+		if($archivo["mmdd_archivo_filesize"]<2000000&&$tamanos[0]<2048&&$tamanos[1]<1846){
 		
 		if($archivo["mmdd_archivo_filetype"]=="image/png"||$archivo["mmdd_archivo_filetype"]=="image/jpeg"||$archivo["mmdd_archivo_filetype"]=="image/jpg"||$archivo["mmdd_archivo_filetype"]=="image/gif"){
 		
