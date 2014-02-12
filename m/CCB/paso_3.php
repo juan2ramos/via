@@ -37,7 +37,7 @@ function actualizar(num){
 function eliminarObra(num){
 	url="http://redlat.org/via/m/codigos/obras.php?item=<?=$frm["id_grupo"]?>&id_usuario=<?=$frm["id_usuario"]?>&area=<?=$frm["area"]?>&paso=3&id_obra="+num;
 	$("#iframe").attr("src",url);
-	refrescar();
+	//refrescar();
 	}	
 $(document).ready(function() {
 	$("#agregar").click(function(){
@@ -109,33 +109,41 @@ $(document).ready(function() {
             <td valign="top" style="border-left-width: 1px;
 	border-left-style:dashed;	border-left-color: #999; ">
     <?php if($resultado_3[0]>0 && $datos_obras["obra"]!=''&& $datos_obras["anio"]!=''&& $datos_obras["id_generos_".$frm["area"]]!=''&& $datos_obras["resena"]!='' && $datos_obras["en_resena"]!=''){?>
-    <div style="margin-left:20px; text-transform:uppercase; text-align:center; background-color:#030">completo</div>
+    <div style="margin-left:20px; margin-right:20px; text-transform:uppercase; text-align:center; background-color:#030">completo</div>
     <?php }else{?>
-	<div style="margin-left:20px; text-transform:uppercase; text-align:center; background-color:#F00">incompleto</div>
-    <div style="margin-left:20px;">Hace falta la siguiente informaci&oacute;n:</div>
+	<div style="margin-left:20px; margin-right:20px; text-transform:uppercase; text-align:center; background-color:#F00">incompleto</div>
+    <div style="margin-left:20px; margin-right:20px; ">Hace falta la siguiente informaci&oacute;n:</div>
     <? if($datos_obras["obra"]==''){?>
-    <div style="margin-left:20px;">- Nombre de la obra</div>
+    <div style="margin-left:20px; margin-right:20px;">- Nombre de la obra</div>
     <? } ?>
    <? if($datos_obras["anio"]==''){?>
-    <div style="margin-left:20px;">- A&ntilde;o</div>
+    <div style="margin-left:20px; margin-right:20px;">- A&ntilde;o</div>
     <? } ?>
      <? if($datos_obras["id_generos_".$frm["area"]]==''){?>
-    <div style="margin-left:20px;">- Seleccionar el g&eacute;nero</div>
+    <div style="margin-left:20px; margin-right:20px;">- Seleccionar el g&eacute;nero</div>
     <? } ?>
     <? if($datos_obras["resena"]==''){?>
-    <div style="margin-left:20px;">- Ingresar la rese&ntilde; en espa&ntilde;ol</div>
+    <div style="margin-left:20px; margin-right:20px;">- Ingresar la rese&ntilde; en espa&ntilde;ol</div>
     <? } ?>
     <? if($datos_obras["en_resena"]==''){?>
-    <div style="margin-left:20px;">- Ingresar la rese&ntilde; en ingl&eacute;</div>
+    <div style="margin-left:20px; margin-right:20px;">- Ingresar la rese&ntilde; en ingl&eacute;</div>
     <? } ?>
     <? if($resultado_3[0]==0){?>
-    <div style="margin-left:20px;">- Imagenes relacionadas con la producci&oacute;n</div>
+    <div style="margin-left:20px; margin-right:20px;">- Imagenes relacionadas con la producci&oacute;n</div>
     <? } ?>
     <?php } ?>
 <br />
 
     </td>
+    <td valign="top" style="border-left-width: 1px;
+	border-left-style:dashed;	border-left-color: #999; "><div style="margin-left:20px; text-align:center; margin-right:20px;">
+    <strong><a style="color:#FFF; text-decoration:underline" href="#" onclick="eliminarObra(<?=$datos_obras["id"]?>)">
+    Borrar obra
+    </a></strong>
+    </div>
+    </td>
           </tr>
+          
         <?php
 		}
 		
