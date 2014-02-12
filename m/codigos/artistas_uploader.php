@@ -29,7 +29,7 @@ if($val["name"]!="")
 	
 		$frm["id"]=$_POST["id_grupo"];
 		$frm["area"]=$_POST["area"]; 
-		$id_archivo=$arch_obra=$db->sql_row("SELECT id FROM archivos_grupos_" . $frm["area"] . " WHERE id_grupos_" . $frm["area"] . "='".$frm["id"]."' AND etiqueta='Imagen'");
+		$id_archivo=$arch_obra=$db->sql_row("SELECT id FROM archivos_grupos_" . $frm["area"] . " WHERE id_grupos_" . $frm["area"] . "='".$frm["id"]."' AND orden='0'");
 		$str=file_get_contents($val["tmp_name"]);
 		$str=base64_encode($str);
 		$archivo=array();
