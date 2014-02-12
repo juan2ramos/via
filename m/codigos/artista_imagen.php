@@ -29,7 +29,7 @@ body{
                   <?php } else
 			  {  
 			  ?>
-              Archivo no mayor a 5 Megas y 1024X768 de tamaño<br>
+              Archivo no mayor a 5 Megas y 1024X768 de tama&ntilde;o<br>
             <img src="../images/mercados/imagen.jpg" width="250" />
             <?php } ?>
                   <br>
