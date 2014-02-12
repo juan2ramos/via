@@ -24,7 +24,7 @@ body{
 
 		 if($caratula["archivo"]!=""){
 			 ?>
-             Archivo no mayor a 5 Megas y de 1024X768<br>
+<br>
 <img src="http://redlat.org/circulart/admin/imagen.php?table=archivos_grupos_teatro&amp;field=archivo&amp;id=<?php echo $caratula["id"];?>" width="250"  />      
                   <?php } else
 			  {  
