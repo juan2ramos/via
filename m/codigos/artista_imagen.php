@@ -25,7 +25,7 @@ body{
 		 if($caratula["archivo"]!=""){
 			 ?>
 <br>
-<img src="http://redlat.org/circulart/admin/imagen.php?table=archivos_grupos_teatro&amp;field=archivo&amp;id=<?php echo $caratula["id"];?>" width="250"  />      
+<img src="http://redlat.org/circulart/admin/imagen.php?table=archivos_grupos_<?=$frm["area"]?>&amp;field=archivo&amp;id=<?php echo $caratula["id"];?>" width="250"  />      
                   <?php } else
 			  {  
 			  ?>
