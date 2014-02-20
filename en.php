@@ -101,7 +101,7 @@
         <!-- content -->
         <div class="bar-red">
             <figure>
-                <img src="images/via.png">
+                <img src="images/via.svg">
             </figure>
         </div>
         <div class="title">
