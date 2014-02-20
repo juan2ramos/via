@@ -79,10 +79,10 @@
                     </figure>
                     <nav>                  
                         
-                            <a href="#">Agenda<span>Programación</span></a>
-                            <a href="#">Artists<span>Artistas</span></a>
-                            <a href="#">Professionals<span>Profesionales</span></a>
-                            <a href="http://www.bogota.gov.co/">Bogotá<span>Info Bogotá</span></a>
+                            <a href="index.php">Agenda<span>Programación</span></a>
+                            <a href="http://via.festivaldeteatro.com.co/m/index.php?modo=inscripciones">Artists<span>Artistas</span></a>
+                            <a href="http://via.festivaldeteatro.com.co/m/index.php?modo=insPro">Professionals<span>Profesionales</span></a>
+                            <a target="_blank" href="http://www.bogota.gov.co/">Bogotá<span>Info Bogotá</span></a>
                             <a href="contacto.php">Contact<span>Contacto</span></a>
                         
                     </nav>
