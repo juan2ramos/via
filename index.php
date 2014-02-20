@@ -181,7 +181,7 @@ Programación académica. <br>
               <a href="https://twitter.com/#!/FITBogota" target="_blank">https://twitter.com/#!/FITBogota</a></p>
               <p>&nbsp;</p>
               <p>&nbsp;</p>
-              <h3><strong>PRECIOS PARA PARTICIPAR COMO PROMOTOR – PROGRAMADOR</strong></h3>
+              <h3><strong>PRECIOS PARA PARTICIPAR COMO PROFESIONALES</strong></h3>
               <p>&nbsp;</p>
               <p>Para participantes Internacionales. USD 500 Incluye: Hospedaje 4 noches, desayuno, Transporte hotel-sitio-hotel y a los espectáculos que hacen parte de VIA (en horarios definidos), acreditación, guía (coordinador), materiales, entradas a los espectáculos que hacen parte de VIA.</p>
               <p>&nbsp;</p>

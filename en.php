@@ -168,7 +168,7 @@ Academic agenda.<br>
               <a href="https://twitter.com/#!/FITBogota" target="_blank">https://twitter.com/#!/FITBogota</a></p>
               <p>&nbsp;</p>
               <p>&nbsp;</p>
-              <h3><strong>PRICES FOR PARTICIPATING AS PROMOTER – PRODUCER</strong></h3>
+              <h3><strong>PRICES FOR PARTICIPATING AS PROFESSIONALS</strong></h3>
               <p>&nbsp;</p>
               <p>For international participants:  USD$ 500 Includes: Accommodation 4 nights, breakfast, transportation hotel-site-hotel and to the shows that are part of the VIA (in the set hours), credentials, guide (coordinator), materials, tickets to the shows that are part of the VIA.</p>
               <p>&nbsp;</p>
