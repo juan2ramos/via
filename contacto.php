@@ -39,9 +39,9 @@
 	            <hr>
 	            <form id="contact-form" method="post">
 	            	<label>Nombre<sup>*</sup></label>
-	            	<input name="nombre" placeholder="Nombre" type="text" value="" maxlength="20" required="">
+	            	<input name="nombre" placeholder="Nombre" type="text" value="" maxlength="20" required>
 	            	<label>Apellido<sup>*</sup></label>
-	            	<input name="apellido" placeholder="Apellido" type="text" value="" maxlength="20" required="">
+	            	<input name="apellido" placeholder="Apellido" type="text" value="" maxlength="20" required>
 	            	<label>Email<sup>*</sup></label>
 	            	<input name="email" placeholder="Email" type="email" value=""  required="">
 	            	<label>Asunto<sup>*</sup></label>
@@ -80,7 +80,7 @@
 						<hr>
 						PAULA POSADA
 						<span class="assignation">PRODUCCIÓN</span>
-						<a href="mailto:produccion@circulart.org">PRODUCCION@CIRCULART.ORG</a>
+						<a href="mailto:produccionvia@festivaldeteatro.com.co">PRODUCCIONVIA@FESTIVALDETEATRO.COM.CO</a>
 					</li>
 
 					<li>
