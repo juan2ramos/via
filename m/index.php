@@ -57,7 +57,7 @@ else $tipo="teatro";
                     <li><a href="https://www.facebook.com/pages/VIA-Ventana-Internacional-de-las-Artes-2012/105076839614385" target="_blank"><img src="images/facebook.png" alt="Facebook" borde="0"/></a></li>
                     <li><a href="https://twitter.com/VIA_2014" target="_blank"><img src="images/twitter.png" alt="Twitter" borde="0"/></a></li>
                 </ul>
-                <div id="logoVia"><a href="#"><img src="images/logo-via.jpg" alt="Venta internacional de las artes" borde="0"/></a></div>
+                <div id="logoVia"><a href="http://via.festivaldeteatro.com.co/"><img src="images/logo-via.jpg" alt="Venta internacional de las artes" borde="0"/></a></div>
                
             </div>
         </header>

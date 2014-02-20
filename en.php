@@ -75,7 +75,7 @@
                         <li><a href="en.php"><span class="activate">en</span></a></li>
                     </ul>
                     <figure id="logo">
-                    <img src="images/logo-festival-teatro.jpg" alt="XIV Festival iberoamericano de teatro de bogotá" />
+                    <a href="http://festivaldeteatro.com.co/"><img src="images/logo-festival-teatro.svg" alt="XIV Festival iberoamericano de teatro de bogotá" borde="0" /></a>
                     </figure>
                     <nav>                  
                         
@@ -92,7 +92,7 @@
                     </ul>
                     <div class="logo-via">
                         <a href="http://via.festivaldeteatro.com.co">
-                            <img src="images/logo-via.jpg" alt="Venta internacional de las artes">
+                            <img src="images/logo-via.svg" alt="Venta internacional de las artes">
                         </a>
                     </div>
                 </div>

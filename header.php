@@ -25,7 +25,7 @@
                         <li><a href="https://twitter.com/VIA_2014"><span class="icon-twitter"></span></a></li>
                     </ul>
                     <div class="logo-via">
-                        <a href="#">
+                        <a href="http://via.festivaldeteatro.com.co/">
                             <img src="images/logo-via.svg" alt="Venta internacional de las artes">
                         </a>
                     </div>
