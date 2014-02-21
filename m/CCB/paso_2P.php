@@ -86,7 +86,7 @@ function revisar(frm){
 		return(false);
 	}
 	pago=document.getElementById("forma");
-	alert(pago[0].value);
+	alert(pago.value);
 	/*if(document.getElementById("forma").value ==''){
 		window.alert('Por favor seleccione el pago a relizar');
 		frm.forma.focus();
