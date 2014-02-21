@@ -4,7 +4,6 @@ pago=0;
 
 function valorPago(valor){
 	pago=valor;
-	aler(pago);
 	}
 function revisar(frm){
 
@@ -93,7 +92,7 @@ function revisar(frm){
 	}
 
 	if(pago==0){
-		window.alert('Por favor seleccione el pago a relizar');
+		window.alert('Por favor seleccione el acuerdo de pago');
 		return(false);
 		}
 	
