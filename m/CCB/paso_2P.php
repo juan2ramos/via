@@ -85,7 +85,7 @@ function revisar(frm){
 		frm.telefono_emp.focus();
 		return(false);
 	}
-	alert(document.forma.value);
+	alert(document.getElementById("forma")[0].value);
 	if(document.getElementById("forma").value ==''){
 		window.alert('Por favor seleccione el pago a relizar');
 		frm.forma.focus();
