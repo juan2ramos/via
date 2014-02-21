@@ -391,7 +391,7 @@ textarea{
 <div id="chars2" style=" display:none"></div>
 - <strong>payment</strong></td>
              <td colspan="4" align="left" valign="top"><p>PRECIOS PARA PARTICIPAR COMO PROFESIONALES - 
-                 <strong>PRICES FOR PARTICIPATING AS PROFESSIONALS</strong><br><?php if (isset($frm["forma"])) {$forma=$frm["forma"];}else{$sr="";} ?>
+                 <strong>PRICES FOR PARTICIPATING AS PROFESSIONALS</strong><br><?php if (isset($frm["forma"])) {$forma=$frm["forma"];}else{$forma="";} ?>
              <br>
              <br>
              Para participantes Internacionales - <strong>For international participants<br>
