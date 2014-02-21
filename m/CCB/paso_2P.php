@@ -4,6 +4,7 @@ pago=0;
 
 function valorPago(valor){
 	pago=valor;
+	aler(pago);
 	}
 function revisar(frm){
 
