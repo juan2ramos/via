@@ -391,7 +391,7 @@ textarea{
 <div id="chars2" style=" display:none"></div>
 - <strong>payment</strong></td>
              <td colspan="4" align="left" valign="top"><p><?php if (isset($frm["forma"])) {$forma=$frm["forma"];}else{$forma="";} ?>
-             Para participantes Internacionales - <strong>For international participants<br>
+            <hr> Para participantes Internacionales - <strong>For international participants<br>
              </strong>
             
              <input type="radio" name="forma" id="forma" value="1" <?php if($forma==1)echo"checked=\"checked\"";?>  class="radio"/>
@@ -400,7 +400,7 @@ textarea{
              <p>
                <input type="radio" name="forma" id="forma" value="2" <?php if($forma==2)echo"checked=\"checked\"";?>  class="radio"/>
              USD 150 Incluye materiales, acreditaci&oacute;n e ingreso a los espect&aacute;culos de VIA, no Incluye hospedaje. <br>
-             - <strong>USD$ 150 Includes materials, credentials and entry to the VIA shows, does not include accommodation</strong>.</p>
+             - <strong>USD$ 150 Includes materials, credentials and entry to the VIA shows, does not include accommodation</strong>.</p><hr>
              <p>Para participantes Colombianos - <strong>For Colombian participants:&nbsp;</strong><br>
                <input type="radio" name="forma" id="forma" value="3" <?php if($forma==3)echo"checked=\"checked\"";?>  class="radio"/>
              COP $700.000 Hospedaje 4 noches, desayuno, transporte hotel-sitio-hotel y a los espect&aacute;culos que hacen parte de VIA (en horarios definidos), acreditaci&oacute;n, gu&iacute;a, materiales, entradas a los espect&aacute;culos que hacen parte de VIA. <strong><br>
