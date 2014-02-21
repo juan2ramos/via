@@ -86,6 +86,11 @@ function revisar(frm){
 		return(false);
 	}
 	
+	if(frm.forma.value.replace(/ /g, '') ==''){
+		window.alert('Por favor seleccione el pago a relizar');
+		frm.forma.focus();
+		return(false);
+		}
 	
 	
 	if(frm.email_emp.value.replace(/ /g, '') ==''){
