@@ -405,7 +405,7 @@ textarea{
              <p>Para participantes Colombianos - <strong>For Colombian participants:&nbsp;</strong><br>
                <br>
                <input type="radio" name="forma" id="forma" value="3" <?php if($forma==3)echo"checked=\"checked\"";?>  class="radio"/>
-             COP $700.000 Hospedaje 4 noches, desayuno, transporte hotel-sitio-hotel y a los espect&aacute;culos que hacen parte de VIA (en horarios definidos), acreditaci&oacute;n, gu&iacute;a, materiales, entradas a los espect&aacute;culos que hacen parte de VIA. <strong>             - COP $700.000 Includes: Accommodation 4 nights, breakfast, transportation hotel-site-hotel and to the shows that are part of the VIA (in the set hours), credentials, guide (coordinator), materials, tickets to the shows that are part of the VIA. <br>
+             COP $700.000 incluye: Hospedaje 4 noches, desayuno, transporte hotel-sitio-hotel y a los espect&aacute;culos que hacen parte de VIA (en horarios definidos), acreditaci&oacute;n, gu&iacute;a, materiales, entradas a los espect&aacute;culos que hacen parte de VIA. <strong>             - COP $700.000 Includes: Accommodation 4 nights, breakfast, transportation hotel-site-hotel and to the shows that are part of the VIA (in the set hours), credentials, guide (coordinator), materials, tickets to the shows that are part of the VIA. <br>
              <br>
              <input type="radio" name="forma" id="forma" value="4" <?php if($forma==4)echo"checked=\"checked\"";?>  class="radio"/>
              </strong>COP $ 300.000 Incluye materiales, acreditaci&oacute;n e ingreso a los espect&aacute;culos de VIA, no Incluye hospedaje. 
