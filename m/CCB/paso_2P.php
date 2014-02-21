@@ -380,6 +380,43 @@ textarea{
 			
 			?></td>
           </tr>
+           <tr>
+             <td align="left" valign="top">&nbsp;</td>
+             <td align="left" valign="top">&nbsp;</td>
+             <td colspan="4" align="left" valign="top">&nbsp;</td>
+           </tr>
+           <tr>
+             <td align="left" valign="top">&nbsp;</td>
+             <td align="left" valign="top"><span>* </span>pago
+<div id="chars2" style=" display:none"></div>
+- <strong>payment</strong></td>
+             <td colspan="4" align="left" valign="top"><p>PRECIOS PARA PARTICIPAR COMO PROFESIONALES - 
+                 <strong>PRICES FOR PARTICIPATING AS PROFESSIONALS</strong><br><?php if (isset($frm["forma"])) {$forma=$frm["forma"];}else{$sr="";} ?>
+             <br>
+             <br>
+             Para participantes Internacionales - <strong>For international participants<br>
+             </strong>
+            
+             <input type="radio" name="forma" id="forma" value="1" <?php if($forma==1)echo"checked=\"checked\"";?>  class="radio"/>
+             USD 500 Incluye: Hospedaje 4 noches, desayuno, Transporte hotel-sitio-hotel y a los espect&aacute;culos que hacen parte de VIA (en horarios definidos), acreditaci&oacute;n, gu&iacute;a (coordinador), materiales, entradas a los espect&aacute;culos que hacen parte de VIA.<br>
+             <strong>- USD$ 500 Includes: Accommodation 4 nights, breakfast, transportation hotel-site-hotel and to the shows that are part of the VIA (in the set hours), credentials, guide (coordinator), materials, tickets to the shows that are part of the VIA.</strong></p>
+             <p>
+               <input type="radio" name="forma" id="forma" value="2" <?php if($forma==2)echo"checked=\"checked\"";?>  class="radio"/>
+             USD 150 Incluye materiales, acreditaci&oacute;n e ingreso a los espect&aacute;culos de VIA, no Incluye hospedaje. <br>
+             - <strong>USD$ 150 Includes materials, credentials and entry to the VIA shows, does not include accommodation</strong>.</p>
+             <p>Para participantes Colombianos - <strong>For Colombian participants:&nbsp;</strong><br>
+               <input type="radio" name="forma" id="forma" value="3" <?php if($forma==3)echo"checked=\"checked\"";?>  class="radio"/>
+             COP $700.000 Hospedaje 4 noches, desayuno, transporte hotel-sitio-hotel y a los espect&aacute;culos que hacen parte de VIA (en horarios definidos), acreditaci&oacute;n, gu&iacute;a, materiales, entradas a los espect&aacute;culos que hacen parte de VIA. <strong><br>
+             - COP $700.000 Includes: Accommodation 4 nights, breakfast, transportation hotel-site-hotel and to the shows that are part of the VIA (in the set hours), credentials, guide (coordinator), materials, tickets to the shows that are part of the VIA. <br>
+             <input type="radio" name="forma" id="forma" value="4" <?php if($forma==4)echo"checked=\"checked\"";?>  class="radio"/>
+             </strong>COP $ 300.000 Incluye materiales, acreditaci&oacute;n e ingreso a los espect&aacute;culos de VIA, no Incluye hospedaje. <br>
+             <strong>- COP $ 300.000 Includes materials, credentials and entry to all VIA shows,  does not include accommodation. </strong></p></td>
+           </tr>
+           <tr>
+             <td align="left" valign="top">&nbsp;</td>
+             <td align="left" valign="top">&nbsp;</td>
+             <td colspan="4" align="left" valign="top">&nbsp;</td>
+           </tr>
           <tr>
             <td colspan="6" align="left" valign="bottom" class="azul" ><div class="titulo_registro"><strong >            Datos de la Organizaci&oacute;n, Sala, Evento o Festival que representa <br />
             - institution information</strong></div>
