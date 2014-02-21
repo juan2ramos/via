@@ -1,5 +1,10 @@
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script>
+pago=0;
+
+function valorPago(valor){
+	pago=valor;
+	}
 function revisar(frm){
 
 	
@@ -85,13 +90,11 @@ function revisar(frm){
 		frm.telefono_emp.focus();
 		return(false);
 	}
-	pago=document.getElementById("forma");
-	alert(pago.value);
-	/*if(document.getElementById("forma").value ==''){
+
+	if(pago==0){
 		window.alert('Por favor seleccione el pago a relizar');
-		frm.forma.focus();
 		return(false);
-		}*/
+		}
 	
 	
 	if(frm.email_emp.value.replace(/ /g, '') ==''){
@@ -401,7 +404,7 @@ textarea{
             <hr> Para participantes Internacionales - <strong>For international participants<br>
              </strong>
             
-             <p><input type="radio" name="forma" id="forma" value="1" <?php if($forma==1)echo"checked=\"checked\"";?>  class="radio"/>
+             <p><input type="radio" name="forma" id="forma" value="1" <?php if($forma==1)echo"checked=\"checked\"";?>  class="radio" onclick="valorPago(this.value)"/>
              USD 500 Incluye: Hospedaje 4 noches, desayuno, Transporte hotel-sitio-hotel y a los espect&aacute;culos que hacen parte de VIA (en horarios definidos), acreditaci&oacute;n, gu&iacute;a (coordinador), materiales, entradas a los espect&aacute;culos que hacen parte de VIA. 
              <strong>- USD$ 500 Includes: Accommodation 4 nights, breakfast, transportation hotel-site-hotel and to the shows that are part of the VIA (in the set hours), credentials, guide (coordinator), materials, tickets to the shows that are part of the VIA.</strong></p>
              <p>
