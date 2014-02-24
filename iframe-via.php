@@ -176,8 +176,8 @@ Programación académica. <br>
               <p class="p-iframe">&nbsp;</p>
               <p class="p-iframe">Así que no deje de hacer parte de esta Ventana  Internacional de las Artes este XIII FITB e inscríbase en la página web&nbsp;<a href="http://www.festivaldeteatro.com.co/" target="_blank">www.festivaldeteatro.com.co</a>&nbsp;  Y siga a diario toda la información de VIA 2012 también a través de nuestras  redes sociales:&nbsp;</p>
               <p class="p-iframe"><br>
-                <a href="https://www.facebook.com/FestivalTeatroBogota" target="_blank">https://www.facebook.com/FestivalTeatroBogota</a>&nbsp;<br>
-                <a href="https://twitter.com/#!/VIA_2012" target="_blank">https://twitter.com/#!/VIA_2012</a>&nbsp;<br>
+                <a href="https://www.facebook.com/FITBogota" target="_blank">https://www.facebook.com/FITBogota</a>&nbsp;<br>
+                <a href="https://twitter.com/FITBogota" target="_blank"> https://twitter.com/FITBogota</a>&nbsp;<br>
               <a href="https://twitter.com/#!/FITBogot" target="_blank">https://twitter.com/#!/FITBogot</a></p>
               <p class="p-iframe">&nbsp;</p>
               <p class="p-iframe">&nbsp;</p>

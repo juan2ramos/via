@@ -1,8 +1,8 @@
         <footer>
             <h3>Compartir</h3>
             <ul class="footer-network">
-                <li><a class="footer-facebook" href="https://www.facebook.com/pages/VIA-Ventana-Internacional-de-las-Artes-2012/105076839614385"><span class="icon-facebook"></span></a></li>
-                <li><a class="footer-twitter" href="https://twitter.com/VIA_2014"><span class="icon-twitter"></span></a></li>
+                <li><a class="footer-facebook" href="https://www.facebook.com/FITBogota"><span class="icon-facebook"></span></a></li>
+                <li><a class="footer-twitter" href=" https://twitter.com/FITBogota"><span class="icon-twitter"></span></a></li>
                 <li><a class="footer-plus" href="#">+</a></li>
             </ul>
             <div class="footer-below">

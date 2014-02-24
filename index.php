@@ -88,8 +88,8 @@
                         
                     </nav>
                     <ul class="menus network">
-                        <li><a href=" https://www.facebook.com/pages/VIA-Ventana-Internacional-de-las-Artes-2012/105076839614385"><span class="icon-facebook"></span></a></li>
-                        <li><a href="https://twitter.com/VIA_2014"><span class="icon-twitter"></span></a></li>
+                        <li><a href="https://www.facebook.com/FITBogota"><span class="icon-facebook"></span></a></li>
+                        <li><a href="https://twitter.com/FITBogota"><span class="icon-twitter"></span></a></li>
                     </ul>
                     <div class="logo-via">
                         <a href="http://via.festivaldeteatro.com.co/">
@@ -199,14 +199,14 @@ Para extranjeros en general. USD 150 Incluye materiales, acreditación e ingreso
         </section>
 
         <div class="bar-red">
-            <a href="https://twitter.com/VIA_2014"><span class="icon-twitter"></span>
+            <a href="https://twitter.com/FITBogota"><span class="icon-twitter"></span>
             <p>#TODOSTENEMOSQUEVER</p></a>
         </div>
         <div class="more-info">
             <ul>
-                <li><p>XIV FITBogotá 2014 <span>@FITBogota</span> 24 ene Industria cultural en Colombia http://t.co/WrQN8xDoQp @con dencialcol</p></li>
-                <li><p>XIV FITBogotá 2014 <span>@FITBogota</span>  27 ene ¿Existe mayor dolor que el de perder la patria? http://t.co/k3g9yHwC1v</p></li>
-                <li><p>V FITBogotá 2014 <span>@FITBogota</span> 27 ene @vivianasanti Estamos trabajando en eso. Te invitamos a visitar nuestras redes sociales para estar informada de las novedades @FITBogota</p></li>
+                <li><p>XIV FITBogotá 2014 <span><a href="https://twitter.com/FITBogota">@FITBogota</a></span> 24 ene Industria cultural en Colombia http://t.co/WrQN8xDoQp @con dencialcol</p></li>
+                <li><p>XIV FITBogotá 2014 <span><a href="https://twitter.com/FITBogota">@FITBogota</a></span>  27 ene ¿Existe mayor dolor que el de perder la patria? http://t.co/k3g9yHwC1v</p></li>
+                <li><p>V FITBogotá 2014 <span><a href="https://twitter.com/FITBogota">@FITBogota</a></span> 27 ene @vivianasanti Estamos trabajando en eso. Te invitamos a visitar nuestras redes sociales para estar informada de las novedades @FITBogota</p></li>
             </ul>        
         </div>
         

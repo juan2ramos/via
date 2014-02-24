@@ -188,8 +188,8 @@ Academic agenda.<br>
         </section>
 
         <div class="bar-red">
-            <a href="https://twitter.com/VIA_2014"><span class="icon-twitter"></span>
-            <p>#TODOSTENEMOSQUEVER</p></a>
+            <a href="https://twitter.com/FITBogota "><span class="icon-twitter"></span>
+            <p>#TODOSTENEMOSQUEVERddd</p></a>
         </div>
         <div class="more-info">
             <ul>
