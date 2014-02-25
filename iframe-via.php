@@ -176,9 +176,10 @@ Programación académica. <br>
               <p class="p-iframe">&nbsp;</p>
               <p class="p-iframe">Así que no deje de hacer parte de esta Ventana  Internacional de las Artes este XIII FITB e inscríbase en la página web&nbsp;<a href="http://www.festivaldeteatro.com.co/" target="_blank">www.festivaldeteatro.com.co</a>&nbsp;  Y siga a diario toda la información de VIA 2012 también a través de nuestras  redes sociales:&nbsp;</p>
               <p class="p-iframe"><br>
-                <a href="https://www.facebook.com/FITBogota" target="_blank">https://www.facebook.com/FITBogota</a>&nbsp;<br>
-                <a href="https://twitter.com/FITBogota" target="_blank"> https://twitter.com/FITBogota</a>&nbsp;<br>
-              <a href="https://twitter.com/#!/FITBogot" target="_blank">https://twitter.com/#!/FITBogot</a></p>
+                <a href="https://www.facebook.com/FITBogota?fref=ts" target="_blank">Festival Iberoamericano de Teatro en Facebook</a>&nbsp;<br>
+                <a href="https://www.facebook.com/pages/VIA-Ventana-Internacional-de-las-Artes-2012/105076839614385?fref=ts" target="_blank">VIA en Facebook</a>&nbsp; <br>
+                <a href="https://twitter.com/FITBogota" target="_blank">@FITBogota</a>&nbsp;<br>
+              <a href="https://twitter.com/VIA_2014" target="_blank">@VIA_2014</a></p>
               <p class="p-iframe">&nbsp;</p>
               <p class="p-iframe">&nbsp;</p>
               <h3><strong>PRECIOS PARA PARTICIPAR COMO PROMOTOR – PROGRAMADOR</strong></h3>
@@ -192,7 +193,7 @@ Para extranjeros en general. USD 150 Incluye materiales, acreditación e ingreso
               <p class="p-iframe">&nbsp;</p>
               <p class="p-iframe">Para colombianos COP $ 300.000 Incluye materiales, acreditación e ingreso a los espectáculos de VIA.</p>
               <p class="p-iframe">&nbsp;</p>
-              <p class="p-iframe">Cualquier información adicional puede comunicarse con Angélica Castillo o Luis Fernando Zuluaga al correo <a href="mailto:via@festivaldeteatro.com.co">via@festivaldeteatro.com.co</a> o en las páginas web <a href="http://www.festivaldeteatro.com.co" target="_blank">www.festivaldeteatro.com.co</a> y <a href="http://via.festivaldeteatro.com.co"><br>
+              <p class="p-iframe">Cualquier información adicional puede comunicarse con Angélica Castillo o Luis Fernando Zuluaga al correo <a href="mailto:via@festivaldeteatro.com.co">via@festivaldeteatro.com.co</a> o en las páginas web <a href="http://www.festivaldeteatro.com.co" target="_blank">www.festivaldeteatro.com.co</a> y <a href="http://via.festivaldeteatro.com.co" target="_blank"><br>
               via.festivaldeteatro.com.co</a></p>
               <p class="p-iframe">&nbsp;</p>
             </article>

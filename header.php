@@ -8,7 +8,7 @@
                         <li><a href="en.php"><span>en</span></a></li>
                     </ul>
                     <figure id="logo">
-                    <a href="http://www.festivaldeteatro.com.co">
+                    <a href="http://www.festivaldeteatro.com.co" target="_blank">
                     <img src="images/logo-festival-teatro.svg" alt="XIV Festival iberoamericano de teatro de bogotá" /></a>
                     </figure>
                     <nav>                  
@@ -25,7 +25,7 @@
                         <li><a href="https://twitter.com/FITBogota"><span class="icon-twitter"></span></a></li>
                     </ul>
                     <div class="logo-via">
-                        <a href="http://via.festivaldeteatro.com.co/">
+                        <a href="http://via.festivaldeteatro.com.co/" target="_blank">
                             <img src="images/logo-via.svg" alt="Venta internacional de las artes">
                         </a>
                     </div>

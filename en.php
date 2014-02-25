@@ -75,7 +75,7 @@
                         <li><a href="en.php"><span class="activate">en</span></a></li>
                     </ul>
                     <figure id="logo">
-                    <a href="http://festivaldeteatro.com.co/"><img src="images/logo-festival-teatro.svg" alt="XIV Festival iberoamericano de teatro de bogotá" borde="0" /></a>
+                    <a href="http://festivaldeteatro.com.co/" target="_blank"><img src="images/logo-festival-teatro.svg" alt="XIV Festival iberoamericano de teatro de bogotá" borde="0" /></a>
                     </figure>
                     <nav>                  
                         
@@ -87,11 +87,11 @@
                         
                     </nav>
                     <ul class="menus network">
-                        <li><a href=" https://www.facebook.com/pages/VIA-Ventana-Internacional-de-las-Artes-2012/105076839614385"><span class="icon-facebook"></span></a></li>
-                        <li><a href="https://twitter.com/VIA_2014"><span class="icon-twitter"></span></a></li>
+                        <li><a href="https://www.facebook.com/pages/VIA-Ventana-Internacional-de-las-Artes-2012/105076839614385?fref=ts" target="_blank"><span class="icon-facebook"></span></a></li>
+                        <li><a href="https://twitter.com/VIA_2014" target="_blank"><span class="icon-twitter"></span></a></li>
                     </ul>
                     <div class="logo-via">
-                        <a href="http://via.festivaldeteatro.com.co">
+                        <a href="http://via.festivaldeteatro.com.co" target="_blank">
                             <img src="images/logo-via.svg" alt="Venta internacional de las artes">
                         </a>
                     </div>
@@ -163,9 +163,10 @@ Academic agenda.<br>
               <p>&nbsp;</p>
               <p>So, be part of this International Arts Window in the XIII FITB (International Theater Festival of Bogota) and sign up in the website <a href="http://www.festivaldeteatro.com.co">www.festivaldeteatro.com.co</a> There is daily follow up information about VIA 2012 (?) through our social networks:&nbsp;</p>
               <p><br>
-                <a href="https://www.facebook.com/FestivalTeatroBogota" target="_blank">https://www.facebook.com/FestivalTeatroBogota</a>&nbsp;<br>
-                <a href="https://twitter.com/#!/VIA_2014" target="_blank">https://twitter.com/#!/VIA_2014</a>&nbsp;<br>
-              <a href="https://twitter.com/#!/FITBogota" target="_blank">https://twitter.com/#!/FITBogota</a></p>
+                <a href="https://www.facebook.com/FITBogota?fref=ts" target="_blank">Festival Iberoamericano de Teatro in Facebook</a>&nbsp;<br>
+                <a href="https://www.facebook.com/pages/VIA-Ventana-Internacional-de-las-Artes-2012/105076839614385?fref=ts" target="_blank">VIA in Facebook</a>&nbsp; <br>
+                <a href="https://twitter.com/FITBogota" target="_blank">@FITBogota</a>&nbsp;<br>
+              <a href="https://twitter.com/VIA_2014" target="_blank">@VIA_2014</a></p>
               <p>&nbsp;</p>
               <p>&nbsp;</p>
               <h3><strong>PRICES FOR PARTICIPATING AS PROFESSIONALS</strong></h3>
@@ -181,7 +182,7 @@ Academic agenda.<br>
               <p>&nbsp;</p>
               <p>For Colombians: COP $ 300.000 Includes materials, credentials and entry to all VIA shows.</p>
               <p>&nbsp;</p>
-              <p>For any additional information feel free to contact Angélica Castillo or Luis Fernando Zuluaga to the mail <a href="mailto:via@festivaldeteatro.com.co">via@festivaldeteatro.com.co</a> or on the web pages <a href="http://www.festivaldeteatro.com.co" target="_blank">www.festivaldeteatro.com.co</a> and <a href="http://via.festivaldeteatro.com.co"><br>
+              <p>For any additional information feel free to contact Angélica Castillo or Luis Fernando Zuluaga to the mail <a href="mailto:via@festivaldeteatro.com.co">via@festivaldeteatro.com.co</a> or on the web pages <a href="http://www.festivaldeteatro.com.co" target="_blank">www.festivaldeteatro.com.co</a> and <a href="http://via.festivaldeteatro.com.co" target="_blank"><br>
               via.festivaldeteatro.com.co</a></p>
               <p>&nbsp;</p>
             </article>

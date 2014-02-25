@@ -43,7 +43,7 @@ else $tipo="teatro";
          </div>
         <header>
             <div  class="content-head">
-                <div id="logo"><a href="http://festivaldeteatro.com.co/"><img src="images/logo-festival-teatro.jpg" alt="XIV Festival iberoamericano de teatro de bogotá" borde="0" /></a></div>
+                <div id="logo"><a href="http://festivaldeteatro.com.co/" target="_blank"><img src="images/logo-festival-teatro.jpg" alt="XIV Festival iberoamericano de teatro de bogotá" borde="0" /></a></div>
                 <nav>                  
                     
                         <a href="../index.php">Programaci&oacute;n<span>Agenda</span></a>
@@ -54,10 +54,10 @@ else $tipo="teatro";
                     
                 </nav>
                 <ul class="menus redes">
-                    <li><a href="https://www.facebook.com/pages/VIA-Ventana-Internacional-de-las-Artes-2012/105076839614385" target="_blank"><img src="images/facebook.png" alt="Facebook" borde="0"/></a></li>
+                    <li><a href="https://www.facebook.com/pages/VIA-Ventana-Internacional-de-las-Artes-2012/105076839614385?fref=ts" target="_blank"><img src="images/facebook.png" alt="Facebook" borde="0"/></a></li>
                     <li><a href="https://twitter.com/VIA_2014" target="_blank"><img src="images/twitter.png" alt="Twitter" borde="0"/></a></li>
                 </ul>
-                <div id="logoVia"><a href="http://via.festivaldeteatro.com.co/"><img src="images/logo-via.jpg" alt="Venta internacional de las artes" borde="0"/></a></div>
+                <div id="logoVia"><a href="http://via.festivaldeteatro.com.co/" target="_blank"><img src="images/logo-via.jpg" alt="Venta internacional de las artes" borde="0"/></a></div>
                
             </div>
         </header>

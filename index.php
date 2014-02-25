@@ -75,7 +75,7 @@
                         <li><a href="en.php"><span>en</span></a></li>
                     </ul>
                     <figure id="logo">
-                    <a href="http://www.festivaldeteatro.com.co">
+                    <a href="http://www.festivaldeteatro.com.co" target="_blank">
                     <img src="images/logo-festival-teatro.svg" alt="XIV Festival iberoamericano de teatro de bogotá" /></a>
                     </figure>
                     <nav>                  
@@ -88,11 +88,11 @@
                         
                     </nav>
                     <ul class="menus network">
-                        <li><a href="https://www.facebook.com/FITBogota"><span class="icon-facebook"></span></a></li>
-                        <li><a href="https://twitter.com/FITBogota"><span class="icon-twitter"></span></a></li>
+                        <li><a href="https://www.facebook.com/pages/VIA-Ventana-Internacional-de-las-Artes-2012/105076839614385?fref=ts" target="_blank"><span class="icon-facebook"></span></a></li>
+                        <li><a href="https://twitter.com/VIA_2014" target="_blank"><span class="icon-twitter"></span></a></li>
                     </ul>
                     <div class="logo-via">
-                        <a href="http://via.festivaldeteatro.com.co/">
+                        <a href="http://via.festivaldeteatro.com.co/" target="_blank">
                             <img src="images/logo-via.svg" alt="Venta internacional de las artes">
                         </a>
                     </div>
@@ -176,9 +176,11 @@ Programación académica. <br>
               <p>&nbsp;</p>
               <p>Así que no deje de hacer parte de esta Ventana  Internacional de las Artes este XIII FITB e inscríbase en la página web&nbsp;<a href="http://www.festivaldeteatro.com.co/" target="_blank">www.festivaldeteatro.com.co</a>&nbsp;  Y siga a diario toda la información de VIA 2012 también a través de nuestras  redes sociales:&nbsp;</p>
               <p><br>
-                <a href="https://www.facebook.com/FestivalTeatroBogota" target="_blank">https://www.facebook.com/FestivalTeatroBogota</a>&nbsp;<br>
-                <a href="https://twitter.com/#!/VIA_2014" target="_blank">https://twitter.com/#!/VIA_2014</a>&nbsp;<br>
-              <a href="https://twitter.com/#!/FITBogota" target="_blank">https://twitter.com/#!/FITBogota</a></p>
+                <a href="https://www.facebook.com/FITBogota?fref=ts" target="_blank">Festival Iberoamericano de Teatro en Facebook</a>&nbsp;<br>
+                <a href="https://www.facebook.com/pages/VIA-Ventana-Internacional-de-las-Artes-2012/105076839614385?fref=ts" target="_blank">VIA en Facebook</a>&nbsp;
+                <br>
+                <a href="https://twitter.com/FITBogota" target="_blank">@FITBogota</a>&nbsp;<br>
+              <a href="https://twitter.com/VIA_2014" target="_blank">@VIA_2014</a></p>
               <p>&nbsp;</p>
               <p>&nbsp;</p>
               <h3><strong>PRECIOS PARA PARTICIPAR COMO PROFESIONALES</strong></h3>
@@ -192,7 +194,7 @@ Para extranjeros en general. USD 150 Incluye materiales, acreditación e ingreso
               <p>&nbsp;</p>
               <p>Para colombianos COP $ 300.000 Incluye materiales, acreditación e ingreso a los espectáculos de VIA.</p>
               <p>&nbsp;</p>
-              <p>Cualquier información adicional puede comunicarse con Angélica Castillo o Luis Fernando Zuluaga al correo <a href="mailto:via@festivaldeteatro.com.co">via@festivaldeteatro.com.co</a> o en las páginas web <a href="http://www.festivaldeteatro.com.co" target="_blank">www.festivaldeteatro.com.co</a> y <a href="http://via.festivaldeteatro.com.co"><br>
+              <p>Cualquier información adicional puede comunicarse con Angélica Castillo o Luis Fernando Zuluaga al correo <a href="mailto:via@festivaldeteatro.com.co">via@festivaldeteatro.com.co</a> o en las páginas web <a href="http://www.festivaldeteatro.com.co" target="_blank">www.festivaldeteatro.com.co</a> y <a href="http://via.festivaldeteatro.com.co" target="_blank"><br>
               via.festivaldeteatro.com.co</a></p>
               <p>&nbsp;</p>
             </article>
