@@ -114,7 +114,7 @@ $obras = $db->sql_query("SELECT * FROM archivos_obras_".$area." WHERE id_obras_"
 <hr />
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><span class="colorTexto"><b><?php echo $datos_obras["etiqueta"]; ?></b></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="eliminarItemsImagen.php?item=<?php echo $datos_obras["id"]?>&item2=<?php echo $_GET["item"]?>" class="link">Eliminar</a></td>
+    <td><span class="colorTexto"><b><?php echo $datos_obras["etiqueta"]; ?></b></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="eliminarItemsImagen.php?item=<?php echo $datos_obras["id"]?>&item2=<?php echo $_GET["item"]?>&area=<?php echo $_GET["area"]?>" class="link">Eliminar</a></td>
   </tr>
   <tr>
     <td>

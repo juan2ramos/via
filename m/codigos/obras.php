@@ -173,8 +173,8 @@ Tipo de p&uacute;blico <br>
 <select id="tipo_publico" name="tipo_publico">
   <option value="%" >Seleccione... </option>
   <option value="1" <? if(isset($obra["tipo_publico"])){if($obra["tipo_publico"]==1){echo "selected";}} ?>>Adultos </option>
-  <option value="2" <? if(isset($obra["tipo_publico"])){if($obra["tipo_publico"]==1){echo "selected";}} ?>>Infantil </option>
-  <option value="3" <? if(isset($obra["tipo_publico"])){if($obra["tipo_publico"]==1){echo "selected";}}?>>Familiar </option>
+  <option value="2" <? if(isset($obra["tipo_publico"])){if($obra["tipo_publico"]==2){echo "selected";}} ?>>Infantil </option>
+  <option value="3" <? if(isset($obra["tipo_publico"])){if($obra["tipo_publico"]==3){echo "selected";}}?>>Familiar </option>
 </select>
 <br>
 <br>
