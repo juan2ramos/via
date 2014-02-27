@@ -42,7 +42,6 @@ function acceso($frm){
 		");
 		$frm["id_usuario"]=$user["id"];
 		$frm["login"]=$user["login"];
-		//$frm["password2"]=$frm["password2"];
 		$frm["id_programador"]=$user["id"];
 		$frm["tipoEntrada"]=1;
 		include("CCB/paso_2P.php");
@@ -662,10 +661,10 @@ function procesar_paso_2($frm){
 			$mail->MsgHTML('Mensaje con HTML');
 			$template = "-------------------------------------------------------------------------------------<br>";
 			$template.= $grupo["nombre"]." ".$grupo["apellido"].',<br>Usted ha quedado preinscrito oficialmente en VIA2014. Muchas gracias por participar.<br>';
-			$template.= "En un lapso de 24 o 48 horas le estaremos enviando las especificaciones para el deposito, y así culminar con la incripción al evento<br>";	
+			$template.= "Posteriormente le estaremos enviando las especificaciones para el deposito, y así culminar con la inscripción al evento.<br>";	
 			$template.= "-------------------------------------------------------------------------------------<br>";
-			$template.= $grupo["nombre"]." ".$grupo["apellido"].',<br>You have been officially pre-registered in 2014 VIA. We thank you in advance for your participation.<br>';
-			$template.= "Alow us a period of 24 to 48 hours to send you the specifications for yor deposit, with this you will finish the registration to our event.<br>";	
+			$template.= $grupo["nombre"]." ".$grupo["apellido"].',<br>You have been officially pre-registered in 2014 VIA. We thank you in advance for your participation..<br>';
+			$template.= "We will send you the specifications for yor deposit shortly, with this you will finish the registration to our event.<br>";	
 			$template.= "-------------------------------------------------------------------------------------<br>";
 			$template.= "Atentamente - Best regards,<br>";
 			$template.= "LUIS FERNANDO ZULUAGA REYNA<br>";
