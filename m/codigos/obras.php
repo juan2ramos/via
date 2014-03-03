@@ -149,7 +149,7 @@ if($frm["paso"]==1){
     <br>
     <br>
     Rese&ntilde;a (Ingl&eacute;s) *<br />
-    &quot;Favor usar en el texto en inglés la tilde ( ´ ) en lugar de el apóstrofo ( ' ) para las palabras que así lo requieran&quot;    <br>
+    &quot;Favor usar en el texto en inglés la t&iacute;lde (´) en lugar de el ap&oacute;strofo (') para las palabras que así lo requieran&quot;    <br>
         <textarea rows="10" cols="50" name="en_resena"><?=nvl($obra["en_resena"])?>
         </textarea>
         <br>
