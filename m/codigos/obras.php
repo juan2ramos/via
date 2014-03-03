@@ -148,18 +148,20 @@ if($frm["paso"]==1){
     <textarea rows="10" cols="50" name="resena"><?=nvl($obra["resena"])?></textarea>
     <br>
     <br>
-    Rese&ntilde;a (Ingl&eacute;s) *<br>
-    <textarea rows="10" cols="50" name="en_resena"><?=nvl($obra["en_resena"])?></textarea>
-    <br>
-    <br>
-    M&uacute;sica<br>
-<input type="text" size="20" name="musica" value="<?=nvl($obra["musica"])?>">
-<br>
-<br>
-Duraci&oacute;n total<br>
-<input type="text" size="20" name="duracion" value="<?=nvl($obra["duracion"])?>">
-<br>
-    </p></td>
+    Rese&ntilde;a (Ingl&eacute;s) *<br />
+    &quot;Favor usar en el texto en inglés la tilde ( ´ ) en lugar de el apóstrofo ( ' ) para las palabras que así lo requieran&quot;    <br>
+        <textarea rows="10" cols="50" name="en_resena"><?=nvl($obra["en_resena"])?>
+        </textarea>
+        <br>
+        <br>
+        M&uacute;sica<br>
+  <input type="text" size="20" name="musica" value="<?=nvl($obra["musica"])?>">
+  <br>
+  <br>
+        Duraci&oacute;n total<br>
+  <input type="text" size="20" name="duracion" value="<?=nvl($obra["duracion"])?>">
+  <br>
+      </p></td>
     <td width="137" valign="top">&nbsp;</td>
     <td width="414" rowspan="15" valign="top"><div class="titulo_registro">MONTAJE</div><p> No. de actos<br>
 <input type="text" size="20" name="num_actos" value="<?=nvl($obra["num_actos"])?>">
