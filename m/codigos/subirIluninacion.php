@@ -61,7 +61,7 @@ body{
 <? 
 }else{
 ?>
-<a href="http://redlat.org/circulart/admin/file.php?table=obras_teatro&field=plano_luces&id=<?=$_GET["id_obra"];?>" target="_blank">Ver archivo</a>
+<a href="http://redlat.org/circulart/admin/file.php?table=obras_<?=$_GET["area"]?>&field=plano_luces&id=<?=$_GET["id_obra"];?>" target="_blank">Ver archivo</a>
 <br><br>
 <a href="subirIluninacion2.php?area=<?php echo $_GET["area"]?>&item=<?php echo $_GET["item"]?>&id_obra=<?php echo $_GET["id_obra"]?>">
 Actualizar archivo</a>

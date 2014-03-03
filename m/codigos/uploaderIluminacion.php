@@ -14,7 +14,7 @@ body{
 </style>
 <script>
 function alerta(){
-	 window.location="subirIluninacion.php?area=<?php echo $_POST["area"]?>&item=<?php echo $_POST["id_grupo"]?>&id_obra=<?php echo $_POST["id_obra"]?>";
+	 window.location="subirIluninacion.php?area=<?php echo $_POST["area"]?>&item=<?php echo $_POST["id_grupos_".$_POST["area"]]?>&id_obra=<?php echo $_POST["id_obra"]?>";
 	 }
 </script>
 
