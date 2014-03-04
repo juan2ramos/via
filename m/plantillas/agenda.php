@@ -1,11 +1,13 @@
 <?
-echo $_SESSION[$CFG->sesion]["id_nivel"];
+//echo $user["id_nivel"];
+echo $_SESSION['views'];
 if(!isset($_SESSION[$CFG->sesion]["user"]["id_nivel"])){
 	$goto = "index.php?modo=login&mercado=".$CFG->mercado;
 	//header("Location: $goto");
 	//die();
 }
 ?>
+
 <style>
 .tituloGenero{
 	width:930px;
