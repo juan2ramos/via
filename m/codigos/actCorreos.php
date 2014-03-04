@@ -1,5 +1,6 @@
 <?php 
-include("../application2.php");
+$desactivaSession=1;
+include("../application.php");
 GLOBAL $CFG, $ME, $db;
 ?>
 <link href="../css/estilos.css" rel="stylesheet" type="text/css">

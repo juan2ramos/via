@@ -1,5 +1,4 @@
 <?
-//echo $user["id_nivel"];
 if(!isset($_SESSION[$CFG->sesion]["user"]["id_nivel"])){
 	$goto = "index.php?modo=login&mercado=".$CFG->mercado;
 	//header("Location: $goto");
