@@ -128,7 +128,7 @@ if(!isset($_SERVER["REQUEST_METHOD"])) $CFG->cli=1;
 else $CFG->cli=0;
 
 //if (isset($_SERVER["REQUEST_METHOD"])) session_start();
-if (!isset($_SESSION[$CFG->sesion])){ session_start(); $_SESSION[$CFG->sesion] = array();}
+if (!isset($_SESSION[$CFG->sesion])){ $_SESSION[$CFG->sesion] = array();}
 
 if (isset($_SERVER["REQUEST_METHOD"])) $CFG->servidor = "http://" . $_SERVER["SERVER_NAME"];
 
