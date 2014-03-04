@@ -10,9 +10,9 @@ if (isset($_POST["username"])) {
 
 	if ($user) {
 		$_SESSION[$CFG->sesion]["user"] = $user;
-		//$_SESSION[$CFG->sesion]["username"]=$_POST["username"];
-		//$_SESSION[$CFG->sesion]["pass"]= $_POST["password"];
-		//$_SESSION[$CFG->sesion]["ip"] = $_SERVER["REMOTE_ADDR"];
+		$_SESSION[$CFG->sesion]["username"]=$_POST["username"];
+		$_SESSION[$CFG->sesion]["pass"]= $_POST["password"];
+		$_SESSION[$CFG->sesion]["ip"] = $_SERVER["REMOTE_ADDR"];
 		
 		if($user["id_nivel"]==10){ 
 		    $goto="index.php?act=0&modo=agenda&id_mercado=" . $CFG->mercado."&id_promotor=".$user["id"]."&mercado=".$mercado;

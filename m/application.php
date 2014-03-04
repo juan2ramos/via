@@ -100,6 +100,7 @@ $CFG->dbname = "cir48lar_redlat";
 $CFG->dbuser = "cir48lar_redlat";
 $CFG->dbpass = "redlat4321";*/
 
+//$CFG->dbhost = "184.107.157.218:3306";
 $CFG->dbhost = "localhost";
 $CFG->dbname = "redlat_cir48lar";
 $CFG->dbuser = "redlat_cir48lar";
@@ -126,7 +127,6 @@ setlocale (LC_CTYPE, "es_ES");
 
 if(!isset($_SERVER["REQUEST_METHOD"])) $CFG->cli=1;
 else $CFG->cli=0;
-
 
 if(isset($_GET))
 {

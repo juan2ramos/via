@@ -1,11 +1,10 @@
 <?
 if(!isset($_SESSION[$CFG->sesion]["user"]["id_nivel"])){
-	$goto = "index.php?modo=login&mercado=".$CFG->mercado;
-	//header("Location: $goto");
-	//die();
+	$goto = "index.php?modo=login&mercado=26";
+	header("Location: $goto");
+	die();
 }
 ?>
-
 <style>
 .tituloGenero{
 	width:930px;
@@ -27,11 +26,32 @@ if(!isset($_SESSION[$CFG->sesion]["user"]["id_nivel"])){
 	overflow:hidden;
 	margin-bottom:8px;
 }
+
+a, .link {
+background-color: #3D1211;
+padding: 10px;
+color: #E7D8B1;
+text-decoration: none;
+-webkit-border-bottom-left-radius: 4px;
+border-bottom-left-radius: 4px;
+-webkit-border-top-left-radius: 4px;
+border-top-left-radius: 4px;
+-moz-border-radius-bottomleft: 4px;
+-moz-border-radius-topleft: 4px;
+-webkit-border-bottom-right-radius: 4px;
+border-bottom-right-radius: 4px;
+-webkit-border-top-right-radius: 4px;
+border-top-right-radius: 4px;
+-moz-border-radius-bottomright: 4px;
+-moz-border-radius-topright: 4px;
+font-family: Arial, Helvetica, sans-serif;
+border: 1px solid #3D1211;
+}
 </style>
 <script language="javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="http://www.bogotamusicmarket.com/m/js/source/jquery.fancybox.js?v=2.1.4"></script>
-<script type="text/javascript" src="http://www.bogotamusicmarket.com/m/js/sessvars.js"></script>
-<link rel="stylesheet" type="text/css" href="http://www.bogotamusicmarket.com/m/js/source/jquery.fancybox.css?v=2.1.4" media="screen" />
+<script type="text/javascript" src="http://circulart.org/circulart2013/m/js/source/jquery.fancybox.js"></script>
+<script type="text/javascript" src="http://circulart.org/b/m/js/sessvars.js"></script>
+<link rel="stylesheet" type="text/css" href="http://circulart.org/circulart2013/m/js/source/jquery.fancybox.css?v=2.1.4" media="screen" />
 <script language="JavaScript" type="text/javascript">
 
    function refrescar(){
@@ -47,8 +67,9 @@ if(!isset($_SESSION[$CFG->sesion]["user"]["id_nivel"])){
 	}
 	
 	function artistas(url){
-		//alert(url);
-		$.fancybox.open({
+		alert(url)
+		window.location=url;
+		/**$.fancybox.open({
 							href : url,
 							padding : 5,
 							width  : 1010,
@@ -57,226 +78,13 @@ if(!isset($_SESSION[$CFG->sesion]["user"]["id_nivel"])){
 							type : 'iframe',
 							'beforeClose': function() { refrescar() },
                             'closeClick': true
-						});
+						});**/
 	}
 	
-	function datos(dato){
-		url='http://www.bogotamusicmarket.com/m/codigos/actCorreos.php?item='+dato;
-		$.fancybox.open({
-							href : url,
-							padding : 5,
-							width  : 550,
-							height :250,
-							autoSize: false,
-							type : 'iframe',
-							'beforeClose': function() { refrescar() },
-                            'closeClick': true
-						});
-	}
-	
-	function datos_rep(dato){
-		url='http://www.bogotamusicmarket.com/m/codigos/subirFoto1_rep.php?item='+dato;
-		$.fancybox.open({
-							href : url,
-							padding : 5,
-							width  : 760,
-							height :550,
-							autoSize: false,
-							type : 'iframe',
-							'beforeClose': function() { refrescar() },
-                            'closeClick': true
-						});
-	}
 	
 $(document).ready(function () {
-   
-	
-	$("#miAgenda").css({"background-color": "#3C1110",
-	                    "color": "#F17127",
-	                    "border": "none",
-	                    "cursor": "pointer",
-	                    "-webkit-border-bottom-right-radius":"0px",
-						"-webkit-border-bottom-left-radius":"0px",
-						"-moz-border-radius-bottomright":"0px",
-						"-moz-border-radius-bottomleft":"0px",
-						"border-bottom-right-radius":"0px",
-						"border-bottom-left-radius":"0px",
-						"margin-left":"3px"
-	                    });
-	
-	$("#lista_portafolios_dos").css({"background-color": "#3C1110",
-	                    "color": "#E6D7B0",
-	                    "border": "none",
-	                    "cursor": "pointer",
-	                    "-webkit-border-bottom-right-radius":"0px",
-						"-webkit-border-bottom-left-radius":"0px",
-						"-moz-border-radius-bottomright":"0px",
-						"-moz-border-radius-bottomleft":"0px",
-						"border-bottom-right-radius":"0px",
-						"border-bottom-left-radius":"0px",
-						"margin-left":"3px"
-	                    });
-						
-						
-	$("#lista_portafolios").css({"background-color": "#F17127",
-	                    "color": "#E6D7B0",
-	                    "border": "none",
-	                    "cursor": "pointer",
-	                    "-webkit-border-bottom-right-radius":"0px",
-						"-webkit-border-bottom-left-radius":"0px",
-						"-moz-border-radius-bottomright":"0px",
-						"-moz-border-radius-bottomleft":"0px",
-						"border-bottom-right-radius":"0px",
-						"border-bottom-left-radius":"0px"
-	                    });					
-	
-	if(sessvars.activoBoton==undefined){
-		sessvars.activoBoton=0; 
-	  }
-	
-	<?php 
-	
-	if($_GET["act"]==0){
-		echo "sessvars.activoBoton=0;";
-		}
-	
-	if($_GET["act"]==1){
-		echo "sessvars.activoBoton=1;";
-		}
-	
-	if($_GET["act"]==2){
-		echo "sessvars.activoBoton=2;";
-		}	
-		
-	
-	?>
-	
-	$("#lista_portafolios").click(function(){
-		$("#contenido_miAgenda").hide('slow');
-		$("#contenido_lista").show('slow');
-		$("#contenido_listapro").hide('slow');
-		$("#miAgenda").css({"background-color": "#3C1110",
-		                    "color": "#E6D7B0",
-		                    });		
-		
-		$("#lista_portafolios").css({"background-color": "#F17127",
-		                    "color": "#C7D82B",
-		                    });	
-							
-		$("#lista_portafolios_dos").css({"background-color": "#3C1110",
-		                    "color": "#E6D7B0",
-		                    });			
-							
-		sessvars.activoBoton=0;						
-	});
-	
-	
-	$("#lista_portafolios_dos").click(function(){
-		$("#contenido_miAgenda").hide('slow');
-		$("#contenido_lista").hide('slow');
-		$("#contenido_listapro").show('slow');
-		$("#lista_portafolios_dos").css({"background-color": "#F17127",
-		                    "color": "#C7D82B",
-		                    });			
-		
-		$("#lista_portafolios").css({"background-color": "#3C1110",
-		                    "color": "#E6D7B0",
-		                    });
-		$("#miAgenda").css({"background-color": "#3C1110",
-		                    "color": "#E6D7B0",
-		                    });						
-							
-		sessvars.activoBoton=1;						
-	});
-	
-	$("#miAgenda").click(function(){
-		$("#contenido_lista").hide('slow');
-		$("#contenido_miAgenda").show('slow');
-		$("#contenido_listapro").hide('slow');
-		$("#miAgenda").css({"background-color": "#F17127",
-		                    "color": "#C7D82B",
-		                    });			
-		
-		$("#lista_portafolios").css({"background-color": "#3C1110",
-		                    "color": "#E6D7B0",
-		                    });		
-							
-		$("#lista_portafolios_dos").css({"background-color": "#3C1110",
-		                    "color": "#E6D7B0",
-		                    });					
-							
-		sessvars.activoBoton=2;					
-	});
-	
-	//alert(sessvars.activoBoton)
-	
-	
-	if(sessvars.activoBoton==0){
-			$("#contenido_miAgenda").hide();
-			$("#contenido_listapro").hide();
-			$("#contenido_lista").show();
-			$("#miAgenda").css({"background-color": "#3C1110",
-		                    "color": "#E6D7B0",
-		                    });		
-		
-		$("#lista_portafolios").css({"background-color": "#F17127",
-		                    "color": "#C7D82B",
-		                    });	
-							
-		$("#lista_portafolios_dos").css({"background-color": "#3C1110",
-		                    "color": "#E6D7B0",
-		                    });							
-								
-			}
-			
-	
-	
-	if(sessvars.activoBoton==1){
-			$("#contenido_lista").hide();
-			$("#contenido_listapro").show();
-			$("#contenido_miAgenda").hide();
-			$("#lista_portafolios_dos").css({"background-color": "#F17127",
-		                    "color": "#C7D82B",
-		                    });			
-		
-			$("#lista_portafolios").css({"background-color": "#3C1110",
-								"color": "#E6D7B0",
-								});
-			$("#miAgenda").css({"background-color": "#3C1110",
-								"color": "#E6D7B0",
-								});				
-		}
-		
-	if(sessvars.activoBoton==2){
-			$("#contenido_lista").hide();
-			$("#contenido_miAgenda").show();
-			$("#contenido_listapro").hide();
-			$("#miAgenda").css({"background-color": "#F17127",
-		                    "color": "#C7D82B",
-		                    });			
-		
-			$("#lista_portafolios").css({"background-color": "#3C1110",
-								"color": "#E6D7B0",
-								});		
-								
-			$("#lista_portafolios_dos").css({"background-color": "#3C1110",
-								"color": "#E6D7B0",
-								});		
-		}	
-		
-	
-	$("#misdatos").click(function(){
-		url='<?php echo $_GET["id_artista"];?>';
-		datos(url);
-		})	
-		
-	$("#misvinculados").click(function(){
-		url='<?php echo $_GET["id_artista"];?>';
-		datos_rep(url);
-		})			
-	
-});
 
+});
 </script>
 
 <?
@@ -316,7 +124,7 @@ if($id_nivel=="10"){//Promotor
 		$qid=$db->sql_query($strQuery);
 		$result=$db->sql_fetchrow($qid);
 		
-		    $dest2 = $result["mail_destinatario"];
+		   /* $dest2 = $result["mail_destinatario"];
 			$body2.="Estimado(a) " . $result["destinatario"]. ":\n";	
 			$body2.="El promotor " . $result["remitente"] . " ha eliminado la cita que tenía programada con usted.\n";
 			$body2.="La cita estaba programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
@@ -334,7 +142,7 @@ if($id_nivel=="10"){//Promotor
 				}	
 
 		
-		
+		*/
 		/*if($result["mail_destinatario"]!=""){
 			$txtMail="Estimado(a) " . $result["destinatario"] . ":\n";
 			$txtMail.="El promotor " . $result["remitente"] . " ha eliminado la cita que tenía programada con usted.\n";
@@ -357,7 +165,7 @@ if($id_nivel=="10"){//Promotor
 		$qid=$db->sql_query($strQuery);
 		$result=$db->sql_fetchrow($qid);
 		
-		  $dest2 = $result["mail_destinatario"];
+		  /*$dest2 = $result["mail_destinatario"];
 			$body2.="Estimado(a) " . $result["destinatario"]. ":\n";	
 			$body2.="El promotor " . $result["remitente"] . " ha eliminado la cita que tenía programada con usted.\n";
 			$body2.="La cita quedó entonces programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
@@ -374,7 +182,7 @@ if($id_nivel=="10"){//Promotor
 				
 				}	
 		
-		
+		*/
 		/*if($result["mail_destinatario"]!=""){
 			$txtMail="Estimado(a) " . $result["destinatario"] . ":\n";
 			$txtMail.="El promotor " . $result["remitente"] . " ha confirmado la cita que tenía programada con usted.\n";
@@ -406,7 +214,7 @@ if($id_nivel=="10"){//Promotor
 		$qid=$db->sql_query($strQuery);
 		$result=$db->sql_fetchrow($qid);
 
-     		$dest2 = $result["email"];
+     		/*$dest2 = $result["email"];
 			$body2.="Estimado(s) " . $result["grupo"] . ":\n";	
 			$body2.="El promotor " . $result["promotor"] . " ha eliminado la cita que tenía programada con usted(es).\n";
 			$body2.="La cita estaba programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
@@ -422,7 +230,7 @@ if($id_nivel=="10"){//Promotor
 			}else{
 				
 				}	
-		
+		*/
 		/*if($result["email"]!=""){
 			$txtMail="Estimado(s) " . $result["grupo"] . ":\n";
 			$txtMail.="El promotor " . $result["promotor"] . " ha eliminado la cita que tenía programada con usted(es).\n";
@@ -456,7 +264,7 @@ if($id_nivel=="10"){//Promotor
 		$result=$db->sql_fetchrow($qid);
 		
 		
-		$dest2 = $result["email"];
+		/*$dest2 = $result["email"];
 			$body2.="Estimado(s) " . $result["grupo"] . ":\n";	
 			$body2.="El promotor " . $result["promotor"] . " ha confirmado la cita que tenía programada con usted(es).\n";
 			$body2.="La cita quedó entonces programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
@@ -473,7 +281,7 @@ if($id_nivel=="10"){//Promotor
 				
 				}	
 		
-		
+		*/
 		/*if($result["email"]!=""){
 			$txtMail="Estimado(s) " . $result["grupo"] . ":\n";
 			$txtMail.="El promotor " . $result["promotor"] . " ha confirmado la cita que tenía programada con usted(es).\n";
@@ -569,7 +377,7 @@ if($id_nivel=="10"){//Promotor
 				$result=$db->sql_fetchrow($qid);
 				
 				
-				$dest2 = $result["email"];
+				/*$dest2 = $result["email"];
 				$body2.="Estimado(s) " . $result["grupo"] . ":\n";	
 				$body2.="El promotor " . $result["promotor"] . " ha solicitado una cita con usted(es).\n";
 				$body2.="La cita solicitada está programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
@@ -585,7 +393,7 @@ if($id_nivel=="10"){//Promotor
 				}else{
 					
 					}	
-		
+		*/
 				/*if($result["email"]!=""){
 					$txtMail="Estimado(s) " . $result["grupo"] . ":\n";
 					$txtMail.="El promotor " . $result["promotor"] . " ha solicitado una cita con usted(es).\n";
@@ -607,7 +415,7 @@ if($id_nivel=="10"){//Promotor
 	}
 	elseif($frm["mode"]=="agenda_promotor_promotor" || $frm["mode"]=="solicitar_cita_promotor_promotor"){
 		if($frm["mode"]=="solicitar_cita_promotor_promotor"){//Cuando el promotor le solicita una cita a otro promotor
-			$qVerificacion=$db->sql_query("SELECT c.* FROM citas c LEFT JOIN sesiones s ON c.id_sesion=s.id WHERE s.id_rueda=(SELECT id_rueda FROM sesiones WHERE id='$frm[id_sesion]') AND ((c.id_promotor='$frm[id_promotor]' AND c.id_promotor2='$frm[id_promotor2]') OR (c.id_promotor='$frm[id_promotor2]' AND c.id_promotor2='$frm[id_promotor1]') OR c.fecha_inicial='$frm[fecha]') ");
+			$qVerificacion=$db->sql_query("SELECT c.* FROM citas c LEFT JOIN sesiones s ON c.id_sesion=s.id WHERE s.id_rueda=(SELECT id_rueda FROM sesiones WHERE id='$frm[id_sesion]') AND ((c.id_promotor='$frm[id_promotor]' AND c.id_promotor2='$frm[id_promotor2]') OR (c.id_promotor='$frm[id_promotor2]' AND c.id_promotor2='$frm[id_promotor]') OR c.fecha_inicial='$frm[fecha]') ");
 			if($db->sql_numrows($qVerificacion)==0){
 				$qInsert=$db->sql_query("
 					INSERT INTO citas (id_sesion,fecha_inicial,id_promotor,id_promotor2,aceptada_promotor,aceptada_promotor2)
@@ -624,7 +432,7 @@ if($id_nivel=="10"){//Promotor
 				$qid=$db->sql_query($strQuery);
 				$result=$db->sql_fetchrow($qid);
 				
-				$dest2 = $result["prom_email"];
+				/*$dest2 = $result["prom_email"];
 				$body2.="Estimado(a) " . $result["promotor"] . ":\n";
 				$body2.="El promotor " . $_SESSION[$CFG->sesion]["user"]["nombre"] .  " " . $_SESSION[$CFG->sesion]["user"]["apellido"] . " ha solicitado una cita con usted.\n";
 				$body2.="Por favor confirmar esta cita en la página web.\n";
@@ -640,7 +448,7 @@ if($id_nivel=="10"){//Promotor
 				}else{
 					
 					}	
-				
+				*/
 				
 				/*if($result["prom_email"]!=""){
 					$txtMail="Estimado(a) " . $result["promotor"] . ":\n";
@@ -714,7 +522,7 @@ elseif(in_array($id_nivel,array(4,5,6,7,8,9))){//Grupo
 		$result=$db->sql_fetchrow($qid);
 		
 		
-		$dest2 = $result["prom_email"];
+		/*$dest2 = $result["prom_email"];
 		$body2.="Estimado(a) " . $result["promotor"] . ":\n";
 		$body2.="El grupo " . $result["grupo"] . " ha eliminado la cita que tenía programada con usted.\n";
 		$body2.="La cita estaba programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
@@ -729,7 +537,7 @@ elseif(in_array($id_nivel,array(4,5,6,7,8,9))){//Grupo
 		  //echo "Message was not sent<br/ >"; echo "Mailer Error: " . $mailer->ErrorInfo;
 		}else{
 			
-			}	
+			}	*/
 		
 		
 		
@@ -766,7 +574,7 @@ elseif(in_array($id_nivel,array(4,5,6,7,8,9))){//Grupo
 		$qid=$db->sql_query($strQuery);
 		$result=$db->sql_fetchrow($qid);
 		
-		$dest2 = $result["prom_email"];
+		/*$dest2 = $result["prom_email"];
 		$body2.="Estimado(a) " . $result["promotor"] . ":\n";
 		$body2.="El grupo " . $result["grupo"] . " ha confirmado la cita que tenía programada con usted.\n";
 		$body2.="La cita quedó entonces programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
@@ -781,7 +589,7 @@ elseif(in_array($id_nivel,array(4,5,6,7,8,9))){//Grupo
 		  //echo "Message was not sent<br/ >"; echo "Mailer Error: " . $mailer->ErrorInfo;
 		}else{
 			
-			}	
+			}*/	
 		
 		
 		/*if($result["prom_email"]!=""){
@@ -872,7 +680,7 @@ elseif(in_array($id_nivel,array(4,5,6,7,8,9))){//Grupo
 				$result=$db->sql_fetchrow($qid);
 				
 				
-				$dest2 = $result["prom_email"];
+				/*$dest2 = $result["prom_email"];
 				$body2.="Estimado(a) " . $result["promotor"] . ":\n";
 				$body2.="El grupo " . $result["grupo"] . " ha solicitado una cita con usted.\n";
 				$body2.="Por favor confirmar esta cita en la página web.\n";
@@ -887,7 +695,7 @@ elseif(in_array($id_nivel,array(4,5,6,7,8,9))){//Grupo
 				  //echo "Message was not sent<br/ >"; echo "Mailer Error: " . $mailer->ErrorInfo;
 				}else{
 					
-					}	
+					}	*/
 				/*if($result["prom_email"]!=""){
 					$txtMail="Estimado(a) " . $result["promotor"] . ":\n";
 					$txtMail.="El grupo " . $result["grupo"] . " ha solicitado una cita con usted.\n";
@@ -942,6 +750,9 @@ function mostrar_agenda_promotor_promotor($frm){
 	
 	echo "<div style='position:absolute; top:0; margin-top:920px;'>";
 	echo "<div style=\"padding:5px; background-color:#3D1211; color:#E6D7B0; font-size:14px; width:430px; float:left; margin-top:10px;\" align=\"center\"><strong>Agenda Profesional</strong></div><br><br>";
+	$cambio=0;
+	$cambio2=0;
+	
 	while($sesion=$db->sql_fetchrow($qSesiones)){
 		echo "<p><strong>Rueda:</strong> $sesion[nombre] <br />\n";
 		echo "<strong>Lugar:</strong> $sesion[lugar].<br />\n";
@@ -951,7 +762,9 @@ function mostrar_agenda_promotor_promotor($frm){
 		echo "<tr><th width=\"100\">Hora</th><th width=\"210\">Profesional / Artista / Grupo</th><th width=\"90\">Estado</th></tr>\n";
 		$desde=strtotime($sesion["fecha_inicial"]);
 		$hasta=strtotime($sesion["fecha_final"]);
+		
 		while($desde<$hasta){
+			
 			echo "<tr><th scope=\"row\">" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
 
 			$qCita=$db->sql_query("
@@ -1049,6 +862,10 @@ $qSesiones=$db->sql_query("
 
 	echo "<div style='position:absolute; top:0; margin-top:930px; margin-left:455px; background-color:#ccc'>";
 	echo "<div style=\"padding:5px; background-color:#666666; color:#E6D7B0; font-size:14px; width:450px; float:left;\" align=\"center\"><strong>Visualización de horarios libres en mí agenda</strong></div><br><br>";
+	
+	$cambio=0;
+	$cambio2=0;
+	
 	while($sesion=$db->sql_fetchrow($qSesiones)){
 		echo "<p><strong>Rueda:</strong> $sesion[nombre] <br />\n";
 		echo "<strong>Lugar:</strong> $sesion[lugar].<br />\n";
@@ -1058,6 +875,7 @@ $qSesiones=$db->sql_query("
 		echo "<tr><th width=\"100\">Hora</th><th width=\"210\">Profesional / Artista / Grupo</th><th width=\"90\">Estado</th></tr>\n";
 		$desde=strtotime($sesion["fecha_inicial"]);
 		$hasta=strtotime($sesion["fecha_final"]);
+
 		while($desde<$hasta){
 			echo "<tr><th scope=\"row\">" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
 
@@ -1177,6 +995,10 @@ function mostrar_agenda_promotor_artista($frm){
 	
 	echo "<div style='position:absolute; top:0; margin-top:570px;'>";
 	echo "<div style='padding:5px; background-color:#3D1211; color:#E6D7B0; font-size:14px; width:450px; float:left; margin-top:10px;' align='center'><strong>Agenda Artista</strong></div><br><br>";
+	
+	$cambio=0;
+	$cambio2=0;
+	
 	while($sesion=$db->sql_fetchrow($qSesiones)){
 		echo "<p><strong>Rueda:</strong> $sesion[nombre] <br />\n";
 		echo "<strong>Lugar:</strong> $sesion[lugar].<br />\n";
@@ -1186,8 +1008,11 @@ function mostrar_agenda_promotor_artista($frm){
 		echo "<tr><th width=\"100\">Hora</th><th width=\"210\">Profesional</th><th width=\"140\">Estado</th></tr>\n";
 		$desde=strtotime($sesion["fecha_inicial"]);
 		$hasta=strtotime($sesion["fecha_final"]);
+		
+		
 		while($desde<$hasta){
 			echo "<tr><th scope=\"row\">" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
+			
 			$qCita=$db->sql_query("
 				SELECT c.*, CONCAT(p.nombre, ' ', p.apellido) as promotor, (SELECT mesa FROM mercado_promotores WHERE id_mercado=r.id_mercado AND id_promotor=p.id LIMIT 1) as mesa
 				FROM citas c LEFT JOIN promotores p ON c.id_promotor=p.id
@@ -1234,6 +1059,10 @@ function mostrar_agenda_promotor_artista($frm){
 	
 	echo "<div style='position:absolute; top:0; margin-top:580px; margin-left:465px; background-color:#ccc'>";
 	echo "<div style='padding:5px; background-color:#666666; color:#E6D7B0; font-size:14px' align='center'><strong >Visualización de horarios libres en mí agenda</strong></div>";
+	
+	$cambio=0;
+	$cambio2=0;
+	
 	while($sesion=$db->sql_fetchrow($qSesiones)){
 		
 		echo "<p><strong>Rueda:</strong> $sesion[nombre] <br />\n";
@@ -1244,9 +1073,11 @@ function mostrar_agenda_promotor_artista($frm){
 		echo "<tr><th width=\"100\">Hora</th><th width=\"210\">Artista</th><th width=\"90\">Estado</th></tr>\n";
 		$desde=strtotime($sesion["fecha_inicial"]);
 		$hasta=strtotime($sesion["fecha_final"]);
+		
 		while($desde<$hasta){
 			
 			echo "<tr><th scope=\"row\">" . strftime("%H:%M ",$desde) . date("a",$desde);
+
 			$qCita=$db->sql_query("
 				SELECT c.*, (SELECT mesa FROM mercado_promotores WHERE id_mercado=r.id_mercado AND id_promotor='$frm[id_promotor]' LIMIT 1) as mesa
 				FROM citas c
@@ -1339,6 +1170,8 @@ function mostrar_agenda_promotor_promotor_recordatorio($frm){
 		ORDER BY s.fecha_inicial
 	");
 	echo "<div style='padding:5px; background-color:#666666; color:#E6D7B0; font-size:14px' align='center'><strong>Visualización de horarios libres en mí agenda</strong></div>";
+	$cambio=0;
+	$cambio2=0;
 	while($sesion=$db->sql_fetchrow($qSesiones)){
 		
 		echo "<p><strong>Rueda:</strong> $sesion[nombre] <br />\n";
@@ -1349,7 +1182,8 @@ function mostrar_agenda_promotor_promotor_recordatorio($frm){
 		echo "<tr><th width=\"100\">Hora</th><th width=\"210\">Artista</th><th width=\"90\">Estado</th></tr>\n";
 		$desde=strtotime($sesion["fecha_inicial"]);
 		$hasta=strtotime($sesion["fecha_final"]);
-		while($desde<$hasta){
+
+        while($desde<$hasta){
 			
 			echo "<tr><th scope=\"row\">" . strftime("%H:%M ",$desde) . date("a",$desde);
 			$qCita=$db->sql_query("
@@ -1429,6 +1263,10 @@ function mostrar_agenda_promotor($frm){
 		WHERE r.id_mercado='$frm[id_mercado]'
 		ORDER BY s.fecha_inicial
 	");
+	
+	$cambio=0;
+	$cambio2=0;
+	
 	while($sesion=$db->sql_fetchrow($qSesiones)){
 		echo "<p><strong>Rueda:</strong> $sesion[nombre] <br />\n";
 		echo "<strong>Lugar:</strong> $sesion[lugar].<br />\n";
@@ -1436,10 +1274,13 @@ function mostrar_agenda_promotor($frm){
 		echo "<strong>Fecha:</strong> " . strftime("%B %e de %Y",strtotime($sesion["fecha_inicial"])) . "</p>\n";
 		echo "<table border=\"0\" cellpadding=\"5\" cellspacing=\"5\" width=\"916\">\n";
 		echo "<tr><th width=\"100\">Hora</th><th width=\"208\">Artista</th><th width=\"50\">Mesa</th><th width=\"90\">Estado</th><th width=\"50\">Eliminar</th><th width=\"50\">Imprimir</th></tr>\n";
+			
 		$desde=strtotime($sesion["fecha_inicial"]);
 		$hasta=strtotime($sesion["fecha_final"]);
+
 		while($desde<$hasta){
 			echo "<tr><th scope=\"row\">" . strftime("%H:%M ",$desde) . date("a",$desde);
+			
 			$qCita=$db->sql_query("
 				SELECT c.*, (SELECT mesa FROM mercado_promotores WHERE id_mercado=r.id_mercado AND id_promotor='$frm[id_promotor]' LIMIT 1) as mesa
 				FROM citas c
@@ -1590,7 +1431,7 @@ function listar_grupos($frm){
 
 	$qMercado=$db->sql_query("SELECT m.* FROM mercados m WHERE m.id='" . $CFG->mercado . "' LIMIT 1");
 	$mercado=$db->sql_fetchrow($qMercado);
-	
+
 	$qPromotor=$db->sql_query("SELECT * FROM promotores WHERE id='$frm[id_promotor]'");
 	$promotor=$db->sql_fetchrow($qPromotor);
 	
@@ -1603,7 +1444,9 @@ function listar_grupos($frm){
 		$qAreas=$db->sql_query("SELECT ar.codigo FROM pr_promotores_areas pa LEFT JOIN pr_areas ar ON pa.id_area=ar.id WHERE pa.id_promotor='$id_promotor'");
 		$arrayCondiciones=array();
 		while($area=$db->sql_fetchrow($qAreas)){
-			array_push($arrayCondiciones,"(ma.id_grupo_" . $area["codigo"] . " IS NOT NULL AND ma.id_grupo_" . $area["codigo"] . "!='0')");
+			if($area["codigo"]=="teatro"||$area["codigo"]=="musica"||$area["codigo"]=="danza"){
+			 array_push($arrayCondiciones,"(ma.id_grupo_" . $area["codigo"] . " IS NOT NULL AND ma.id_grupo_" . $area["codigo"] . "!='0')");
+			}
 		}
 		if(sizeof($arrayCondiciones)>0)	$condicion.=" AND (" . implode(" OR ",$arrayCondiciones) . ")";
 	}
@@ -1635,11 +1478,11 @@ function listar_grupos($frm){
 		");
 		if($grupo=$db->sql_fetchrow($qImagen)){
 		//codigo nuevo 
-		  if($grupo[id]!=1555){
+		  if($grupo["id"]!=1555){
 			$link=simple_me($ME) . "?mercado=25&modo=agenda&mode=agenda_artista&tipo=$tipo&id_artista=$grupo[id]&id_mercado=$frm[id_mercado]";
 			echo "<table style='margin: 5px; float: left; width: 280px; height:40px; padding:0px;' border='0' cellspacing='0' cellpadding='0' ><tr><td>";
 			echo $j.". <a style=\"border:none; text-align:left; background:none; cursor:pointer;\" onclick=\"artistas('".$link."')\" title=\"Ver agenda y perfil del artista\">";
-			echo "<img src=\"http://2013.circulart.org/m/iconos/transparente/stock_person.png\" border=\"0\">";
+			echo "<img src=\"../m/iconos/transparente/stock_person.png\" border=\"0\">";
 			echo "</a>";
 			echo "<a style=\"color:#3C1110; text-align:left; border:none; background:none; cursor:pointer;\" onclick=\"artistas('".$link."')\" title=\"Ver agenda y perfil del artista\">";
 			echo $grupo["nombre"];
@@ -1664,7 +1507,7 @@ function listar_promotores($frm){
 	}
 	else{//Es promotor
 	
-		$id_promotor=$_SESSION[$CFG->sesion]["user"]["id"];
+	    $id_promotor=$_SESSION[$CFG->sesion]["user"]["id"];
 		$condicion.=" AND mp.id_promotor!='" . $id_promotor . "' AND mp.id_promotor IN (
 			SELECT pa.id_promotor
 			FROM pr_promotores_areas pa
@@ -1677,12 +1520,12 @@ function listar_promotores($frm){
 	$j=1;
 	while($promotor=$db->sql_fetchrow($qPromotores)){ 
         //aqui va el codigo de bloqueo de los que son de circo
-		if($promotor[id]!=3788){
-			if(isset($id_promotor)) $link=simple_me($ME) . "?mercado=25&modo=agenda&mode=agenda_promotor_promotor&id_promotor2=$_GET[id_promotor]&id_promotor=$promotor[id]&id_mercado=$frm[id_mercado]&id_artista=$_GET[id_artista]";
+		if($promotor["id"]!=3788){
+			if(isset($id_promotor)) $link=simple_me($ME) . "?mercado=25&modo=agenda&mode=agenda_promotor_promotor&id_promotor2=$_GET[id_promotor]&id_promotor=$promotor[id]&id_mercado=$frm[id_mercado]";
 			else $link=simple_me($ME) . "?mercado=25&modo=agenda&mode=agenda_promotor&id_promotor2=$_GET[id_promotor]&id_promotor=$promotor[id]&id_mercado=$frm[id_mercado]&id_artista=$_GET[id_artista]";
 			echo "<table style='margin: 15px; float: left; width: 250px; height:40px' border='0' cellspacing='0' cellpadding='0' ><tr><td>";
 			echo "$j. <a style=\"border:none; background:none; cursor:pointer;\" onclick=\"artistas('".$link."')\" title=\"Ver perfil del promotor\">";
-			echo "<img src=\"".$CFG->wwwroot."/iconos/transparente/stock_person.png\" border=\"0\">";
+			echo "<img src=\"../m/iconos/transparente/stock_person.png\" border=\"0\">";
 			echo "</a>";
 			echo "<a style=\"color:#3C1110; border:none; background:none; cursor:pointer;\" onclick=\"artistas('".$link."')\" title=\"Ver agenda del promotor\">";
 			echo $promotor["nombre"] . " " . $promotor["apellido"];
@@ -1708,6 +1551,10 @@ function mostrar_agenda_grupo($frm){
 		WHERE r.id_mercado='$frm[id_mercado]'
 		ORDER BY s.fecha_inicial
 	");
+	
+	$cambio=0;
+	$cambio2=0;
+	
 	while($sesion=$db->sql_fetchrow($qSesiones)){
 		echo "<p><strong>Rueda:</strong> $sesion[nombre] <br />\n";
 		echo "<strong>Lugar:</strong> $sesion[lugar].<br />\n";
@@ -1717,8 +1564,13 @@ function mostrar_agenda_grupo($frm){
 		echo "<tr><th width=\"100\">Hora</th><th width=\"208\">Promotor</th><th width=\"50\">Mesa</th><th width=\"90\">Estado</th><th width=\"50\">Eliminar</th><th width=\"50\">Imprimir</th></tr>\n";
 		$desde=strtotime($sesion["fecha_inicial"]);
 		$hasta=strtotime($sesion["fecha_final"]);
+
+			
 		while($desde<$hasta){
+
 			echo "<tr><th scope=\"row\">" . strftime("%H:%M ",$desde) . date("a",$desde);
+
+			
 			$qCita=$db->sql_query("
 				SELECT c.*, CONCAT(p.nombre, ' ', p.apellido) as promotor,(SELECT mesa FROM mercado_promotores WHERE id_mercado=r.id_mercado AND id_promotor=p.id LIMIT 1) as mesa
 				FROM citas c LEFT JOIN promotores p ON c.id_promotor=p.id
@@ -1754,7 +1606,7 @@ function mostrar_agenda_grupo($frm){
 				}
 			}
 			echo "</tr>\n";
-			$desde+=60*15;
+			$desde3+=60*15;
 		}
 		echo "</table>\n";
 	}
@@ -1792,7 +1644,8 @@ function mostrar_agenda_grupo_promotor($frm){
 		echo "<tr><th width=\"100\">Hora</th><th width=\"208\">Grupo</th><th width=\"90\">Estado</th></tr>\n";
 		$desde=strtotime($sesion["fecha_inicial"]);
 		$hasta=strtotime($sesion["fecha_final"]);
-		while($desde<$hasta){
+
+        while($desde<$hasta){
 			echo "<tr><th scope=\"row\">" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
 			$strQuery="
 				SELECT c.*,
@@ -1874,7 +1727,8 @@ function mostrar_agenda_grupo_promotor($frm){
 		echo "<tr><th width=\"100\">Hora</th><th width=\"208\">Promotor</th><th width=\"90\">Estado</th></tr>\n";
 		$desde=strtotime($sesion["fecha_inicial"]);
 		$hasta=strtotime($sesion["fecha_final"]);
-		while($desde<$hasta){
+
+        while($desde<$hasta){
 			echo "<tr><th scope=\"row\">" . strftime("%H:%M ",$desde) . date("a",$desde);
 			$qCita=$db->sql_query("
 				SELECT c.*, CONCAT(p.nombre, ' ', p.apellido) as promotor,(SELECT mesa FROM mercado_promotores WHERE id_mercado=r.id_mercado AND id_promotor=p.id LIMIT 1) as mesa
