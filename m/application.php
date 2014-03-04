@@ -99,8 +99,8 @@ $DB_DIE_ON_FAIL = true;
 $CFG->dbname = "cir48lar_redlat";
 $CFG->dbuser = "cir48lar_redlat";
 $CFG->dbpass = "redlat4321";*/
+
 $CFG->dbhost = "localhost";
-//$CFG->dbhost = "184.107.157.218:3306";
 $CFG->dbname = "redlat_cir48lar";
 $CFG->dbuser = "redlat_cir48lar";
 $CFG->dbpass = "c*giVR=1Z-q_";
