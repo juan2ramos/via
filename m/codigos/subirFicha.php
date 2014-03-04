@@ -1,6 +1,6 @@
 
 <?php
-include("../application.php");
+include("../application2.php");
 GLOBAL $CFG, $ME, $db;
 ?>
 <link href="../css/estilos.css" rel="stylesheet" type="text/css">

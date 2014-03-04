@@ -86,7 +86,7 @@ $(document).ready(function() {
 
 </script>
 <?php
-include("../application.php");
+include("../application2.php");
 GLOBAL $CFG, $ME, $db;
 
 $frm["area"]=$_GET["area"];

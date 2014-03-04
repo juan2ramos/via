@@ -1,5 +1,5 @@
 <?php 
-include("../application.php");
+include("../application2.php");
 GLOBAL $CFG, $ME, $db;
 $vinculado["id"]=$_GET["persona"];
 $db->sql_query("delete from vinculados where id='". $vinculado["id"]."'");
