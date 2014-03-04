@@ -1,5 +1,8 @@
 <?php
 include("application.php");
+if (isset($_SERVER["REQUEST_METHOD"])) session_start();
+if (!isset($_SESSION[$CFG->sesion])) $_SESSION[$CFG->sesion] = array();
+if (isset($_SERVER["REQUEST_METHOD"])) $CFG->servidor = "http://" . $_SERVER["SERVER_NAME"];
 setlocale(LC_TIME, "es_ES");
 
 if(sizeof($_POST)>sizeof($_GET)) $frm=$_POST;
