@@ -126,6 +126,9 @@ setlocale (LC_CTYPE, "es_ES");
 
 if(!isset($_SERVER["REQUEST_METHOD"])) $CFG->cli=1;
 else $CFG->cli=0;
+
+if (isset($desactivaSession)){$desactivaSession=0;}
+
 if($desactivaSession==0){
 if (isset($_SERVER["REQUEST_METHOD"])) session_start();}
 if (!isset($_SESSION[$CFG->sesion])) $_SESSION[$CFG->sesion] = array();
