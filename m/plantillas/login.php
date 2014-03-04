@@ -13,7 +13,7 @@ if (isset($_POST["username"])) {
 		$_SESSION[$CFG->sesion]["username"]=$_POST["username"];
 		$_SESSION[$CFG->sesion]["pass"]= $_POST["password"];
 		$_SESSION[$CFG->sesion]["ip"] = $_SERVER["REMOTE_ADDR"];
-		
+		$_SESSION[$CFG->sesion]["id_nivel"]=$user["id_nivel"];
 		if($user["id_nivel"]==10){ 
 		
 		
@@ -63,6 +63,7 @@ if (isset($_POST["username"])) {
 			$id_grupo=$grupo["id"];
 			$_SESSION[$CFG->sesion]["user"]["grupo_id"]=$grupo["id"];
 			$_SESSION[$CFG->sesion]["user"]["grupo_tipo"]=$tipo;
+			
 			
 			$goto="index.php?act=1&modo=agenda&tipo=".$tipo."&id_artista=".$grupo["id"]."&id_mercado=". $CFG->mercado."&mercado=".$mercado;
 		}

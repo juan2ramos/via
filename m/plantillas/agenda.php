@@ -1,6 +1,6 @@
 <?
-if(!isset($_SESSION[$CFG->sesion]["user"]["id_nivel"])){
-	$goto = "index.php?modo=login&mercado=25";
+if(!isset($_SESSION[$CFG->sesion]["id_nivel"])){
+	$goto = "index.php?modo=login&mercado=".$CFG->mercado;
 	header("Location: $goto");
 	die();
 }
