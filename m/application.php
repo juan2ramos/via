@@ -99,8 +99,8 @@ $DB_DIE_ON_FAIL = true;
 $CFG->dbname = "cir48lar_redlat";
 $CFG->dbuser = "cir48lar_redlat";
 $CFG->dbpass = "redlat4321";*/
-
 $CFG->dbhost = "localhost";
+//$CFG->dbhost = "184.107.157.218:3306";
 $CFG->dbname = "redlat_cir48lar";
 $CFG->dbuser = "redlat_cir48lar";
 $CFG->dbpass = "c*giVR=1Z-q_";
@@ -128,7 +128,7 @@ if(!isset($_SERVER["REQUEST_METHOD"])) $CFG->cli=1;
 else $CFG->cli=0;
 
 //if (isset($_SERVER["REQUEST_METHOD"])) session_start();
-if (!isset($_SESSION[$CFG->sesion])){ $_SESSION[$CFG->sesion] = array();}
+if (!isset($_SESSION[$CFG->sesion])) $_SESSION[$CFG->sesion] = array();
 
 if (isset($_SERVER["REQUEST_METHOD"])) $CFG->servidor = "http://" . $_SERVER["SERVER_NAME"];
 
