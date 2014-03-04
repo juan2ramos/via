@@ -279,7 +279,7 @@ $(document).ready(function () {
 </script>
 
 <?
-$id_nivel=$_SESSION[$CFG->sesion]["user"]["id_nivel"];
+echo $id_nivel=$_SESSION[$CFG->sesion]["id_nivel"];
 if(sizeof($_POST)>sizeof($_GET)) $frm=$_POST;
 else $frm=$_GET;
 
