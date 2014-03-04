@@ -1,5 +1,5 @@
 <?php 
-include("../application2.php");
+include("../application.php");
 GLOBAL $CFG, $ME, $db;
 ?>
 <link href="../css/style.css" rel="stylesheet" type="text/css">

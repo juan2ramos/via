@@ -1,6 +1,6 @@
  
  <?php
-include("../application2.php");
+include("../application.php");
 GLOBAL $CFG, $ME, $db;
 $frm["id_grupos_musica"]=$_GET["id_grupo"];
 

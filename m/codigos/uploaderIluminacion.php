@@ -19,7 +19,7 @@ function alerta(){
 </script>
 
 <?php
-include("../application2.php");
+include("../application.php");
 GLOBAL $CFG, $ME, $db;
 $val=$_FILES['ufile'];
 if($val["name"]!="")

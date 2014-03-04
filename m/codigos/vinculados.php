@@ -15,7 +15,7 @@ table{
 		width:180px}		
 </style>
 <?php
-include("../application2.php");
+include("../application.php");
 GLOBAL $CFG, $ME, $db;
 
 $frm["id_grupo"]=$_GET["item"];

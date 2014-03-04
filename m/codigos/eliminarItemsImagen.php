@@ -1,5 +1,5 @@
 <?php 
-include("../application2.php");
+include("../application.php");
 GLOBAL $CFG, $ME, $db;
 $obra["id"]=$_GET["item"];
 $db->sql_query("delete from archivos_obras_".$_GET["area"]." where id='". $obra["id"]."'");

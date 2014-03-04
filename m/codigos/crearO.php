@@ -8,7 +8,7 @@ body{
 </style>
 
 <?php
-include("../application2.php");
+include("../application.php");
 GLOBAL $CFG, $ME, $db;
 /********* codigo para insertar la acaratula *********/
 $frm["id"]=$_POST["id_obra"];
