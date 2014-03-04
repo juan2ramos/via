@@ -1,5 +1,5 @@
 <?php
-$mercado=25;
+$mercado=26;
 $CFG->mercado=$mercado;
 ?>
 <div class ="artista">
@@ -103,16 +103,16 @@ function verify_login($username, $password) {
 	
 	}
 </style>
-<table width="916px" border="0" cellspacing="5" cellpadding="5" style="background-color:#E6D7B0">
+<table width="1020px" border="0" align="center" cellpadding="5" cellspacing="5">
   <tr>
-    <td width="490" valign="top" style="text-align:justify; padding-left:20px"><br />
+    <td width="490" valign="top" style="padding-left:20px"><br />
 <br />
 
-    <div style="font-size:28px; color:#3D1211"><strong>Entrada de agendamiento</strong></div>
+    <div style="font-size:28px;"><strong>Entrada de agendamiento</strong></div>
     <div class="azul">
-      <p><span style="color:#3D1211; font-size:18px;">AGENDA ARTISTAS/GRUPOS Y PROFESIONALES</span><br />
+      <p><span style="font-size:18px;">AGENDA ARTISTAS/GRUPOS Y PROFESIONALES</span><br />
         <br />
-        <strong>Gracias por agendar con nosotros, en los pr&oacute;ximos d&iacute;as espere un correo con su agenda.</strong></p>
+      Cualquier inquietud puede comunicarse   al correo electr&oacute;nico <u><a href="mailto:luisfzuluaga@circulart.org" style="border:none; background:none; color:red; padding:0"><strong>luisfzuluaga@circulart.org</strong></a></u> asistencia a compradores y al correo electr&oacute;nico <u><a href="mailto:info@circulart.org" style="border:none; background:none; color:red; padding:0"><strong>info@</strong></a><a href="mailto:compradores@bogotamusicmarket.com" style="border:none; background:none; color:red; padding:0"><strong>circulart.org</strong></a></u> asistencia para artistas. </p>
 <p>&nbsp;</p>
     </div>
     </td>
@@ -122,24 +122,24 @@ function verify_login($username, $password) {
 	     
 <form id="login" name="login" method="post" action="<?=$ME?>?mercado=<?=$mercado?>">
 	<input type="hidden" name="modo" value="login" />
-	<!--<table width="285" border="0" align="left" cellpadding="5" cellspacing="5" style="margin-left:40px;">
+	<table width="285" border="0" align="left" cellpadding="5" cellspacing="5" style="margin-left:40px;">
     	<tr>
         	<td width="90" align="right" scope="col">
-              <strong style="color:#3D1211">Login</strong>:
+              <strong>Login</strong>:
             </td>
         	<td width="195" align="right" scope="col"><label><input type="text" name="username" value="<?=nvl($frm["username"])?>" /></label></td>
       </tr>
         <tr>
         	<td align="right" scope="row">
-            <strong style="color:#3D1211">Password</strong>:</td>
+            <strong>Password</strong>:</td>
         	<td align="right"><label><input type="password" name="password" /></label></td>
         </tr>
         <tr>
         	<td scope="row">&nbsp;</td>
-            <td align="right"><label><input type="submit" value="Entrar"  style="cursor:pointer"/></label></td>
+            <td align="right"><label><input type="submit" value="Entrar"  style="cursor:pointer" id="button"/></label></td>
         </tr>
         
-  </table>-->
+  </table>
 </form></td>
   </tr>
 </table>
