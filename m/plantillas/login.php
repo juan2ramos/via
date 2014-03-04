@@ -2,7 +2,6 @@
 $mercado=26;
 $CFG->mercado=$mercado;
 session_start();
-$_SESSION[$CFG->sesion]=array();
 ?>
 <div class ="artista">
 
