@@ -1,7 +1,6 @@
 <?php
 $mercado=26;
 $CFG->mercado=$mercado;
-session_start();
 ?>
 <div class ="artista">
 
@@ -80,6 +79,7 @@ function verify_login($username, $password) {
 	$qid = $db->sql_query("SELECT * FROM usuarios WHERE login = '$username' AND password = '" . $pass . "'");
 	if($user=$db->sql_fetchrow($qid)){
 		$user["tipo_usuario"]="grupo";
+		session_start();
 		return($user);
 	}
 
@@ -89,6 +89,7 @@ function verify_login($username, $password) {
 			WHERE m.id_mercado='".$CFG->mercado."' AND p.login= '$username' AND p.password = '" . $pass . "'");
 	if($user=$db->sql_fetchrow($qid)){
 		$user["tipo_usuario"]="promotor";
+		session_start();
 		return($user);
 	}
 	return(FALSE);
