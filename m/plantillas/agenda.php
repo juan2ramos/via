@@ -1,8 +1,8 @@
 <?
-if(!isset($_SESSION[$CFG->sesion]["id_nivel"])){
+if(!isset($_SESSION[$CFG->sesion]["user"]["id_nivel"])){
 	$goto = "index.php?modo=login&mercado=".$CFG->mercado;
-	//header("Location: $goto");
-	//die();
+	header("Location: $goto");
+	die();
 }
 ?>
 <style>
@@ -279,13 +279,13 @@ $(document).ready(function () {
 </script>
 
 <?
-echo $id_nivel=$_SESSION[$CFG->sesion]["id_nivel"];
+$id_nivel=$_SESSION[$CFG->sesion]["user"]["id_nivel"];
 if(sizeof($_POST)>sizeof($_GET)) $frm=$_POST;
 else $frm=$_GET;
 
 
 /****************************** Cabecera del mail *********************************************/
-/**require("../class.phpmailer.php");
+/*require("../class.phpmailer.php");
 			
 			$mailer = new PHPMailer();
 			$mailer->IsSMTP();
