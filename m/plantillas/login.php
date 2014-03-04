@@ -9,9 +9,7 @@ if (isset($_POST["username"])) {
 	$user = verify_login($_POST["username"], $_POST["password"]);
 
 	if ($user) {
-		session_start();
-		$_SESSION['views']=1;
-		//$_SESSION[$CFG->sesion]["user"] = $user;
+		$_SESSION[$CFG->sesion]["user"] = $user;
 		//$_SESSION[$CFG->sesion]["username"]=$_POST["username"];
 		//$_SESSION[$CFG->sesion]["pass"]= $_POST["password"];
 		//$_SESSION[$CFG->sesion]["ip"] = $_SERVER["REMOTE_ADDR"];
