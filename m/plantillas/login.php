@@ -1,6 +1,8 @@
 <?php
 $mercado=26;
 $CFG->mercado=$mercado;
+session_start();
+$_SESSION[$CFG->sesion]=array();
 ?>
 <div class ="artista">
 
@@ -9,7 +11,7 @@ if (isset($_POST["username"])) {
 	$user = verify_login($_POST["username"], $_POST["password"]);
 
 	if ($user) {
-		session_start();
+		
 		$_SESSION[$CFG->sesion]["user"] = $user;
 		$_SESSION[$CFG->sesion]["username"]=$_POST["username"];
 		$_SESSION[$CFG->sesion]["pass"]= $_POST["password"];
