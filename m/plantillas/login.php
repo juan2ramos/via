@@ -15,12 +15,7 @@ if (isset($_POST["username"])) {
 		$_SESSION[$CFG->sesion]["ip"] = $_SERVER["REMOTE_ADDR"];
 		$_SESSION[$CFG->sesion]["id_nivel"]=$user["id_nivel"];
 		if($user["id_nivel"]==10){ 
-		
-		
-		$goto="index.php?act=0&modo=agenda&id_mercado=" . $CFG->mercado."&id_promotor=".$user["id"]."&mercado=".$mercado;
-		
-		
-		
+		  $goto="index.php?act=0&modo=agenda&id_mercado=" . $CFG->mercado."&id_promotor=".$user["id"]."&mercado=".$mercado;
 		}else{
 			$inMercado = false;
 			$tipos = array("danza","musica","teatro");

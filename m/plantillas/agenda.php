@@ -285,7 +285,7 @@ else $frm=$_GET;
 
 
 /****************************** Cabecera del mail *********************************************/
-require("../class.phpmailer.php");
+/**require("../class.phpmailer.php");
 			
 			$mailer = new PHPMailer();
 			$mailer->IsSMTP();
@@ -294,7 +294,7 @@ require("../class.phpmailer.php");
 			$mailer->Username = 'notificacionescirculart@gmail.com';  // Change this to your gmail adress
 			$mailer->Password = 'C1cul4rt!"2';  // Change this to your gmail password
 			$mailer->FromName = 'Notificaciones Circulart2013'; // This is the from name in the email, you can put anything you like here	
-			$mailer->From = 'notificacionescirculart@gmail.com'; 	 //remplazar por el de info@bogotamusicmarlet.com
+			$mailer->From = 'notificacionescirculart@gmail.com'; 	 //remplazar por el de info@bogotamusicmarlet.com*/
 /*********************************************************************************************/
 
 
