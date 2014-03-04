@@ -15,7 +15,7 @@ table{
 		width:180px}		
 </style>
 <?php
-$desactivaSession=1;
+
 include("../application.php");
 GLOBAL $CFG, $ME, $db;
 

@@ -1,5 +1,5 @@
 <?php 
-$desactivaSession=1;
+
 include("../application.php");
 GLOBAL $CFG, $ME, $db;
 $vinculado["id"]=$_GET["persona"];
