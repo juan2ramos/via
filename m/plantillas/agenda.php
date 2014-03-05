@@ -12,41 +12,65 @@ if(!isset($_SESSION[$CFG->sesion]["user"]["id_nivel"])){
 	padding:5px;
 	cursor:pointer;
 	color:#fff;}
-#contenido_miAgenda{
+	
+/*#contenido_miAgenda{
 	display:none;
-}
+}*/
 
 #contenido_lista,#contenido_miAgenda,#contenido_listapro,#perfil{
-	width:916px;
+	width:1130px;
 	margin-top: -2px;
 	border-style: dotted;
-	border-width: 2px;
-	border-color: #F17127;	
-	background-color:#E6D7B0;	
+	border-width: 1px;
+	border-color: #FFF;	
 	overflow:hidden;
 	margin-bottom:8px;
+	padding:10px;
+	font-size:16px;
 }
 
-a, .link {
-background-color: #3D1211;
-padding: 10px;
-color: #E7D8B1;
-text-decoration: none;
--webkit-border-bottom-left-radius: 4px;
-border-bottom-left-radius: 4px;
--webkit-border-top-left-radius: 4px;
-border-top-left-radius: 4px;
--moz-border-radius-bottomleft: 4px;
--moz-border-radius-topleft: 4px;
--webkit-border-bottom-right-radius: 4px;
-border-bottom-right-radius: 4px;
--webkit-border-top-right-radius: 4px;
-border-top-right-radius: 4px;
--moz-border-radius-bottomright: 4px;
--moz-border-radius-topright: 4px;
-font-family: Arial, Helvetica, sans-serif;
-border: 1px solid #3D1211;
+#contenido_lista div, #contenido_listapro div, #contenido_miAgenda div{
+	background-color:red;
+	padding:5px;
 }
+
+.nombre_profesional{
+    padding:5px; 
+	width:1130px; 
+	margin-top:10px;
+	font-size:24px;
+	}
+.nombre_profesional a div{
+	color:#F00;
+	font-size:18px;
+	float:right;
+	margin-top:8px;
+	font-weight:bold;	
+	}
+	
+#lista_portafolios, #lista_portafolios_dos, #miAgenda{
+	color:#FFF;
+	margin-right: 10px;
+	padding-right: 10px;
+	padding-bottom:2px;
+	margin-left: 5px;
+	text-decoration: underline;
+	border-right-color: #fff;
+	border-right-style: dotted;
+	border-right-width: 1px;
+	}		
+#miAgenda{
+	border:none;}	
+.items{
+	margin: 5px; 
+	float: left; 
+	width: 280px; 
+	height:40px; 
+	padding:0px;
+	}	
+.listados{
+	width:1130px;
+	}	
 </style>
 <script language="javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="http://circulart.org/circulart2013/m/js/source/jquery.fancybox.js"></script>
@@ -325,7 +349,7 @@ if($id_nivel=="10"){//Promotor
 		$tipo=$frm["tipo"];
 		$qImagenes=$db->sql_query("SELECT id,mmdd_archivo_filename FROM archivos_grupos_$tipo WHERE id_grupos_$tipo='".$id."' AND tipo=1 AND mmdd_archivo_filename IS NOT NULL ORDER BY orden");
 		if($imagen = $db->sql_fetchrow($qImagenes)){
-			$img="<img src=\"" . $CFG->wwwroot . "/phpThumb/phpThumb.php?src=" . urlencode($CFG->dirwww . "/admin/imagen.php?table=archivos_grupos_$tipo&field=archivo&id=" . $imagen["id"]) . "&amp;w=110\" class=\"artista\" />";
+			$img="<img src=\"../m/phpThumb/phpThumb.php?src=" . urlencode($CFG->dirwww . "/admin/imagen.php?table=archivos_grupos_$tipo&field=archivo&id=" . $imagen["id"]) . "&amp;w=110\" class=\"artista\" />";
 		}
 		else $img="";
 
@@ -838,7 +862,7 @@ function mostrar_agenda_promotor_promotor($frm){
 							echo "<td>$estado</td>";
 						}
 						else{
-							echo "<td></td><td><a style=\"padding:0px; color:#3C1110; text-decoration:underline; text-align:left; border:none; background:none; cursor:pointer;\" href=\"" . simple_me($ME) . "?mercado=25&modo=agenda&mode=solicitar_cita_promotor_promotor&fecha=" . urlencode(date("Y-m-d H:i:s",$desde)) . "&id_sesion=$sesion[id_sesion]&id_promotor=$frm[id_promotor]&id_promotor2=$frm[id_promotor2]\">Solicitar cita</a>";
+							echo "<td></td><td><a style=\"padding:0px; color:#3C1110; text-decoration:underline; text-align:left; border:none; background:none; cursor:pointer;\" href=\"" . simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=solicitar_cita_promotor_promotor&fecha=" . urlencode(date("Y-m-d H:i:s",$desde)) . "&id_sesion=$sesion[id_sesion]&id_promotor=$frm[id_promotor]&id_promotor2=$frm[id_promotor2]\">Solicitar cita</a>";
 						}
 					}
 				}
@@ -1037,7 +1061,7 @@ function mostrar_agenda_promotor_artista($frm){
 					echo "<td style='border:none; background:#F17127'>&nbsp;&nbsp;<strong style='border:none; background:#F17127'>Bloqueado</strong></th>\n";
 				}
 				else{
-					echo "<td></td><td><a style=\"color:#3C1110; text-decoration:underline; text-align:left; border:none; background:none; cursor:pointer;\"  href=\"" . simple_me($ME) . "?mercado=25&modo=agenda&mode=solicitar_cita_promotor&fecha=" . urlencode(date("Y-m-d H:i:s",$desde)) . "&id_sesion=$sesion[id_sesion]&tipo=$frm[tipo]&id_artista=$frm[id_artista]\">Solicitar cita</a>";
+					echo "<td></td><td><a style=\"color:#3C1110; text-decoration:underline; text-align:left; border:none; background:none; cursor:pointer;\"  href=\"" . simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=solicitar_cita_promotor&fecha=" . urlencode(date("Y-m-d H:i:s",$desde)) . "&id_sesion=$sesion[id_sesion]&tipo=$frm[tipo]&id_artista=$frm[id_artista]\">Solicitar cita</a>";
 				}
 			}
 			echo "</tr>\n";
@@ -1228,7 +1252,7 @@ function mostrar_agenda_promotor_promotor_recordatorio($frm){
 					echo "<td>$cita[mesa]</td>";
 					if($cita["aceptada_promotor"]==1 && $cita["aceptada_promotor2"]==1) $estado="Aceptada";
 					elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_promotor2"]==0) $estado="Por confirmar";
-					elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_promotor2"]==1) $estado="<a href=\"" . simple_me($ME) . "?mercado=25&modo=agenda&mode=confirmar_cita_promotor_promotor&id_cita=$cita[id]\">Confirmar</a>";
+					elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_promotor2"]==1) $estado="<a href=\"" . simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=confirmar_cita_promotor_promotor&id_cita=$cita[id]\">Confirmar</a>";
 					else $estado="Eliminada";
 					echo "<td>$estado</td>";
 				}
@@ -1252,11 +1276,13 @@ function mostrar_agenda_promotor_promotor_recordatorio($frm){
 	
 	echo "</div>";
 }
-
+/**************************************************/
+/*funcion que construlle la agenda del profesional*/
+/**************************************************/
 function mostrar_agenda_promotor($frm){
 	GLOBAL $CFG,$db,$ME;
-    echo "<div id='contenido_miAgenda' style='margin-top:-30px'>";
-	echo "<div style='color:#E6D7B0; background-color:#3D1211; padding:5px; width:940px; margin:2px;'>Para imprimir <b>la agenda</b>, haga click en este icono <img src=\"".$CFG->wwwroot."/iconos/transparente/printer.png\" style=\"cursor:pointer\" onClick=\"popup('impresion.php?mode=agenda_promotor&id_promotor=$frm[id_promotor]&id_mercado=$frm[id_mercado]')\" title=\"Imprimir Agenda\"></div>";
+    echo "<div id='contenido_miAgenda'>";
+	echo "<div>Para imprimir <b>la agenda</b>, haga click en este icono <img src=\"../m/iconos/transparente/printer.png\" style=\"cursor:pointer\" onClick=\"popup('impresion.php?mode=agenda_promotor&id_promotor=$frm[id_promotor]&id_mercado=$frm[id_mercado]')\" title=\"Imprimir Agenda\"></div>";
 	$qSesiones=$db->sql_query("
 		SELECT s.id as id_sesion, s.id_rueda, s.lugar, r.nombre, r.duracion_cita, s.fecha_inicial, fecha_final
 		FROM sesiones s LEFT JOIN ruedas r ON s.id_rueda=r.id
@@ -1272,8 +1298,8 @@ function mostrar_agenda_promotor($frm){
 		echo "<strong>Lugar:</strong> $sesion[lugar].<br />\n";
 		setlocale (LC_TIME, "es_ES");
 		echo "<strong>Fecha:</strong> " . strftime("%B %e de %Y",strtotime($sesion["fecha_inicial"])) . "</p>\n";
-		echo "<table border=\"0\" cellpadding=\"5\" cellspacing=\"5\" width=\"916\">\n";
-		echo "<tr><th width=\"100\">Hora</th><th width=\"208\">Artista</th><th width=\"50\">Mesa</th><th width=\"90\">Estado</th><th width=\"50\">Eliminar</th><th width=\"50\">Imprimir</th></tr>\n";
+		echo "<table border=\"0\" cellpadding=\"5\" cellspacing=\"5\" width=\"100%\">\n";
+		echo "<tr><th width=\"100\">Hora</th><th width=\"208\">Artista</th><th width=\"50\">Mesa</th><th width=\"90\">Estado</th><th width=\"50\">Cancelar cita</th><th width=\"50\">Imprimir</th></tr>\n";
 			
 		$desde=strtotime($sesion["fecha_inicial"]);
 		$hasta=strtotime($sesion["fecha_final"]);
@@ -1301,11 +1327,11 @@ function mostrar_agenda_promotor($frm){
 				echo "<td>$cita[mesa]</td>";
 				if($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==1) $estado="Aceptada";
 				elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==0) $estado="Por confirmar";
-				elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==1) $estado="<a href=\"" . simple_me($ME) . "?mercado=25&modo=agenda&mode=confirmar_cita_promotor&id_cita=$cita[id]\">Confirmar</a>";
+				elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==1) $estado="<a href=\"" . simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=confirmar_cita_promotor&id_cita=$cita[id]\">Confirmar</a>";
 				else $estado="Eliminada";
 				echo "<td>$estado</td>";
-				echo "<td align=\"center\"><a style=\"border:none; background:none; cursor:pointer;\" href=\"" . simple_me($ME) . "?act=2&mercado=25&modo=agenda&mode=rechazar_cita_promotor&id_cita=$cita[id]\"><img border=\"0\" src=\"".$CFG->wwwroot."/iconos/transparente/trash-x.png\"></a></td>";
-				echo "<td align=\"center\"><img src=\"".$CFG->wwwroot."/iconos/transparente/printer.png\" style=\"cursor:pointer\" onClick=\"popup('impresion.php?mode=detalle_cita_promotor&id_cita=$cita[id]')\" title=\"Imprimir\"></td>";
+				echo "<td align=\"center\"><a style=\"border:none; background:none; cursor:pointer;\" href=\"" . simple_me($ME) . "?act=2&mercado=".$CFG->mercado."&modo=agenda&mode=rechazar_cita_promotor&id_cita=$cita[id]&id_promotor=$_GET[id_promotor]\"><img border=\"0\" src=\"../m/iconos/transparente/trash-x.png\"></a></td>";
+				echo "<td align=\"center\"><img src=\"../m/iconos/transparente/printer.png\" style=\"cursor:pointer\" onClick=\"popup('impresion.php?mode=detalle_cita_promotor&id_cita=$cita[id]')\" title=\"Imprimir\"></td>";
 
 			}
 			else{
@@ -1329,18 +1355,18 @@ function mostrar_agenda_promotor($frm){
 					if($cita["id_promotor2"]==$frm["id_promotor"]){
 					    $estado="Por confirmar";
 					 }else{
-						 $estado="<a href=\"" . simple_me($ME) . "?act=2&mercado=25&modo=agenda&mode=confirmar_cita_promotor_promotor&id_cita=$cita[id]\">Confirmar</a>";
+						 $estado="<a href=\"" . simple_me($ME) . "?act=2&mercado=".$CFG->mercado."&modo=agenda&mode=confirmar_cita_promotor_promotor&id_cita=$cita[id]\">Confirmar</a>";
 						 }
 					}else{ $estado="Eliminada";};
 					echo "<td>$estado</td>";
-					echo "<td align=\"center\"><a style=\"border:none; background:none; cursor:pointer;\" href=\"" . simple_me($ME) . "?act=2&mercado=25&modo=agenda&mode=rechazar_cita_promotor_promotor&id_cita=$cita[id]\"><img border=\"0\" src=\"".$CFG->wwwroot."/iconos/transparente/trash-x.png\"></a></td>";
-					echo "<td align=\"center\"><img src=\"".$CFG->wwwroot."/iconos/transparente/printer.png\" style=\"cursor:pointer\" onClick=\"popup('impresion.php?mode=detalle_cita_promotor_promotor&id_cita=$cita[id]')\" title=\"Imprimir\"></td>";
+					echo "<td align=\"center\"><a style=\"border:none; background:none; cursor:pointer;\" href=\"" . simple_me($ME) . "?act=2&mercado=".$CFG->mercado."&modo=agenda&mode=rechazar_cita_promotor_promotor&id_cita=$cita[id]&id_promotor=$_GET[id_promotor]\"><img border=\"0\" src=\"../m/iconos/transparente/trash-x.png\"></a></td>";
+					echo "<td align=\"center\"><img src=\"../m/iconos/transparente/printer.png\" style=\"cursor:pointer\" onClick=\"popup('impresion.php?mode=detalle_cita_promotor_promotor&id_cita=$cita[id]')\" title=\"Imprimir\"></td>";
 
 				}
 				else{
 					$qBloqueo=$db->sql_query("SELECT * FROM excepciones_agenda WHERE id_promotor='$frm[id_promotor]' AND desde='" . date("Y-m-d H:i:00",$desde) . "'");
 					if($db->sql_numrows($qBloqueo)!=0){//Horario bloqueado
-						echo "&nbsp;&nbsp;<strong><a style='color:#3D1211; border:none; background:none; text-decoration:underline;' href=\"" . simple_me($ME) . "?act=2&mercado=25&modo=agenda&mode=desbloquear_agenda_promotor&fecha=" . urlencode($desde) . "\" title=\"Desbloquear\">Desbloquear</a></strong>";
+						echo "&nbsp;&nbsp;<strong><a style='color:#3D1211; border:none; background:none; text-decoration:underline;' href=\"" . simple_me($ME) . "?act=2&mercado=".$CFG->mercado."&modo=agenda&mode=desbloquear_agenda_promotor&fecha=" . urlencode($desde) . "\" title=\"Desbloquear\">Desbloquear</a></strong>";
 						echo "</th>";
 						echo "<th style='border:none; background:#F17127'></th>";
 						echo "<th style='border:none; background:#F17127'></th>";
@@ -1349,7 +1375,7 @@ function mostrar_agenda_promotor($frm){
 						echo "<th style='border:none; background:#F17127'></th>\n";
 					}
 					else{
-						echo "&nbsp;&nbsp;<strong><a style='color:#3D1211; border:none; background:none; text-decoration:underline;' href=\"" . simple_me($ME) . "?act=2&mercado=25&modo=agenda&mode=bloquear_agenda_promotor&fecha=" . urlencode($desde) . "\" title=\"Bloquear\">Bloquear</a></strong>";
+						echo "&nbsp;&nbsp;<strong><a style='color:#3D1211; border:none; background:none; text-decoration:underline;' href=\"" . simple_me($ME) . "?act=2&mercado=".$CFG->mercado."&modo=agenda&mode=bloquear_agenda_promotor&fecha=" . urlencode($desde) . "\" title=\"Bloquear\">Bloquear</a></strong>";
 						echo "</th>\n";
 					}
 				}
@@ -1426,6 +1452,11 @@ function detalle_mercado($frm){
 
 }
 
+
+
+/**************************************************************************************************************/
+/*funcion que arma el listado de los artitas o grupos cuando entran como profesional al modulo de agendamiento*/
+/**************************************************************************************************************/
 function listar_grupos($frm){
 	GLOBAL $CFG,$db,$ME;
 
@@ -1435,16 +1466,16 @@ function listar_grupos($frm){
 	$qPromotor=$db->sql_query("SELECT * FROM promotores WHERE id='$frm[id_promotor]'");
 	$promotor=$db->sql_fetchrow($qPromotor);
 	
-	echo "<div style='color:#fff; background-color:#04A9A7; padding:5px; width:905px; margin-top:10px;'><span style='font-size:16px'>Bienvenido profesional: <b>" .$promotor["nombre"]." ".$promotor["apellido"]. "</span></b><span style='float:right; margin-top:2px;'><a style='background-color:#F17127; border:none' href='index.php?modo=login'><b style='color:#C7D82B'>Salir [X]</b></a></span></div>\n";
-	echo "<p>" . nl2br($mercado["descripcion"]) . "</p>\n";
+	//linea de codigo donde se meuestra el nombre del profesional y el boton de salida
+	echo "<div class='nombre_profesional'>Bienvenido profesional: <b>" .$promotor["nombre"]." ".$promotor["apellido"]. "</b><a href='index.php?modo=login'><div >Salir [X]</div></a></div>\n";
 	$condicion="ma.id_mercado='$frm[id_mercado]'";
 	$id_nivel=$_SESSION[$CFG->sesion]["user"]["id_nivel"];
-	if($id_nivel=="10"){//Promotor
+	if($id_nivel=="10"){//Nivel 10 es igual a profesional
 		$id_promotor=$_SESSION[$CFG->sesion]["user"]["id"];
 		$qAreas=$db->sql_query("SELECT ar.codigo FROM pr_promotores_areas pa LEFT JOIN pr_areas ar ON pa.id_area=ar.id WHERE pa.id_promotor='$id_promotor'");
 		$arrayCondiciones=array();
 		while($area=$db->sql_fetchrow($qAreas)){
-			if($area["codigo"]=="teatro"||$area["codigo"]=="musica"||$area["codigo"]=="danza"){
+			if($area["codigo"]=="teatro"||$area["codigo"]=="musica"||$area["codigo"]=="danza"){//filtra por las tablas de teatro, musica, danza
 			 array_push($arrayCondiciones,"(ma.id_grupo_" . $area["codigo"] . " IS NOT NULL AND ma.id_grupo_" . $area["codigo"] . "!='0')");
 			}
 		}
@@ -1459,12 +1490,18 @@ function listar_grupos($frm){
 		WHERE $condicion
 		ORDER BY gm.nombre, gd.nombre, gt.nombre
 	");
-	echo "<p>";
+
 	$tipo_anterior="";
-	echo "<br><a id='lista_portafolios' href='index.php?act=0&modo=agenda&id_mercado=".$CFG->mercado."&id_promotor=".$promotor["id"]."&mercado=".$CFG->mercado."'>Artistas</a><a id='lista_portafolios_dos' href='index.php?act=1&modo=agenda&id_mercado=".$CFG->mercado."&id_promotor=".$promotor["id"]."&mercado=".$CFG->mercado."'>Profesionales</a><a id='miAgenda' href='index.php?act=2&modo=agenda&id_mercado=".$CFG->mercado."&id_promotor=".$promotor["id"]."&mercado=".$CFG->mercado."'>Administraci&oacute;n de m&iacute; agenda</a>";
-	echo "<div id='contenido_lista' >";
+	
+	//línea de codigo que muestra los enlaces de listado de artistas, litado de profesionales y la administración de las agendas para profesionales.
+	echo "<a id='lista_portafolios' href='index.php?act=0&modo=agenda&id_mercado=".$CFG->mercado."&id_promotor=".$promotor["id"]."&mercado=".$CFG->mercado."'>Listado artistas</a>";
+	echo "<a id='lista_portafolios_dos' href='index.php?act=1&modo=agenda&id_mercado=".$CFG->mercado."&id_promotor=".$promotor["id"]."&mercado=".$CFG->mercado."'>listado de profesionales</a>";
+	echo "<a id='miAgenda' href='index.php?act=2&modo=agenda&id_mercado=".$CFG->mercado."&id_promotor=".$promotor["id"]."&mercado=".$CFG->mercado."'>Administraci&oacute;n de m&iacute; agenda</a>";
+	
+	//codigo que muestra a los grupos o artistas en la parte del Profesional
+	echo "<br><br><div id='contenido_lista' ><div>Artistas:</div>";
 	$j=1;
-	echo "\n<table style='width:955px;'>";
+	echo "\n<table>";
 	echo "<tr><td>";
 	while($gm=$db->sql_fetchrow($qGrupos)){
 		if($gm["id_grupo_musica"]!=""){$tipo="musica";$tipoTxt="Música";$id=$gm["id_grupo_musica"];}
@@ -1479,13 +1516,10 @@ function listar_grupos($frm){
 		if($grupo=$db->sql_fetchrow($qImagen)){
 		//codigo nuevo 
 		  if($grupo["id"]!=1555){
-			$link=simple_me($ME) . "?mercado=25&modo=agenda&mode=agenda_artista&tipo=$tipo&id_artista=$grupo[id]&id_mercado=$frm[id_mercado]";
-			echo "<table style='margin: 5px; float: left; width: 280px; height:40px; padding:0px;' border='0' cellspacing='0' cellpadding='0' ><tr><td>";
-			echo $j.". <a style=\"border:none; text-align:left; background:none; cursor:pointer;\" onclick=\"artistas('".$link."')\" title=\"Ver agenda y perfil del artista\">";
-			echo "<img src=\"../m/iconos/transparente/stock_person.png\" border=\"0\">";
-			echo "</a>";
-			echo "<a style=\"color:#3C1110; text-align:left; border:none; background:none; cursor:pointer;\" onclick=\"artistas('".$link."')\" title=\"Ver agenda y perfil del artista\">";
-			echo $grupo["nombre"];
+			$link=simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=agenda_artista&tipo=$tipo&id_artista=$grupo[id]&id_mercado=$frm[id_mercado]";
+			echo "<table class='items' border='0' cellspacing='0' cellpadding='0' ><tr><td>";
+			echo "<a style=\"text-align:left; border:none; background:none; cursor:pointer;\" onclick=\"artistas('".$link."')\" title=\"Ver agenda y perfil del artista\">";
+			echo $j.".&nbsp;&nbsp;".$grupo["nombre"];
 			echo "</a>&nbsp;";
 			echo "</td></tr></table>";
 			$j++;
@@ -1494,19 +1528,20 @@ function listar_grupos($frm){
 	}
 	echo "</tr></td></table></div>"; 
 }
-
+/***********************************************************************************************************/
+/*funcion que arma el listado de los profesionales para profesionales profesional al modulo de agendamiento*/
+/***********************************************************************************************************/
 function listar_promotores($frm){
 	GLOBAL $CFG,$db,$ME;
 
 	$condicion="mp.id_mercado='$frm[id_mercado]'";
    
-	if(isset($_SESSION[$CFG->sesion]["user"]["grupo_tipo"])){//Es grupo
+	if(isset($_SESSION[$CFG->sesion]["user"]["grupo_tipo"])){//si es un grupo
 	
 		$tipo=$_SESSION[$CFG->sesion]["user"]["grupo_tipo"];
 		$condicion.=" AND mp.id_promotor IN (SELECT pa.id_promotor FROM pr_promotores_areas pa LEFT JOIN pr_areas ar ON pa.id_area=ar.id WHERE ar.codigo='$tipo')";
 	}
-	else{//Es promotor
-	
+	else{//si es un profesional
 	    $id_promotor=$_SESSION[$CFG->sesion]["user"]["id"];
 		$condicion.=" AND mp.id_promotor!='" . $id_promotor . "' AND mp.id_promotor IN (
 			SELECT pa.id_promotor
@@ -1514,21 +1549,17 @@ function listar_promotores($frm){
 			WHERE pa.id_area IN (SELECT id_area FROM pr_promotores_areas WHERE id_promotor='" . $id_promotor . "') 
 		)";
 	}
-    echo "<div id='contenido_listapro'>";
+    echo "<div id='contenido_listapro'><div>Profesionales:</div>";
 	$qPromotores=$db->sql_query("SELECT p.* FROM mercado_promotores mp LEFT JOIN promotores p ON mp.id_promotor=p.id WHERE $condicion ORDER BY nombre");
-	echo "<p>";
 	$j=1;
 	while($promotor=$db->sql_fetchrow($qPromotores)){ 
         //aqui va el codigo de bloqueo de los que son de circo
 		if($promotor["id"]!=3788){
-			if(isset($id_promotor)) $link=simple_me($ME) . "?mercado=25&modo=agenda&mode=agenda_promotor_promotor&id_promotor2=$_GET[id_promotor]&id_promotor=$promotor[id]&id_mercado=$frm[id_mercado]";
-			else $link=simple_me($ME) . "?mercado=25&modo=agenda&mode=agenda_promotor&id_promotor2=$_GET[id_promotor]&id_promotor=$promotor[id]&id_mercado=$frm[id_mercado]&id_artista=$_GET[id_artista]";
-			echo "<table style='margin: 15px; float: left; width: 250px; height:40px' border='0' cellspacing='0' cellpadding='0' ><tr><td>";
-			echo "$j. <a style=\"border:none; background:none; cursor:pointer;\" onclick=\"artistas('".$link."')\" title=\"Ver perfil del promotor\">";
-			echo "<img src=\"../m/iconos/transparente/stock_person.png\" border=\"0\">";
-			echo "</a>";
-			echo "<a style=\"color:#3C1110; border:none; background:none; cursor:pointer;\" onclick=\"artistas('".$link."')\" title=\"Ver agenda del promotor\">";
-			echo $promotor["nombre"] . " " . $promotor["apellido"];
+			if(isset($id_promotor)) $link=simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=agenda_promotor_promotor&id_promotor2=$_GET[id_promotor]&id_promotor=$promotor[id]&id_mercado=$frm[id_mercado]";
+			else $link=simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=agenda_promotor&id_promotor2=$_GET[id_promotor]&id_promotor=$promotor[id]&id_mercado=$frm[id_mercado]&id_artista=$_GET[id_artista]";
+			echo "<table class='items'><tr><td>";
+			echo "<a style=\"border:none; background:none; cursor:pointer;\" onclick=\"artistas('".$link."')\" title=\"Ver agenda del promotor\">";
+			echo $j.".&nbsp;&nbsp;".$promotor["nombre"] . " " . $promotor["apellido"];
 			echo "</a>";
 			echo "</td></tr></table>";
 			$j++;
@@ -1536,14 +1567,13 @@ function listar_promotores($frm){
 		//aqui va el fin del bloqueo de circo
 	}
 	echo "</div>";
-	echo "</p>\n<p>&nbsp;</p>\n";
 }
 
 function mostrar_agenda_grupo($frm){
 	GLOBAL $CFG,$db,$ME;
     
 	echo "<div id='contenido_miAgenda' style='margin-top:-30px'>";
-	echo "<div style='color:#E6D7B0; background-color:#3D1211; padding:5px; width:940px; margin:2px;'>Para imprimir <b>la agenda</b>, haga click en este icono <img src=\"".$CFG->wwwroot."/iconos/transparente/printer.png\" style=\"cursor:pointer\" onClick=\"popup('impresion.php?mercado=25&modo=agenda&mode=agenda_artista&id_grupo=$frm[id_grupo]&tipo=$frm[tipo]&id_mercado=$frm[id_mercado]')\" title=\"Imprimir Agenda\"></div>";
+	echo "<div style='color:#E6D7B0; background-color:#3D1211; padding:5px; width:940px; margin:2px;'>Para imprimir <b>la agenda</b>, haga click en este icono <img src=\"../m/iconos/transparente/printer.png\" style=\"cursor:pointer\" onClick=\"popup('impresion.php?mercado=".$CFG->mercado."&modo=agenda&mode=agenda_artista&id_grupo=$frm[id_grupo]&tipo=$frm[tipo]&id_mercado=$frm[id_mercado]')\" title=\"Imprimir Agenda\"></div>";
 	
 	$qSesiones=$db->sql_query("
 		SELECT s.id as id_sesion, s.id_rueda, s.lugar, r.nombre, r.duracion_cita, s.fecha_inicial, fecha_final
@@ -1560,7 +1590,7 @@ function mostrar_agenda_grupo($frm){
 		echo "<strong>Lugar:</strong> $sesion[lugar].<br />\n";
 		setlocale (LC_TIME, "es_ES");
 		echo "<strong>Fecha:</strong> " . strftime("%B %e de %Y",strtotime($sesion["fecha_inicial"])) . "</p>\n";
-		echo "<table width=\"916\" border=\"0\" cellpadding=\"5\" cellspacing=\"5\">\n";
+		echo "<table width=\"100%\" border=\"0\" cellpadding=\"5\" cellspacing=\"5\">\n";
 		echo "<tr><th width=\"100\">Hora</th><th width=\"208\">Promotor</th><th width=\"50\">Mesa</th><th width=\"90\">Estado</th><th width=\"50\">Eliminar</th><th width=\"50\">Imprimir</th></tr>\n";
 		$desde=strtotime($sesion["fecha_inicial"]);
 		$hasta=strtotime($sesion["fecha_final"]);
@@ -1584,15 +1614,15 @@ function mostrar_agenda_grupo($frm){
 				echo "<td>$cita[mesa]</td>";
 				if($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==1) $estado="Aceptada";
 				elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==1) $estado="Por confirmar";
-				elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==0) $estado="<a href=\"" . simple_me($ME) . "?act=2&id_mercado=$_GET[id_mercado]&id_artista=$_GET[id_artista]&tipo=musica&mercado=25&modo=agenda&mode=confirmar_cita_grupo&id_cita=$cita[id]\">Confirmar</a>";
+				elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==0) $estado="<a href=\"" . simple_me($ME) . "?act=2&id_mercado=$_GET[id_mercado]&id_artista=$_GET[id_artista]&tipo=musica&mercado=".$CFG->mercado."&modo=agenda&mode=confirmar_cita_grupo&id_cita=$cita[id]\">Confirmar</a>";
 				echo "<td>$estado</td>";
-				echo "<td align=\"center\"><a style=\"border:none; background:none; cursor:pointer;\" href=\"" . simple_me($ME) . "?act=2&id_mercado=$_GET[id_mercado]&id_artista=$_GET[id_artista]&tipo=musica&mercado=$_GET[id_mercado]&modo=agenda&mode=rechazar_cita_grupo&id_cita=$cita[id]\"><img border=\"0\" src=\"".$CFG->wwwroot."/iconos/transparente/trash-x.png\"></a></td>";
-				echo "<td align=\"center\"><img src=\"".$CFG->wwwroot."/iconos/transparente/printer.png\" style=\"cursor:pointer\" onClick=\"popup('impresion.php?mode=detalle_cita_grupo&id_cita=$cita[id]')\" title=\"Imprimir\"></td>";
+				echo "<td align=\"center\"><a style=\"border:none; background:none; cursor:pointer;\" href=\"" . simple_me($ME) . "?act=2&id_mercado=$_GET[id_mercado]&id_artista=$_GET[id_artista]&tipo=musica&mercado=$_GET[id_mercado]&modo=agenda&mode=rechazar_cita_grupo&id_cita=$cita[id]\"><img border=\"0\" src=\"../m/iconos/transparente/trash-x.png\"></a></td>";
+				echo "<td align=\"center\"><img src=\"../m/iconos/transparente/printer.png\" style=\"cursor:pointer\" onClick=\"popup('impresion.php?mode=detalle_cita_grupo&id_cita=$cita[id]')\" title=\"Imprimir\"></td>";
 			}
 			else{
 				$qBloqueo=$db->sql_query("SELECT * FROM excepciones_agenda WHERE id_grupo_$frm[tipo]='$frm[id_grupo]' AND desde='" . date("Y-m-d H:i:00",$desde) . "'");
 				if($db->sql_numrows($qBloqueo)!=0){//Horario bloqueado
-					echo "&nbsp;&nbsp;<strong><a style='color:#3D1211; border:none; background:none; text-decoration:underline;' href=\"" . simple_me($ME) . "?act=2&mercado=25&modo=agenda&mode=desbloquear_agenda_grupo&tipo=$frm[tipo]&id_artista=$frm[id_grupo]&id_mercado=$frm[id_mercado]&fecha=" . urlencode($desde) . "\" title=\"Desbloquear\">Desbloquear</a></strong>";
+					echo "&nbsp;&nbsp;<strong><a style='color:#3D1211; border:none; background:none; text-decoration:underline;' href=\"" . simple_me($ME) . "?act=2&mercado=".$CFG->mercado."&modo=agenda&mode=desbloquear_agenda_grupo&tipo=$frm[tipo]&id_artista=$frm[id_grupo]&id_mercado=$frm[id_mercado]&fecha=" . urlencode($desde) . "\" title=\"Desbloquear\">Desbloquear</a></strong>";
 					echo "</th>";
 					echo "<th style='border:none; background:#F17127'></th>";
 					echo "<th style='border:none; background:#F17127'></th>";
@@ -1601,7 +1631,7 @@ function mostrar_agenda_grupo($frm){
 					echo "<th style='border:none; background:#F17127'></th>\n";
 				}
 				else{
-					echo "&nbsp;&nbsp;<strong><a style='color:#3D1211; border:none; background:none; text-decoration:underline;' href=\"" . simple_me($ME) . "?act=2&mercado=25&modo=agenda&mode=bloquear_agenda_grupo&tipo=$frm[tipo]&id_artista=$frm[id_grupo]&id_mercado=$frm[id_mercado]&fecha=" . urlencode($desde) . "\" title=\"Bloquear\">Bloquear</a></strong>";
+					echo "&nbsp;&nbsp;<strong><a style='color:#3D1211; border:none; background:none; text-decoration:underline;' href=\"" . simple_me($ME) . "?act=2&mercado=".$CFG->mercado."&modo=agenda&mode=bloquear_agenda_grupo&tipo=$frm[tipo]&id_artista=$frm[id_grupo]&id_mercado=$frm[id_mercado]&fecha=" . urlencode($desde) . "\" title=\"Bloquear\">Bloquear</a></strong>";
 					echo "</th>\n";
 				}
 			}
@@ -1699,7 +1729,7 @@ function mostrar_agenda_grupo_promotor($frm){
 					echo "<th style='border:none; background:#F17127'>Bloqueado</th>\n";
 					}
 					else{
-						echo "<td></td><td><a style='padding:0px; color:#3C1110; text-decoration:underline; text-align:left; border:none; background:none; cursor:pointer;' href=\"" . simple_me($ME) . "?mercado=25&modo=agenda&mode=solicitar_cita_grupo&fecha=" . urlencode(date("Y-m-d H:i:s",$desde)) . "&id_sesion=$sesion[id_sesion]&id_promotor=$frm[id_promotor]\">Solicitar cita</a>";
+						echo "<td></td><td><a style='padding:0px; color:#3C1110; text-decoration:underline; text-align:left; border:none; background:none; cursor:pointer;' href=\"" . simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=solicitar_cita_grupo&fecha=" . urlencode(date("Y-m-d H:i:s",$desde)) . "&id_sesion=$sesion[id_sesion]&id_promotor=$frm[id_promotor]\">Solicitar cita</a>";
 					}
 				}
 			}

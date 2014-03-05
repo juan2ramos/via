@@ -94,13 +94,7 @@ if(isset($_GET["mercado"])){
 $DB_DEBUG = true;
 $DB_DIE_ON_FAIL = true;
 
-//Base de datos mysql
-/*$CFG->dbhost = "localhost";
-$CFG->dbname = "cir48lar_redlat";
-$CFG->dbuser = "cir48lar_redlat";
-$CFG->dbpass = "redlat4321";*/
-
-//$CFG->dbhost = "184.107.157.218:3306";
+//conexion base de datos
 $CFG->dbhost = "localhost";
 $CFG->dbname = "redlat_cir48lar";
 $CFG->dbuser = "redlat_cir48lar";
