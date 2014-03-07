@@ -1088,7 +1088,7 @@ function mostrar_agenda_promotor_artista($frm){
 					echo "<td style='border:none; background:#F17127'>&nbsp;&nbsp;<strong style='border:none; background:#F17127'>Bloqueado</strong></th>\n";
 				}
 				else{
-					echo "<td></td><td><a style=\"color:#fff; text-decoration:underline; text-align:left; border:none; background:none; cursor:pointer;\"  href=\"" . simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=solicitar_cita_promotor&fecha=" . urlencode(date("Y-m-d H:i:s",$desde)) . "&id_sesion=$sesion[id_sesion]&tipo=$frm[tipo]&id_artista=$frm[id_artista]&act=0\">Solicitar cita</a>";
+					echo "<td></td><td><a style=\"color:#fff; text-decoration:underline; text-align:left; border:none; background:none; cursor:pointer;\"  href=\"" . simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=solicitar_cita_promotor&fecha=" . urlencode(date("Y-m-d H:i:s",$desde)) . "&id_sesion=$sesion[id_sesion]&tipo=$frm[tipo]&id_artista=$frm[id_artista]&act=0&id_mercado=$_GET[mercado]&id_promotor=$_GET[id_promotor]\">Solicitar cita</a>";
 				}
 			}
 			echo "</tr>\n";

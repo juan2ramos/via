@@ -118,8 +118,7 @@
                 <hr>
                 <p>
                     El Festival Iberoamericano de Teatro de Bogotá 2.014, realizará la VII edición de su Ventana Internacional de 
-                    las Artes –VIA- que se llevará a cabo del 12 al 15 de abril, en las instalaciones de la Cámara de Comercio de 
-                    Bogotá y que para la presente versión cuenta nuevamente con la estructura y plataformas de Mercados 
+                    las Artes –VIA- que se llevará a cabo del 12 al 15 de abril y que para la presente versión cuenta nuevamente con la estructura y plataformas de Mercados 
                     Culturales de Redlat/Circulart.
                       <br>
                       <br>

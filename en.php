@@ -117,7 +117,7 @@
                 “Performing arts from Ibero-America to the world”</strong></h3>
                 <hr>
                 <p>
-                   The Ibero-American Theater Festival of Bogotá 2014 will hold the VII edition of its International Arts Window –VIA- (For its acronym in Spanish) from April 12 to April 15, at the facilities of the Chamber of Commerce of Bogotá. For this current version it counts again with the structure and Cultural Market platforms of Redlat/Circulart.
+                   The Ibero-American Theater Festival of Bogotá 2014 will hold the VII edition of its International Arts Window –VIA- (For its acronym in Spanish) from April 12 to April 15, for this current version it counts again with the structure and Cultural Market platforms of Redlat/Circulart.
                   <br>
                       <br>
                 </p>
