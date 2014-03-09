@@ -6,6 +6,8 @@ if(!isset($_SESSION[$CFG->sesion]["user"]["id_nivel"])){
 }
 ?>
 <style>
+p{
+	font-size:14px;}
 .tituloGenero{
 	width:930px;
 	background-color:#F17127;
@@ -13,10 +15,6 @@ if(!isset($_SESSION[$CFG->sesion]["user"]["id_nivel"])){
 	cursor:pointer;
 	color:#fff;}
 	
-/*#contenido_miAgenda{
-	display:none;
-}*/
-
 #contenido_lista,#contenido_miAgenda,#contenido_listapro{
 	width:1130px;
 	margin-top: -2px;
@@ -99,7 +97,64 @@ table{
 th a{
 	font-size:16px;
 	font-weight:normal;
-	color:#FFF;}	
+	color:#FFF;}
+.grupos, .profesionales{
+	width:850px; 
+	text-align:justify; 
+	height:250px; 
+	margin-top:30px; 
+	margin-left:270px;
+	overflow:hidden;}	
+.vermas{
+	padding:0px; 
+	color:red; 
+	text-decoration:underline; 
+	font-size:14px;
+	background-color:#252525;
+	padding:10px;
+	margin-left:270px;
+	margin-bottom:10px;	}	
+.izquierda{
+	position:absolute; 
+	top:0; 
+	margin-top:590px;}	
+	
+.izquierda .titulo{
+	padding:5px; 
+	background-color:#666666; 
+	color:#fff; 
+	font-size:16px; 
+	width:550px; 
+	float:left; 
+	margin-top:10px;
+	text-align:center;
+	}	
+.izquierda table{
+	width:550px;}	
+.izquierda table th{
+	font-size:14px;}
+	
+.derecha{
+	position: absolute;
+	top: 0;
+	margin-top: 600px;
+	margin-left: 600px;
+	padding-bottom:30px;
+	}	
+.derecha p{
+	margin-left:10px;}	
+.derecha .titulo{
+	padding:5px; 
+	background-color:#666666; 
+	color:#fff;
+	text-align:center; 
+	font-size:16px;
+	width:550px; }
+.derecha table{
+	width:550px;}	
+.derecha table th{
+	font-size:14px;
+}			
 </style>
 <script language="javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="http://circulart.org/circulart2013/m/js/source/jquery.fancybox.js"></script>
@@ -790,7 +845,8 @@ function mostrar_agenda_promotor_promotor($frm){
 	}else{
 		echo "<div style='margin-top:10px; margin-left:5px; float:left; margin-bottom:30px; width:250px; height:250px; background-color:#F2EBD9'></div>";
 		}
-	echo "<p style='color:#000; width:600px; text-align:justify; height:700px; margin-top:30px; margin-left:270px;'>".$promotor["resena"]."<br><br><strong>Cargo: </strong>".$promotor["cargo"]."<br><br><strong>Web: </strong><a style=\"padding:0px; color:#3C1110; text-decoration:underline; text-align:left; border:none; background:none; cursor:pointer;\" href=\"http://$promotor[web]\" target=\"_blank\">".$promotor["web"]."</a><br><br><strong>Correo: </strong><a style=\"padding:0px; color:#3C1110; text-decoration:underline; text-align:left; border:none; background:none; cursor:pointer;\" href=\"mailto:$promotor[email1]\">".$promotor["email1"]."</a></p></div>";
+	echo "<p class='profesionales'>".$promotor["resena"]."</div>";
+	echo "<a class='vermas' href='http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&banner=0&num=' target=\"_blank\" \">Ver m&aacute;s</a>";
 	$qSesiones=$db->sql_query("
 		SELECT s.id as id_sesion, s.id_rueda, s.lugar, r.nombre, r.duracion_cita, s.fecha_inicial, fecha_final
 		FROM sesiones s LEFT JOIN ruedas r ON s.id_rueda=r.id
@@ -798,24 +854,24 @@ function mostrar_agenda_promotor_promotor($frm){
 		ORDER BY s.fecha_inicial
 	");
 	
-	echo "<div style='position:absolute; top:0; margin-top:920px;'>";
-	echo "<div style=\"padding:5px; background-color:#3D1211; color:#E6D7B0; font-size:14px; width:430px; float:left; margin-top:10px;\" align=\"center\"><strong>Agenda Profesional</strong></div><br><br>";
+	echo "<div class='izquierda' style='margin-top:600px'>";
+	echo "<div class='titulo' align=\"center\"><strong>Agenda del profesional</strong></div><br><br>";
 	$cambio=0;
 	$cambio2=0;
 	
 	while($sesion=$db->sql_fetchrow($qSesiones)){
 		echo "<p><strong>Rueda:</strong> $sesion[nombre] <br />\n";
 		echo "<strong>Lugar:</strong> $sesion[lugar].<br />\n";
-		setlocale (LC_TIME, "es_ES");
-		echo "<strong>Fecha:</strong> " . strftime("%B %e de %Y",strtotime($sesion["fecha_inicial"])) . "</p>\n";
-		echo "<table width=\"450\" border=\"0\" cellpadding=\"5\" cellspacing=\"5\">\n";
+		setlocale(LC_ALL,"es_ES@euro","es_ES","esp","es");
+		echo "<strong>Fecha:</strong> " . strftime("%A %d de %B",strtotime($sesion["fecha_inicial"])) . "</p>\n";
+		echo "<table  border=\"0\" cellpadding=\"5\" cellspacing=\"5\">\n";
 		echo "<tr><th width=\"100\">Hora</th><th width=\"210\">Profesional / Artista / Grupo</th><th width=\"90\">Estado</th></tr>\n";
 		$desde=strtotime($sesion["fecha_inicial"]);
 		$hasta=strtotime($sesion["fecha_final"]);
 		
 		while($desde<$hasta){
 			
-			echo "<tr><th scope=\"row\">" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
+			echo "<tr><th scope=\"row\" style='text-align:left'>" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
 
 			$qCita=$db->sql_query("
 				SELECT c.*, (SELECT mesa FROM mercado_promotores WHERE id_mercado=r.id_mercado AND id_promotor='$frm[id_promotor]' LIMIT 1) as mesa
@@ -832,7 +888,7 @@ function mostrar_agenda_promotor_promotor($frm){
 				$qGrupo=$db->sql_query("SELECT id,nombre FROM grupos_$tipo WHERE id='$id'");
 				$grupo=$db->sql_fetchrow($qGrupo);
 
-				echo "<td><a style=\"border:none; background-color:#E6D7B0; padding:0px; color:#3D1211; text-decoration:underline\" href=\"http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=$grupo[id]\" target=\"_blank\">$grupo[nombre] (Grupo)</a></td>";
+				echo "<td><a style=\"border:none; padding:0px; color:#fff; text-decoration:underline\" href=\"http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=$grupo[id]\" target=\"_blank\">$grupo[nombre] (Grupo)</a></td>";
 				if($cita["aceptada_promotor"]==1 && ($cita["aceptada_grupo"]==1 || $cita["aceptada_promotor2"]==1)) $estado="Aceptada";
 				if($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==0 && $cita["aceptada_promotor2"]==0) $estado="Eliminada";
 				else $estado="Por confirmar";
@@ -862,8 +918,8 @@ function mostrar_agenda_promotor_promotor($frm){
 						WHERE (id_promotor='" . $_SESSION[$CFG->sesion]["user"]["id"] . "' OR id_promotor='$frm[id_promotor]') AND desde='" . date("Y-m-d H:i:00",$desde) . "'
 					");
 					if($db->sql_numrows($qBloqueo)!=0){//Horario bloqueado
-						echo "<th style='border:none; background:#F17127'><strong style='border:none; background:#F17127'>Bloqueado</strong></th>";
-						echo "<th style='border:none; background:#F17127'><strong style='border:none; background:#F17127'>Bloqueado</strong></th>\n";
+						echo "<th style='border:none; background:#666666; font-size:14px'><strong>Bloqueado</strong></th>";
+						echo "<th style='border:none; background:#666666; font-size:14px'><strong>Bloqueado</strong></th>\n";
 					}
 					else{
 						$qCita=$db->sql_query("
@@ -881,14 +937,14 @@ function mostrar_agenda_promotor_promotor($frm){
 							$qGrupo=$db->sql_query("SELECT id,nombre FROM grupos_$tipo WHERE id='$id'");
 							$grupo=$db->sql_fetchrow($qGrupo);
 
-							echo "<td><a style=\"border:none; background-color:#E6D7B0; padding:0px; color:#3D1211; text-decoration:underline\" href=\"http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=$grupo[id]\" target=\"_blank\">$grupo[nombre] (Grupo)</a></td>";
+							echo "<td><a style=\"border:none; padding:0px; color:#fff; text-decoration:underline\" href=\"http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=$grupo[id]\" target=\"_blank\">$grupo[nombre] (Grupo)</a></td>";
 							if($cita["aceptada_promotor"]==1 && ($cita["aceptada_grupo"]==1 || $cita["aceptada_promotor2"]==1)) $estado="Aceptada";
 							if($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==0 && $cita["aceptada_promotor2"]==0) $estado="Eliminada";
 							else $estado="Por confirmar";
 							echo "<td>$estado</td>";
 						}
 						else{
-							echo "<td></td><td><a style=\"padding:0px; color:#3C1110; text-decoration:underline; text-align:left; border:none; background:none; cursor:pointer;\" href=\"" . simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=solicitar_cita_promotor_promotor&fecha=" . urlencode(date("Y-m-d H:i:s",$desde)) . "&id_sesion=$sesion[id_sesion]&id_promotor=$frm[id_promotor]&id_promotor2=$frm[id_promotor2]\">Solicitar cita</a>";
+							echo "<td></td><td><a style=\"padding:0px; color:#fff; text-decoration:underline; text-align:left; border:none; background:none; cursor:pointer;\" href=\"" . simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=solicitar_cita_promotor_promotor&fecha=" . urlencode(date("Y-m-d H:i:s",$desde)) . "&id_sesion=$sesion[id_sesion]&id_promotor=$frm[id_promotor]&id_promotor2=$frm[id_promotor2]&id_mercado=".$CFG->mercado."&act=1\">Solicitar cita</a>";
 						}
 					}
 				}
@@ -909,9 +965,9 @@ $qSesiones=$db->sql_query("
 		WHERE r.id_mercado='$frm[id_mercado]'
 		ORDER BY s.fecha_inicial
 	");
-
-	echo "<div style='position:absolute; top:0; margin-top:930px; margin-left:455px; background-color:#ccc'>";
-	echo "<div style=\"padding:5px; background-color:#666666; color:#E6D7B0; font-size:14px; width:450px; float:left;\" align=\"center\"><strong>Visualización de horarios libres en mí agenda</strong></div><br><br>";
+$promotores=$db->sql_row("SELECT * FROM promotores WHERE id='$_GET[id_promotor2]'");
+	echo "<div class='derecha' style='margin-top:610px'>";
+	echo "<div class='titulo'><strong>Visualización de espacios libres de ".$promotores["nombre"]." ".$promotores["apellido"]."</strong></div>";
 	
 	$cambio=0;
 	$cambio2=0;
@@ -919,15 +975,15 @@ $qSesiones=$db->sql_query("
 	while($sesion=$db->sql_fetchrow($qSesiones)){
 		echo "<p><strong>Rueda:</strong> $sesion[nombre] <br />\n";
 		echo "<strong>Lugar:</strong> $sesion[lugar].<br />\n";
-		setlocale (LC_TIME, "es_ES");
-		echo "<strong>Fecha:</strong> " . strftime("%B %e de %Y",strtotime($sesion["fecha_inicial"])) . "</p>\n";
-		echo "<table width=\"450\" border=\"0\" cellpadding=\"5\" cellspacing=\"5\" style=\"background-color:#ccc\">\n";
-		echo "<tr><th width=\"100\">Hora</th><th width=\"210\">Profesional / Artista / Grupo</th><th width=\"90\">Estado</th></tr>\n";
+		setlocale(LC_ALL,"es_ES@euro","es_ES","esp","es");
+		echo "<strong>Fecha:</strong> " . strftime("%A %d de %B",strtotime($sesion["fecha_inicial"])) . "</p>\n";
+		echo "<table  border=\"0\" cellpadding=\"6\" cellspacing=\"5\">\n";
+		echo "<tr><th width=\"100\" style='text-align:left'>Hora</th><th width=\"210\">Profesional / Artista / Grupo</th><th width=\"90\">Estado</th></tr>\n";
 		$desde=strtotime($sesion["fecha_inicial"]);
 		$hasta=strtotime($sesion["fecha_final"]);
 
 		while($desde<$hasta){
-			echo "<tr><th scope=\"row\">" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
+			echo "<tr><th scope=\"row\" style='text-align:left'>" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
 
 			$qCita=$db->sql_query("
 				SELECT c.*, (SELECT mesa FROM mercado_promotores WHERE id_mercado=r.id_mercado AND id_promotor2='$frm[id_promotor2]' LIMIT 1) as mesa
@@ -944,7 +1000,7 @@ $qSesiones=$db->sql_query("
 				$qGrupo=$db->sql_query("SELECT id,nombre FROM grupos_$tipo WHERE id='$id'");
 				$grupo=$db->sql_fetchrow($qGrupo);
 
-				echo "<td><a style=\"border:none; background-color:#E6D7B0; padding:0px; color:#3D1211; text-decoration:underline\" href=\"http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=$grupo[id]\" target=\"_blank\">$grupo[nombre] (Grupo)</a></td>";
+				echo "<td><a style=\"border:none; padding:0px; color:#fff; text-decoration:underline\" href=\"http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=$grupo[id]\" target=\"_blank\">$grupo[nombre] (Grupo)</a></td>";
 				if($cita["aceptada_promotor"]==1 && ($cita["aceptada_grupo"]==1 || $cita["aceptada_promotor2"]==1)) $estado="Aceptada";
 				if($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==0 && $cita["aceptada_promotor2"]==0) $estado="Eliminada";
 				else $estado="Por confirmar";
@@ -963,7 +1019,7 @@ $qSesiones=$db->sql_query("
 				");
 				if($cita=$db->sql_fetchrow($qCita)){
 					echo "</th>\n";
-					echo "<td>$cita[promotor] (Promotor)</td>";
+					echo "<td >$cita[promotor] (Promotor)</td>";
 					if($cita["aceptada_promotor"]==1 && $cita["aceptada_promotor2"]==1) $estado="Aceptada";
 					elseif($cita["aceptada_promotor"]==0 || $cita["aceptada_promotor2"]==0) $estado="Por confirmar";
 					echo "<td>$estado</td>";
@@ -974,8 +1030,8 @@ $qSesiones=$db->sql_query("
 						WHERE (id_promotor='" . $_SESSION[$CFG->sesion]["user"]["id"] . "' OR id_promotor='$frm[id_promotor2]') AND desde='" . date("Y-m-d H:i:00",$desde) . "'
 					");
 					if($db->sql_numrows($qBloqueo)!=0){//Horario bloqueado
-						echo "<th style='border:none; background:#F17127'><strong style='border:none; background:#F17127'>Bloqueado</strong></th>";
-						echo "<th style='border:none; background:#F17127'><strong style='border:none; background:#F17127'>Bloqueado</strong></th>\n";
+						echo "<th style='border:none; background:#666666; font-size:14px'><strong>Bloqueado</strong></th>";
+						echo "<th style='border:none; background:#666666; font-size:14px'><strong>Bloqueado</strong></th>\n";
 					}
 					else{
 						$qCita=$db->sql_query("
@@ -993,7 +1049,7 @@ $qSesiones=$db->sql_query("
 							$qGrupo=$db->sql_query("SELECT id,nombre FROM grupos_$tipo WHERE id='$id'");
 							$grupo=$db->sql_fetchrow($qGrupo);
 
-							echo "<td><a style=\"border:none; background-color:#E6D7B0; padding:0px; color:#3D1211; text-decoration:underline\" href=\"http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=$grupo[id]\" target=\"_blank\">$grupo[nombre] (Grupo)</a></td>";
+							echo "<td><a style=\"border:none; padding:0px; color:#fff; text-decoration:underline\" href=\"http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=$grupo[id]\" target=\"_blank\">$grupo[nombre] (Grupo)</a></td>";
 							if($cita["aceptada_promotor"]==1 && ($cita["aceptada_grupo"]==1 || $cita["aceptada_promotor2"]==1)) $estado="Aceptada";
 							if($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==0 && $cita["aceptada_promotor2"]==0) $estado="Eliminada";
 							else $estado="Por confirmar";
@@ -1035,8 +1091,8 @@ function mostrar_agenda_promotor_artista($frm){
 	
 	if($grupo["en_resena_corta"]!=""){$en="<br><br>/".$grupo["en_resena_corta"];}else{$en="";}
 	
-	echo "<p style='color:#000; width:600px; text-align:justify; height:300px; margin-top:30px; margin-left:270px;'>".$grupo["resena_corta"].$en."<br><br><a style='border:none; background-color:#E6D7B0; padding:0px; color:#3D1211; text-decoration:underline; font-size:14px' href='http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&banner=0&num=".$grupo["id"]."' target=\"_blank\" \"><strong>Ver m&aacute;s</strong></a></p>";
-	
+	echo "<p class='grupos'>".$grupo["resena_corta"].$en."<br><br></p>";
+	echo "<a class='vermas' href='http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&banner=0&num=".$grupo["id"]."' target=\"_blank\" \">Ver m&aacute;s</a>";
 	$qSesiones=$db->sql_query("
 		SELECT s.id as id_sesion, s.id_rueda, s.lugar, r.nombre, r.duracion_cita, s.fecha_inicial, fecha_final
 		FROM sesiones s LEFT JOIN ruedas r ON s.id_rueda=r.id
@@ -1044,8 +1100,8 @@ function mostrar_agenda_promotor_artista($frm){
 		ORDER BY s.fecha_inicial
 	");
 	
-	echo "<div style='position:absolute; top:0; margin-top:570px;'>";
-	echo "<div style='padding:5px; background-color:#3D1211; color:#E6D7B0; font-size:14px; width:450px; float:left; margin-top:10px;' align='center'><strong>Agenda Artista</strong></div><br><br>";
+	echo "<div class='izquierda'>";
+	echo "<div class='titulo'><strong>Agenda del artista</strong></div><br><br>";
 	
 	$cambio=0;
 	$cambio2=0;
@@ -1053,16 +1109,16 @@ function mostrar_agenda_promotor_artista($frm){
 	while($sesion=$db->sql_fetchrow($qSesiones)){
 		echo "<p><strong>Rueda:</strong> $sesion[nombre] <br />\n";
 		echo "<strong>Lugar:</strong> $sesion[lugar].<br />\n";
-		setlocale (LC_TIME, "es_ES");
-		echo "<strong>Fecha:</strong> " . strftime("%B %e de %Y",strtotime($sesion["fecha_inicial"])) . "</p>\n";
-		echo "<table width=\"450\" border=\"0\" cellpadding=\"2\" cellspacing=\"2\">\n";
+		setlocale(LC_ALL,"es_ES@euro","es_ES","esp","es");
+		echo "<strong>Fecha:</strong> " .strftime("%A %d de %B", strtotime($sesion["fecha_inicial"])). "</p>\n";
+		echo "<table border=\"0\" cellpadding=\"2\" cellspacing=\"2\">\n";
 		echo "<tr><th width=\"100\">Hora</th><th width=\"210\">Profesional</th><th width=\"140\">Estado</th></tr>\n";
 		$desde=strtotime($sesion["fecha_inicial"]);
 		$hasta=strtotime($sesion["fecha_final"]);
 		
 		
 		while($desde<$hasta){
-			echo "<tr><th scope=\"row\">" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
+			echo "<tr><th scope=\"row\" style='text-align:left'>" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
 			
 			$qCita=$db->sql_query("
 				SELECT c.*, CONCAT(p.nombre, ' ', p.apellido) as promotor, (SELECT mesa FROM mercado_promotores WHERE id_mercado=r.id_mercado AND id_promotor=p.id LIMIT 1) as mesa
@@ -1084,11 +1140,11 @@ function mostrar_agenda_promotor_artista($frm){
 					WHERE (id_grupo_$frm[tipo]='$frm[id_artista]' OR id_promotor='$frm[id_promotor]') AND desde='" . date("Y-m-d H:i:00",$desde) . "'
 				");
 				if($db->sql_numrows($qBloqueo)!=0){//Horario bloqueado
-					echo "<td style='border:none; background:#F17127'>&nbsp;&nbsp;<strong style='border:none; background:#F17127'>Bloqueado</strong></th>";
-					echo "<td style='border:none; background:#F17127'>&nbsp;&nbsp;<strong style='border:none; background:#F17127'>Bloqueado</strong></th>\n";
+					echo "<td style='border:none; background:#666666; font-size:14px'>&nbsp;&nbsp;<strong>Bloqueado</strong></th>";
+					echo "<td style='border:none; background:#666666; font-size:14px'>&nbsp;&nbsp;<strong>Bloqueado</strong></th>\n";
 				}
 				else{
-					echo "<td></td><td><a style=\"color:#fff; text-decoration:underline; text-align:left; border:none; background:none; cursor:pointer;\"  href=\"" . simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=solicitar_cita_promotor&fecha=" . urlencode(date("Y-m-d H:i:s",$desde)) . "&id_sesion=$sesion[id_sesion]&tipo=$frm[tipo]&id_artista=$frm[id_artista]&act=0&id_mercado=$_GET[mercado]&id_promotor=$_GET[id_promotor]\">Solicitar cita</a>";
+					echo "<td></td><td><a style=\"color:#fff; text-decoration:underline; text-align:left; border:none; background:none; cursor:pointer;\"  href=\"" . simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=solicitar_cita_promotor&fecha=" . urlencode(date("Y-m-d H:i:s",$desde)) . "&id_sesion=$sesion[id_sesion]&tipo=$frm[tipo]&id_artista=$frm[id_artista]&act=0&id_mercado=$_GET[mercado]&id_promotor=$_GET[id_promotor]&id_artista=$_GET[id_artista]\">Solicitar cita</a>";
 				}
 			}
 			echo "</tr>\n";
@@ -1107,9 +1163,9 @@ function mostrar_agenda_promotor_artista($frm){
 		ORDER BY s.fecha_inicial
 	");
 	
-	
-	echo "<div style='position:absolute; top:0; margin-top:580px; margin-left:465px; background-color:#ccc'>";
-	echo "<div style='padding:5px; background-color:#666666; color:#E6D7B0; font-size:14px' align='center'><strong >Visualización de horarios libres en mí agenda</strong></div>";
+	$promotores=$db->sql_row("SELECT * FROM promotores WHERE id='$_GET[id_promotor]'");
+	echo "<div class='derecha'>";
+	echo "<div class='titulo'><strong>Visualización de la agenda de ".$promotores["nombre"]." ".$promotores["apellido"]."</strong></div>";
 	
 	$cambio=0;
 	$cambio2=0;
@@ -1118,16 +1174,16 @@ function mostrar_agenda_promotor_artista($frm){
 		
 		echo "<p><strong>Rueda:</strong> $sesion[nombre] <br />\n";
 		echo "<strong>Lugar:</strong> $sesion[lugar].<br />\n";
-		setlocale (LC_TIME, "es_ES");
-		echo "<strong>Fecha:</strong> " . strftime("%B %e de %Y",strtotime($sesion["fecha_inicial"])) . "</p>\n";
-		echo "<table border=\"0\" cellpadding=\"2\" cellspacing=\"2\" width=\"450\" style=\"background-color:#ccc\">\n";
+		setlocale(LC_ALL,"es_ES@euro","es_ES","esp","es");
+		echo "<strong>Fecha:</strong> " .strftime("%A %d de %B", strtotime($sesion["fecha_inicial"])). "</p>\n";
+		echo "<table border=\"0\" cellpadding=\"2\" cellspacing=\"3\" \">\n";
 		echo "<tr><th width=\"100\">Hora</th><th width=\"210\">Artista</th><th width=\"90\">Estado</th></tr>\n";
 		$desde=strtotime($sesion["fecha_inicial"]);
 		$hasta=strtotime($sesion["fecha_final"]);
 		
 		while($desde<$hasta){
 			
-			echo "<tr><th scope=\"row\">" . strftime("%H:%M ",$desde) . date("a",$desde);
+			echo "<tr><th scope=\"row\" style='text-align:left'>" . strftime("%H:%M ",$desde) . date("a",$desde);
 
 			$qCita=$db->sql_query("
 				SELECT c.*, (SELECT mesa FROM mercado_promotores WHERE id_mercado=r.id_mercado AND id_promotor='$frm[id_promotor]' LIMIT 1) as mesa
@@ -1145,13 +1201,13 @@ function mostrar_agenda_promotor_artista($frm){
 				$qGrupo=$db->sql_query("SELECT id,nombre FROM grupos_$tipo WHERE id='$id'");
 				$grupo=$db->sql_fetchrow($qGrupo);
 
-				echo "<td><a style='border:none; background-color:#E6D7B0; padding:0px; color:#3D1211; text-decoration:underline' href='http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&banner=0&num=".$grupo["id"]."' target=\"_blank\">$grupo[nombre]</a></td>";
+				echo "<td><a style='border:none;  padding:5px; color:#fff; font-size:16px; text-decoration:underline' href='http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&banner=0&num=".$grupo["id"]."' target=\"_blank\">$grupo[nombre]</a></td>";
 				
 				if($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==1) $estado="Aceptada";
 				elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==0) $estado="Por confirmar";
 				elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==1) $estado="Por confirmar";
 				else $estado="Eliminada";
-				echo "<td>$estado</td>";
+				echo "<td style='color:#383838; padding:5px; font-size:16px'>$estado</td>";
 
 			}
 			else{
@@ -1167,18 +1223,18 @@ function mostrar_agenda_promotor_artista($frm){
 				");
 				if($cita=$db->sql_fetchrow($qCita)){
 					echo "</th>\n";
-					echo "<td>$cita[promotor] (Promotor)</td>";
+					echo "<td style='color:#383838; padding:5px; font-size:16px'><strong>$cita[promotor] (Promotor)</strong></td>";
 					if($cita["aceptada_promotor"]==1 && $cita["aceptada_promotor2"]==1) $estado="Aceptada";
 					elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_promotor2"]==0) $estado="Por confirmar";
 					elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_promotor2"]==1) $estado="Por confirmar";
 					else $estado="Eliminada";
-					echo "<td>$estado</td>";
+					echo "<td style='color:#383838; padding:5px; font-size:16px'>$estado</td>";
 				}
 				else{
 					$qBloqueo=$db->sql_query("SELECT * FROM excepciones_agenda WHERE id_promotor='$frm[id_promotor]' AND desde='" . date("Y-m-d H:i:00",$desde) . "'");
 					if($db->sql_numrows($qBloqueo)!=0){//Horario bloqueado
-						echo "<td style='border:none; background:#F17127'>&nbsp;&nbsp;<strong style='border:none; background:#F17127'>Bloqueado</strong>";
-						echo "<td style='border:none; background:#F17127'>&nbsp;&nbsp;<strong style='border:none; background:#F17127'>Bloqueado</strong>";
+						echo "<td style='border:none; background:#666666; font-size:14px'>&nbsp;&nbsp;<strong style='border:none;'>Bloqueado</strong>";
+						echo "<td style='border:none; background:#666666; font-size:14px'>&nbsp;&nbsp;<strong style='border:none;'>Bloqueado</strong>";
 						echo "</th>\n";
 					}
 					else{
@@ -1227,8 +1283,8 @@ function mostrar_agenda_promotor_promotor_recordatorio($frm){
 		
 		echo "<p><strong>Rueda:</strong> $sesion[nombre] <br />\n";
 		echo "<strong>Lugar:</strong> $sesion[lugar].<br />\n";
-		setlocale (LC_TIME, "es_ES");
-		echo "<strong>Fecha:</strong> " . strftime("%B %e de %Y",strtotime($sesion["fecha_inicial"])) . "</p>\n";
+		setlocale(LC_ALL,"es_ES@euro","es_ES","esp","es");
+		echo "<strong>Fecha:</strong> " . strftime("%B %d de %Y",strtotime($sesion["fecha_inicial"])) . "</p>\n";
 		echo "<table border=\"0\" cellpadding=\"2\" cellspacing=\"2\" width=\"400\" style=\"background-color:#ccc\">\n";
 		echo "<tr><th width=\"100\">Hora</th><th width=\"210\">Artista</th><th width=\"90\">Estado</th></tr>\n";
 		$desde=strtotime($sesion["fecha_inicial"]);
@@ -1236,7 +1292,7 @@ function mostrar_agenda_promotor_promotor_recordatorio($frm){
 
         while($desde<$hasta){
 			
-			echo "<tr><th scope=\"row\">" . strftime("%H:%M ",$desde) . date("a",$desde);
+			echo "<tr><th scope=\"row\" style='text-align:left'>" . strftime("%H:%M ",$desde) . date("a",$desde);
 			$qCita=$db->sql_query("
 				SELECT c.*, (SELECT mesa FROM mercado_promotores WHERE id_mercado=r.id_mercado AND id_promotor='$frm[id_promotor]' LIMIT 1) as mesa
 				FROM citas c
@@ -1253,7 +1309,7 @@ function mostrar_agenda_promotor_promotor_recordatorio($frm){
 				$qGrupo=$db->sql_query("SELECT id,nombre FROM grupos_$tipo WHERE id='$id'");
 				$grupo=$db->sql_fetchrow($qGrupo);
 
-				echo "<td><a style='border:none; background-color:#E6D7B0; padding:0px; color:#3D1211; text-decoration:underline' href='http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&banner=0&num=".$grupo["id"]."' target=\"_blank\">$grupo[nombre]</a></td>";
+				echo "<td><a style='border:none;  padding:0px; color:#fff; text-decoration:underline; font-size:14px;' href='http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&banner=0&num=".$grupo["id"]."' target=\"_blank\">$grupo[nombre]</a></td>";
 				
 				if($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==1) $estado="Aceptada";
 				elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==0) $estado="Por confirmar";
@@ -1279,15 +1335,15 @@ function mostrar_agenda_promotor_promotor_recordatorio($frm){
 					echo "<td>$cita[mesa]</td>";
 					if($cita["aceptada_promotor"]==1 && $cita["aceptada_promotor2"]==1) $estado="Aceptada";
 					elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_promotor2"]==0) $estado="Por confirmar";
-					elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_promotor2"]==1) $estado="<a href=\"" . simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=confirmar_cita_promotor_promotor&id_cita=$cita[id]\">Confirmar</a>";
+					elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_promotor2"]==1) $estado="<a href=\"" . simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=confirmar_cita_promotor_promotor&id_cita=$cita[id]\" style='color:#fff; text-decoration:underline'>Confirmar</a>";
 					else $estado="Eliminada";
 					echo "<td>$estado</td>";
 				}
 				else{
 					$qBloqueo=$db->sql_query("SELECT * FROM excepciones_agenda WHERE id_promotor='$frm[id_promotor]' AND desde='" . date("Y-m-d H:i:00",$desde) . "'");
 					if($db->sql_numrows($qBloqueo)!=0){//Horario bloqueado
-						echo "<td style='border:none; background:#F17127'>&nbsp;&nbsp;<strong style='border:none; background:#F17127'>Bloqueado</strong>";
-						echo "<td style='border:none; background:#F17127'>&nbsp;&nbsp;<strong style='border:none; background:#F17127'>Bloqueado</strong>";
+						echo "<td style='border:none; background:#8D8D8D'>&nbsp;&nbsp;<strong style='border:none; background:#8D8D8D'>Bloqueado</strong>";
+						echo "<td style='border:none; background:#8D8D8D'>&nbsp;&nbsp;<strong style='border:none; background:#8D8D8D'>Bloqueado</strong>";
 						echo "</th>\n";
 					}
 					else{
@@ -1332,7 +1388,7 @@ function mostrar_agenda_promotor($frm){
 		$hasta=strtotime($sesion["fecha_final"]);
 
 		while($desde<$hasta){
-			echo "<tr><th scope=\"row\" style='text-align: left'>" . strftime("%H:%M ",$desde) . date("a",$desde);
+			echo "<tr><th scope=\"row\" style='text-align: left; fonti-size:14px'>" . strftime("%H:%M ",$desde) . date("a",$desde);
 			
 			$qCita=$db->sql_query("
 				SELECT c.*, (SELECT mesa FROM mercado_promotores WHERE id_mercado=r.id_mercado AND id_promotor='$frm[id_promotor]' LIMIT 1) as mesa
@@ -1350,11 +1406,11 @@ function mostrar_agenda_promotor($frm){
 				$qGrupo=$db->sql_query("SELECT id,nombre FROM grupos_$tipo WHERE id='$id'");
 				$grupo=$db->sql_fetchrow($qGrupo);
 
-				echo "<td><a style='border:none; background-color:#E6D7B0; padding:0px; color:#3D1211; text-decoration:underline' href='http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&banner=0&num=".$grupo["id"]."' target=\"_blank\">$grupo[nombre]</a></td>";
+				echo "<td><a style='border:none; padding:0px; color:#fff; text-decoration:underline;' href='http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&banner=0&num=".$grupo["id"]."' target=\"_blank\">$grupo[nombre]</a></td>";
 				echo "<td>$cita[mesa]</td>";
 				if($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==1) $estado="Aceptada";
 				elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==0) $estado="Por confirmar";
-				elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==1) $estado="<a href=\"" . simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=confirmar_cita_promotor&id_cita=$cita[id]\">Confirmar</a>";
+				elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==1) $estado="<a href=\"" . simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=confirmar_cita_promotor&id_cita=$cita[id]\" style='color:#fff; text-decoration:underline'>Confirmar</a>";
 				else $estado="Eliminada";
 				echo "<td>$estado</td>";
 				echo "<td align=\"center\"><a style=\"border:none; background:none; cursor:pointer;\" href=\"" . simple_me($ME) . "?act=2&mercado=".$CFG->mercado."&modo=agenda&mode=rechazar_cita_promotor&id_cita=$cita[id]&id_promotor=$_GET[id_promotor]\"><img border=\"0\" src=\"../m/iconos/transparente/trash-x.png\"></a></td>";
@@ -1381,7 +1437,7 @@ function mostrar_agenda_promotor($frm){
 					if($cita["id_promotor2"]==$frm["id_promotor"]){
 					    $estado="Por confirmar";
 					 }else{
-						 $estado="<a href=\"" . simple_me($ME) . "?act=2&mercado=".$CFG->mercado."&modo=agenda&mode=confirmar_cita_promotor_promotor&id_cita=$cita[id]\">Confirmar</a>";
+						 $estado="<a href=\"" . simple_me($ME) . "?act=2&mercado=".$CFG->mercado."&modo=agenda&mode=confirmar_cita_promotor_promotor&id_cita=$cita[id]\" style='color:#fff; text-decoration:underline'>Confirmar</a>";
 						 }
 					}else{ $estado="Eliminada";};
 					echo "<td>$estado</td>";
@@ -1428,16 +1484,19 @@ function detalle_mercado($frm){
 	$qMercado=$db->sql_query("SELECT m.* FROM mercados m WHERE $condicion LIMIT 1");
 	if($mercado=$db->sql_fetchrow($qMercado)){
 		$string.= "<p>";
+		
 		if(isset($frm["id_artista"]) && isset($frm["tipo"])){
+			$frm["id_artista"]=$_SESSION[$CFG->sesion]["user"]["grupo_id"];
 			$qGrupo=$db->sql_query("SELECT * FROM grupos_$frm[tipo] WHERE id='$frm[id_artista]'");
 			$grupo=$db->sql_fetchrow($qGrupo);
-			$string.= '<div style="color:#fff; background-color:#04A9A7; padding:5px; width:905px; margin-top:10px;"><span style="font-size:16px">Bienvenido artista / grupo: <b>'.$grupo["nombre"].'</b></span><span style="float:right; margin-top:2px;"><a style="background-color:#F17127; border:none" href="index.php?modo=login"><b style="color:#C7D82B">Salir [X]</b></a></span></div><br>';
+			$string.= '<div class="nombre_profesional">Bienvenido artista / grupo: '.$grupo["nombre"].'<a href="index.php?modo=login"><div>Salir [X]</div></a></div><br>';
 			$string.= "<br><a id='lista_portafolios_dos' href='index.php?act=1&tipo=musica&modo=agenda&id_mercado=".$CFG->mercado."&id_artista=".$grupo["id"]."&mercado=".$CFG->mercado."'>Profesionales</a><a id='miAgenda' href='index.php?act=2&tipo=musica&modo=agenda&id_mercado=".$CFG->mercado."&id_artista=".$grupo["id"]."&mercado=".$CFG->mercado."'>Administraci&oacute;n de m&iacute; agenda</a><p></p>";
 		}
 		elseif($frm["mode"]=="agenda_promotor"){
 			$qPromotor=$db->sql_query("SELECT * FROM promotores WHERE id='$frm[id_promotor]'");
 			$promotor=$db->sql_fetchrow($qPromotor);
-			$string.= "<div id='perfil' style='height:2200px'>";
+			$string.= "<br><br><a id='lista_portafolios_dos' style='border:none;' href='index.php?act=1&modo=agenda&tipo=teatro&id_artista=".$frm['id_artista']."&id_mercado=".$CFG->mercado."&mercado=".$CFG->mercado."'><< Regreso al listado de profesionales</a>";
+			$string.= "<div style='height:2200px'>";
 			$string.= "<h2>Agenda de " . $promotor["nombre"] . " " . $promotor["apellido"] . "</h2>";
 			$string.= "<div style='overflow:hidden;'>";
 			if($promotor["mmdd_imagen_filename"]!=""){
@@ -1445,16 +1504,13 @@ function detalle_mercado($frm){
 			}else{
 			$string.="<div style='margin-top:10px; margin-left:5px; float:left; margin-bottom:30px; width:250px; height:250px; background-color:#F2EBD9'></div>";
 				}
-			$string.= "<div style='margin-left:265px; height:700px'><p>" . $promotor["resena"] . "</p>\n";
-			$string.= "<strong>País:</strong> " . $promotor["pais"] . "<br />\n";
-			$string.= "<strong>Ciudad:</strong> " . $promotor["ciudad"] . "<br />\n";
-			$string.= "<strong>Cargo:</strong> " . $promotor["cargo"] . "<br />\n";
-			$string.= "<strong>Web:</strong> " . $promotor["web"] . "</div><br />\n";
-		
+			$string.= "<div class='profesionales'><p>" . $promotor["resena"] . "</p>\n";
+			$string.= "<br><br><br><a class='vermas' style='margin-left:0;' href='http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=' target='_blank'>Ver más</a>";
 
 		}elseif($frm["mode"]=="solicitar_cita_grupo"){
 			$qPromotor=$db->sql_query("SELECT * FROM promotores WHERE id='$frm[id_promotor]'");
 			$promotor=$db->sql_fetchrow($qPromotor);
+			$string.= "<br><br><a id='lista_portafolios_dos' style='border:none;' href='index.php?act=1&modo=agenda&tipo=teatro&id_artista=".$frm['id_artista']."&id_mercado=".$CFG->mercado."&mercado=".$CFG->mercado."'><< Regreso al listado de profesionales</a>";
 			$string.= "<div id='perfil' style='height:2200px'>";
 			$string.= "<h2>Agenda de " . $promotor["nombre"] . " " . $promotor["apellido"] . "</h2>";
 			$string.= "<div style='overflow:hidden;'>";
@@ -1463,13 +1519,10 @@ function detalle_mercado($frm){
 			}else{
 			$string.="<div style='margin-top:10px; margin-left:5px; float:left; margin-bottom:30px; width:250px; height:250px; background-color:#F2EBD9'></div>";
 				}
-			$string.= "<div style='margin-left:265px; height:700px'><p>" . $promotor["resena"] . "</p>\n";
-			$string.= "<strong>País:</strong> " . $promotor["pais"] . "<br />\n";
-			$string.= "<strong>Ciudad:</strong> " . $promotor["ciudad"] . "<br />\n";
-			$string.= "<strong>Cargo:</strong> " . $promotor["cargo"] . "<br />\n";
-			$string.= "<strong>Web:</strong> " . $promotor["web"] . "</div><br />\n";
+			$string.= "<div class='profesionales'><p>" . $promotor["resena"] . "</p>\n";
+			$string.= "<br><br><br><a class='vermas' style='margin-left:0;' href='http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=' target='_blank'>Ver más</a>";
 		}
-		setlocale (LC_TIME, "es_ES");
+		setlocale(LC_ALL,"es_ES@euro","es_ES","esp","es");
 		$array["id"]=$mercado["id"];
 		$array["string"]=$string;
 		return($array);
@@ -1597,8 +1650,8 @@ function listar_promotores($frm){
 function mostrar_agenda_grupo($frm){
 	GLOBAL $CFG,$db,$ME;
     
-	echo "<div id='contenido_miAgenda' style='margin-top:-30px'>";
-	echo "<div style='color:#E6D7B0; background-color:#3D1211; padding:5px; width:940px; margin:2px;'>Para imprimir <b>la agenda</b>, haga click en este icono <img src=\"../m/iconos/transparente/printer.png\" style=\"cursor:pointer\" onClick=\"popup('impresion.php?mercado=".$CFG->mercado."&modo=agenda&mode=agenda_artista&id_grupo=$frm[id_grupo]&tipo=$frm[tipo]&id_mercado=$frm[id_mercado]')\" title=\"Imprimir Agenda\"></div>";
+	echo "<div id='contenido_miAgenda'>";
+	echo "<div style='padding:5px; margin:2px;'>Para imprimir <b>la agenda</b>, haga click en este icono <img src=\"../m/iconos/transparente/printer.png\" style=\"cursor:pointer\" onClick=\"popup('impresion.php?mercado=".$CFG->mercado."&modo=agenda&mode=agenda_artista&id_grupo=$frm[id_grupo]&tipo=$frm[tipo]&id_mercado=$frm[id_mercado]')\" title=\"Imprimir Agenda\"></div>";
 	
 	$qSesiones=$db->sql_query("
 		SELECT s.id as id_sesion, s.id_rueda, s.lugar, r.nombre, r.duracion_cita, s.fecha_inicial, fecha_final
@@ -1613,8 +1666,8 @@ function mostrar_agenda_grupo($frm){
 	while($sesion=$db->sql_fetchrow($qSesiones)){
 		echo "<p><strong>Rueda:</strong> $sesion[nombre] <br />\n";
 		echo "<strong>Lugar:</strong> $sesion[lugar].<br />\n";
-		setlocale (LC_TIME, "es_ES");
-		echo "<strong>Fecha:</strong> " . strftime("%B %e de %Y",strtotime($sesion["fecha_inicial"])) . "</p>\n";
+		setlocale(LC_ALL,"es_ES@euro","es_ES","esp","es");
+		echo "<strong>Fecha:</strong> " . strftime("%B %d de %Y",strtotime($sesion["fecha_inicial"])) . "</p>\n";
 		echo "<table width=\"100%\" border=\"0\" cellpadding=\"5\" cellspacing=\"5\">\n";
 		echo "<tr><th width=\"100\">Hora</th><th width=\"208\">Promotor</th><th width=\"50\">Mesa</th><th width=\"90\">Estado</th><th width=\"50\">Eliminar</th></tr>\n";
 		$desde=strtotime($sesion["fecha_inicial"]);
@@ -1623,7 +1676,7 @@ function mostrar_agenda_grupo($frm){
 			
 		while($desde<$hasta){
 
-			echo "<tr><th scope=\"row\">" . strftime("%H:%M ",$desde) . date("a",$desde);
+			echo "<tr><th scope=\"row\" style='text-align:left'>" . strftime("%H:%M ",$desde) . date("a",$desde);
 
 			
 			$qCita=$db->sql_query("
@@ -1639,7 +1692,7 @@ function mostrar_agenda_grupo($frm){
 				echo "<td>$cita[mesa]</td>";
 				if($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==1) $estado="Aceptada";
 				elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==1) $estado="Por confirmar";
-				elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==0) $estado="<a href=\"" . simple_me($ME) . "?act=2&id_mercado=$_GET[id_mercado]&id_artista=$_GET[id_artista]&tipo=musica&mercado=".$CFG->mercado."&modo=agenda&mode=confirmar_cita_grupo&id_cita=$cita[id]\">Confirmar</a>";
+				elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==0) $estado="<a href=\"" . simple_me($ME) . "?act=2&id_mercado=$_GET[id_mercado]&id_artista=$_GET[id_artista]&tipo=musica&mercado=".$CFG->mercado."&modo=agenda&mode=confirmar_cita_grupo&id_cita=$cita[id]\" style='color:#fff; text-decoration:underline'>Confirmar</a>";
 				echo "<td>$estado</td>";
 				echo "<td align=\"center\"><a style=\"border:none; background:none; cursor:pointer;\" href=\"" . simple_me($ME) . "?act=2&id_mercado=$_GET[id_mercado]&id_artista=$_GET[id_artista]&tipo=musica&mercado=$_GET[id_mercado]&modo=agenda&mode=rechazar_cita_grupo&id_cita=$cita[id]\"><img border=\"0\" src=\"../m/iconos/transparente/trash-x.png\"></a></td>";
 				
@@ -1647,16 +1700,16 @@ function mostrar_agenda_grupo($frm){
 			else{
 				$qBloqueo=$db->sql_query("SELECT * FROM excepciones_agenda WHERE id_grupo_$frm[tipo]='$frm[id_grupo]' AND desde='" . date("Y-m-d H:i:00",$desde) . "'");
 				if($db->sql_numrows($qBloqueo)!=0){//Horario bloqueado
-					echo "&nbsp;&nbsp;<a style='color:#3D1211; border:none; background:none; text-decoration:underline;' href=\"" . simple_me($ME) . "?act=2&mercado=".$CFG->mercado."&modo=agenda&mode=desbloquear_agenda_grupo&tipo=$frm[tipo]&id_artista=$frm[id_grupo]&id_mercado=$frm[id_mercado]&fecha=" . urlencode($desde) . "\" title=\"Desbloquear\">Desbloquear Horario</a>";
+					echo "&nbsp;&nbsp;<a style='color:#fff; border:none; background:none; text-decoration:underline;' href=\"" . simple_me($ME) . "?act=2&mercado=".$CFG->mercado."&modo=agenda&mode=desbloquear_agenda_grupo&tipo=$frm[tipo]&id_artista=$frm[id_grupo]&id_mercado=$frm[id_mercado]&fecha=" . urlencode($desde) . "\" title=\"Desbloquear\">Desbloquear Horario</a>";
 					echo "</th>";
-					echo "<th style='border:none; background:#F17127'></th>";
-					echo "<th style='border:none; background:#F17127'></th>";
-					echo "<th style='border:none; background:#F17127'></th>";
-					echo "<th style='border:none; background:#F17127'></th>\n";
+					echo "<th style='border:none; background:#8D8D8D'></th>";
+					echo "<th style='border:none; background:#8D8D8D'></th>";
+					echo "<th style='border:none; background:#8D8D8D'></th>";
+					echo "<th style='border:none; background:#8D8D8D'></th>\n";
 					
 				}
 				else{
-					echo "&nbsp;&nbsp;<a style='color:#3D1211; border:none; background:none; text-decoration:underline;' href=\"" . simple_me($ME) . "?act=2&mercado=".$CFG->mercado."&modo=agenda&mode=bloquear_agenda_grupo&tipo=$frm[tipo]&id_artista=$frm[id_grupo]&id_mercado=$frm[id_mercado]&fecha=" . urlencode($desde) . "\" title=\"Bloquear\">Bloquear horario</a>";
+					echo "&nbsp;&nbsp;<a style='color:#fff; border:none; background:none; text-decoration:underline;' href=\"" . simple_me($ME) . "?act=2&mercado=".$CFG->mercado."&modo=agenda&mode=bloquear_agenda_grupo&tipo=$frm[tipo]&id_artista=$frm[id_grupo]&id_mercado=$frm[id_mercado]&fecha=" . urlencode($desde) . "\" title=\"Bloquear\">Bloquear horario</a>";
 					echo "</th>\n";
 				}
 			}
@@ -1683,8 +1736,8 @@ function mostrar_encuesta_grupo($frm){
 function mostrar_agenda_grupo_promotor($frm){
 	GLOBAL $CFG,$db,$ME;
 
-	echo '<div style="position:absolute; top:0; margin-top:840px;">';
-	echo '<div style="padding:5px; background-color:#3D1211; color:#E6D7B0; font-size:14px; width:430px; float:left; margin-top:10px;" align="center"><strong>Agenda Profesional</strong></div><br><br>';
+	echo '<div class="izquierda" style="margin-left:-265px;">';
+	echo '<div class="titulo" align="center"><strong>Agenda del profesional</strong></div><br><br>';
 	$qSesiones=$db->sql_query("
 		SELECT s.id as id_sesion, s.id_rueda, s.lugar, r.nombre, r.duracion_cita, s.fecha_inicial, fecha_final
 		FROM sesiones s LEFT JOIN ruedas r ON s.id_rueda=r.id
@@ -1693,15 +1746,15 @@ function mostrar_agenda_grupo_promotor($frm){
 	while($sesion=$db->sql_fetchrow($qSesiones)){
 		echo "<p><strong>Rueda:</strong> $sesion[nombre] <br />\n";
 		echo "<strong>Lugar:</strong> $sesion[lugar].<br />\n";
-		setlocale (LC_TIME, "es_ES");
-		echo "<strong>Fecha:</strong> " . strftime("%B %e de %Y",strtotime($sesion["fecha_inicial"])) . "</p>\n";
-		echo "<table width=\"450\" border=\"0\" cellpadding=\"5\" cellspacing=\"5\">\n";
+        setlocale(LC_ALL,"es_ES@euro","es_ES","esp","es");
+		echo "<strong>Fecha:</strong> " . strftime("%B %d de %Y",strtotime($sesion["fecha_inicial"])) . "</p>\n";
+		echo "<table  border=\"0\" cellpadding=\"5\" cellspacing=\"5\">\n";
 		echo "<tr><th width=\"100\">Hora</th><th width=\"208\">Grupo</th><th width=\"90\">Estado</th></tr>\n";
 		$desde=strtotime($sesion["fecha_inicial"]);
 		$hasta=strtotime($sesion["fecha_final"]);
 
         while($desde<$hasta){
-			echo "<tr><th scope=\"row\">" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
+			echo "<tr><th scope=\"row\" style='text-align:left'>" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
 			$strQuery="
 				SELECT c.*,
 					CASE WHEN (c.id_grupo_danza IS NOT NULL AND c.id_grupo_danza!=0) THEN gd.nombre
@@ -1750,11 +1803,11 @@ function mostrar_agenda_grupo_promotor($frm){
 						WHERE (id_grupo_$frm[tipo]='$frm[id_grupo]' OR id_promotor='$frm[id_promotor]') AND desde='" . date("Y-m-d H:i:00",$desde) . "'
 					");
 					if($db->sql_numrows($qBloqueo)!=0){//Horario bloqueado
-					echo "<th style='border:none; background:#F17127'>Bloqueado</th>";
-					echo "<th style='border:none; background:#F17127'>Bloqueado</th>\n";
+					echo "<th style='border:none; background:#8D8D8D'>Bloqueado</th>";
+					echo "<th style='border:none; background:#8D8D8D'>Bloqueado</th>\n";
 					}
 					else{
-						echo "<td></td><td><a style='padding:0px; color:#3C1110; text-decoration:underline; text-align:left; border:none; background:none; cursor:pointer;' href=\"" . simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=solicitar_cita_grupo&fecha=" . urlencode(date("Y-m-d H:i:s",$desde)) . "&id_sesion=$sesion[id_sesion]&id_promotor=$frm[id_promotor]\">Solicitar cita</a>";
+						echo "<td></td><td><a style='padding:0px; color:#fff; text-decoration:underline; text-align:left; border:none; background:none; cursor:pointer;' href=\"" . simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=solicitar_cita_grupo&fecha=" . urlencode(date("Y-m-d H:i:s",$desde)) . "&id_sesion=$sesion[id_sesion]&id_promotor=$frm[id_promotor]&id_artista=$_GET[id_artista]&act=1\">Solicitar cita</a>";
 					}
 				}
 			}
@@ -1765,8 +1818,8 @@ function mostrar_agenda_grupo_promotor($frm){
 	}
 	echo "</div>";
 	//agenda del artista
-	echo '<div style="position:absolute; top:0; margin-top:850px; margin-left:455px; background-color:#ccc">';
-	echo '<div style="padding:5px; background-color:#666666; color:#E6D7B0; font-size:14px; width:430px; float:left;" align="center"><strong>Visualización de horarios libres en mí agenda</strong></div><br><br>';
+	echo '<div class="derecha" style="margin-left:320px;">';
+	echo '<div class="titulo" align="center" ><strong>Visualización de horarios libres en mí agenda</strong></div>';
 	$qSesiones=$db->sql_query("
 		SELECT s.id as id_sesion, s.id_rueda, s.lugar, r.nombre, r.duracion_cita, s.fecha_inicial, fecha_final
 		FROM sesiones s LEFT JOIN ruedas r ON s.id_rueda=r.id
@@ -1776,15 +1829,15 @@ function mostrar_agenda_grupo_promotor($frm){
 	while($sesion=$db->sql_fetchrow($qSesiones)){
 		echo "<p><strong>Rueda:</strong> $sesion[nombre] <br />\n";
 		echo "<strong>Lugar:</strong> $sesion[lugar].<br />\n";
-		setlocale (LC_TIME, "es_ES");
-		echo "<strong>Fecha:</strong> " . strftime("%B %e de %Y",strtotime($sesion["fecha_inicial"])) . "</p>\n";
-		echo "<table width=\"440\" border=\"0\" cellpadding=\"5\" cellspacing=\"5\" style=\"background-color:#ccc\">\n";
+		setlocale(LC_ALL,"es_ES@euro","es_ES","esp","es");
+		echo "<strong>Fecha:</strong> " . strftime("%B %d de %Y",strtotime($sesion["fecha_inicial"])) . "</p>\n";
+		echo "<table  border=\"0\" cellpadding=\"6\" cellspacing=\"5\" >\n";
 		echo "<tr><th width=\"100\">Hora</th><th width=\"208\">Promotor</th><th width=\"90\">Estado</th></tr>\n";
 		$desde=strtotime($sesion["fecha_inicial"]);
 		$hasta=strtotime($sesion["fecha_final"]);
 
         while($desde<$hasta){
-			echo "<tr><th scope=\"row\">" . strftime("%H:%M ",$desde) . date("a",$desde);
+			echo "<tr><th scope=\"row\" style='text-align:left'>" . strftime("%H:%M ",$desde) . date("a",$desde);
 			$qCita=$db->sql_query("
 				SELECT c.*, CONCAT(p.nombre, ' ', p.apellido) as promotor,(SELECT mesa FROM mercado_promotores WHERE id_mercado=r.id_mercado AND id_promotor=p.id LIMIT 1) as mesa
 				FROM citas c LEFT JOIN promotores p ON c.id_promotor=p.id
@@ -1804,8 +1857,8 @@ function mostrar_agenda_grupo_promotor($frm){
 			else{
 				$qBloqueo=$db->sql_query("SELECT * FROM excepciones_agenda WHERE id_grupo_$frm[tipo]='$frm[id_grupo]' AND desde='" . date("Y-m-d H:i:00",$desde) . "'");
 				if($db->sql_numrows($qBloqueo)!=0){//Horario bloqueado
-					echo "<th style='border:none; background:#F17127'>Bloqueado</th>";
-					echo "<th style='border:none; background:#F17127'>Bloqueado</th>\n";
+					echo "<th style='border:none; background:#8D8D8D'>Bloqueado</th>";
+					echo "<th style='border:none; background:#8D8D8D'>Bloqueado</th>\n";
 				}
 				else{
 
