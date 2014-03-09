@@ -1486,10 +1486,6 @@ function detalle_mercado($frm){
 		$string.= "<p>";
 		
 		if(isset($frm["id_artista"]) && isset($frm["tipo"])){
-			echo $frm["id_artista"]=$_SESSION[$CFG->sesion]["user"]["grupo_id"];
-			if($frm["id_artista"]==""){
-				$frm["id_artista"]=$_GET["id_artista"];
-				}
 			$qGrupo=$db->sql_query("SELECT * FROM grupos_$frm[tipo] WHERE id='$frm[id_artista]'");
 			$grupo=$db->sql_fetchrow($qGrupo);
 			$string.= '<div class="nombre_profesional">Bienvenido artista / grupo: '.$grupo["nombre"].'<a href="index.php?modo=login"><div>Salir [X]</div></a></div><br>';
