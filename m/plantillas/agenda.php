@@ -1486,7 +1486,7 @@ function detalle_mercado($frm){
 		$string.= "<p>";
 		
 		if(isset($frm["id_artista"]) && isset($frm["tipo"])){
-			$frm["id_artista"]=$_SESSION[$CFG->sesion]["user"]["grupo_id"];
+			echo $frm["id_artista"]=$_SESSION[$CFG->sesion]["user"]["grupo_id"];
 			if($frm["id_artista"]==""){
 				$frm["id_artista"]=$_GET["id_artista"];
 				}
