@@ -1773,7 +1773,7 @@ function mostrar_agenda_grupo_promotor($frm){
 	GLOBAL $CFG,$db,$ME;
 
 	echo '<div class="izquierda" style="margin-left:-265px;">';
-	echo '<div class="titulo" align="center"><strong>Agenda del profesional</strong></div>';
+	echo '<div class="titulo" align="center"><strong>Agenda del profesional ss</strong></div>';
 	$qSesiones=$db->sql_query("
 		SELECT s.id as id_sesion, s.id_rueda, s.lugar, r.nombre, r.duracion_cita, s.fecha_inicial, fecha_final
 		FROM sesiones s LEFT JOIN ruedas r ON s.id_rueda=r.id
@@ -1807,11 +1807,12 @@ function mostrar_agenda_grupo_promotor($frm){
 			";
 			$qCita=$db->sql_query($strQuery);
 			if($cita=$db->sql_fetchrow($qCita)){
-				echo "<td>$cita[grupo]</td>";
+				echo "<tr><th scope=\"row\" class='linea'>" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
+				echo "<td class='linea'>$cita[grupo]</td>";
 				if($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==1) $estado="Aceptada";
 				elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==0) $estado="Por confirmar";
 				elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==1) $estado="Por confirmar";
-				echo "<td>$estado</td>";
+				echo "<td class='linea'>$estado</td>";
 			}
 			else{
 				$qCita=$db->sql_query("
@@ -1857,7 +1858,7 @@ function mostrar_agenda_grupo_promotor($frm){
 	echo "</div>";
 	//agenda del artista
 	echo '<div class="derecha" style="margin-left:320px;">';
-	echo '<div class="titulo" align="center" ><strong>Visualización de horarios libres en mi agenda</strong></div>';
+	echo '<div class="titulo" align="center" ><strong>Visualización de horarios libres en mi agenda ss</strong></div>';
 	$qSesiones=$db->sql_query("
 		SELECT s.id as id_sesion, s.id_rueda, s.lugar, r.nombre, r.duracion_cita, s.fecha_inicial, fecha_final
 		FROM sesiones s LEFT JOIN ruedas r ON s.id_rueda=r.id
@@ -1887,12 +1888,12 @@ function mostrar_agenda_grupo_promotor($frm){
 			if($cita=$db->sql_fetchrow($qCita)){
 				echo "<tr><th scope=\"row\" class='linea'>" . strftime("%H:%M ",$desde) . date("a",$desde);
 				echo "</th>\n";
-				echo "<td>$cita[promotor]</td>";
+				echo "<td class='linea'>$cita[promotor]</td>";
 				if($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==1) $estado="Aceptada";
 				elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==1) $estado="Por confirmar";
 				elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==0) $estado="Por confirmar";
 				else $estado="Eliminada";
-				echo "<td>$estado</td>";
+				echo "<td class='linea'>$estado</td>";
 			}
 			else{
 				$qBloqueo=$db->sql_query("SELECT * FROM excepciones_agenda WHERE id_grupo_$frm[tipo]='$frm[id_grupo]' AND desde='" . date("Y-m-d H:i:00",$desde) . "'");
