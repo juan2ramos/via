@@ -1678,8 +1678,7 @@ function listar_promotores($frm){
 	$j=1;
 	while($promotor=$db->sql_fetchrow($qPromotores)){ 
         //aqui va el codigo de bloqueo de los que son de circo
-		$promotor["id"];
-		if($promotor["id"]!=3788){ //oculta el profesional de prueba
+		if($promotor["id"]!=4176){ //oculta el profesional de prueba
 			if(isset($id_promotor)) $link=simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=agenda_promotor_promotor&id_promotor2=$_GET[id_promotor]&id_promotor=$promotor[id]&id_mercado=$frm[id_mercado]&act=1";
 			else $link=simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=agenda_promotor&id_promotor=$promotor[id]&id_mercado=$frm[id_mercado]&id_artista=$_GET[id_artista]&act=1";
 			echo "<table class='items'><tr><td>";
