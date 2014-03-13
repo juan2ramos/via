@@ -916,7 +916,7 @@ function mostrar_agenda_promotor_promotor($frm){
 				$qGrupo=$db->sql_query("SELECT id,nombre FROM grupos_$tipo WHERE id='$id'");
 				$grupo=$db->sql_fetchrow($qGrupo);
 
-				echo "<td><a style=\"border:none; padding:0px; color:#fff; text-decoration:underline\" href=\"http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=$grupo[id]\" target=\"_blank\">$grupo[nombre] (Grupo)</a></td>";
+				echo "<td><a style=\"border:none; padding:0px; color:#ccc; text-decoration:underline\" href=\"http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=$grupo[id]\" target=\"_blank\">$grupo[nombre] (Grupo)</a></td>";
 				if($cita["aceptada_promotor"]==1 && ($cita["aceptada_grupo"]==1 || $cita["aceptada_promotor2"]==1)) $estado="<span class='confirmado'>Aceptada</span>";
 				if($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==0 && $cita["aceptada_promotor2"]==0) $estado="Eliminada";
 				else $estado="<span class='porconfirmar'>Por confirmar</span>";
@@ -967,7 +967,7 @@ function mostrar_agenda_promotor_promotor($frm){
 							$qGrupo=$db->sql_query("SELECT id,nombre FROM grupos_$tipo WHERE id='$id'");
 							$grupo=$db->sql_fetchrow($qGrupo);
                             echo "<tr class='linea'><th scope=\"row\" style='text-align:left'>" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
-							echo "<td><a style=\"border:none; padding:0px; color:#fff; text-decoration:underline\" href=\"http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=$grupo[id]\" target=\"_blank\">$grupo[nombre] (Grupo)</a></td>";
+							echo "<td><a style=\"border:none; padding:0px; color:#ccc; text-decoration:underline\" href=\"http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=$grupo[id]\" target=\"_blank\">$grupo[nombre] (Grupo)</a></td>";
 							if($cita["aceptada_promotor"]==1 && ($cita["aceptada_grupo"]==1 || $cita["aceptada_promotor2"]==1)) $estado="<span class='confirmado'>Aceptada</span>";
 							if($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==0 && $cita["aceptada_promotor2"]==0) $estado="Eliminada";
 							else $estado="<span class='porconfirmar'>Por confirmar</span>";
@@ -1079,7 +1079,7 @@ $promotores=$db->sql_row("SELECT * FROM promotores WHERE id='$_GET[id_promotor2]
 							$qGrupo=$db->sql_query("SELECT id,nombre FROM grupos_$tipo WHERE id='$id'");
 							$grupo=$db->sql_fetchrow($qGrupo);
 							echo "<tr class='linea'><th scope=\"row\" style='text-align:left'>" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
-							echo "<td><a style=\"border:none; padding:0px; color:#fff; text-decoration:underline\" href=\"http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=$grupo[id]\" target=\"_blank\">$grupo[nombre] (Grupo)</a></td>";
+							echo "<td><a style=\"border:none; padding:0px; color:#ccc; text-decoration:underline\" href=\"http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=$grupo[id]\" target=\"_blank\">$grupo[nombre] (Grupo)</a></td>";
 							if($cita["aceptada_promotor"]==1 && ($cita["aceptada_grupo"]==1 || $cita["aceptada_promotor2"]==1)) $estado="<span class='confirmado'>Aceptada</span>";
 							if($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==0 && $cita["aceptada_promotor2"]==0) $estado="Eliminada";
 							else $estado="<span class='porconfirmar'>Por confirmar</span>";
@@ -1350,7 +1350,7 @@ function mostrar_agenda_promotor_promotor_recordatorio($frm){
 				$qGrupo=$db->sql_query("SELECT id,nombre FROM grupos_$tipo WHERE id='$id'");
 				$grupo=$db->sql_fetchrow($qGrupo);
 
-				echo "<td><a style='border:none;  padding:0px; color:#fff; text-decoration:underline; font-size:14px;' href='http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&banner=0&num=".$grupo["id"]."' target=\"_blank\">$grupo[nombre]</a></td>";
+				echo "<td><a style='border:none;  padding:0px; color:#ccc; text-decoration:underline; font-size:14px;' href='http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&banner=0&num=".$grupo["id"]."' target=\"_blank\">$grupo[nombre]</a></td>";
 				
 				if($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==1) $estado="Aceptada";
 				elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==0) $estado="Por confirmar";
@@ -1376,7 +1376,7 @@ function mostrar_agenda_promotor_promotor_recordatorio($frm){
 					echo "<td>$cita[mesa]</td>";
 					if($cita["aceptada_promotor"]==1 && $cita["aceptada_promotor2"]==1) $estado="Aceptada";
 					elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_promotor2"]==0) $estado="Por confirmar";
-					elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_promotor2"]==1) $estado="<a href=\"" . simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=confirmar_cita_promotor_promotor&id_cita=$cita[id]\" style='color:#fff; text-decoration:underline'>Confirmar</a>";
+					elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_promotor2"]==1) $estado="<a href=\"" . simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=confirmar_cita_promotor_promotor&id_cita=$cita[id]\" style='color:#ccc; text-decoration:underline'>Confirmar</a>";
 					else $estado="Eliminada";
 					echo "<td>$estado</td>";
 				}
