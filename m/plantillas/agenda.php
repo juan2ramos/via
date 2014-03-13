@@ -1666,7 +1666,7 @@ function listar_promotores($frm){
 		//$condicion.=" AND mp.id_promotor IN (SELECT pa.id_promotor FROM pr_promotores_areas pa LEFT JOIN pr_areas ar ON pa.id_area=ar.id WHERE ar.codigo='$tipo')";
 	}
 	else{//si es un profesional
-	    echo $id_promotor=$_SESSION[$CFG->sesion]["user"]["id"];
+	    $id_promotor=$_SESSION[$CFG->sesion]["user"]["id"];
 		$condicion.=" AND mp.id_promotor!='" . $id_promotor . "' AND mp.id_promotor IN (
 			SELECT pa.id_promotor
 			FROM pr_promotores_areas pa
@@ -1678,6 +1678,7 @@ function listar_promotores($frm){
 	$j=1;
 	while($promotor=$db->sql_fetchrow($qPromotores)){ 
         //aqui va el codigo de bloqueo de los que son de circo
+		$promotor["id"];
 		if($promotor["id"]!=3788){ //oculta el profesional de prueba
 			if(isset($id_promotor)) $link=simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=agenda_promotor_promotor&id_promotor2=$_GET[id_promotor]&id_promotor=$promotor[id]&id_mercado=$frm[id_mercado]&act=1";
 			else $link=simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=agenda_promotor&id_promotor=$promotor[id]&id_mercado=$frm[id_mercado]&id_artista=$_GET[id_artista]&act=1";
