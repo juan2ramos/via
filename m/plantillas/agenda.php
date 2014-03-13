@@ -885,7 +885,7 @@ function mostrar_agenda_promotor_promotor($frm){
 	");
 	
 	echo "<div class='izquierda' style='margin-top:610px'>";
-	echo "<div class='titulo' align=\"center\"><strong>Agenda del profesional ss</strong></div>";
+	echo "<div class='titulo' align=\"center\"><strong>Agenda del profesional</strong></div>";
 	$cambio=0;
 	$cambio2=0;
 	
@@ -917,9 +917,9 @@ function mostrar_agenda_promotor_promotor($frm){
 				$grupo=$db->sql_fetchrow($qGrupo);
 
 				echo "<td><a style=\"border:none; padding:0px; color:#fff; text-decoration:underline\" href=\"http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=$grupo[id]\" target=\"_blank\">$grupo[nombre] (Grupo)</a></td>";
-				if($cita["aceptada_promotor"]==1 && ($cita["aceptada_grupo"]==1 || $cita["aceptada_promotor2"]==1)) $estado="Aceptada";
+				if($cita["aceptada_promotor"]==1 && ($cita["aceptada_grupo"]==1 || $cita["aceptada_promotor2"]==1)) $estado="<span class='confirmado'>Aceptada</span>";
 				if($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==0 && $cita["aceptada_promotor2"]==0) $estado="Eliminada";
-				else $estado="Por confirmar";
+				else $estado="<span class='porconfirmar'>Por confirmar</span>";
 				echo "<td>$estado</td>";
 			}
 			else{
@@ -937,8 +937,8 @@ function mostrar_agenda_promotor_promotor($frm){
 					echo "<tr class='linea'><th scope=\"row\" style='text-align:left'>" . strftime("%H:%M ",$desde) . date("a",$desde);
 					echo "</th>\n";
 					echo "<td>$cita[promotor] (Profesional)</td>";
-					if($cita["aceptada_promotor"]==1 && $cita["aceptada_promotor2"]==1) $estado="Aceptada";
-					elseif($cita["aceptada_promotor"]==0 || $cita["aceptada_promotor2"]==0) $estado="Por confirmar";
+					if($cita["aceptada_promotor"]==1 && $cita["aceptada_promotor2"]==1) $estado="<span class='confirmado'>Aceptada</span>";
+					elseif($cita["aceptada_promotor"]==0 || $cita["aceptada_promotor2"]==0) $estado="<span class='porconfirmar'>Por confirmar</span>";
 					echo "<td>$estado</td>";
 				}
 				else{
@@ -968,9 +968,9 @@ function mostrar_agenda_promotor_promotor($frm){
 							$grupo=$db->sql_fetchrow($qGrupo);
                             echo "<tr class='linea'><th scope=\"row\" style='text-align:left'>" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
 							echo "<td><a style=\"border:none; padding:0px; color:#fff; text-decoration:underline\" href=\"http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=$grupo[id]\" target=\"_blank\">$grupo[nombre] (Grupo)</a></td>";
-							if($cita["aceptada_promotor"]==1 && ($cita["aceptada_grupo"]==1 || $cita["aceptada_promotor2"]==1)) $estado="Aceptada";
+							if($cita["aceptada_promotor"]==1 && ($cita["aceptada_grupo"]==1 || $cita["aceptada_promotor2"]==1)) $estado="<span class='confirmado'>Aceptada</span>";
 							if($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==0 && $cita["aceptada_promotor2"]==0) $estado="Eliminada";
-							else $estado="Por confirmar";
+							else $estado="<span class='porconfirmar'>Por confirmar</span>";
 							echo "<td>$estado</td>";
 						}
 						else{
@@ -1030,9 +1030,9 @@ $promotores=$db->sql_row("SELECT * FROM promotores WHERE id='$_GET[id_promotor2]
 				$grupo=$db->sql_fetchrow($qGrupo);
 				echo "<tr class='linea'><th scope=\"row\" style='text-align:left'>" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
 				echo "<td><a style=\"border:none; padding:0px; color:#ccc; text-decoration:underline\" href=\"http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=$grupo[id]\" target=\"_blank\">$grupo[nombre] (Grupo)</a></td>";
-				if($cita["aceptada_promotor"]==1 && ($cita["aceptada_grupo"]==1 || $cita["aceptada_promotor2"]==1)) $estado="Aceptada";
+				if($cita["aceptada_promotor"]==1 && ($cita["aceptada_grupo"]==1 || $cita["aceptada_promotor2"]==1)) $estado="<span class='confirmado'>Aceptada</span>";
 				if($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==0 && $cita["aceptada_promotor2"]==0) $estado="Eliminada";
-				else $estado="Por confirmar";
+				else $estado="<span class='porconfirmar'>Por confirmar</span>";
 				echo "<td>$estado</td>";
 			}
 			else{
@@ -1049,8 +1049,8 @@ $promotores=$db->sql_row("SELECT * FROM promotores WHERE id='$_GET[id_promotor2]
 				if($cita=$db->sql_fetchrow($qCita)){
 					echo "<tr class='linea'><th scope=\"row\" style='text-align:left'>" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
 					echo "<td >$cita[promotor] (Profesional)</td>";
-					if($cita["aceptada_promotor"]==1 && $cita["aceptada_promotor2"]==1) $estado="Aceptada";
-					elseif($cita["aceptada_promotor"]==0 || $cita["aceptada_promotor2"]==0) $estado="Por confirmar";
+					if($cita["aceptada_promotor"]==1 && $cita["aceptada_promotor2"]==1) $estado="<span class='confirmado'>Aceptada</span>";
+					elseif($cita["aceptada_promotor"]==0 || $cita["aceptada_promotor2"]==0) $estado="<span class='porconfirmar'>Por confirmar</span>";
 					echo "<td>$estado</td>";
 				}
 				else{
@@ -1080,9 +1080,9 @@ $promotores=$db->sql_row("SELECT * FROM promotores WHERE id='$_GET[id_promotor2]
 							$grupo=$db->sql_fetchrow($qGrupo);
 							echo "<tr class='linea'><th scope=\"row\" style='text-align:left'>" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
 							echo "<td><a style=\"border:none; padding:0px; color:#fff; text-decoration:underline\" href=\"http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=$grupo[id]\" target=\"_blank\">$grupo[nombre] (Grupo)</a></td>";
-							if($cita["aceptada_promotor"]==1 && ($cita["aceptada_grupo"]==1 || $cita["aceptada_promotor2"]==1)) $estado="Aceptada";
+							if($cita["aceptada_promotor"]==1 && ($cita["aceptada_grupo"]==1 || $cita["aceptada_promotor2"]==1)) $estado="<span class='confirmado'>Aceptada</span>";
 							if($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==0 && $cita["aceptada_promotor2"]==0) $estado="Eliminada";
-							else $estado="Por confirmar";
+							else $estado="<span class='porconfirmar'>Por confirmar</span>";
 							echo "<td>$estado</td>";
 						}
 						else{
@@ -1162,9 +1162,9 @@ function mostrar_agenda_promotor_artista($frm){
 			if($cita=$db->sql_fetchrow($qCita)){
 				echo "<tr class='linea'><th scope=\"row\" style='text-align:left'>" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
 				echo "<td>$cita[promotor] (Profesional)</td>";
-				if($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==1) $estado="Aceptada";
-				elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==0) $estado="Por confirmar";
-				elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==1) $estado="Por confirmar";
+				if($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==1) $estado="<span class='confirmado'>Aceptada</span>";
+				elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==0) $estado="<span class='porconfirmar'>Por confirmar</span>";
+				elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==1) $estado="<span class='porconfirmar'>Por confirmar</span>";
 				echo "<td>$estado</td>";
 			}
 			else{
@@ -1238,9 +1238,9 @@ function mostrar_agenda_promotor_artista($frm){
 
 				echo "<td ><a style='border:none;  padding:5px; color:#ccc; font-size:16px; text-decoration:underline' href='http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&banner=0&num=".$grupo["id"]."' target=\"_blank\">$grupo[nombre]</a></td>";
 				
-				if($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==1) $estado="Aceptada";
-				elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==0) $estado="Por confirmar";
-				elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==1) $estado="Por confirmar";
+				if($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==1) $estado="<span class='confirmado'>Aceptada</span>";
+				elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==0) $estado="<span class='porconfirmar'>Por confirmar</span>";
+				elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==1) $estado="<span class='porconfirmar'>Por confirmar</span>";
 				else $estado="Eliminada";
 				echo "<td >$estado</td>";
 
@@ -1260,9 +1260,9 @@ function mostrar_agenda_promotor_artista($frm){
 					echo "<tr class='linea'><th scope=\"row\" style='text-align:left'>" . strftime("%H:%M ",$desde) . date("a",$desde);
 					echo "</th>\n";
 					echo "<td >$cita[promotor] (Profesional)</td>";
-					if($cita["aceptada_promotor"]==1 && $cita["aceptada_promotor2"]==1) $estado="Aceptada";
-					elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_promotor2"]==0) $estado="Por confirmar";
-					elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_promotor2"]==1) $estado="Por confirmar";
+					if($cita["aceptada_promotor"]==1 && $cita["aceptada_promotor2"]==1) $estado="<span class='confirmado'>Aceptada</span>";
+					elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_promotor2"]==0) $estado="<span class='porconfirmar'>Por confirmar</span>";
+					elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_promotor2"]==1) $estado="<span class='porconfirmar'>Por confirmar</span>";
 					else $estado="Eliminada";
 					echo "<td >$estado</td>";
 				}
