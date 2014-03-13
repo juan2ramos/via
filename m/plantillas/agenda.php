@@ -1662,7 +1662,7 @@ function listar_promotores($frm){
 	$condicion="mp.id_mercado='$frm[id_mercado]'";
    
 	if(isset($_SESSION[$CFG->sesion]["user"]["grupo_tipo"])){//si es un grupo
-		$tipo=$_SESSION[$CFG->sesion]["user"]["grupo_tipo"];
+		echo $tipo=$_SESSION[$CFG->sesion]["user"]["grupo_tipo"];
 		//$condicion.=" AND mp.id_promotor IN (SELECT pa.id_promotor FROM pr_promotores_areas pa LEFT JOIN pr_areas ar ON pa.id_area=ar.id WHERE ar.codigo='$tipo')";
 	}
 	else{//si es un profesional
