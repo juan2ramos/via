@@ -1,0 +1,52 @@
+.portfolio{
+	max-width: 1605px;
+
+}
+.portfolio section {
+	overflow: auto;
+}
+.portfolio section a{
+    float: left;
+    }
+
+@media screen and (max-width: 640px) {
+	.portfolio section{
+		margin-left: 22%;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.portfolio section{
+		margin-left: 8%;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.portfolio section{
+		margin-left: 1.5%;
+	}
+}
+
+@media screen and (max-width: 1366px) {
+	.portfolio section{
+		margin-left: 2%;
+	}
+}
+
+@media screen and (max-width: 1280px) {
+	.portfolio section{
+		margin-left: 11%;
+	}
+}
+
+@media screen and (max-width: 1440px) {
+	.portfolio section{
+		margin-left: 5%;
+	}
+}
+
+@media screen and (max-width: 1600px) {
+	.portfolio section{
+		margin-left: 9%;
+	}
+}
