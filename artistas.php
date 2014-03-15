@@ -72,4 +72,36 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
     <script src="js/script.js"></script>
+<script language="javascript">
+function TamVentana() {
+  var Tamanyo = [0, 0];
+  if (typeof window.innerWidth != 'undefined')
+  {
+    Tamanyo = [
+        window.innerWidth,
+        window.innerHeight
+    ];
+  }
+  else if (typeof document.documentElement != 'undefined'
+      && typeof document.documentElement.clientWidth !=
+      'undefined' && document.documentElement.clientWidth != 0)
+  {
+ Tamanyo = [
+        document.documentElement.clientWidth,
+        document.documentElement.clientHeight
+    ];
+  }
+  else   {
+    Tamanyo = [
+        document.getElementsByTagName('body')[0].clientWidth,
+        document.getElementsByTagName('body')[0].clientHeight
+    ];
+  }
+  return Tamanyo;
+}
+window.onresize = function() {
+  var Tam = TamVentana();
+  alert('La ventana mide: [' + Tam[0] + ', ' + Tam[1] + ']');
+};
+</script>
 </html>
