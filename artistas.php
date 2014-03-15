@@ -99,9 +99,9 @@ function TamVentana() {
   }
   return Tamanyo;
 }
-window.onresize = function() {
+
   var Tam = TamVentana();
   alert('La ventana mide: [' + Tam[0] + ', ' + Tam[1] + ']');
-};
+
 </script>
 </html>
