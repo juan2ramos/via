@@ -1632,7 +1632,7 @@ function listar_grupos($frm){
 		if($gm["id_grupo_musica"]!=""){$tipo="musica";$tipoTxt="Música";$id=$gm["id_grupo_musica"];}
 		elseif($gm["id_grupo_danza"]!=""){$tipo="danza";$tipoTxt="Danza";$id=$gm["id_grupo_danza"];}
 		elseif($gm["id_grupo_teatro"]!=""){$tipo="teatro";$tipoTxt="Teatro";$id=$gm["id_grupo_teatro"];}
-		$tipo_anterior=$tipo;
+		echo $tipo_anterior=$tipo;
 		$qImagen=$db->sql_query("
 			SELECT g.id,g.nombre
 			FROM grupos_$tipo g
