@@ -86,7 +86,7 @@ p{
 .items{
 	margin: 10px; 
 	float: left; 
-	width: 280px; 
+	width: 352px; 
 	height:40px; 
 	padding:0px;
 	}	
