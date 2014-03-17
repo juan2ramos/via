@@ -1110,7 +1110,7 @@ function mostrar_agenda_promotor_artista($frm){
 	$qGrupo=$db->sql_query("SELECT * FROM grupos_$frm[tipo] WHERE id='$frm[id_artista]'");
 	$grupo=$db->sql_fetchrow($qGrupo);
 	echo $_GET["tipo"];
-	$caratula=$db->sql_row("SELECT * FROM archivos_grupos_musica WHERE id_grupos_musica='$frm[id_artista]' AND etiqueta='Imagen'");
+	$caratula=$db->sql_row("SELECT * FROM archivos_grupos_musica WHERE id_grupos_".$_GET["tipo"]."='$frm[id_artista]' AND etiqueta='Imagen'");
 	
 	
 	echo "<div id='perfil' style='height:2200px'>";
@@ -1118,7 +1118,7 @@ function mostrar_agenda_promotor_artista($frm){
 	echo "<h2>Agenda de el ".$grupo["nombre"]."</h2>";
 
 	if($caratula["id"]!=""){
-	echo "<img style='margin-top:10px; margin-left:5px; float:left; margin-bottom:30px;' src=\"http://2013.circulart.org/m/admin/imagen.php?table=archivos_grupos_musica&amp;field=archivo&amp;id=$caratula[id]\" width=\"250\"/>";
+	echo "<img style='margin-top:10px; margin-left:5px; float:left; margin-bottom:30px;' src=\"http://2013.circulart.org/m/admin/imagen.php?table=archivos_grupos_".$_GET["tipo"]."&amp;field=archivo&amp;id=$caratula[id]\" width=\"250\"/>";
 	}
 	
 	if($grupo["en_resena_corta"]!=""){$en="<br><br>/".$grupo["en_resena_corta"];}else{$en="";}
