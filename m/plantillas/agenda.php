@@ -84,7 +84,7 @@ p{
 #miAgenda{
 	border:none;}	
 .items{
-	margin: 5px; 
+	margin: 10px; 
 	float: left; 
 	width: 280px; 
 	height:40px; 
