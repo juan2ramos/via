@@ -14,19 +14,18 @@
         <meta name="author" content="" />       
         <meta name="description" content="Inicio" />       
         <!-- Si hay diseño responsive
-        <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1" />
-        -->
-
+		<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1" />-->
         <script src="js/prefixfree.min.js"></script>
         <!-- Estilos -->
         <link rel="stylesheet" href="css/normalize.css" />
         <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="css/portfolio.css" />
+        
 
 
     </head>
-    <body class="contact">
+    <body >
         <!-- Header -->
         <?php include 'header.php' ?>
         <!-- content -->
@@ -34,24 +33,22 @@
         <div class="title">           
             <h1>ARTISTAS</h1>
         </div>
-        <div class="via portfolio">
-	        <section>
-	          <a href="#"><img src="images/referencia.png"></a>
-	          <a href="#"><img src="images/referencia.png"></a>
-	          <a href="#"><img src="images/referencia.png"></a>
-	          <a href="#"><img src="images/referencia.png"></a>
-	          <a href="#"><img src="images/referencia.png"></a>
-	          <a href="#"><img src="images/referencia.png"></a>
-	          <a href="#"><img src="images/referencia.png"></a>
-	          <a href="#"><img src="images/referencia.png"></a>
-	          <a href="#"><img src="images/referencia.png"></a>
-	          <a href="#"><img src="images/referencia.png"></a>
-	          <a href="#"><img src="images/referencia.png"></a>
-	          <a href="#"><img src="images/referencia.png"></a>
-	          <a href="#"><img src="images/referencia.png"></a>
-	          <a href="#"><img src="images/referencia.png"></a>
-	          <a href="#"><img src="images/referencia.png"></a>
-	        </section>
+        <div id="basic" class="container">
+	          <div class="item" ></div>
+	          <div class="item" ></div>
+	          <div class="item" ></div>
+	          <div class="item" ></div>
+	          <div class="item" ></div>
+	          <div class="item" ></div>
+	          <div class="item" ></div>
+	          <div class="item" ></div>
+	          <div class="item" ></div>
+	          <div class="item" ></div>
+	          <div class="item" ></div>
+	          <div class="item" ></div>
+	          <div class="item" ></div>
+	          <div class="item" ></div>
+	          <div class="item" ></div>
         </div>
         <div class="bar-red">
             <a href="https://twitter.com/VIA_2014"><span class="icon-twitter"></span>
@@ -71,37 +68,41 @@
     <!-- JavaScript -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+    <script src="js/bower_components/eventEmitter/EventEmitter.js"></script>
+	<script src="js/bower_components/eventie/eventie.js"></script>
+    <script src="js/bower_components/doc-ready/doc-ready.js"></script>
+    <script src="js/bower_components/get-style-property/get-style-property.js"></script>
+    <script src="js/bower_components/get-size/get-size.js"></script>
+    <script src="js/bower_components/jquery-bridget/jquery.bridget.js"></script>
+    <script src="js/bower_components/matches-selector/matches-selector.js"></script>
+    <script src="js/bower_components/outlayer/item.js"></script>
+    <script src="js/bower_components/outlayer/outlayer.js"></script>
+    <script src="js/masonry.js"></script>
     <script src="js/script.js"></script>
-<script language="javascript">
-function TamVentana() {
-  var Tamanyo = [0, 0];
-  if (typeof window.innerWidth != 'undefined')
-  {
-    Tamanyo = [
-        window.innerWidth,
-        window.innerHeight
-    ];
-  }
-  else if (typeof document.documentElement != 'undefined'
-      && typeof document.documentElement.clientWidth !=
-      'undefined' && document.documentElement.clientWidth != 0)
-  {
- Tamanyo = [
-        document.documentElement.clientWidth,
-        document.documentElement.clientHeight
-    ];
-  }
-  else   {
-    Tamanyo = [
-        document.getElementsByTagName('body')[0].clientWidth,
-        document.getElementsByTagName('body')[0].clientHeight
-    ];
-  }
-  return Tamanyo;
-}
-
-  var Tam = TamVentana();
-  alert('La ventana mide: [' + Tam[0] + ', ' + Tam[1] + ']');
-
-</script>
+	<script language="javascript">
+    docReady( function() {
+      var container = document.querySelector('#basic');
+      var msnry = new Masonry( container, {
+        columnWidth: 4
+      });
+//alert($(document).width())
+	// $(".container").width($(window).width());
+	/* $(".container-nav").css('width','1192px');
+	if($(window).width()==980){
+		  $(".title").width($(window).width()+100);
+		  $(".bar-red").width($(window).width());
+		  $(".more-info").width($(window).width()+20);
+		  $("footer").width($(window).width()+20);
+		}else{
+		  $(".title").width($(window).width()+20);
+		  $(".bar-red").width($(window).width());
+		  $(".more-info").width($(window).width()+20);
+		  $("footer").width($(window).width()+20);
+	  }*/
+	  //alert($(document).width());
+    });
+	
+	
+	
+    </script>
 </html>

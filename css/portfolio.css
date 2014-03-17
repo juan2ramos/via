@@ -1,67 +1,81 @@
-.portfolio{
-	max-width: 1605px;
-
+* {
+  box-sizing: border-box;
 }
-.portfolio section {
-	overflow: auto;
-}
-.portfolio section a{
-    float: left;
-    }
 
-@media screen and (max-width: 640px) {
-	.portfolio section{
-		margin-left: 22%;
+.container {
+  max-width: 1600px;
+  position:absolute;
+  margin: 0 auto;
+}
+.title h1{
+	font-size: 6em;
+	line-height: 3.1em;
 	}
+	
+.item{
+  width:  320px;
+  height: 320px;
+  float: left;
+  border: 1px solid #383838;
+  background: #09F;
 }
 
+.item.w2 { width: 120px; }
+.item.w3 { width: 180px; }
 
+.item.h2 { height: 100px; }
+.item.h3 { height: 160px; }
+.item.h4 { height: 220px; }
+.item.h5 { height: 280px; }
 
-@media screen and (max-width: 1024px) {
-	.portfolio section{
-		margin-left: 1.5%;
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  .item{
+	  width:100%;
+	  height:960px;
+	  background-color:#CCC;
+	  }
+
+/* Styles */
+}
+
+@media only screen and (max-width : 980px) {
+	  .container{
+	   width:900px;
+	   margin-left:10%}
+	   .item{
+		   width:260px;
+		   height:260px;
+		   }
 	}
+
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width : 321px) {
+/* Styles */
 }
 
-@media screen and (max-width: 1366px) {
-	.portfolio section{
-		margin-left: 2%;
-	}
-}
-
-@media screen and (max-width: 1280px) {
-	.portfolio section{
-		margin-left: 11%;
-	}
-}
-
-@media screen and (max-width: 1440px) {
-	.portfolio section{
-		margin-left: 5%;
-	}
-}
-
-@media screen and (max-width: 1600px) {
-	.portfolio section{
-		margin-left: 9%;
-	}
-}
-
-@media screen and (max-width: 800px) {
-	.portfolio section{
-		margin-left: 0;
-	}
-	.portfolio section a img{
-		width: 800px;
-    }
-}
-
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-.portfolio section{
-		margin-left: 0;
-	}
-	.portfolio section a img{
-		width: 800px;
-    }
-}
+/* iPhone 4 ----------- */
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
+  .container{
+	  width:900px;}
+  .item{
+	  width:800px;
+	  height:800px;
+	  background-color:#CCC;
+	  }
+  .logo-via, .more-info{
+	  display:none;}
+  .container-nav{
+	  width:980px}	
+  .bar-red p{
+	  font-size: 4em;
+	  font-weight: 100;
+	  line-height: .5em;
+	  margin: 15px;
+	  }	 
+  .bar-red span {
+	font-size:3em;
+	}       
 }

@@ -1640,7 +1640,7 @@ function listar_grupos($frm){
 		");
 		if($grupo=$db->sql_fetchrow($qImagen)){
 		//codigo nuevo 
-		  if($grupo["id"]!=1555){
+		 // if($grupo["id"]!=1555){
 			$link=simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=agenda_artista&tipo=$tipo&id_artista=$grupo[id]&id_mercado=$frm[id_mercado]&act=0&id_promotor=$_GET[id_promotor]";
 			echo "<table class='items' border='0' cellspacing='0' cellpadding='0' ><tr><td>";
 			echo "<a style=\"text-align:left; border:none; background:none; cursor:pointer;\" onclick=\"artistas('".$link."')\" title=\"Ver agenda y perfil del artista\">";
@@ -1648,7 +1648,7 @@ function listar_grupos($frm){
 			echo "</a>&nbsp;";
 			echo "</td></tr></table>";
 			$j++;
-		   }
+		   //}
 		}
 	}
 	echo "</tr></td></table></div>"; 
