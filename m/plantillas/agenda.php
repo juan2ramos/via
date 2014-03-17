@@ -1110,7 +1110,7 @@ function mostrar_agenda_promotor_artista($frm){
 	$qGrupo=$db->sql_query("SELECT * FROM grupos_$frm[tipo] WHERE id='$frm[id_artista]'");
 	$grupo=$db->sql_fetchrow($qGrupo);
 	echo $_GET["tipo"];
-	$caratula=$db->sql_row("SELECT * FROM archivos_grupos_musica WHERE id_grupos_".$_GET["tipo"]."='$frm[id_artista]' AND etiqueta='Imagen'");
+	$caratula=$db->sql_row("SELECT * FROM archivos_grupos_".$_GET["tipo"]." WHERE id_grupos_".$_GET["tipo"]."='$frm[id_artista]' AND etiqueta='Imagen'");
 	
 	
 	echo "<div id='perfil' style='height:2200px'>";
