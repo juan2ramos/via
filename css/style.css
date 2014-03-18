@@ -565,6 +565,9 @@ select
     -ms-transform:rotate(90deg); 
     -webkit-transform:rotate(90deg);
 }
+ul.menu-responsive{
+    display: none;
+}
 /*=================================================================
 MediaQuery
 ===================================================================*/
@@ -640,8 +643,9 @@ MediaQuery
         float: right;
 
     }
-    .menu-responsive{
+    ul.menu-responsive{
         background: #1f1f1f;
+        display: block;
         text-align: left;
         max-height: 0;
         margin-top: -3px;
@@ -666,7 +670,7 @@ MediaQuery
     .menu-responsive li a:hover{
         color: #ffff00;
     }
-    .open-menu{
+    ul.open-menu{
         max-height: 250px;
         transition: max-height .4s;
     }
