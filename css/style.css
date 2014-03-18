@@ -648,8 +648,8 @@ MediaQuery
         display: block;
         text-align: left;
         max-height: 0;
-        margin-top: -3px;
         overflow: hidden;
+        position: absolute;
         transition: max-height .4s;
         width: 100%;
 
