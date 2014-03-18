@@ -84,6 +84,7 @@ nav span{
 nav
 ===================================================================*/
 nav {
+
     margin-left: 20px;
 }
 nav a{
@@ -229,6 +230,7 @@ footer h3{
     width: 250px;
 }
 .footer-below{
+
     margin: 60px auto 0;
     width: 980px;
     padding-bottom: 12px;
@@ -271,6 +273,9 @@ content
 }
 .bar-red a{
     color: #f2c314;
+}
+.bar-red img{
+    max-width: 100%;
 }
 .bar-red p{
     font-size: 2em;
@@ -560,4 +565,116 @@ select
     -ms-transform:rotate(90deg); 
     -webkit-transform:rotate(90deg);
 }
+/*=================================================================
+MediaQuery
+===================================================================*/
+@media only screen and (max-width:960px), only screen and (max-device-width: 960px) {
+    .container-nav{
+        width: 100%;
+    }
+    nav{
+        display: none;
+    }
+    .logo-via {
+        display: none;
+    }
+    .via{
+        max-width: 100%;
+        padding: 43px 20px 0;
+        -webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;
 
+    }
+    .via h3, .via p{
+        width: auto;
+    }
+    .bar-red p {
+        font-size: 1.5em;
+    }
+    .more-info ul{
+         padding: 0;
+         width: 100%;
+         text-align: center;
+     }
+    .more-info li{
+        border: none;
+    }
+    .footer-below{
+        text-align: center;
+        width: auto;
+    }
+    .festival-teatro{
+        display: block;
+        width: auto;
+    }
+    .redlat-circulart {
+        text-align: center;
+    }
+    .nav-bar{
+        margin: 40px 10px;
+        padding: 0;
+    }
+    .button-responsive:focus{
+        outline:0;
+    }
+    .nav-bar, .nav-bar:before, .nav-bar:after{
+        background: #fff;
+        display: block;
+        height: 3px;
+        position: relative;
+        width: 30px;
+    }
+
+    .nav-bar:before{
+        content: '';
+        top:-8px;
+    }
+    .nav-bar:after{
+        content: '';
+        top: 5px;
+    }
+    .button-responsive{
+        margin: 0;
+        padding: 0;
+        border: none;
+        background: none;
+        float: right;
+
+    }
+    .menu-responsive{
+        background: #1f1f1f;
+        text-align: left;
+        max-height: 0;
+        margin-top: -3px;
+        overflow: hidden;
+        transition: max-height .4s;
+        width: 100%;
+
+    }
+    .menu-responsive li:first-child{
+        border-top: 1px solid #383838;
+    }
+    .menu-responsive li{
+        border-bottom: 1px solid #383838;
+        width: 100%;
+    }
+    .menu-responsive li a{
+        color: #f0f0f0;
+        display: block;
+        padding: 15px 30px;
+        width: 100%;
+    }
+    .menu-responsive li a:hover{
+        color: #ffff00;
+    }
+    .open-menu{
+        max-height: 250px;
+        transition: max-height .4s;
+    }
+    .contact h1 {
+        font-size: 4em;
+        line-height: 5em;
+    }
+    textarea{
+        width: 370px;
+    }
+}
