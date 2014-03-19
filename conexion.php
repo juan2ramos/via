@@ -4,8 +4,8 @@
 
   public function MySQL(){ 
     if(!isset($this->conexion)){
-      $this->conexion = (mysql_connect("redlat.org:3306","redlat_cir48lar","c*giVR=1Z-q_"))
-	 //$this->conexion = (mysql_connect("localhost","root",""))
+     // $this->conexion = (mysql_connect("redlat.org:3306","redlat_cir48lar","c*giVR=1Z-q_"))
+	 $this->conexion = (mysql_connect("localhost","root",""))
         or die(mysql_error());
       mysql_select_db("redlat_cir48lar",$this->conexion) or die(mysql_error());
     }
