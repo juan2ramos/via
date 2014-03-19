@@ -45,6 +45,7 @@
 					$cara=mysql_fetch_array($caratula);
 					if($cara["id"]!="" && $cara["id"]!="655"){
 				  ?>
+                  <a href="perfil.php?n=<?=$gm["id"]?>">
                  	<div class="item">
                     <div id="imagen"><img src="http://circulart.org/admin/imagen.php?table=archivos_grupos_teatro&amp;field=archivo&amp;id=<?php echo $cara["id"];?>" border="0"></div>
                     <div id="marca">PORTAFOLIOS</div>
@@ -58,12 +59,11 @@
 							 $numGenero=$db->consulta("SELECT * FROM generos_teatro WHERE id='".$datosGenero["id_generos_teatro"]."'");
 							 $genero=mysql_fetch_array($numGenero);
 						}
-						
-						
 					    echo utf8_encode($datosPais["pais"])." / ".utf8_encode($genero["genero"]);
 						?></div>
                     <div id="nombre"><?=utf8_encode($gm["nombre"]);?></div>
                     </div>
+                    </a>
                 <?php
                 }
 			}
@@ -105,24 +105,6 @@
       var msnry = new Masonry( container, {
         columnWidth: 4
       });
-//alert($(document).width())
-	// $(".container").width($(window).width());
-	/* $(".container-nav").css('width','1192px');
-	if($(window).width()==980){
-		  $(".title").width($(window).width()+100);
-		  $(".bar-red").width($(window).width());
-		  $(".more-info").width($(window).width()+20);
-		  $("footer").width($(window).width()+20);
-		}else{
-		  $(".title").width($(window).width()+20);
-		  $(".bar-red").width($(window).width());
-		  $(".more-info").width($(window).width()+20);
-		  $("footer").width($(window).width()+20);
-	  }*/
-	  //alert($(document).width());
     });
-	
-	
-	
     </script>
 </html>
