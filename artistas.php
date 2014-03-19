@@ -46,9 +46,14 @@
 					if($cara["id"]!="" && $cara["id"]!="655"){
 				  ?>
                  	<div class="item">
-                    <img src="http://circulart.org/admin/imagen.php?table=archivos_grupos_teatro&amp;field=archivo&amp;id=<?php echo $cara["id"];?>" border="0">
-                    <div><?=utf8_encode($gm["id_pais"]);?></div>
-                    <div><?=utf8_encode($gm["nombre"]);?></div>
+                    <div id="imagen"><img src="http://circulart.org/admin/imagen.php?table=archivos_grupos_teatro&amp;field=archivo&amp;id=<?php echo $cara["id"];?>" border="0"></div>
+                    <div id="marca">PORTAFOLIOS</div>
+                    <div id="pais_genero"><?php
+						$arrayPais=$db->consulta("SELECT * FROM paises WHERE id='".$gm["id_pais"]."'");
+						$datosPais=mysql_fetch_array($arrayPais);
+					    echo utf8_encode($datosPais["pais"]);
+						?></div>
+                    <div id="nombre"><?=utf8_encode($gm["nombre"]);?></div>
                     </div>
                 <?php
                 }
