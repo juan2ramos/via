@@ -49,9 +49,13 @@
                     <div id="imagen"><img src="http://circulart.org/admin/imagen.php?table=archivos_grupos_teatro&amp;field=archivo&amp;id=<?php echo $cara["id"];?>" border="0"></div>
                     <div id="marca">PORTAFOLIOS</div>
                     <div id="pais_genero"><?php
+					    //busqueda del pais
 						$arrayPais=$db->consulta("SELECT * FROM paises WHERE id='".$gm["id_pais"]."'");
 						$datosPais=mysql_fetch_array($arrayPais);
-					    echo utf8_encode($datosPais["pais"]);
+						//busqueda del genero
+						
+						
+					    echo utf8_encode($datosPais["pais"])." / ";
 						?></div>
                     <div id="nombre"><?=utf8_encode($gm["nombre"]);?></div>
                     </div>
