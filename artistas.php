@@ -36,7 +36,7 @@
         <div id="contenedor_area">
         <div id="areas">
         <ul>
-        <li class="activa"><a href="#">Teatro</a></li>
+        <li class="activa"><a href="artistas.php">Teatro</a></li>
         <li><a href="#">Danza</a></li>
         </ul>
         </div>
