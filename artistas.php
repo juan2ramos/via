@@ -53,9 +53,14 @@
 						$arrayPais=$db->consulta("SELECT * FROM paises WHERE id='".$gm["id_pais"]."'");
 						$datosPais=mysql_fetch_array($arrayPais);
 						//busqueda del genero
+						$arrayGenero=$db->consulta("SELECT * FROM generos_grupo_teatro WHERE id_grupos_teatro='".$gm["id"]."'");
+						while($datosGenero=mysql_fetch_array($arrayGenero)){
+							 $numGenero=$db->consulta("SELECT * FROM generos_teatro WHERE id='".$datosGenero["id_generos_teatro"]."'");
+							 $genero=mysql_fetch_array($numGenero);
+						}
 						
 						
-					    echo utf8_encode($datosPais["pais"])." / ";
+					    echo utf8_encode($datosPais["pais"])." / ".utf8_encode($genero["genero"]);
 						?></div>
                     <div id="nombre"><?=utf8_encode($gm["nombre"]);?></div>
                     </div>
