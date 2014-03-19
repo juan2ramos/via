@@ -33,8 +33,17 @@
         <div class="title">           
             <h1>ARTISTAS</h1>
         </div>
+        <div id="contenedor_area">
+        <div id="areas">
+        <ul>
+        <li class="activa"><a href="#">Teatro</a></li>
+        <li><a href="#">Danza</a></li>
+        </ul>
+        </div>
+        </div>
         <div id="basic" class="container">
         <?php
+		
         include("conexion.php");
 		$db = new MySQL();
 		$j=1;
