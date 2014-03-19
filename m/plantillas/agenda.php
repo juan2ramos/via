@@ -774,8 +774,9 @@ elseif(in_array($id_nivel,array(4,5,6,7,8,9))){//Grupo
 	$frm["id_grupo"]=$id_grupo;
 	$frm["tipo"]=$tipo;
 	if($frm["mode"]=="agenda_promotor" || $frm["mode"]=="solicitar_cita_grupo"){
-		if($frm["mode"]=="solicitar_cita_grupo"){//Cuando el artista le solicita una cita al promotor
-		
+    	if($frm["mode"]=="solicitar_cita_grupo"){//Cuando el artista le solicita una cita al promotor
+				
+	     if($_SESSION[$CFG->sesion]["user"]["c"]<2){//bloqueo de citas artistas
 			$qVerificacion=$db->sql_query("
 				SELECT c.*
 				FROM citas c LEFT JOIN sesiones s ON c.id_sesion=s.id
@@ -839,15 +840,18 @@ elseif(in_array($id_nivel,array(4,5,6,7,8,9))){//Grupo
 					//mail($result["prom_email"],"Cita Rueda de Negocios Circulart2013",$txtMail,"From:info@circulart.org");
 					//mail('notificacionescirculart@gmail.com',"Cita Rueda de Negocios Circulart2013",$txtMail,"From: info@circulart.org"); 
 				}*/	
-				
-				
-						
+				}else{
+					echo "<script>";
+					echo "alert ('Hay un cruce de horario le rogamos buscar otra franja horaria.')";
+					echo "</script>";
+					
+				}
+			
 			}else{
-				echo "<script>";
-				echo "alert ('Hay un cruce de horario le rogamos buscar otra franja horaria.')";
-				echo "</script>";
-				
-			}
+			 echo "<script>";
+			 echo "alert ('Lo sentimos usted ha agotado el numero de citas')";
+			 echo "</script>";
+			 }
 			
 		}
 		detalle_mercado($frm);
@@ -1718,7 +1722,7 @@ function mostrar_agenda_grupo($frm){
 		$desde=strtotime($sesion["fecha_inicial"]);
 		$hasta=strtotime($sesion["fecha_final"]);
 
-			
+		$c=0;	
 		while($desde<$hasta){
 
 		
@@ -1737,7 +1741,7 @@ function mostrar_agenda_grupo($frm){
 				echo "<td class='linea'>$cita[promotor]</td>";
 				echo "<td class='linea'>$cita[mesa]</td>";
 				if($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==1) $estado="<span class='confirmado'>Aceptada";
-				elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==1) $estado="<span class='porconfirmar'>Por confirmar</span>";
+				elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==1){ $estado="<span class='porconfirmar'>Por confirmar</span>"; $c++; $_SESSION[$CFG->sesion]["user"]["c"]=$c;}
 				elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==0) $estado="<a href=\"" . simple_me($ME) . "?act=2&id_mercado=$_GET[id_mercado]&id_artista=$_GET[id_artista]&tipo=musica&mercado=".$CFG->mercado."&modo=agenda&mode=confirmar_cita_grupo&id_cita=$cita[id]\" style='text-decoration:underline' class='porconfirmar'>Confirmar</a>";
 				echo "<td class='linea' style='text-align:center'>$estado</td>";
 				echo "<td class='linea' style='text-align: center;'><a style=\"border:none; background:none; cursor:pointer;\" href=\"" . simple_me($ME) . "?act=2&id_mercado=$_GET[id_mercado]&id_artista=$_GET[id_artista]&tipo=musica&mercado=$_GET[id_mercado]&modo=agenda&mode=rechazar_cita_grupo&id_cita=$cita[id]\"><img border=\"0\" src=\"../m/iconos/transparente/trash-x.png\"></a></td>";
@@ -1756,6 +1760,7 @@ function mostrar_agenda_grupo($frm){
 					
 				}
 				else{
+					$_SESSION[$CFG->sesion]["user"]["c"]=$c;
 					echo "<tr><th scope=\"row\" class='linea'>" . strftime("%H:%M ",$desde) . date("a",$desde);
 					echo "&nbsp;&nbsp;<a style='color:#ccc; border:none; background:none; text-decoration:underline;' href=\"" . simple_me($ME) . "?act=2&mercado=".$CFG->mercado."&modo=agenda&mode=bloquear_agenda_grupo&tipo=$frm[tipo]&id_artista=$frm[id_grupo]&id_mercado=$frm[id_mercado]&fecha=" . urlencode($desde) . "\" title=\"Bloquear\">Bloquear horario</a>";
 					echo "</th>\n";
@@ -1881,6 +1886,7 @@ function mostrar_agenda_grupo_promotor($frm){
 		WHERE r.id_mercado='$frm[id_mercado]'
 		ORDER BY s.fecha_inicial
 	");
+	$c=0;
 	while($sesion=$db->sql_fetchrow($qSesiones)){
 		echo "<p><strong>Rueda:</strong> $sesion[nombre] <br />\n";
 		echo "<strong>Lugar:</strong> $sesion[lugar].<br />\n";
@@ -1905,9 +1911,9 @@ function mostrar_agenda_grupo_promotor($frm){
 				echo "<tr><th scope=\"row\" class='linea'>" . strftime("%H:%M ",$desde) . date("a",$desde);
 				echo "</th>\n";
 				echo "<td class='linea'>$cita[promotor]</td>";
-				if($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==1) $estado="Aceptada";
-				elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==1) $estado="Por confirmar";
-				elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==0) $estado="Por confirmar";
+				if($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==1){ $estado="Aceptada";}
+				elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==1){ $c++; $estado="Por confirmar"; $_SESSION[$CFG->sesion]["user"]["c"]=$c;}
+				elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==0){ $estado="Por confirmar";}
 				else $estado="Eliminada";
 				echo "<td class='linea'>$estado</td>";
 			}
