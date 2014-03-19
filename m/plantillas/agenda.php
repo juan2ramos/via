@@ -1673,11 +1673,11 @@ function listar_promotores($frm){
 	}
 	else{//si es un profesional
 	    $id_promotor=$_SESSION[$CFG->sesion]["user"]["id"];
-		$condicion.=" AND mp.id_promotor!='" . $id_promotor . "' AND mp.id_promotor IN (
+		/*$condicion.=" AND mp.id_promotor!='" . $id_promotor . "' AND mp.id_promotor IN (
 			SELECT pa.id_promotor
 			FROM pr_promotores_areas pa
 			WHERE pa.id_area IN (SELECT id_area FROM pr_promotores_areas WHERE id_promotor='" . $id_promotor . "') 
-		)";
+		)";*/
 	}
     echo "<div id='contenido_listapro'><div>Profesionales:</div>";
 	$qPromotores=$db->sql_query("SELECT p.* FROM mercado_promotores mp LEFT JOIN promotores p ON mp.id_promotor=p.id WHERE $condicion ORDER BY nombre");
