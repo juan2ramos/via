@@ -1554,7 +1554,7 @@ function detalle_mercado($frm){
 			$string.= "<div style='overflow:hidden;'>";
 			$string.=$promotor["mmdd_imagen_filename"];
 			if($promotor["mmdd_imagen_filename"]!=""){
-			$string.="<img style='margin-top:10px; margin-left:5px; float:left; margin-bottom:30px;' src=\"http://2013.circulart.org/m/phpThumb/phpThumb.php?src=/var/www/vhosts/redlat.org/circulart.org/files/promotores/imagen/$promotor[id]\" width=\"250\"/>";
+			$string.="<img style='margin-top:10px; margin-left:5px; float:left; margin-bottom:30px;' src=\"http://circulart.org/phpThumb/phpThumb.php?src=/home/redlat/public_html/circulart/files/promotores/imagen/$promotor[id]\" width=\"250\"/>";
 			}else{
 			$string.="<div style='margin-top:10px; margin-left:5px; float:left; margin-bottom:30px; width:250px; height:250px; background-color:#F2EBD9'></div>";
 				}
