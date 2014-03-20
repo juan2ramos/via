@@ -1426,7 +1426,7 @@ function mostrar_agenda_promotor($frm){
 		setlocale(LC_ALL,"es_ES@euro","es_ES","esp","es");
 		echo "<strong>Fecha:</strong> " . strftime("%A %d de %B", strtotime($sesion["fecha_inicial"])) . "</p>\n";
 		echo "<table border=\"0\" cellpadding=\"5\" cellspacing=\"5\" width=\"100%\">\n";
-		echo "<tr style='font-size:14px; color:#cc0'><th width=\"100\">Hora</th><th width=\"208\">Artista</th><th width=\"50\">Mesa</th><th width=\"90\">Estado</th><th width=\"50\">Cancelar cita</th></tr>\n";
+		echo "<tr style='font-size:14px; color:#cc0'><th width=\"100\">Hora</th><th width=\"208\">Artista</th><th width=\"50\">Mesa</th><th width=\"90\">Estado</th><th width=\"50\">Declinar cita</th></tr>\n";
 			
 		$desde=strtotime($sesion["fecha_inicial"]);
 		$hasta=strtotime($sesion["fecha_final"]);
@@ -1721,7 +1721,7 @@ function mostrar_agenda_grupo($frm){
 		setlocale(LC_ALL,"es_ES@euro","es_ES","esp","es");
 		echo "<strong>Fecha:</strong> " . strftime("%B %d de %Y",strtotime($sesion["fecha_inicial"])) . "</p>\n";
 		echo "<table width=\"100%\" border=\"0\" cellpadding=\"5\" cellspacing=\"5\">\n";
-		echo "<tr style='font-size:14px; color:#cc0'><th width=\"100\">Hora</th><th width=\"208\">Promotor</th><th width=\"50\">Mesa</th><th width=\"90\">Estado</th><th width=\"50\">Eliminar</th></tr>\n";
+		echo "<tr style='font-size:14px; color:#cc0'><th width=\"100\">Hora</th><th width=\"208\">Promotor</th><th width=\"50\">Mesa</th><th width=\"90\">Estado</th><th width=\"50\">Declinar</th></tr>\n";
 		$desde=strtotime($sesion["fecha_inicial"]);
 		$hasta=strtotime($sesion["fecha_final"]);
 
