@@ -91,13 +91,48 @@ a .item {
 	text-align:left;
 	padding:10px 20px 0 20px;}	
 	
+/***************************perfiles**********************************/
+.perfil{
+	font-size: 1.3em;
+    text-transform: uppercase;	
+	}
+	
+.perfil hr{
+	margin:0 0 10px 0;}	
+	
+.perfil #imagen	{
+	text-align:center;
+	width:98%;
+	height:400px;
+	background-color:#1F1F1F;
+	overflow:hidden;
+	margin-bottom:10px;
+	}
+	
+.perfil #imagen img{
+	height:400px;
+	}
+	
+.perfil .text{
+	font-weight:300;
+	font-size: .7em;}	
+.perfil #resena{
+	padding-right:20px;}			
+	
 @media only screen and (max-width:960px), only screen and (max-device-width: 960px) {
-	  .container{
+	  .container, .form{
 	   width:960px;
 	   margin: 0 auto;
 	   }
+	   .perfil #imagen{
+		    height:500px;
+		   }
+	   .perfil #imagen img{
+		   height:500px;
+		   }
 }
 .container{
 	  margin: 0 auto;}
 @media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
 }
+
