@@ -1552,6 +1552,7 @@ function detalle_mercado($frm){
 			$string.= "<div style='height:2200px'>";
 			$string.= "<h2>Agenda de " . $promotor["nombre"] . " " . $promotor["apellido"] . "</h2>";
 			$string.= "<div style='overflow:hidden;'>";
+			$string.=$promotor["mmdd_imagen_filename"];
 			if($promotor["mmdd_imagen_filename"]!=""){
 			$string.="<img style='margin-top:10px; margin-left:5px; float:left; margin-bottom:30px;' src=\"http://2013.circulart.org/m/phpThumb/phpThumb.php?src=/var/www/vhosts/redlat.org/circulart.org/files/promotores/imagen/$promotor[id]\" width=\"250\"/>";
 			}else{
