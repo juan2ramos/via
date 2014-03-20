@@ -44,7 +44,8 @@ p{
 	border-right-width: 1px;
 	font-size:16px;
 	}
-
+#lista_portafolios_dos{
+	display:none;}
 <? if($_GET["act"]==0){ ?>
 #lista_portafolios{
 	background-color:#252525;
