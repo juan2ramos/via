@@ -34,7 +34,6 @@ if($val["name"]!="")
 		$str=file_get_contents($val["tmp_name"]);
 		$str=base64_encode($str);
 		$archivo=array();
-		$archivo["id"]=$frm["id"];
 		$archivo["id_grupos_" . $frm["area"]]=$frm["id"];
 		$archivo["tipo"]=1;
 		$archivo["etiqueta"]="Imagen";
@@ -51,11 +50,11 @@ if($val["name"]!="")
 		if($archivo["mmdd_archivo_filetype"]=="image/png"||$archivo["mmdd_archivo_filetype"]=="image/jpeg"||$archivo["mmdd_archivo_filetype"]=="image/jpg"||$archivo["mmdd_archivo_filetype"]=="image/gif"){
 		
 		  if($id_archivo==""){
-			 
+			 $archivo["id"]=$db->sql_insert("archivos_grupos_" . $frm["area"], $archivo);
 			 $path= "/home/redlat/public_html/circulart/tmp/".$archivo["id"]."_musica_a_".$_FILES['ufile']['name'];		
 				 if(copy($val['tmp_name'], $path))
 				  { 
-				  $archivo["id"]=$db->sql_insert("archivos_grupos_" . $frm["area"], $archivo);
+				  
 				echo "<script>";
 				echo "alerta()";
 				echo "</script>";
