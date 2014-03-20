@@ -108,7 +108,7 @@ function verify_login($username, $password) {
     <div class="azul">
       <p><span style="font-size:18px;">AGENDA ARTISTAS/GRUPOS Y PROFESIONALES</span><br />
         <br />
-      Cualquier inquietud puede comunicarse   al correo electr&oacute;nico <a href="mailto:via@festivaldeteatro.com.co" style="border:none; background:none; color:red; padding:0"><strong>via@festivaldeteatro.com.co</strong></a> asistencia a profesionales y al correo electr&oacute;nico <a href="mailto:via@circulart.org" style="border:none; background:none; color:red; padding:0"><strong>info@circulart.org</strong></a> &nbsp asistencia para artistas. </p>
+      Cualquier inquietud puede comunicarse   al correo electr&oacute;nico <a href="mailto:via@festivaldeteatro.com.co" style="border:none; background:none; color:red; padding:0"><strong>via@festivaldeteatro.com.co</strong></a> asistencia a profesionales y al correo electr&oacute;nico <a href="mailto:via@circulart.org" style="border:none; background:none; color:red; padding:0"><strong>via@circulart.org</strong></a> &nbsp asistencia para artistas. </p>
 <p>&nbsp;</p>
     </div>
     </td>

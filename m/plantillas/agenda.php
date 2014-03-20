@@ -44,7 +44,7 @@ p{
 	border-right-width: 1px;
 	font-size:16px;
 	}
-#lista_portafolios_dos{
+.oculto{
 	display:none;}
 <? if($_GET["act"]==0){ ?>
 #lista_portafolios{
@@ -872,7 +872,7 @@ function mostrar_agenda_promotor_promotor($frm){
 	if(!isset($frm["id_promotor"]) || $frm["id_promotor"]==$_SESSION[$CFG->sesion]["user"]["id"]) die("<b>Error:</b>" . __FILE__ . ":" . __LINE__);
 	$promotor=$db->sql_row("SELECT * FROM promotores WHERE id='$frm[id_promotor]'");
 	echo "<div style='height:2200px'>";
-	echo "<br><br><a style='border:none' id='lista_portafolios' href='index.php?act=1&modo=agenda&id_mercado=$_GET[id_mercado]&id_promotor=$_GET[id_promotor2]&mercado=$_GET[id_mercado]'><< Regreso a los listados</a>";
+	echo "<br><br><a style='border:none' id='lista_portafolios_dos' href='index.php?act=1&modo=agenda&id_mercado=$_GET[id_mercado]&id_promotor=$_GET[id_promotor2]&mercado=$_GET[id_mercado]'><< Regreso a los listados</a>";
 	echo "<h2>Agenda de " . $promotor["nombre"] . " " . $promotor["apellido"] . "</h2>";
 	echo "<div style='overflow:hidden;'>";
 	if($promotor["mmdd_imagen_filename"]!=""){
@@ -1548,7 +1548,7 @@ function detalle_mercado($frm){
 		elseif($frm["mode"]=="agenda_promotor"){
 			$qPromotor=$db->sql_query("SELECT * FROM promotores WHERE id='$frm[id_promotor]'");
 			$promotor=$db->sql_fetchrow($qPromotor);
-			$string.= "<br><br><a id='lista_portafolios' style='border:none;' href='index.php?act=1&modo=agenda&tipo=$tipo&id_artista=".$frm['id_artista']."&id_mercado=".$CFG->mercado."&mercado=".$CFG->mercado."'><< Regreso al listado de profesionales</a>";
+			$string.= "<br><br><a id='lista_portafolios_dos' style='border:none;' href='index.php?act=1&modo=agenda&tipo=$tipo&id_artista=".$frm['id_artista']."&id_mercado=".$CFG->mercado."&mercado=".$CFG->mercado."'><< Regreso al listado de profesionales</a>";
 			$string.= "<div style='height:2200px'>";
 			$string.= "<h2>Agenda de " . $promotor["nombre"] . " " . $promotor["apellido"] . "</h2>";
 			$string.= "<div style='overflow:hidden;'>";
@@ -1563,7 +1563,7 @@ function detalle_mercado($frm){
 		}elseif($frm["mode"]=="solicitar_cita_grupo"){
 			$qPromotor=$db->sql_query("SELECT * FROM promotores WHERE id='$frm[id_promotor]'");
 			$promotor=$db->sql_fetchrow($qPromotor);
-			$string.= "<br><br><a id='lista_portafolios' style='border:none;' href='index.php?act=1&modo=agenda&tipo=$tipo&id_artista=".$frm['id_artista']."&id_mercado=".$CFG->mercado."&mercado=".$CFG->mercado."'><< Regreso al listado de profesionales</a>";
+			$string.= "<br><br><a id='lista_portafolios_dos' style='border:none;' href='index.php?act=1&modo=agenda&tipo=$tipo&id_artista=".$frm['id_artista']."&id_mercado=".$CFG->mercado."&mercado=".$CFG->mercado."'><< Regreso al listado de profesionales</a>";
 			$string.= "<div id='perfil' style='height:2200px'>";
 			$string.= "<h2>Agenda de " . $promotor["nombre"] . " " . $promotor["apellido"] . "</h2>";
 			$string.= "<div style='overflow:hidden;'>";
@@ -1627,7 +1627,7 @@ function listar_grupos($frm){
 	
 	//línea de codigo que muestra los enlaces de listado de artistas, litado de profesionales y la administración de las agendas para profesionales.
 	echo "<a id='lista_portafolios' href='index.php?act=0&modo=agenda&id_mercado=".$CFG->mercado."&id_promotor=".$promotor["id"]."&mercado=".$CFG->mercado."'>Listado artistas</a>";
-	echo "<a id='lista_portafolios_dos' href='index.php?act=1&modo=agenda&id_mercado=".$CFG->mercado."&id_promotor=".$promotor["id"]."&mercado=".$CFG->mercado."'>listado de profesionales</a>";
+	echo "<a class='oculto' id='lista_portafolios_dos' href='index.php?act=1&modo=agenda&id_mercado=".$CFG->mercado."&id_promotor=".$promotor["id"]."&mercado=".$CFG->mercado."'>listado de profesionales</a>";
 	echo "<a id='miAgenda' href='index.php?act=2&modo=agenda&id_mercado=".$CFG->mercado."&id_promotor=".$promotor["id"]."&mercado=".$CFG->mercado."'>Administraci&oacute;n de mi agenda</a>";
 	
 	//codigo que muestra a los grupos o artistas en la parte del Profesional
