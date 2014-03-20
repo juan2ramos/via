@@ -1557,7 +1557,7 @@ function detalle_mercado($frm){
 			}else{
 			$string.="<div style='margin-top:10px; margin-left:5px; float:left; margin-bottom:30px; width:250px; height:250px; background-color:#F2EBD9'></div>";
 				}
-			$string.= "<div class='profesionales' style='height: 140px; overflow:hidden;margin-top: -10px;'><p>" . $promotor["resena"] . "</p>\n";
+			$string.= "<div class='profesionales' ><p style='height: 140px; overflow:hidden;margin-top: -10px;'>" . $promotor["resena"] . "</p>\n";
 			$string.= "<a class='vermas' style='margin-left:0;' href='http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=' target='_blank'>Ver más</a>";
 
 		}elseif($frm["mode"]=="solicitar_cita_grupo"){
@@ -1572,7 +1572,7 @@ function detalle_mercado($frm){
 			}else{
 			$string.="<div style='margin-top:10px; margin-left:5px; float:left; margin-bottom:30px; width:250px; height:250px; background-color:#F2EBD9'></div>";
 				}
-			$string.= "<div class='profesionales' style='height: 140px; overflow:hidden;margin-top: -10px;'><p>" . $promotor["resena"] . "</p>\n";
+			$string.= "<div class='profesionales' ><p style='height: 140px; overflow:hidden;margin-top: -10px;'>" . $promotor["resena"] . "</p>\n";
 			$string.= "<a class='vermas' style='margin-left:0;' href='http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=' target='_blank'>Ver más</a>";
 		}
 		setlocale(LC_ALL,"es_ES@euro","es_ES","esp","es");
