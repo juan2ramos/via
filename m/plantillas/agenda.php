@@ -986,7 +986,7 @@ function mostrar_agenda_promotor_promotor($frm){
 			}
 
 			echo "</tr>\n";
-			$desde+=60*15;
+			$desde+=60*20;
 		}
 		echo "</table>\n";
 	
@@ -1099,7 +1099,7 @@ $promotores=$db->sql_row("SELECT * FROM promotores WHERE id='$_GET[id_promotor2]
 			}
 
 			echo "</tr>\n";
-			$desde+=60*15;
+			$desde+=60*20;
 		}
 		echo "</table>\n";
 
@@ -1186,7 +1186,7 @@ function mostrar_agenda_promotor_artista($frm){
 				}
 			}
 			echo "</tr>\n";
-			$desde+=60*15;
+			$desde+=60*20;
 		}
 		echo "</table>\n";
 	}
@@ -1287,7 +1287,7 @@ function mostrar_agenda_promotor_artista($frm){
 				}
 			}
 			echo "</tr>\n";
-			$desde+=60*15;
+			$desde+=60*20;
 		}
 		echo "</table>\n";
 	}
@@ -1396,7 +1396,7 @@ function mostrar_agenda_promotor_promotor_recordatorio($frm){
 				}
 			}
 			echo "</tr>\n";
-			$desde+=60*15;
+			$desde+=60*20;
 		}
 		echo "</table>\n";
 	}
@@ -1513,7 +1513,7 @@ function mostrar_agenda_promotor($frm){
 				}
 			}
 			echo "</tr>\n";
-			$desde+=60*15;
+			$desde+=60*20;
 		}
 		echo "</table>\n";
 	}
@@ -1774,7 +1774,7 @@ function mostrar_agenda_grupo($frm){
 				}
 			}
 			echo "</tr>\n";
-			$desde+=60*15;
+			$desde+=60*20;
 		}
 		echo "</table>\n";
 	}
@@ -1875,7 +1875,7 @@ function mostrar_agenda_grupo_promotor($frm){
 				}
 			}
 			echo "</tr>\n";
-			$desde+=60*15;
+			$desde+=60*20;
 		}
 		echo "</table>\n";
 	}
@@ -1934,7 +1934,7 @@ function mostrar_agenda_grupo_promotor($frm){
 				}
 			}
 			echo "</tr>\n";
-			$desde+=60*15;
+			$desde+=60*20;
 		}
 		echo "</table>\n";
 	}
