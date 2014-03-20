@@ -1553,9 +1553,9 @@ function detalle_mercado($frm){
 			$string.= "<h2>Agenda de " . $promotor["nombre"] . " " . $promotor["apellido"] . "</h2>";
 			$string.= "<div style='overflow:hidden;'>";
 			if($promotor["mmdd_imagen_filename"]!=""){
-			$string.="<img style='margin-top:10px; margin-left:5px; float:left; margin-bottom:30px;' src=\"http://circulart.org/phpThumb/phpThumb.php?src=/home/redlat/public_html/circulart/files/promotores/imagen/$promotor[id]\" height='187'/>";
+			$string.="<div style='text-align:center; width:250px'><img style='margin-top:10px; margin-left:5px; float:left; margin-bottom:30px;' src=\"http://circulart.org/phpThumb/phpThumb.php?src=/home/redlat/public_html/circulart/files/promotores/imagen/$promotor[id]\" height='250'/><div>";
 			}else{
-			$string.="<div style='margin-top:10px; margin-left:5px; float:left; margin-bottom:30px; width:250px; height:250px; background-color:#F2EBD9'></div>";
+			$string.="<img style='margin-top:10px; margin-left:5px; float:left; margin-bottom:30px;' src=\"imagen/noimagen.png\" height='250'/>";
 				}
 			$string.= "<div class='profesionales' ><p style='height: 140px; overflow:hidden;'>" . $promotor["resena"] . "</p>\n";
 			$string.= "<a class='vermas' style='margin-left:0;' href='http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=' target='_blank'>Ver más</a>";
@@ -1568,7 +1568,7 @@ function detalle_mercado($frm){
 			$string.= "<h2>Agenda de " . $promotor["nombre"] . " " . $promotor["apellido"] . "</h2>";
 			$string.= "<div style='overflow:hidden;'>";
 			if($promotor["mmdd_imagen_filename"]!=""){
-			$string.="<img style='margin-top:10px; margin-left:5px; float:left; margin-bottom:30px;' src=\"http://circulart.org/phpThumb/phpThumb.php?src=/home/redlat/public_html/circulart/files/promotores/imagen/$promotor[id]\" height='187'/>";
+			$string.="<div style='text-align:center; width:250px'><img style='margin-top:10px; margin-left:5px; float:left; margin-bottom:30px;' src=\"http://circulart.org/phpThumb/phpThumb.php?src=/home/redlat/public_html/circulart/files/promotores/imagen/$promotor[id]\" height='250'/></div>";
 			}else{
 			$string.="<div style='margin-top:10px; margin-left:5px; float:left; margin-bottom:30px; width:250px; height:250px; background-color:#F2EBD9'></div>";
 				}
