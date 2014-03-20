@@ -878,10 +878,10 @@ function mostrar_agenda_promotor_promotor($frm){
 	if($promotor["mmdd_imagen_filename"]!=""){
 	echo "<img style='margin-top:10px; margin-left:5px; float:left; margin-bottom:30px;' src=\"http://2013.circulart.org/m/phpThumb/phpThumb.php?src=/var/www/vhosts/redlat.org/circulart.org/files/promotores/imagen/$promotor[id]\" width=\"250\"/>";
 	}else{
-		echo "<div style='margin-top:10px; margin-left:5px; float:left; margin-bottom:30px; width:250px; height:250px; background-color:#F2EBD9'></div>";
+		echo "<img style='margin-top:10px; margin-left:5px; float:left; margin-bottom:30px;' src=\"images/noimagen.png\" width=\"250\"/>";
 		}
 	echo "<p class='profesionales'>".$promotor["resena"]."</div>";
-	echo "<a class='vermas' href='http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&banner=0&num=' target=\"_blank\" \">Ver m&aacute;s</a>";
+	echo "<a class='vermas' href='http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&banner=0&num=' target=\"_blank\" \">Ver m&aacute;</a>";
 	$qSesiones=$db->sql_query("
 		SELECT s.id as id_sesion, s.id_rueda, s.lugar, r.nombre, r.duracion_cita, s.fecha_inicial, fecha_final
 		FROM sesiones s LEFT JOIN ruedas r ON s.id_rueda=r.id
@@ -921,7 +921,7 @@ function mostrar_agenda_promotor_promotor($frm){
 				$qGrupo=$db->sql_query("SELECT id,nombre FROM grupos_$tipo WHERE id='$id'");
 				$grupo=$db->sql_fetchrow($qGrupo);
 
-				echo "<td><a style=\"border:none; padding:0px; color:#ccc; text-decoration:underline\" href=\"http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=$grupo[id]\" target=\"_blank\">$grupo[nombre] (Grupo)</a></td>";
+				echo "<td><a style=\"border:none; padding:0px; color:#ccc; text-decoration:underline\" href=\"http://via.festivaldeteatro.com.co/perfil.php?n=$grupo[id]\" target=\"_blank\">$grupo[nombre] (Grupo)</a></td>";
 				if($cita["aceptada_promotor"]==1 && ($cita["aceptada_grupo"]==1 || $cita["aceptada_promotor2"]==1)) $estado="<span class='confirmado'>Aceptada</span>";
 				if($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==0 && $cita["aceptada_promotor2"]==0) $estado="Eliminada";
 				else $estado="<span class='porconfirmar'>Por confirmar</span>";
@@ -972,7 +972,7 @@ function mostrar_agenda_promotor_promotor($frm){
 							$qGrupo=$db->sql_query("SELECT id,nombre FROM grupos_$tipo WHERE id='$id'");
 							$grupo=$db->sql_fetchrow($qGrupo);
                             echo "<tr class='linea'><th scope=\"row\" style='text-align:left'>" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
-							echo "<td><a style=\"border:none; padding:0px; color:#ccc; text-decoration:underline\" href=\"http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=$grupo[id]\" target=\"_blank\">$grupo[nombre] (Grupo)</a></td>";
+							echo "<td><a style=\"border:none; padding:0px; color:#ccc; text-decoration:underline\" href=\"http://via.festivaldeteatro.com.co/perfil.php?n=$grupo[id]\" target=\"_blank\">$grupo[nombre] (Grupo)</a></td>";
 							if($cita["aceptada_promotor"]==1 && ($cita["aceptada_grupo"]==1 || $cita["aceptada_promotor2"]==1)) $estado="<span class='confirmado'>Aceptada</span>";
 							if($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==0 && $cita["aceptada_promotor2"]==0) $estado="Eliminada";
 							else $estado="<span class='porconfirmar'>Por confirmar</span>";
@@ -1034,7 +1034,7 @@ $promotores=$db->sql_row("SELECT * FROM promotores WHERE id='$_GET[id_promotor2]
 				$qGrupo=$db->sql_query("SELECT id,nombre FROM grupos_$tipo WHERE id='$id'");
 				$grupo=$db->sql_fetchrow($qGrupo);
 				echo "<tr class='linea'><th scope=\"row\" style='text-align:left'>" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
-				echo "<td><a style=\"border:none; padding:0px; color:#ccc; text-decoration:underline\" href=\"http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=$grupo[id]\" target=\"_blank\">$grupo[nombre] (Grupo)</a></td>";
+				echo "<td><a style=\"border:none; padding:0px; color:#ccc; text-decoration:underline\" href=\"http://via.festivaldeteatro.com.co/perfil.php?n=$grupo[id]\" target=\"_blank\">$grupo[nombre] (Grupo)</a></td>";
 				if($cita["aceptada_promotor"]==1 && ($cita["aceptada_grupo"]==1 || $cita["aceptada_promotor2"]==1)) $estado="<span class='confirmado'>Aceptada</span>";
 				if($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==0 && $cita["aceptada_promotor2"]==0) $estado="Eliminada";
 				else $estado="<span class='porconfirmar'>Por confirmar</span>";
@@ -1084,7 +1084,7 @@ $promotores=$db->sql_row("SELECT * FROM promotores WHERE id='$_GET[id_promotor2]
 							$qGrupo=$db->sql_query("SELECT id,nombre FROM grupos_$tipo WHERE id='$id'");
 							$grupo=$db->sql_fetchrow($qGrupo);
 							echo "<tr class='linea'><th scope=\"row\" style='text-align:left'>" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
-							echo "<td><a style=\"border:none; padding:0px; color:#ccc; text-decoration:underline\" href=\"http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=$grupo[id]\" target=\"_blank\">$grupo[nombre] (Grupo)</a></td>";
+							echo "<td><a style=\"border:none; padding:0px; color:#ccc; text-decoration:underline\" href=\"http://via.festivaldeteatro.com.co/perfil.php?n=$grupo[id]\" target=\"_blank\">$grupo[nombre] (Grupo)</a></td>";
 							if($cita["aceptada_promotor"]==1 && ($cita["aceptada_grupo"]==1 || $cita["aceptada_promotor2"]==1)) $estado="<span class='confirmado'>Aceptada</span>";
 							if($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==0 && $cita["aceptada_promotor2"]==0) $estado="Eliminada";
 							else $estado="<span class='porconfirmar'>Por confirmar</span>";
@@ -1128,7 +1128,7 @@ function mostrar_agenda_promotor_artista($frm){
 	if($grupo["en_resena_corta"]!=""){$en="<br><br>/".$grupo["en_resena_corta"];}else{$en="";}
 	
 	echo "<p class='grupos'>".$grupo["resena_corta"].$en."<br><br></p>";
-	echo "<a class='vermas' href='http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&banner=0&num=".$grupo["id"]."' target=\"_blank\" \">Ver m&aacute;s</a>";
+	echo "<a class='vermas' style='margin-left:265px' href='http://via.festivaldeteatro.com.co/perfil.php?n=".$grupo["id"]."' target=\"_blank\" \">Ver m&aacute;s</a>";
 	$qSesiones=$db->sql_query("
 		SELECT s.id as id_sesion, s.id_rueda, s.lugar, r.nombre, r.duracion_cita, s.fecha_inicial, fecha_final
 		FROM sesiones s LEFT JOIN ruedas r ON s.id_rueda=r.id
@@ -1240,7 +1240,7 @@ function mostrar_agenda_promotor_artista($frm){
 				$qGrupo=$db->sql_query("SELECT id,nombre FROM grupos_$tipo WHERE id='$id'");
 				$grupo=$db->sql_fetchrow($qGrupo);
 
-				echo "<td ><a style='border:none;  padding:5px; color:#ccc; font-size:16px; text-decoration:underline' href='http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&banner=0&num=".$grupo["id"]."' target=\"_blank\">$grupo[nombre]</a></td>";
+				echo "<td ><a style='border:none;  padding:5px; color:#ccc; font-size:16px; text-decoration:underline' href='http://via.festivaldeteatro.com.co/perfil.php?n=".$grupo["id"]."' target=\"_blank\">$grupo[nombre]</a></td>";
 				
 				if($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==1) $estado="<span class='confirmado'>Aceptada</span>";
 				elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==0) $estado="<span class='porconfirmar'>Por confirmar</span>";
@@ -1553,7 +1553,7 @@ function detalle_mercado($frm){
 			$string.= "<h2>Agenda de " . $promotor["nombre"] . " " . $promotor["apellido"] . "</h2>";
 			$string.= "<div style='overflow:hidden;'>";
 			if($promotor["mmdd_imagen_filename"]!=""){
-			$string.="<img style='margin-top: 30px; margin-left:5px; margin-right: 10px;float:left; margin-bottom:30px;' src=\"http://circulart.org/phpThumb/phpThumb.php?src=/home/redlat/public_html/circulart/files/promotores/imagen/$promotor[id]\" height='200'/>";
+			$string.="<img style='margin-top: 30px; margin-left:5px; margin-right: 20px;float:left; margin-bottom:30px;' src=\"http://circulart.org/phpThumb/phpThumb.php?src=/home/redlat/public_html/circulart/files/promotores/imagen/$promotor[id]\" height='200'/>";
 			}else{
 			$string.="<img style='margin-top:10px; margin-left:5px; float:left; margin-bottom:30px;' src=\"images/noimagen.png\" height='250'/>";
 				}
@@ -1568,9 +1568,9 @@ function detalle_mercado($frm){
 			$string.= "<h2>Agenda de " . $promotor["nombre"] . " " . $promotor["apellido"] . "</h2>";
 			$string.= "<div style='overflow:hidden;'>";
 			if($promotor["mmdd_imagen_filename"]!=""){
-			$string.="<img style='margin-top: 30px; margin-left:5px; margin-right: 10px;float:left; margin-bottom:30px;' src=\"http://circulart.org/phpThumb/phpThumb.php?src=/home/redlat/public_html/circulart/files/promotores/imagen/$promotor[id]\" height='200'/>";
+			$string.="<img style='margin-top: 30px; margin-left:5px; margin-right: 20px;float:left; margin-bottom:30px;' src=\"http://circulart.org/phpThumb/phpThumb.php?src=/home/redlat/public_html/circulart/files/promotores/imagen/$promotor[id]\" height='200'/>";
 			}else{
-			$string.="<div style='margin-top:10px; margin-left:5px; float:left; margin-bottom:30px; width:250px; height:250px; background-color:#F2EBD9'></div>";
+			$string.="<img style='margin-top: 30px; margin-left:5px; margin-right: 20px;float:left; margin-bottom:30px;' src=\"images/noimagen.png\" height='200'/>";
 				}
 			$string.= "<div class='profesionales' ><p style='height: 140px; overflow:hidden;'>" . $promotor["resena"] . "</p>\n";
 			$string.= "<a class='vermas' style='margin-left:0;' href='http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=' target='_blank'>Ver más</a>";

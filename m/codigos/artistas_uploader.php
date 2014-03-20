@@ -34,6 +34,7 @@ if($val["name"]!="")
 		$str=file_get_contents($val["tmp_name"]);
 		$str=base64_encode($str);
 		$archivo=array();
+		$archivo["id"]=$frm["id"];
 		$archivo["id_grupos_" . $frm["area"]]=$frm["id"];
 		$archivo["tipo"]=1;
 		$archivo["etiqueta"]="Imagen";
