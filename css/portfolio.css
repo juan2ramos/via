@@ -99,7 +99,8 @@ a .item {
 	margin-top:0px;}	
 .perfil, .obras{
 	font-size: 1.3em;
-    text-transform: uppercase;	
+    text-transform: uppercase;
+	margin-right: 20px;	
 	}
 	
 .perfil hr, .obras div hr, .members li hr{

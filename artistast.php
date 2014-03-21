@@ -36,8 +36,8 @@
         <div id="contenedor_area">
         <div id="areas">
         <ul>
-        <li class="activa"><a href="artistas.php">Teatro</a></li>
-        <li><a href="artistast.php">Danza</a></li>
+        <li><a href="artistas.php">Teatro</a></li>
+        <li class="activa"><a href="artistast.php">Danza</a></li>
         </ul>
         </div>
         </div>
@@ -47,25 +47,25 @@
         include("conexion.php");
 		$db = new MySQL();
 		$j=1;
-		$qGrupos=$db->consulta("SELECT ma.*, gm.* FROM mercado_artistas ma LEFT JOIN grupos_teatro gm on gm.id=ma.id_grupo_teatro WHERE ma.id_mercado='26' ORDER BY gm.nombre");
+		$qGrupos=$db->consulta("SELECT ma.*, gm.* FROM mercado_artistas ma LEFT JOIN grupos_danza gm on gm.id=ma.id_grupo_danza WHERE ma.id_mercado='26' ORDER BY gm.nombre");
 		if($db->num_rows($qGrupos)>0){
 			while($gm=mysql_fetch_array($qGrupos)){
-					$caratula=$db->consulta("SELECT * FROM archivos_grupos_teatro WHERE id_grupos_teatro='".$gm["id"]."' AND orden='0'");
+					$caratula=$db->consulta("SELECT * FROM archivos_grupos_danza WHERE id_grupos_danza='".$gm["id"]."' AND orden='0'");
 					$cara=mysql_fetch_array($caratula);
 					if($cara["id"]!="" && $gm["id"]!="655"){
 				  ?>
-                  <a href="perfil.php?n=<?=$gm["id"]?>">
+                  <a href="perfilt.php?n=<?=$gm["id"]?>">
                  	<div class="item">
-                    <div id="imagen"><img src="http://circulart.org/admin/imagen.php?table=archivos_grupos_teatro&amp;field=archivo&amp;id=<?php echo $cara["id"];?>" border="0"></div>
+                    <div id="imagen"><img src="http://circulart.org/admin/imagen.php?table=archivos_grupos_danza&amp;field=archivo&amp;id=<?php echo $cara["id"];?>" border="0"></div>
                     <div id="marca">PORTAFOLIOS</div>
                     <div id="pais_genero"><?php
 					    //busqueda del pais
 						$arrayPais=$db->consulta("SELECT * FROM paises WHERE id='".$gm["id_pais"]."'");
 						$datosPais=mysql_fetch_array($arrayPais);
 						//busqueda del genero
-						$arrayGenero=$db->consulta("SELECT * FROM generos_grupo_teatro WHERE id_grupos_teatro='".$gm["id"]."'");
+						$arrayGenero=$db->consulta("SELECT * FROM generos_grupo_danza WHERE id_grupos_danza='".$gm["id"]."'");
 						while($datosGenero=mysql_fetch_array($arrayGenero)){
-							 $numGenero=$db->consulta("SELECT * FROM generos_teatro WHERE id='".$datosGenero["id_generos_teatro"]."'");
+							 $numGenero=$db->consulta("SELECT * FROM generos_danza WHERE id='".$datosGenero["id_generos_danza"]."'");
 							 $genero=mysql_fetch_array($numGenero);
 						}
 					    echo utf8_encode($datosPais["pais"])." / ".utf8_encode($genero["genero"]);
