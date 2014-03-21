@@ -91,13 +91,18 @@ a .item {
 	text-align:left;
 	padding:10px 20px 0 20px;}	
 	
-/***************************perfiles**********************************/
-.perfil{
+/***************************perfiles y obras**********************************/
+.obras{
+	display:none;}
+	
+.obras .espacio{
+	margin-top:0px;}	
+.perfil, .obras{
 	font-size: 1.3em;
     text-transform: uppercase;	
 	}
 	
-.perfil hr{
+.perfil hr, .obras div hr, .members li hr{
 	margin:0 0 10px 0;}	
 	
 .perfil #imagen	{
@@ -113,12 +118,44 @@ a .item {
 	height:400px;
 	}
 	
-.perfil .text{
+.perfil .text, .obras .text{
 	font-weight:300;
 	font-size: .7em;}	
 .perfil #resena{
-	padding-right:20px;}			
+	padding-right:20px;}
+
+#cont_redes{
+	width:100%;
+	padding:10px;
+	overflow:hidden;}
+#cont_redes #redes{
+	width:200px;
+	margin:0 auto;
+}
+#cont_redes #redes .r{
+	width:100px;
+	float:left;
+	}
+#cont_redes #redes .r span{
+	font-size: 1em;}	
+sidebar{
+	text-transform: uppercase;}		
+.more-info ul {
+margin: auto;
+padding: 100px;
+width: 100%;
+text-align: center;	}
+
+.members  li{
+	cursor:pointer;}
+
 	
+@media only screen and (max-width:1024px){
+.logo-via{
+	display:none;}
+.container-nav,.container{
+	width:980px;}	
+}	
 @media only screen and (max-width:960px), only screen and (max-device-width: 960px) {
 	  .container, .form{
 	   width:960px;
@@ -130,7 +167,17 @@ a .item {
 	   .perfil #imagen img{
 		   height:500px;
 		   }
+		.ocultar{
+			display:none;} 
+		.obras{
+	        display:inline;}
+		.obras .espacio{
+			margin-top:50px;
+			}		
+		#cont_redes #redes .r span, .bar-red span, .bar-red p{
+			font-size: 2.5em;}	  
 }
+
 .container{
 	  margin: 0 auto;}
 @media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
