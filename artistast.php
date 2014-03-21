@@ -52,7 +52,7 @@
 			while($gm=mysql_fetch_array($qGrupos)){
 					$caratula=$db->consulta("SELECT * FROM archivos_grupos_danza WHERE id_grupos_danza='".$gm["id"]."' AND orden='0'");
 					$cara=mysql_fetch_array($caratula);
-					if($cara["id"]!="" && $gm["id"]!="655"){
+					if($cara["id"]!="" && $gm["id"]!="175"){
 				  ?>
                   <a href="perfilt.php?n=<?=$gm["id"]?>">
                  	<div class="item">
