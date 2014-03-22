@@ -124,9 +124,9 @@
 								if($datos_obras["anio"]!="")$contObras.="<div class='text'><strong>Año:</strong> ".utf8_encode($datos_obras["anio"])."<hr></div>";
 								if($datos_obras["autor"]!="")$contObras.="<div class='text'><strong>Autor:</strong> ".utf8_encode($datos_obras["autor"])."<hr></div>";
 								if($datos_obras["duracion"]!="")$contObras.="<div class='text'><strong>Duración:</strong> ".utf8_encode($datos_obras["duracion"])."<hr></div>";
-								if($datos_obras["num_viajantes"]!="")$contObras.="<div class='text'><strong>No. de personas que viajan:</strong> ".$datos_obras["num_viajantes"]."<hr></div>";
-								if($datos_obras["horas_montaje"]!="")$contObras.="<div class='text'><strong>Horas de Montaje:</strong> ".$datos_obras["horas_montaje"]."<hr></div>";
-								if($datos_obras["horas_desmontaje"]!="")$contObras.="<div class='text'><strong>Horas desmontaje:</strong> ".$datos_obras["horas_desmontaje"]."<hr></div>";
+								if($datos_obras["num_viajantes"]!="")$contObras.="<div class='text'><strong>No. de personas que viajan:</strong> ".utf8_encode($datos_obras["num_viajantes"])."<hr></div>";
+								if($datos_obras["horas_montaje"]!="")$contObras.="<div class='text'><strong>Horas de Montaje:</strong> ".utf8_encode($datos_obras["horas_montaje"])."<hr></div>";
+								if($datos_obras["horas_desmontaje"]!="")$contObras.="<div class='text'><strong>Horas desmontaje:</strong> ".utf8_encode($datos_obras["horas_desmontaje"])."<hr></div>";
 								if($datos_obras["ensayos"]!="")$contObras.="<div class='text'><strong>Ensayos:</strong> ".utf8_encode($datos_obras["ensayos"])."<hr></div>";
 								if($datos_obras["responsable_carga"]!="")$contObras.="<div class='text'><strong>Responsable de carga:</strong> ".utf8_encode($datos_obras["responsable_carga"])."<hr></div>";
 								if($datos_obras["direccion_recogida"]!="")$contObras.="<div class='text'><strong>Dirección recogida:</strong> ".utf8_encode($datos_obras["direccion_recogida"])."<hr></div>";
