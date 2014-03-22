@@ -50,7 +50,7 @@
 		$qGrupos=$db->consulta("SELECT ma.*, gm.* FROM mercado_artistas ma LEFT JOIN grupos_teatro gm on gm.id=ma.id_grupo_teatro WHERE ma.id_mercado='26' ORDER BY gm.nombre");
 		if($db->num_rows($qGrupos)>0){
 			while($gm=mysql_fetch_array($qGrupos)){
-				echo $gm["id"];
+				
 				if($gm["id"]!="554"){
 				  ?>
                   <a href="perfil.php?n=<?=$gm["id"]?>">
@@ -63,7 +63,7 @@
                     <?php }else{ ?>
                         <div id="imagen"><img src="http://via.festivaldeteatro.com.co/m/images/noimagen.png" border="0"></div>
                     <?php } ?>
-                    <div id="marca">PORTAFOLIOS</div>
+                    <div id="marca"><?  echo $gm["id"];?> PORTAFOLIOS</div>
                     <div id="pais_genero"><?php
 					    //busqueda del pais
 						$arrayPais=$db->consulta("SELECT * FROM paises WHERE id='".$gm["id_pais"]."'");
