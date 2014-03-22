@@ -150,7 +150,17 @@ text-align: center;	}
 .members  li{
 	cursor:pointer;}
 
-	
+#organizacion #imagen{
+	width:100%;
+	text-align: center;
+	background-color: #1F1F1F;}
+
+#organizacion #imagen img{
+	width:150px;
+	}
+.contact sidebar{
+	width:0;
+	margin-left:50px;}	
 @media only screen and (max-width:1024px){
 .logo-via{
 	display:none;}

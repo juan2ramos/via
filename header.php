@@ -18,7 +18,7 @@
 
                             <a href="index.php">Programación<span>Agenda</span></a>
                             <a href="http://via.festivaldeteatro.com.co/m/index.php?modo=inscripciones">Artistas<span>Artists</span></a>
-                            <a href="http://via.festivaldeteatro.com.co/m/index.php?modo=insPro">Programadores<span>Professionals</span></a>
+                            <a href="http://via.festivaldeteatro.com.co/m/index.php?modo=insPro">Profesionales<span>Professionals</span></a>
                             <a target="_blank" href="http://www.bogota.gov.co/">Info Bogotá<span>Bogotá</span></a>
                             <a href="contacto.php" class="activate">Contacto<span>Contact</span></a>
 

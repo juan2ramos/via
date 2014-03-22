@@ -1119,7 +1119,7 @@ function mostrar_agenda_promotor_artista($frm){
 	
 	echo "<div id='perfil' style='height:2200px'>";
 	echo "<br><br><a style='border:none' id='lista_portafolios' href='index.php?act=0&modo=agenda&id_mercado=$_GET[id_mercado]&id_promotor=$_GET[id_promotor]&mercado=$_GET[id_mercado]'><< Regreso a los listados</a>";
-	echo "<h2>Agenda de el ".$grupo["nombre"]."</h2>";
+	echo "<h2>Agenda de el artista o grupo: ".$grupo["nombre"]."</h2>";
 
 	if($caratula["id"]!=""){
 	echo "<img style='margin-top:10px; margin-left:5px; float:left; margin-bottom:30px;' src=\"http://2013.circulart.org/m/admin/imagen.php?table=archivos_grupos_".$_GET["tipo"]."&amp;field=archivo&amp;id=$caratula[id]\" width=\"250\"/>";
@@ -1128,7 +1128,11 @@ function mostrar_agenda_promotor_artista($frm){
 	if($grupo["en_resena_corta"]!=""){$en="<br><br>/".$grupo["en_resena_corta"];}else{$en="";}
 	
 	echo "<p class='grupos'>".$grupo["resena_corta"].$en."<br><br></p>";
-	echo "<a class='vermas' style='margin-left:265px' href='http://via.festivaldeteatro.com.co/perfil.php?n=".$grupo["id"]."' target=\"_blank\" \">Ver m&aacute;s</a>";
+	if($_GET["tipo"]=="teatro"){
+	  echo "<a class='vermas' style='margin-left:265px' href='http://via.festivaldeteatro.com.co/perfil.php?n=".$grupo["id"]."' target=\"_blank\" \">Ver m&aacute;s</a>";
+	}else if($_GET["tipo"]=="danza"){
+	  echo "<a class='vermas' style='margin-left:265px' href='http://via.festivaldeteatro.com.co/perfilt.php?n=".$grupo["id"]."' target=\"_blank\" \">Ver m&aacute;s</a>";
+		}
 	$qSesiones=$db->sql_query("
 		SELECT s.id as id_sesion, s.id_rueda, s.lugar, r.nombre, r.duracion_cita, s.fecha_inicial, fecha_final
 		FROM sesiones s LEFT JOIN ruedas r ON s.id_rueda=r.id
