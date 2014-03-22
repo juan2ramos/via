@@ -53,11 +53,15 @@
 					$caratula=$db->consulta("SELECT * FROM archivos_grupos_teatro WHERE id_grupos_teatro='".$gm["id"]."' AND orden='0'");
 					$cara=mysql_fetch_array($caratula);
 				if($gm["id"]!="554"){
-					if($cara["id"]!=""){
+					
 				  ?>
                   <a href="perfil.php?n=<?=$gm["id"]?>">
                  	<div class="item">
+                    <?php if($cara["id"]!=""){ ?>
                     <div id="imagen"><img src="http://circulart.org/admin/imagen.php?table=archivos_grupos_teatro&amp;field=archivo&amp;id=<?php echo $cara["id"];?>" border="0"></div>
+                    <?php }else{ ?>
+                    <div id="imagen"><img src="http://via.festivaldeteatro.com.co/m/images/noimagen.png" border="0"></div>
+                    <?php } ?>
                     <div id="marca">PORTAFOLIOS</div>
                     <div id="pais_genero"><?php
 					    //busqueda del pais
@@ -75,7 +79,7 @@
                     </div>
                     </a>
                 <?php
-                }}
+                }
 			}
 		}
 		?> 
