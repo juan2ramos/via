@@ -51,7 +51,7 @@
 		if($db->num_rows($qGrupos)>0){
 			while($gm=mysql_fetch_array($qGrupos)){
 				
-				if($gm["id"]!="554"){
+				if($gm["id"]!="554" && $gm["id"]!=""){
 				  ?>
                   <a href="perfil.php?n=<?=$gm["id"]?>">
                  	<div class="item">
