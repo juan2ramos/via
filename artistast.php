@@ -50,13 +50,18 @@
 		$qGrupos=$db->consulta("SELECT ma.*, gm.* FROM mercado_artistas ma LEFT JOIN grupos_danza gm on gm.id=ma.id_grupo_danza WHERE ma.id_mercado='26' ORDER BY gm.nombre");
 		if($db->num_rows($qGrupos)>0){
 			while($gm=mysql_fetch_array($qGrupos)){
-					$caratula=$db->consulta("SELECT * FROM archivos_grupos_danza WHERE id_grupos_danza='".$gm["id"]."' AND orden='0'");
-					$cara=mysql_fetch_array($caratula);
-					if($cara["id"]!="" && $gm["id"]!="175"){
+				if($gm["id"]!="175" && $gm["id"]!=""){	
+					if($cara["id"]!=""){
+						$caratula=$db->consulta("SELECT * FROM archivos_grupos_danza WHERE id_grupos_danza='".$gm["id"]."' AND orden='0'");
+					    $cara=mysql_fetch_array($caratula);
 				  ?>
                   <a href="perfilt.php?n=<?=$gm["id"]?>">
                  	<div class="item">
-                    <div id="imagen"><img src="http://circulart.org/admin/imagen.php?table=archivos_grupos_danza&amp;field=archivo&amp;id=<?php echo $cara["id"];?>" border="0"></div>
+					<?php if($cara["id"]!=""){ ?>
+                        <div id="imagen"><img src="http://circulart.org/admin/imagen.php?table=archivos_grupos_teatro&amp;field=archivo&amp;id=<?php echo $cara["id"];?>" border="0"></div>
+                    <?php }else{ ?>
+                        <div id="imagen"><img src="http://via.festivaldeteatro.com.co/m/images/noimagen.png" border="0"></div>
+                    <?php } ?>
                     <div id="marca">PORTAFOLIOS</div>
                     <div id="pais_genero"><?php
 					    //busqueda del pais
@@ -74,7 +79,7 @@
                     </div>
                     </a>
                 <?php
-                }
+                }}
 			}
 		}
 		?> 
