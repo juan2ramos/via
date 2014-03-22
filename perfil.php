@@ -48,7 +48,11 @@
 				?>	
 				<div class="perfil">
 				  <div id="nombre"><?=utf8_encode($gt["nombre"])?><hr></div>
+                  <?php if($cara["id"]!=""){ ?>
                   <div id="imagen"><img src="http://circulart.org/admin/imagen.php?table=archivos_grupos_teatro&amp;field=archivo&amp;id=<?php echo $cara["id"];?>" border="0"></div>
+                  <?php }else{ ?> 
+				  <div id="imagen"><img src="http://via.festivaldeteatro.com.co/m/images/noimagen.png" border="0"></div>
+				  <?php }?>
                   <div id="pais" class="text"><strong>País:</strong> <?
 				        $arrayPais=$db->consulta("SELECT * FROM paises WHERE id='".$gt["id_pais"]."'");
 						$datosPais=mysql_fetch_array($arrayPais);
