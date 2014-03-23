@@ -362,6 +362,27 @@ if($id_nivel=="10"){//Promotor
 			//mail($result["email"],"Cita Rueda de Negocios Circulart2013",$txtMail,"From:info@circulart.org");
 			//mail('notificacionescirculart@gmail.com',"Cita Rueda de Negocios Circulart2013",$txtMail,"From: info@circulart.org"); 
 		}*/
+		
+		 $mail->From = 'via@circulart.org';
+				$mail->Subject = 'Cita Rueda de Negocios VIA2014';
+				$mail->MsgHTML('Mensaje con HTML');
+				$template = "Estimado(s) " . $result["grupo"] . ":\n";	
+				$template.= "El promotor " . $result["promotor"] . " ha eliminado la cita que tenía programada con usted(es).\n";
+				$template.= "La cita estaba programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
+				$template.= "\n\n";
+				$template.= "Cordial Saludo";
+				$template.= "VIA 2014 - Ventana Internacional de las Artes\n";
+				$template.= "FESTIVAL IBEROAMERICANO DE TEATRO\n";
+				$template.= "www.festivaldeteatro.com.co\n";
+				$template.= "\n";
+				$mail->Body = $template;
+				$mail->AddAddress("cesarvalencia11@gmail.com", '');
+				//$mail->AddAddress($result["email"], '');
+				//$mail->AddCC('via@festivaldeteatro.com.co', '');
+				if($result["email"]!=""){
+				 $mail->Send(); 
+				}	
+		
 
 		$qDelete=$db->sql_query("DELETE FROM citas WHERE id='$frm[id_cita]'");
 	}
