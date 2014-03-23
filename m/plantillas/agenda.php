@@ -364,7 +364,7 @@ if($id_nivel=="10"){//Promotor
 		}*/
 		
 		 $mail->From = 'via@circulart.org';
-				$mail->Subject = 'Cita Rueda de Negocios VIA2014';
+				$mail->Subject = 'Cancelacion cita VIA2014';
 				$mail->MsgHTML('Mensaje con HTML');
 				$template = "Estimado(s) " . $result["grupo"] . ":\n";	
 				$template.= "El promotor " . $result["promotor"] . " ha eliminado la cita que tenía programada con usted(es).\n";
