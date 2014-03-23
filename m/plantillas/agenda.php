@@ -184,7 +184,7 @@ th a{
 h2{
 	color:#CCC;}
 footer{
-	/*margin-top:0px;*/}	
+	margin-top:650px;}	
 	
 </style>
 <script language="javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
@@ -228,19 +228,11 @@ if(sizeof($_POST)>sizeof($_GET)) $frm=$_POST;
 else $frm=$_GET;
 
 
-/****************************** Cabecera del mail *********************************************/
-/*require("../class.phpmailer.php");
+            require 'include/PHPMailer/PHPMailerAutoload.php';
+			$mail = new PHPMailer;
+			$mail->IsSendmail();
+			$mail->FromName ='[VIA2014]' ;
 			
-			$mailer = new PHPMailer();
-			$mailer->IsSMTP();
-			$mailer->Host = 'ssl://smtp.gmail.com:465';
-			$mailer->SMTPAuth = TRUE;
-			$mailer->Username = 'notificacionescirculart@gmail.com';  // Change this to your gmail adress
-			$mailer->Password = 'C1cul4rt!"2';  // Change this to your gmail password
-			$mailer->FromName = 'Notificaciones Circulart2013'; // This is the from name in the email, you can put anything you like here	
-			$mailer->From = 'notificacionescirculart@gmail.com'; 	 //remplazar por el de info@bogotamusicmarlet.com*/
-/*********************************************************************************************/
-
 
 
 if($id_nivel=="10"){//Promotor
@@ -258,34 +250,30 @@ if($id_nivel=="10"){//Promotor
 		";
 		$qid=$db->sql_query($strQuery);
 		$result=$db->sql_fetchrow($qid);
-		
-		   /* $dest2 = $result["mail_destinatario"];
-			$body2.="Estimado(a) " . $result["destinatario"]. ":\n";	
-			$body2.="El promotor " . $result["remitente"] . " ha eliminado la cita que tenía programada con usted.\n";
-			$body2.="La cita estaba programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
-			$body2.="\n<a href=\"http://http://2013.circulart.org/m/index.php?modo=login\">http://2013.circulart.org/</a>\n";
-			$body2.="\n";
 
-			$mailer->Body = $body2;
-			$mailer->Subject = 'Cita Rueda de Negocios Circulart2013';
-			$mailer->AddAddress($dest2);  // This is where you put the email adress of the person you want to mail
-			if(!$mailer->Send())
-			{
-			  //echo "Message was not sent<br/ >"; echo "Mailer Error: " . $mailer->ErrorInfo;
-			}else{
-				
-				}	
-
+		    $mail->From = 'via@festivaldeteatro.com.co';
+			$mail->Subject = 'Cancelación de Cita VIA2014';
+			$mail->MsgHTML('Mensaje con HTML');
+			$template = "Estimado(a) " . $result["destinatario"]. ":\n";
+			$template.= "El promotor " . $result["remitente"] . " ha eliminado la cita que tenía programada con usted.\n";
+			$template.= "La cita estaba programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
+			$template.= "\n\n";
+			$template.= "Cordial Saludo";
+			$template.= "Milena García\n";
+			$template.= "Coordinación de Artistas Rueda de Negocios \n";
+			$template.= "VIA 2014 - Ventana Internacional de las Artes\n";
+			$template.= "FESTIVAL IBEROAMERICANO DE TEATRO\n";
+			$template.= "www.festivaldeteatro.com.co\n";
+			$template.= "\n";
+			$mail->Body = $template;
+			$mail->AddAddress("cesarvalencia11@gmail.com", '');
+			//$mail->AddAddress($result["mail_destinatario"], '');
+			//$mail->AddCC('via@festivaldeteatro.com.co', '');
+			if($result["mail_destinatario"]!=""){
+			$mail->Send(); 
+			}
 		
-		*/
-		/*if($result["mail_destinatario"]!=""){
-			$txtMail="Estimado(a) " . $result["destinatario"] . ":\n";
-			$txtMail.="El promotor " . $result["remitente"] . " ha eliminado la cita que tenía programada con usted.\n";
-			$txtMail.="La cita estaba programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
-			$txtMail.="\n<a href=\"http://http://2013.circulart.org/m/index.php?modo=login\">http://2013.circulart.org/</a>\n";
-			//mail($result["mail_destinatario"],"Cita Rueda de Negocios Circulart2013",$txtMail,"From:info@circulart.org");
-			//mail('notificacionescirculart@gmail.com',"Cita Rueda de Negocios Circulart2013",$txtMail,"From: info@circulart.org"); 
-		}*/
+		
 		$qDelete=$db->sql_query("DELETE FROM citas WHERE id='$frm[id_cita]'");
 	}
 	elseif(nvl($frm["mode"])=="confirmar_cita_promotor_promotor"){//El promotor, en su agenda, le da 'confirmar' a una cita con otro promotor
@@ -398,33 +386,28 @@ if($id_nivel=="10"){//Promotor
 		$qid=$db->sql_query($strQuery);
 		$result=$db->sql_fetchrow($qid);
 		
-		
-		/*$dest2 = $result["email"];
-			$body2.="Estimado(s) " . $result["grupo"] . ":\n";	
-			$body2.="El promotor " . $result["promotor"] . " ha confirmado la cita que tenía programada con usted(es).\n";
-			$body2.="La cita quedó entonces programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
-			$body2.="\n<a href=\"http://http://2013.circulart.org/m/index.php?modo=login\">http://2013.circulart.org/</a>\n";
-			$body2.="\n";
-
-			$mailer->Body = $body2;
-			$mailer->Subject = 'Cita Rueda de Negocios Circulart2013';
-			$mailer->AddAddress($dest2);  // This is where you put the email adress of the person you want to mail
-			if(!$mailer->Send())
-			{
-			  //echo "Message was not sent<br/ >"; echo "Mailer Error: " . $mailer->ErrorInfo;
-			}else{
-				
+	
+		        $mail->From = 'via@circulart.org';
+				$mail->Subject = 'Cita Rueda de Negocios VIA2014';
+				$mail->MsgHTML('Mensaje con HTML');
+				$template = "Estimado(s) " . $result["grupo"] . ":\n";	
+				$template.= "El promotor " . $result["promotor"] . " ha confirmado la cita que tenía programada con usted(es).\n";
+				$template.= "La cita quedó entonces programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
+				$template.= "\n\n";
+				$template.= "Cordial Saludo";
+				$template.= "VIA 2014 - Ventana Internacional de las Artes\n";
+				$template.= "FESTIVAL IBEROAMERICANO DE TEATRO\n";
+				$template.= "www.festivaldeteatro.com.co\n";
+				$template.= "\n";
+				$mail->Body = $template;
+				$mail->AddAddress("cesarvalencia11@gmail.com", '');
+				//$mail->AddAddress($result["email"], '');
+				//$mail->AddCC('via@festivaldeteatro.com.co', '');
+				if($result["email"]!=""){
+				 $mail->Send(); 
 				}	
 		
-		*/
-		/*if($result["email"]!=""){
-			$txtMail="Estimado(s) " . $result["grupo"] . ":\n";
-			$txtMail.="El promotor " . $result["promotor"] . " ha confirmado la cita que tenía programada con usted(es).\n";
-			$txtMail.="La cita quedó entonces programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
-			$txtMail.="\n<a href=\"http://http://2013.circulart.org/m/index.php?modo=login\">http://2013.circulart.org/</a>\n";
-			//mail($result["email"],"Cita Rueda de Negocios Circulart2013",$txtMail,"From:info@circulart.org");
-			//mail('notificacionescirculart@gmail.com',"Cita Rueda de Negocios Circulart2013",$txtMail,"From: info@circulart.org"); 
-		}*/
+		
 		$qUpdate=$db->sql_query("UPDATE citas SET aceptada_promotor='1',fecha_inicial=fecha_inicial WHERE id='$frm[id_cita]'");
 	}
 	elseif($frm["mode"]=="bloquear_agenda_promotor"){//El promotor, en su agenda, bloquea un horario
@@ -510,34 +493,26 @@ if($id_nivel=="10"){//Promotor
 
 				$qid=$db->sql_query($strQuery);
 				$result=$db->sql_fetchrow($qid);
-				
-				
-				/*$dest2 = $result["email"];
-				$body2.="Estimado(s) " . $result["grupo"] . ":\n";	
-				$body2.="El promotor " . $result["promotor"] . " ha solicitado una cita con usted(es).\n";
-				$body2.="La cita solicitada está programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
-				$body2.="\n<a href=\"http://http://2013.circulart.org/m/index.php?modo=login\">http://2013.circulart.org/</a>\n";
-				$body2.="\n";
-	
-				$mailer->Body = $body2;
-				$mailer->Subject = 'Cita Rueda de Negocios Circulart2013';
-				$mailer->AddAddress($dest2);  // This is where you put the email adress of the person you want to mail
-				if(!$mailer->Send())
-				{
-				  //echo "Message was not sent<br/ >"; echo "Mailer Error: " . $mailer->ErrorInfo;
-				}else{
-					
-					}	
-		*/
-				/*if($result["email"]!=""){
-					$txtMail="Estimado(s) " . $result["grupo"] . ":\n";
-					$txtMail.="El promotor " . $result["promotor"] . " ha solicitado una cita con usted(es).\n";
-					$txtMail.="Por favor confirmar esta cita en la página web.\n";
-					$txtMail.="La cita solicitada está programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
-					$txtMail.="\n<a href=\"http://http://2013.circulart.org/m/index.php?modo=login\">http://2013.circulart.org/</a>\n";
-					//mail($result["email"],"Cita Rueda de Negocios Circulart2013",$txtMail,"From:info@circulart.org");
-					//mail('notificacionescirculart@gmail.com',"Cita Rueda de Negocios Circulart2013",$txtMail,"From: info@circulart.org"); 
-				}*/
+
+				$mail->From = 'via@circulart.org';
+				$mail->Subject = 'Cita Rueda de Negocios VIA2014';
+				$mail->MsgHTML('Mensaje con HTML');
+				$template = "Estimado(s) " . $result["grupo"] . ":\n";	
+				$template.= "El promotor " . $result["promotor"] . " ha solicitado una cita con usted(es).\n";
+				$template.= "La cita solicitada está programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
+				$template.= "\n\n";
+				$template.= "Cordial Saludo";
+				$template.= "VIA 2014 - Ventana Internacional de las Artes\n";
+				$template.= "FESTIVAL IBEROAMERICANO DE TEATRO\n";
+				$template.= "www.festivaldeteatro.com.co\n";
+				$template.= "\n";
+				$mail->Body = $template;
+				$mail->AddAddress("cesarvalencia11@gmail.com", '');
+				//$mail->AddAddress($result["email"], '');
+				//$mail->AddCC('via@festivaldeteatro.com.co', '');
+				if($result["email"]!=""){
+				 $mail->Send(); 
+				}	
 			}
 			else{
 				echo "<script>";
@@ -656,34 +631,27 @@ elseif(in_array($id_nivel,array(4,5,6,7,8,9))){//Grupo
 		$qid=$db->sql_query($strQuery);
 		$result=$db->sql_fetchrow($qid);
 		
-		
-		/*$dest2 = $result["prom_email"];
-		$body2.="Estimado(a) " . $result["promotor"] . ":\n";
-		$body2.="El grupo " . $result["grupo"] . " ha eliminado la cita que tenía programada con usted.\n";
-		$body2.="La cita estaba programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
-		$body2.="\n<a href=\"http://http://2013.circulart.org/m/index.php?modo=login\">http://2013.circulart.org/</a>\n";
-		$body2.="\n";
 
-		$mailer->Body = $body2;
-		$mailer->Subject = 'Cita Rueda de Negocios Circulart2013';
-		$mailer->AddAddress($dest2);  // This is where you put the email adress of the person you want to mail
-		if(!$mailer->Send())
-		{
-		  //echo "Message was not sent<br/ >"; echo "Mailer Error: " . $mailer->ErrorInfo;
-		}else{
-			
-			}	*/
-		
-		
-		
-		/*if($result["prom_email"]!=""){
-			$txtMail="Estimado(a) " . $result["promotor"] . ":\n";
-			$txtMail.="El grupo " . $result["grupo"] . " ha eliminado la cita que tenía programada con usted.\n";
-			$txtMail.="La cita estaba programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
-			$txtMail.="\n<a href=\"http://http://2013.circulart.org/m/index.php?modo=login\">http://2013.circulart.org/</a>\n";
-			//mail($result["prom_email"],"Cita Rueda de Negocios Circulart2013",$txtMail,"From:info@circulart.org");
-			//mail('notificacionescirculart@gmail.com',"Cita Rueda de Negocios Circulart2013",$txtMail,"From: info@circulart.org"); 
-		}*/
+				$mail->From = 'via@festivaldeteatro.com.co';
+				$mail->Subject = 'Cancelación cita VIA2014';
+				$mail->MsgHTML('Mensaje con HTML');
+				$template = "Estimado(a) " . $result["promotor"] . ":\n";	
+				$template.= "El grupo " . $result["grupo"] . " ha eliminado la cita que tenía programada con usted.\n";
+				$template.= "La cita estaba programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
+				$template.= "\n\n";
+				$template.= "Cordial Saludo";
+				$template.= "VIA 2014 - Ventana Internacional de las Artes\n";
+				$template.= "FESTIVAL IBEROAMERICANO DE TEATRO\n";
+				$template.= "www.festivaldeteatro.com.co\n";
+				$template.= "\n";
+				$mail->Body = $template;
+				$mail->AddAddress("cesarvalencia11@gmail.com", '');
+				//$mail->AddAddress($result["prom_email"], '');
+				//$mail->AddCC('via@festivaldeteatro.com.co', '');
+				if($result["prom_email"]!=""){
+				 $mail->Send(); 
+				}	
+
 
 
 		$qDelete=$db->sql_query("DELETE FROM citas WHERE id='$frm[id_cita]'");
@@ -709,32 +677,25 @@ elseif(in_array($id_nivel,array(4,5,6,7,8,9))){//Grupo
 		$qid=$db->sql_query($strQuery);
 		$result=$db->sql_fetchrow($qid);
 		
-		/*$dest2 = $result["prom_email"];
-		$body2.="Estimado(a) " . $result["promotor"] . ":\n";
-		$body2.="El grupo " . $result["grupo"] . " ha confirmado la cita que tenía programada con usted.\n";
-		$body2.="La cita quedó entonces programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
-		$body2.="\n<a href=\"http://http://2013.circulart.org/m/index.php?modo=login\">http://2013.circulart.org/</a>\n";
-		$body2.="\n";
-
-		$mailer->Body = $body2;
-		$mailer->Subject = 'Cita Rueda de Negocios Circulart2013';
-		$mailer->AddAddress($dest2);  // This is where you put the email adress of the person you want to mail
-		if(!$mailer->Send())
-		{
-		  //echo "Message was not sent<br/ >"; echo "Mailer Error: " . $mailer->ErrorInfo;
-		}else{
-			
-			}*/	
-		
-		
-		/*if($result["prom_email"]!=""){
-			$txtMail="Estimado(a) " . $result["promotor"] . ":\n";
-			$txtMail.="El grupo " . $result["grupo"] . " ha confirmado la cita que tenía programada con usted.\n";
-			$txtMail.="La cita quedó entonces programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
-			$txtMail.="\n<a href=\"http://http://2013.circulart.org/m/index.php?modo=login\">http://2013.circulart.org/</a>\n";
-			//mail($result["prom_email"],"Cita Rueda de Negocios Circulart2013",$txtMail,"From:info@circulart.org");
-			//mail('notificacionescirculart@gmail.com',"Cita Rueda de Negocios Circulart2013",$txtMail,"From: info@circulart.org"); 
-		}*/
+		        $mail->From = 'via@festivaldeteatro.com.co';
+				$mail->Subject = 'Confirmación cita VIA2014';
+				$mail->MsgHTML('Mensaje con HTML');
+				$template = "Estimado(a) " . $result["promotor"] . ":\n";	
+				$template.= "El grupo " . $result["grupo"] . " ha confirmado la cita que tenía programada con usted.\n";
+				$template.= "La cita quedó entonces programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
+				$template.= "\n\n";
+				$template.= "Cordial Saludo";
+				$template.= "VIA 2014 - Ventana Internacional de las Artes\n";
+				$template.= "FESTIVAL IBEROAMERICANO DE TEATRO\n";
+				$template.= "www.festivaldeteatro.com.co\n";
+				$template.= "\n";
+				$mail->Body = $template;
+				$mail->AddAddress("cesarvalencia11@gmail.com", '');
+				//$mail->AddAddress($result["prom_email"], '');
+				//$mail->AddCC('via@festivaldeteatro.com.co', '');
+				if($result["prom_email"]!=""){
+				 $mail->Send(); 
+				}	
 		
 		$qUpdate=$db->sql_query("UPDATE citas SET aceptada_grupo='1',fecha_inicial=fecha_inicial WHERE id='$frm[id_cita]'");
 	}
@@ -816,31 +777,28 @@ elseif(in_array($id_nivel,array(4,5,6,7,8,9))){//Grupo
 				$result=$db->sql_fetchrow($qid);
 				
 				
-				/*$dest2 = $result["prom_email"];
-				$body2.="Estimado(a) " . $result["promotor"] . ":\n";
-				$body2.="El grupo " . $result["grupo"] . " ha solicitado una cita con usted.\n";
-				$body2.="Por favor confirmar esta cita en la página web.\n";
-				$body2.="La cita solicitada está programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
-				$body2.="\n<a href=\"http://http://2013.circulart.org/m/index.php?modo=login\">http://2013.circulart.org/</a>\n";;
+				$mail->From = 'via@festivaldeteatro.com.co';
+				$mail->Subject = 'Confirmación cita VIA2014';
+				$mail->MsgHTML('Mensaje con HTML');
+				$template = "Estimado(a) " . $result["promotor"] . ":\n";	
+				$template.= "El grupo " . $result["grupo"] . " ha solicitado una cita con usted.\n";
+				$template.= "La cita solicitada está programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
+				$template.= "\n\n";
+				$template.= "Cordial Saludo";
+				$template.= "VIA 2014 - Ventana Internacional de las Artes\n";
+				$template.= "FESTIVAL IBEROAMERICANO DE TEATRO\n";
+				$template.= "www.festivaldeteatro.com.co\n";
+				$template.= "\n";
+				$mail->Body = $template;
+				$mail->AddAddress("cesarvalencia11@gmail.com", '');
+				//$mail->AddAddress($result["prom_email"], '');
+				//$mail->AddCC('via@festivaldeteatro.com.co', '');
+				if($result["prom_email"]!=""){
+				 $mail->Send(); 
+				}	
 				
-				$mailer->Body = $body2;
-				$mailer->Subject = 'Cita Rueda de Negocios Circulart2013';
-				$mailer->AddAddress($dest2);  // This is where you put the email adress of the person you want to mail
-				if(!$mailer->Send())
-				{
-				  //echo "Message was not sent<br/ >"; echo "Mailer Error: " . $mailer->ErrorInfo;
-				}else{
-					
-					}	*/
-				/*if($result["prom_email"]!=""){
-					$txtMail="Estimado(a) " . $result["promotor"] . ":\n";
-					$txtMail.="El grupo " . $result["grupo"] . " ha solicitado una cita con usted.\n";
-					$txtMail.="Por favor confirmar esta cita en la página web.\n";
-					$txtMail.="La cita solicitada está programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
-					$txtMail.="\n<a href=\"http://http://2013.circulart.org/m/index.php?modo=login\">http://2013.circulart.org/</a>\n";
-					//mail($result["prom_email"],"Cita Rueda de Negocios Circulart2013",$txtMail,"From:info@circulart.org");
-					//mail('notificacionescirculart@gmail.com',"Cita Rueda de Negocios Circulart2013",$txtMail,"From: info@circulart.org"); 
-				}*/	
+				
+				
 				}else{
 					echo "<script>";
 					echo "alert ('Hay un cruce de horario le rogamos buscar otra franja horaria.')";
@@ -881,7 +839,7 @@ function mostrar_agenda_promotor_promotor($frm){
 		echo "<img style='margin-top:10px; margin-left:5px; float:left; margin-bottom:30px;' src=\"images/noimagen.png\" width=\"250\"/>";
 		}
 	echo "<p class='profesionales'>".$promotor["resena"]."</div>";
-	echo "<a class='vermas' href='http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&banner=0&num=' target=\"_blank\" \">Ver m&aacute;</a>";
+	echo "<a class='vermas' href='perfilp.php?n=' target=\"_blank\" \">Ver m&aacute;</a>";
 	$qSesiones=$db->sql_query("
 		SELECT s.id as id_sesion, s.id_rueda, s.lugar, r.nombre, r.duracion_cita, s.fecha_inicial, fecha_final
 		FROM sesiones s LEFT JOIN ruedas r ON s.id_rueda=r.id
@@ -1358,7 +1316,7 @@ function mostrar_agenda_promotor_promotor_recordatorio($frm){
 				$qGrupo=$db->sql_query("SELECT id,nombre FROM grupos_$tipo WHERE id='$id'");
 				$grupo=$db->sql_fetchrow($qGrupo);
 
-				echo "<td><a style='border:none;  padding:0px; color:#ccc; text-decoration:underline; font-size:14px;' href='http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&banner=0&num=".$grupo["id"]."' target=\"_blank\">$grupo[nombre]</a></td>";
+				echo "<td><a style='border:none;  padding:0px; color:#ccc; text-decoration:underline; font-size:14px;' href='perfilp.php?n=".$grupo["id"]."' target=\"_blank\">$grupo[nombre]</a></td>";
 				
 				if($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==1) $estado="Aceptada";
 				elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==0) $estado="Por confirmar";
@@ -1560,12 +1518,28 @@ function detalle_mercado($frm){
 			$string.= "<h2>Agenda de " . $promotor["nombre"] . " " . $promotor["apellido"] . "</h2>";
 			$string.= "<div style='overflow:hidden;'>";
 			if($promotor["mmdd_imagen_filename"]!=""){
-			$string.="<img style='margin-top: 30px; margin-left:5px; margin-right: 20px;float:left; margin-bottom:30px;' src=\"http://circulart.org/phpThumb/phpThumb.php?src=/home/redlat/public_html/circulart/files/promotores/imagen/$promotor[id]\" height='200'/>";
+			$string.="<img style='margin-top: 30px; margin-left:30px; margin-right: 20px;float:left; margin-bottom:30px;' src=\"http://circulart.org/phpThumb/phpThumb.php?src=/home/redlat/public_html/circulart/files/promotores/imagen/$promotor[id]\" height='200'/>";
 			}else{
 			$string.="<img style='margin-top:10px; margin-left:5px; float:left; margin-bottom:30px;' src=\"images/noimagen.png\" height='250'/>";
 				}
-			$string.= "<div class='profesionales' ><p style='height: 140px; overflow:hidden;'>" . $promotor["resena"] . "</p>\n";
-			$string.= "<a class='vermas' style='margin-left:0;' href='http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=' target='_blank'>Ver más</a>";
+				
+				
+			$qEmpresa=$db->sql_query("SELECT * FROM empresas_promotores WHERE id_promotor='".$promotor["id"]."'");
+			$e=$db->sql_fetchrow($qEmpresa);
+					
+						   $idEmpresa=$e["id_empresa"];
+						   $nomEmpresa=$db->sql_query("SELECT * FROM empresas WHERE id='".$e["id_empresa"]."'");
+							$nom=$db->sql_fetchrow($nomEmpresa);
+								$imagenEmpresa=$nom["mmdd_imagen_filename"];
+								$nombreEmpresa=$nom["empresa"];
+								$webEmpresa=$nom["web"];
+								$resenaEmpresa=$nom["observaciones"];
+								
+						
+				
+				
+			$string.= "<div class='profesionales' ><p style='height: 140px; overflow:hidden;'><strong>Organización: </strong>" .$nombreEmpresa."<br><strong>Cargo: </strong>".$promotor["cargo"]."<br>".$resenaEmpresa . "</p>\n";
+			$string.= "<a class='vermas' style='margin-left:0;' href='http://via.festivaldeteatro.com.co/perfilp.php?n=".$promotor["id"]."' target='_blank'>Ver más</a>";
 
 		}elseif($frm["mode"]=="solicitar_cita_grupo"){
 			$qPromotor=$db->sql_query("SELECT * FROM promotores WHERE id='$frm[id_promotor]'");
@@ -1575,12 +1549,23 @@ function detalle_mercado($frm){
 			$string.= "<h2>Agenda de " . $promotor["nombre"] . " " . $promotor["apellido"] . "</h2>";
 			$string.= "<div style='overflow:hidden;'>";
 			if($promotor["mmdd_imagen_filename"]!=""){
-			$string.="<img style='margin-top: 30px; margin-left:5px; margin-right: 20px;float:left; margin-bottom:30px;' src=\"http://circulart.org/phpThumb/phpThumb.php?src=/home/redlat/public_html/circulart/files/promotores/imagen/$promotor[id]\" height='200'/>";
+			$string.="<img style='margin-top: 30px; margin-left:30px; margin-right: 20px;float:left; margin-bottom:30px;' src=\"http://circulart.org/phpThumb/phpThumb.php?src=/home/redlat/public_html/circulart/files/promotores/imagen/$promotor[id]\" height='250'/>";
 			}else{
 			$string.="<img style='margin-top: 30px; margin-left:5px; margin-right: 20px;float:left; margin-bottom:30px;' src=\"images/noimagen.png\" height='200'/>";
 				}
-			$string.= "<div class='profesionales' ><p style='height: 140px; overflow:hidden;'>" . $promotor["resena"] . "</p>\n";
-			$string.= "<a class='vermas' style='margin-left:0;' href='http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&amp;banner=0&amp;num=' target='_blank'>Ver más</a>";
+			$qEmpresa=$db->sql_query("SELECT * FROM empresas_promotores WHERE id_promotor='".$promotor["id"]."'");
+			$e=$db->sql_fetchrow($qEmpresa);
+					
+						   $idEmpresa=$e["id_empresa"];
+						   $nomEmpresa=$db->sql_query("SELECT * FROM empresas WHERE id='".$e["id_empresa"]."'");
+							$nom=$db->sql_fetchrow($nomEmpresa);
+								$imagenEmpresa=$nom["mmdd_imagen_filename"];
+								$nombreEmpresa=$nom["empresa"];
+								$webEmpresa=$nom["web"];
+								$resenaEmpresa=$nom["observaciones"];
+			
+			$string.= "<div class='profesionales' ><p style='height: 140px; overflow:hidden;'><strong>Organización: </strong>" .$nombreEmpresa."<br><strong>Cargo: </strong>".$promotor["cargo"]."<br>".$resenaEmpresa . "</p>\n";
+			$string.= "<a class='vermas' style='margin-left:0;' href='http://via.festivaldeteatro.com.co/perfilp.php?n=".$promotor["id"]."' target='_blank'>Ver más</a>";
 		}
 		setlocale(LC_ALL,"es_ES@euro","es_ES","esp","es");
 		$array["id"]=$mercado["id"];
@@ -1738,9 +1723,6 @@ function mostrar_agenda_grupo($frm){
 		$c=0;	
 		while($desde<$hasta){
 
-		
-
-			
 			$qCita=$db->sql_query("
 				SELECT c.*, CONCAT(p.nombre, ' ', p.apellido) as promotor,(SELECT mesa FROM mercado_promotores WHERE id_mercado=r.id_mercado AND id_promotor=p.id LIMIT 1) as mesa
 				FROM citas c LEFT JOIN promotores p ON c.id_promotor=p.id
@@ -1749,13 +1731,14 @@ function mostrar_agenda_grupo($frm){
 				WHERE c.id_sesion='$sesion[id_sesion]' AND c.id_grupo_$frm[tipo]='$frm[id_grupo]' AND c.fecha_inicial='" . date("Y-m-d H:i:00",$desde) . "'
 			");
 			if($cita=$db->sql_fetchrow($qCita)){
-					echo "<tr><th scope=\"row\" class='linea'>" . strftime("%H:%M ",$desde) . date("a",$desde);
+				
+				echo "<tr><th scope=\"row\" class='linea'>" . strftime("%H:%M ",$desde) . date("a",$desde);
 				echo "</th>\n";
 				echo "<td class='linea'>$cita[promotor]</td>";
 				echo "<td class='linea'>$cita[mesa]</td>";
-				if($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==1) $estado="<span class='confirmado'>Aceptada";
+				if($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==1){ $estado="<span class='confirmado'>Aceptada"; $c++; $_SESSION[$CFG->sesion]["user"]["c"]=$c;}
 				elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==1){ $estado="<span class='porconfirmar'>Por confirmar</span>"; $c++; $_SESSION[$CFG->sesion]["user"]["c"]=$c;}
-				elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==0) $estado="<a href=\"" . simple_me($ME) . "?act=2&id_mercado=$_GET[id_mercado]&id_artista=$_GET[id_artista]&tipo=musica&mercado=".$CFG->mercado."&modo=agenda&mode=confirmar_cita_grupo&id_cita=$cita[id]\" style='text-decoration:underline' class='porconfirmar'>Confirmar</a>";
+				elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==0){ $estado="<a href=\"" . simple_me($ME) . "?act=2&id_mercado=$_GET[id_mercado]&id_artista=$_GET[id_artista]&tipo=musica&mercado=".$CFG->mercado."&modo=agenda&mode=confirmar_cita_grupo&id_cita=$cita[id]\" style='text-decoration:underline' class='porconfirmar'>Confirmar</a>"; $c++; $_SESSION[$CFG->sesion]["user"]["c"]=$c;}
 				echo "<td class='linea' style='text-align:center'>$estado</td>";
 				echo "<td class='linea' style='text-align: center;'><a style=\"border:none; background:none; cursor:pointer;\" href=\"" . simple_me($ME) . "?act=2&id_mercado=$_GET[id_mercado]&id_artista=$_GET[id_artista]&tipo=musica&mercado=$_GET[id_mercado]&modo=agenda&mode=rechazar_cita_grupo&id_cita=$cita[id]\"><img border=\"0\" src=\"../m/iconos/transparente/trash-x.png\"></a></td>";
 				
@@ -1805,6 +1788,72 @@ function mostrar_encuesta_grupo($frm){
 
 function mostrar_agenda_grupo_promotor($frm){
 	GLOBAL $CFG,$db,$ME;
+
+//--------codigo de validacion por día ----------------//
+	$qSesiones=$db->sql_query("
+		SELECT s.id as id_sesion, s.id_rueda, s.lugar, r.nombre, r.duracion_cita, s.fecha_inicial, fecha_final
+		FROM sesiones s LEFT JOIN ruedas r ON s.id_rueda=r.id
+		WHERE r.id_mercado='$frm[id_mercado]'
+		ORDER BY s.fecha_inicial
+	");
+	$b=0;
+	$d13=0;
+	$d14=0;
+	$d15=0;
+	while($sesion=$db->sql_fetchrow($qSesiones)){
+		setlocale(LC_ALL,"es_ES@euro","es_ES","esp","es");
+		$desde=strtotime($sesion["fecha_inicial"]);
+		$hasta=strtotime($sesion["fecha_final"]);
+        while($desde<$hasta){
+			$qCita=$db->sql_query("
+				SELECT c.*, CONCAT(p.nombre, ' ', p.apellido) as promotor,(SELECT mesa FROM mercado_promotores WHERE id_mercado=r.id_mercado AND id_promotor=p.id LIMIT 1) as mesa
+				FROM citas c LEFT JOIN promotores p ON c.id_promotor=p.id
+					LEFT JOIN sesiones ses ON c.id_sesion=ses.id
+					LEFT JOIN ruedas r ON ses.id_rueda=r.id
+				WHERE c.id_sesion='$sesion[id_sesion]' AND c.id_grupo_$frm[tipo]='$frm[id_grupo]' AND c.fecha_inicial='" . date("Y-m-d H:i:00",$desde) . "'
+			");
+			if($cita=$db->sql_fetchrow($qCita)){
+				if($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==1){$b++; 
+					if(date("d",$desde)==13){
+						$d13++;
+						}
+					if(date("d",$desde)==14){
+						$d14++;
+						}
+					if(date("d",$desde)==15){
+						$d15++;
+						}
+				}
+				elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==1){ $b++; 
+					if(date("d",$desde)==13){
+						$d13++;
+						}
+					if(date("d",$desde)==14){
+						$d14++;
+						}
+					if(date("d",$desde)==15){
+						$d15++;
+						}		
+				}
+				elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==0){ $b++; 
+					if(date("d",$desde)==13){
+						$d13++;
+						}
+					if(date("d",$desde)==14){
+						$d14++;
+						}
+					if(date("d",$desde)==15){
+						$d15++;
+						}		
+				}
+				else $estado="Eliminada";
+			}
+			$desde+=60*20;
+		}
+
+	}
+
+//------
 
 	echo '<div class="izquierda" style="margin-left:-265px;">';
 	echo '<div class="titulo" align="center"><strong>Agenda del profesional</strong></div>';
@@ -1880,7 +1929,24 @@ function mostrar_agenda_grupo_promotor($frm){
 					}
 					else{
 						echo "<tr><th scope=\"row\" class='linea'>" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
-						echo "<td class='linea'></td><td class='linea'><a style='padding:0px; color:#ccc; text-decoration:underline; text-align:left; border:none; background:none; cursor:pointer;' href=\"" . simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=solicitar_cita_grupo&fecha=" . urlencode(date("Y-m-d H:i:s",$desde)) . "&id_sesion=$sesion[id_sesion]&id_promotor=$frm[id_promotor]&id_artista=$_GET[id_artista]&act=1\">Solicitar cita</a>";
+						if(date("d",$desde)==13){
+							if($d13<6){
+						echo "<td class='linea'></td><td class='linea'><a style='padding:0px; color:#ccc; text-decoration:underline; text-align:left; border:none; background:none; cursor:pointer;' href=\"" . simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=solicitar_cita_grupo&fecha=" . urlencode(date("Y-m-d H:i:s",$desde)) . "&id_sesion=$sesion[id_sesion]&id_promotor=$frm[id_promotor]&id_artista=$_GET[id_artista]&act=1\">Solicitar cita</a>";}else{
+							echo "<td class='linea'></td><td class='linea'>";
+							}
+						}
+						if(date("d",$desde)==14){
+							if($d14<6){
+						echo "<td class='linea'></td><td class='linea'><a style='padding:0px; color:#ccc; text-decoration:underline; text-align:left; border:none; background:none; cursor:pointer;' href=\"" . simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=solicitar_cita_grupo&fecha=" . urlencode(date("Y-m-d H:i:s",$desde)) . "&id_sesion=$sesion[id_sesion]&id_promotor=$frm[id_promotor]&id_artista=$_GET[id_artista]&act=1\">Solicitar cita</a>";}else{
+							echo "<td class='linea'></td><td class='linea'>";
+							}
+						}
+						if(date("d",$desde)==15){
+						    if($d15<6){
+						echo "<td class='linea'></td><td class='linea'><a style='padding:0px; color:#ccc; text-decoration:underline; text-align:left; border:none; background:none; cursor:pointer;' href=\"" . simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=solicitar_cita_grupo&fecha=" . urlencode(date("Y-m-d H:i:s",$desde)) . "&id_sesion=$sesion[id_sesion]&id_promotor=$frm[id_promotor]&id_artista=$_GET[id_artista]&act=1\">Solicitar cita</a>";}else{
+							echo "<td class='linea'></td><td class='linea'>";
+							}
+						}
 					}
 				}
 			}
@@ -1900,6 +1966,9 @@ function mostrar_agenda_grupo_promotor($frm){
 		ORDER BY s.fecha_inicial
 	");
 	$c=0;
+	$c13=0;
+	$c14=0;
+	$c15=0;
 	while($sesion=$db->sql_fetchrow($qSesiones)){
 		echo "<p><strong>Rueda:</strong> $sesion[nombre] <br />\n";
 		echo "<strong>Lugar:</strong> $sesion[lugar].<br />\n";
@@ -1924,9 +1993,9 @@ function mostrar_agenda_grupo_promotor($frm){
 				echo "<tr><th scope=\"row\" class='linea'>" . strftime("%H:%M ",$desde) . date("a",$desde);
 				echo "</th>\n";
 				echo "<td class='linea'>$cita[promotor]</td>";
-				if($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==1){ $estado="Aceptada";}
+				if($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==1){$c++; $estado="Aceptada"; $_SESSION[$CFG->sesion]["user"]["c"]=$c;}
 				elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==1){ $c++; $estado="Por confirmar"; $_SESSION[$CFG->sesion]["user"]["c"]=$c;}
-				elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==0){ $estado="Por confirmar";}
+				elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==0){ $c++; $estado="Por confirmar"; $_SESSION[$CFG->sesion]["user"]["c"]=$c;}
 				else $estado="Eliminada";
 				echo "<td class='linea'>$estado</td>";
 			}
@@ -1949,8 +2018,6 @@ function mostrar_agenda_grupo_promotor($frm){
 		echo "</table>\n";
 	}
 	echo "</div>";
-	
-	
 }
 
 

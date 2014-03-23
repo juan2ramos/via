@@ -53,6 +53,7 @@
 									$imagenEmpresa=$nom["mmdd_imagen_filename"];
 									$nombreEmpresa=$nom["empresa"];
 									$webEmpresa=$nom["web"];
+									$resenaEmpresa=$nom["observaciones"];
 									}
 							 }
 					if($promotor["mmdd_imagen_filename"]!=''){ ?>
@@ -62,25 +63,9 @@
 					<?php }?>
                    <div id="pais" class="text"><strong>País: </strong><?=utf8_encode($promotor["pais"])?><hr></div> 
                    <div id="ciudad" class="text"><strong>Ciudad: </strong> <?=utf8_encode($promotor["ciudad"])?><hr></div>
+                   <div id="ciudad" class="text"><strong>Organización: </strong> <?=utf8_encode($nombreEmpresa)?><hr></div>
                    <div id="cargo" class="text"><strong>Cargo: </strong> <?=utf8_encode($promotor["cargo"])?><hr></div>
-                   
-                  <?php
-				  if(isset($promotor["web"])){
-                   if($promotor["web"]!=""){
-					$buscarWeb = "http";
-					$cadenaWeb = $promotor["web"];
-					$resultadoWeb = strpos($cadenaWeb, $buscarWeb);
-					?>
-                    <div id="web" class="text"><strong>WEB:</strong>
-                    <?php
-						if($resultadoWeb!== FALSE){
-							$enlace="<a href='". $promotor["web"]."' target='_blank'>".$promotor["web"]."</a>";
-						}else{
-							$enlace="<a href='http://".$promotor["web"]."' target='_blank'>".$promotor["web"]."</a>";
-						}
-					}
-				    echo utf8_encode($enlace);?><hr></div><?php } ?>
-                    <div id="resena" class="text"><strong>Reseña: </strong><hr> <?=utf8_encode($promotor["resena"])?></div>
+                   <div id="resena" class="text"><strong>Reseña: </strong><hr> <?=utf8_encode($resenaEmpresa)?></div>
                </div>       
                <?php
 				   }
@@ -93,18 +78,21 @@
                     <? if($imagenEmpresa!=""){ ?>
                     <div id="imagen"><img src="http://circulart.org/phpThumb/phpThumb.php?src=/home/redlat/public_html/circulart/files/empresas/imagen/<?=$idEmpresa?>" border="0" ></div>
                     <? } ?>
-                    <div><?=utf8_encode($nombreEmpresa)?></div>
                     <div><? 
 					$enlace="";
 					 if($webEmpresa!=""){
-					   $buscarWeb = "http";
-					   $cadenaWeb = $webEmpresa;
-					   $resultadoWeb = strpos($cadenaWeb, $buscarWeb);
-					   if($resultadoWeb!== FALSE){
-							$enlace="<a href='".$webEmpresa."' target='_blank'>".$webEmpresa."</a>";
+						 if($webEmpresa!="en proceso..."){
+						   $buscarWeb = "http";
+						   $cadenaWeb = $webEmpresa;
+						   $resultadoWeb = strpos($cadenaWeb, $buscarWeb);
+						   if($resultadoWeb!== FALSE){
+								$enlace="<a href='".$webEmpresa."' target='_blank'>".$webEmpresa."</a>";
+							}else{
+								$enlace="<a href='http://".$webEmpresa."' target='_blank'>".$webEmpresa."</a>";
+							}
 						}else{
-							$enlace="<a href='http://".$webEmpresa."' target='_blank'>".$webEmpresa."</a>";
-						}
+							$enlace="CORPORACION ESPACIO ABIERTO";
+							}
 					}
 					
 					echo $enlace?></div>
