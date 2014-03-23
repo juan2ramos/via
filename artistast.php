@@ -58,7 +58,7 @@
                   <a href="perfilt.php?n=<?=$gm["id"]?>">
                  	<div class="item">
 					<?php if($cara["id"]!=""){ ?>
-                        <div id="imagen"><img src="http://circulart.org/admin/imagen.php?table=archivos_grupos_teatro&amp;field=archivo&amp;id=<?php echo $cara["id"];?>" border="0"></div>
+                        <div id="imagen"><img src="http://circulart.org/admin/imagen.php?table=archivos_grupos_danza&amp;field=archivo&amp;id=<?php echo $cara["id"];?>" border="0"></div>
                     <?php }else{ ?>
                         <div id="imagen"><img src="http://via.festivaldeteatro.com.co/m/images/noimagen.png" border="0"></div>
                     <?php } ?>
