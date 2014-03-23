@@ -254,20 +254,18 @@ if($id_nivel=="10"){//Promotor
 		    $mail->From = 'via@festivaldeteatro.com.co';
 			$mail->Subject = 'Cancelación de Cita VIA2014';
 			$mail->MsgHTML('Mensaje con HTML');
-			$template = "Estimado(a) " . $result["destinatario"]. ":\n";
-			$template.= "El promotor " . $result["remitente"] . " ha eliminado la cita que tenía programada con usted.\n";
-			$template.= "La cita estaba programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
-			$template.= "\n\n";
-			$template.= "Cordial Saludo";
-			$template.= "Milena García\n";
-			$template.= "Coordinación de Artistas Rueda de Negocios \n";
-			$template.= "VIA 2014 - Ventana Internacional de las Artes\n";
-			$template.= "FESTIVAL IBEROAMERICANO DE TEATRO\n";
-			$template.= "www.festivaldeteatro.com.co\n";
+			$template = "Estimado(a) " . $result["destinatario"]. ":\n<br>";
+			$template.= "El profesional " . $result["remitente"] . " ha declinado la cita que tenía programada con usted.\n<br>";
+			$template.= "La cita estaba programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n<br>";
+			$template.= "\n\n<br>";
+			$template.= "Cordial Saludo<br>";
+			$template.= "VIA 2014 - Ventana Internacional de las Artes\n<br>";
+			$template.= "FESTIVAL IBEROAMERICANO DE TEATRO\n<br>";
+			$template.= "www.festivaldeteatro.com.co\n<br>";
 			$template.= "\n";
 			$mail->Body = $template;
-			$mail->AddAddress("cesarvalencia11@gmail.com", '');
-			//$mail->AddAddress($result["mail_destinatario"], '');
+			//$mail->AddAddress("cesarvalencia11@gmail.com", '');
+			$mail->AddAddress($result["mail_destinatario"], '');
 			//$mail->AddCC('via@festivaldeteatro.com.co', '');
 			if($result["mail_destinatario"]!=""){
 			$mail->Send(); 
@@ -337,47 +335,21 @@ if($id_nivel=="10"){//Promotor
 		$qid=$db->sql_query($strQuery);
 		$result=$db->sql_fetchrow($qid);
 
-     		/*$dest2 = $result["email"];
-			$body2.="Estimado(s) " . $result["grupo"] . ":\n";	
-			$body2.="El promotor " . $result["promotor"] . " ha eliminado la cita que tenía programada con usted(es).\n";
-			$body2.="La cita estaba programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
-			$body2.="\n<a href=\"http://http://2013.circulart.org/m/index.php?modo=login\">http://2013.circulart.org/</a>\n";
-			$body2.="\n";
-
-			$mailer->Body = $body2;
-			$mailer->Subject = 'Cita Rueda de Negocios Circulart2013';
-			$mailer->AddAddress($dest2);  // This is where you put the email adress of the person you want to mail
-			if(!$mailer->Send())
-			{
-			  //echo "Message was not sent<br/ >"; echo "Mailer Error: " . $mailer->ErrorInfo;
-			}else{
-				
-				}	
-		*/
-		/*if($result["email"]!=""){
-			$txtMail="Estimado(s) " . $result["grupo"] . ":\n";
-			$txtMail.="El promotor " . $result["promotor"] . " ha eliminado la cita que tenía programada con usted(es).\n";
-			$txtMail.="La cita estaba programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
-			$txtMail.="\n<a href=\"http://http://2013.circulart.org/m/index.php?modo=login\">http://2013.circulart.org/</a>\n";
-			//mail($result["email"],"Cita Rueda de Negocios Circulart2013",$txtMail,"From:info@circulart.org");
-			//mail('notificacionescirculart@gmail.com',"Cita Rueda de Negocios Circulart2013",$txtMail,"From: info@circulart.org"); 
-		}*/
-		
 		 $mail->From = 'via@circulart.org';
-				$mail->Subject = 'Cancelacion cita VIA2014';
+				$mail->Subject = 'Cancelación cita VIA2014';
 				$mail->MsgHTML('Mensaje con HTML');
-				$template = "Estimado(s) " . $result["grupo"] . ":\n";	
-				$template.= "El promotor " . $result["promotor"] . " ha eliminado la cita que tenía programada con usted(es).\n";
-				$template.= "La cita estaba programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
-				$template.= "\n\n";
-				$template.= "Cordial Saludo";
-				$template.= "VIA 2014 - Ventana Internacional de las Artes\n";
-				$template.= "FESTIVAL IBEROAMERICANO DE TEATRO\n";
-				$template.= "www.festivaldeteatro.com.co\n";
+				$template = "Estimado(s) " . $result["grupo"] . ":\n<br>";	
+				$template.= "El profesional " . $result["promotor"] . " ha declinado la cita que tenía programada con usted(es).\n<br>";
+				$template.= "La cita estaba programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n<br>";
+				$template.= "\n\n<br>";
+				$template.= "Cordial Saludo<br>";
+				$template.= "VIA 2014 - Ventana Internacional de las Artes\n<br>";
+				$template.= "FESTIVAL IBEROAMERICANO DE TEATRO\n<br>";
+				$template.= "www.festivaldeteatro.com.co\n<br>";
 				$template.= "\n";
 				$mail->Body = $template;
-				$mail->AddAddress("cesarvalencia11@gmail.com", '');
-				//$mail->AddAddress($result["email"], '');
+				//$mail->AddAddress("cesarvalencia11@gmail.com", '');
+				$mail->AddAddress($result["email"], '');
 				//$mail->AddCC('via@festivaldeteatro.com.co', '');
 				if($result["email"]!=""){
 				 $mail->Send(); 
@@ -411,15 +383,15 @@ if($id_nivel=="10"){//Promotor
 		        $mail->From = 'via@circulart.org';
 				$mail->Subject = 'Cita Rueda de Negocios VIA2014';
 				$mail->MsgHTML('Mensaje con HTML');
-				$template = "Estimado(s) " . $result["grupo"] . ":\n";	
-				$template.= "El promotor " . $result["promotor"] . " ha confirmado la cita que tenía programada con usted(es).\n";
-				$template.= "La cita quedó entonces programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
-				$template.= "\n\n";
-				$template.= "Cordial Saludo";
-				$template.= "VIA 2014 - Ventana Internacional de las Artes\n";
-				$template.= "FESTIVAL IBEROAMERICANO DE TEATRO\n";
-				$template.= "www.festivaldeteatro.com.co\n";
-				$template.= "\n";
+				$template = "Estimado(s) " . $result["grupo"] . ":\n<br>";	
+				$template.= "El profesional " . $result["promotor"] . " ha confirmado la cita que tenía programada con usted(es).\n<br>";
+				$template.= "La cita quedó entonces programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n<br>";
+				$template.= "\n\n<br>";
+				$template.= "Cordial Saludo<br>";
+				$template.= "VIA 2014 - Ventana Internacional de las Artes\n<br>";
+				$template.= "FESTIVAL IBEROAMERICANO DE TEATRO\n<br>";
+				$template.= "www.festivaldeteatro.com.co\n<br>";
+				$template.= "\n<br>";
 				$mail->Body = $template;
 				$mail->AddAddress("cesarvalencia11@gmail.com", '');
 				//$mail->AddAddress($result["email"], '');
@@ -516,20 +488,20 @@ if($id_nivel=="10"){//Promotor
 				$result=$db->sql_fetchrow($qid);
 
 				$mail->From = 'via@circulart.org';
-				$mail->Subject = 'Cita Rueda de Negocios VIA2014';
+				$mail->Subject = 'Solicitud de cita VIA2014';
 				$mail->MsgHTML('Mensaje con HTML');
-				$template = "Estimado(s) " . $result["grupo"] . ":\n";	
-				$template.= "El promotor " . $result["promotor"] . " ha solicitado una cita con usted(es).\n";
-				$template.= "La cita solicitada está programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
-				$template.= "\n\n";
-				$template.= "Cordial Saludo";
-				$template.= "VIA 2014 - Ventana Internacional de las Artes\n";
-				$template.= "FESTIVAL IBEROAMERICANO DE TEATRO\n";
-				$template.= "www.festivaldeteatro.com.co\n";
+				$template = "Estimado(s) " . $result["grupo"] . ":\n<br>";	
+				$template.= "El profesional " . $result["promotor"] . " ha solicitado una cita con usted(es).\n<br>";
+				$template.= "La cita solicitada está programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n<br>";
+				$template.= "\n\n<br>";
+				$template.= "Cordial Saludo<br>";
+				$template.= "VIA 2014 - Ventana Internacional de las Artes\n<br>";
+				$template.= "FESTIVAL IBEROAMERICANO DE TEATRO\n<br>";
+				$template.= "www.festivaldeteatro.com.co\n<br>";
 				$template.= "\n";
 				$mail->Body = $template;
-				$mail->AddAddress("cesarvalencia11@gmail.com", '');
-				//$mail->AddAddress($result["email"], '');
+				//$mail->AddAddress("cesarvalencia11@gmail.com", '');
+				$mail->AddAddress($result["email"], '');
 				//$mail->AddCC('via@festivaldeteatro.com.co', '');
 				if($result["email"]!=""){
 				 $mail->Send(); 
@@ -656,18 +628,18 @@ elseif(in_array($id_nivel,array(4,5,6,7,8,9))){//Grupo
 				$mail->From = 'via@festivaldeteatro.com.co';
 				$mail->Subject = 'Cancelación cita VIA2014';
 				$mail->MsgHTML('Mensaje con HTML');
-				$template = "Estimado(a) " . $result["promotor"] . ":\n";	
-				$template.= "El grupo " . $result["grupo"] . " ha eliminado la cita que tenía programada con usted.\n";
-				$template.= "La cita estaba programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
-				$template.= "\n\n";
-				$template.= "Cordial Saludo";
-				$template.= "VIA 2014 - Ventana Internacional de las Artes\n";
-				$template.= "FESTIVAL IBEROAMERICANO DE TEATRO\n";
-				$template.= "www.festivaldeteatro.com.co\n";
-				$template.= "\n";
+				$template = "Estimado(a) " . $result["promotor"] . ":\n<br>";	
+				$template.= "El grupo " . $result["grupo"] . " ha declinado la cita que tenía programada con usted.\n<br>";
+				$template.= "La cita estaba programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n<br>";
+				$template.= "\n\n<br>";
+				$template.= "Cordial Saludo<br>";
+				$template.= "VIA 2014 - Ventana Internacional de las Artes\n<br>";
+				$template.= "FESTIVAL IBEROAMERICANO DE TEATRO\n<br>";
+				$template.= "www.festivaldeteatro.com.co\n<br>";
+				$template.= "\n<br>";
 				$mail->Body = $template;
-				$mail->AddAddress("cesarvalencia11@gmail.com", '');
-				//$mail->AddAddress($result["prom_email"], '');
+				//$mail->AddAddress("cesarvalencia11@gmail.com", '');
+				$mail->AddAddress($result["prom_email"], '');
 				//$mail->AddCC('via@festivaldeteatro.com.co', '');
 				if($result["prom_email"]!=""){
 				 $mail->Send(); 
@@ -701,18 +673,18 @@ elseif(in_array($id_nivel,array(4,5,6,7,8,9))){//Grupo
 		        $mail->From = 'via@festivaldeteatro.com.co';
 				$mail->Subject = 'Confirmación cita VIA2014';
 				$mail->MsgHTML('Mensaje con HTML');
-				$template = "Estimado(a) " . $result["promotor"] . ":\n";	
-				$template.= "El grupo " . $result["grupo"] . " ha confirmado la cita que tenía programada con usted.\n";
-				$template.= "La cita quedó entonces programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
-				$template.= "\n\n";
-				$template.= "Cordial Saludo";
-				$template.= "VIA 2014 - Ventana Internacional de las Artes\n";
-				$template.= "FESTIVAL IBEROAMERICANO DE TEATRO\n";
-				$template.= "www.festivaldeteatro.com.co\n";
-				$template.= "\n";
+				$template = "Estimado(a) " . $result["promotor"] . ":\n<br>";	
+				$template.= "El grupo " . $result["grupo"] . " ha confirmado la cita que tenía programada con usted.\n<br>";
+				$template.= "La cita quedó entonces programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n<br>";
+				$template.= "\n\n<br>";
+				$template.= "Cordial Saludo<br>";
+				$template.= "VIA 2014 - Ventana Internacional de las Artes\n<br>";
+				$template.= "FESTIVAL IBEROAMERICANO DE TEATRO\n<br>";
+				$template.= "www.festivaldeteatro.com.co\n<br>";
+				$template.= "\n<br>";
 				$mail->Body = $template;
-				$mail->AddAddress("cesarvalencia11@gmail.com", '');
-				//$mail->AddAddress($result["prom_email"], '');
+				//$mail->AddAddress("cesarvalencia11@gmail.com", '');
+				$mail->AddAddress($result["prom_email"], '');
 				//$mail->AddCC('via@festivaldeteatro.com.co', '');
 				if($result["prom_email"]!=""){
 				 $mail->Send(); 
@@ -799,20 +771,20 @@ elseif(in_array($id_nivel,array(4,5,6,7,8,9))){//Grupo
 				
 				
 				$mail->From = 'via@festivaldeteatro.com.co';
-				$mail->Subject = 'Confirmación cita VIA2014';
+				$mail->Subject = 'Solicitud de cita VIA2014';
 				$mail->MsgHTML('Mensaje con HTML');
-				$template = "Estimado(a) " . $result["promotor"] . ":\n";	
-				$template.= "El grupo " . $result["grupo"] . " ha solicitado una cita con usted.\n";
-				$template.= "La cita solicitada está programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n";
-				$template.= "\n\n";
+				$template = "Estimado(a) " . $result["promotor"] . ":\n<br>";	
+				$template.= "El grupo " . $result["grupo"] . " ha solicitado una cita con usted.\n<br>";
+				$template.= "La cita solicitada está programada para la siguiente fecha y hora:\n====\n" . $result["fecha_inicial"] . "\n====\n<br>";
+				$template.= "\n\n<br>";
 				$template.= "Cordial Saludo";
-				$template.= "VIA 2014 - Ventana Internacional de las Artes\n";
-				$template.= "FESTIVAL IBEROAMERICANO DE TEATRO\n";
-				$template.= "www.festivaldeteatro.com.co\n";
-				$template.= "\n";
+				$template.= "VIA 2014 - Ventana Internacional de las Artes\n<br>";
+				$template.= "FESTIVAL IBEROAMERICANO DE TEATRO\n<br>";
+				$template.= "www.festivaldeteatro.com.co\n<br>";
+				$template.= "\n<br>";
 				$mail->Body = $template;
-				$mail->AddAddress("cesarvalencia11@gmail.com", '');
-				//$mail->AddAddress($result["prom_email"], '');
+				//$mail->AddAddress("cesarvalencia11@gmail.com", '');
+				$mail->AddAddress($result["prom_email"], '');
 				//$mail->AddCC('via@festivaldeteatro.com.co', '');
 				if($result["prom_email"]!=""){
 				 $mail->Send(); 
