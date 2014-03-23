@@ -50,10 +50,10 @@
 		$qGrupos=$db->consulta("SELECT ma.*, gm.* FROM mercado_artistas ma LEFT JOIN grupos_danza gm on gm.id=ma.id_grupo_danza WHERE ma.id_mercado='26' ORDER BY gm.nombre");
 		if($db->num_rows($qGrupos)>0){
 			while($gm=mysql_fetch_array($qGrupos)){
-				if($gm["id"]!="175" && $gm["id"]!=""){	
+				if($gm["id"]!="175" && $gm["id"]!=""){
+					$caratula=$db->consulta("SELECT * FROM archivos_grupos_danza WHERE id_grupos_danza='".$gm["id"]."' AND orden='0'");
+					    $cara=mysql_fetch_array($caratula);	
 					if($cara["id"]!=""){
-						$caratula=$db->consulta("SELECT * FROM archivos_grupos_danza WHERE id_grupos_danza='".$gm["id"]."' AND orden='0'");
-					    $cara=mysql_fetch_array($caratula);
 				  ?>
                   <a href="perfilt.php?n=<?=$gm["id"]?>">
                  	<div class="item">

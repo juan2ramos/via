@@ -777,7 +777,7 @@ elseif(in_array($id_nivel,array(4,5,6,7,8,9))){//Grupo
 	if($frm["mode"]=="agenda_promotor" || $frm["mode"]=="solicitar_cita_grupo"){
     	if($frm["mode"]=="solicitar_cita_grupo"){//Cuando el artista le solicita una cita al promotor
 				
-	     if($_SESSION[$CFG->sesion]["user"]["c"]<2){//bloqueo de citas artistas
+	     if($_SESSION[$CFG->sesion]["user"]["c"]<18){//bloqueo de citas artistas
 			$qVerificacion=$db->sql_query("
 				SELECT c.*
 				FROM citas c LEFT JOIN sesiones s ON c.id_sesion=s.id
@@ -850,7 +850,7 @@ elseif(in_array($id_nivel,array(4,5,6,7,8,9))){//Grupo
 			
 			}else{
 			 echo "<script>";
-			 echo "alert ('Lo sentimos usted ha agotado el numero de citas')";
+			 echo "alert ('Lo sentimos usted ha agotado el número de citas')";
 			 echo "</script>";
 			 }
 			
@@ -1453,8 +1453,10 @@ function mostrar_agenda_promotor($frm){
 
 				$qGrupo=$db->sql_query("SELECT id,nombre FROM grupos_$tipo WHERE id='$id'");
 				$grupo=$db->sql_fetchrow($qGrupo);
-
-				echo "<td class='linea'><a style='border:none; padding:0px; color:#ccc; text-decoration:underline;' href='http://2013.circulart.org/portafolios/portafolios-rueda-de-negocios/portafolios-perfiles-rueda-de-negocios.html?idioma=es&banner=0&num=".$grupo["id"]."' target=\"_blank\">$grupo[nombre]</a></td>";
+				if($tipo=="teatro"){
+				echo "<td class='linea'><a style='border:none; padding:0px; color:#ccc; text-decoration:underline;' href='http://via.festivaldeteatro.com.co/perfil.php?n=".$grupo["id"]."' target=\"_blank\">$grupo[nombre]</a></td>";}
+				if($tipo=="danza"){
+				echo "<td class='linea'><a style='border:none; padding:0px; color:#ccc; text-decoration:underline;' href='http://via.festivaldeteatro.com.co/perfilt.php?n=".$grupo["id"]."' target=\"_blank\">$grupo[nombre]</a></td>";}
 				echo "<td class='linea'>$cita[mesa]</td>";
 				if($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==1) $estado="<span class='confirmado'>Aceptada</span>";
 				elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==0) $estado="<span class='porconfirmar'>Por confirmar</span>";
@@ -1547,6 +1549,7 @@ function detalle_mercado($frm){
 			$qGrupo=$db->sql_query("SELECT * FROM grupos_$frm[tipo] WHERE id='$frm[id_artista]'");
 			$grupo=$db->sql_fetchrow($qGrupo);
 			$string.= '<div class="nombre_profesional">Bienvenido artista / grupo: '.$grupo["nombre"].'<a href="index.php?modo=login"><div>Salir [X]</div></a></div><br>';
+			$string.='<div style="margin-left:5px; margin-top:-17px; color:#FF0"><strong>Señor artista recuerde que tiene como máximo 6 citas por día, en total 18 durante el proceso de agendamiento.</strong></div>';
 			$string.= "<br><a id='lista_portafolios_dos' href='index.php?act=1&tipo=musica&modo=agenda&tipo=$tipo&id_mercado=".$CFG->mercado."&id_artista=".$grupo["id"]."&mercado=".$CFG->mercado."'>Profesionales</a><a id='miAgenda' href='index.php?act=2&modo=agenda&tipo=$tipo&id_mercado=".$CFG->mercado."&id_artista=".$grupo["id"]."&mercado=".$CFG->mercado."'>Administraci&oacute;n de mi agenda</a><p></p>";
 		}
 		elseif($frm["mode"]=="agenda_promotor"){
@@ -1635,7 +1638,7 @@ function listar_grupos($frm){
 	echo "<a id='miAgenda' href='index.php?act=2&modo=agenda&id_mercado=".$CFG->mercado."&id_promotor=".$promotor["id"]."&mercado=".$CFG->mercado."'>Administraci&oacute;n de mi agenda</a>";
 	
 	//codigo que muestra a los grupos o artistas en la parte del Profesional
-	echo "<br><br><div id='contenido_lista' ><div>Artistas:</div>";
+	echo "<br><br><div id='contenido_lista' ><div>Artista:</div>";
 	$j=1;
 	echo "\n<table>";
 	echo "<tr><td>";
@@ -1651,7 +1654,8 @@ function listar_grupos($frm){
 		");
 		if($grupo=$db->sql_fetchrow($qImagen)){
 		//codigo nuevo 
-		  if($grupo["id"]!=1555){
+		  if($grupo["nombre"]!="grupo de prueba4"){
+			  if($grupo["nombre"]!="pruebadanza"){
 			$link=simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=agenda_artista&tipo=$tipo&id_artista=$grupo[id]&id_mercado=$frm[id_mercado]&act=0&id_promotor=$_GET[id_promotor]";
 			echo "<table class='items' border='0' cellspacing='0' cellpadding='0' ><tr><td>";
 			echo "<a style=\"text-align:left; border:none; background:none; cursor:pointer;\" onclick=\"artistas('".$link."')\" title=\"Ver agenda y perfil del artista\">";
@@ -1659,6 +1663,7 @@ function listar_grupos($frm){
 			echo "</a>&nbsp;";
 			echo "</td></tr></table>";
 			$j++;
+			}
 		   }
 		}
 	}

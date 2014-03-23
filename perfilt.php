@@ -144,7 +144,7 @@
                 <div class="ocultar">
                 <div><a id="mp">Perfil</a><hr></div>
                 <div>Obras:</div>
-	        	<ul class="members">       		
+	        	<ul class="members" style="width:350px;">       		
 		        	<?php 
 					$qGrupos=$db->consulta("SELECT gt.* FROM grupos_danza gt where id='".$_GET["n"]."'");
 					$r=0;
