@@ -75,7 +75,7 @@
                     </button>
                     <ul class="menus">
                         <li><a href="index.php"><span class="activate" >es</span></a></li>
-                        <li><a href="en.php"><span>en</span></a></li>
+                        <li><a href="en.php"><!--<span>en</span>-->&nbsp;</a></li>
                     </ul>
                     <figure id="logo">
                     <a href="http://www.festivaldeteatro.com.co" target="_blank">
@@ -84,8 +84,8 @@
                     <nav>                  
                         
                             <a href="index.php">Programación<span>Agenda</span></a>
-                            <a href="http://via.festivaldeteatro.com.co/m/index.php?modo=inscripciones">Artistas<span>Artists</span></a>
-                            <a href="http://via.festivaldeteatro.com.co/m/index.php?modo=insPro">Profesionales<span>Professionals</span></a>
+                            <a href="http://via.festivaldeteatro.com.co/artistas.php">Artistas<span>Artists</span></a>
+                            <a href="http://via.festivaldeteatro.com.co/profesionales.php">Profesionales<span>Professionals</span></a>
                             <a href="http://www.bogota.gov.co/" target="_blank">Info Bogotá<span>Bogotá</span></a>
                             <a href="contacto.php">Contacto<span>Contact</span></a>
                         
@@ -120,8 +120,8 @@
             </figure>
         </div>
         <div class="title">
-            <h2>Registro para profesionales</h2>
-                <a class="" href="http://via.festivaldeteatro.com.co/m">REGISTRARME</a>
+            <h2>AGENDAMIENTO</h2>
+                <a class="" href="http://via.festivaldeteatro.com.co/m/index.php?modo=login">INGRESAR</a>
                 <!--<h2>Registro para Artistas</h2>
                 <a class="" href="http://via.festivaldeteatro.com.co/m/index.php?modo=inscripciones">REGISTRARME</a>-->
                 <h1>via</h1>

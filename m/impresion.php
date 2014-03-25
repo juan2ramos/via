@@ -1,10 +1,10 @@
 <?
 include("application.php");
-if(!isset($_SESSION[$CFG->sesion]["user"]["id_nivel"]) && !isset($_SESSION[$CFG->sesion_admin]["user"]["id_nivel"])){
+/*if(!isset($_SESSION[$CFG->sesion]["user"]["id_nivel"]) && !isset($_SESSION[$CFG->sesion_admin]["user"]["id_nivel"])){
 	$goto = "login.php";
 	header("Location: $goto");
 	die();
-}
+}*/
 $frm=$_GET;
 setlocale (LC_TIME, "es_ES");
 include("templates/header_impresion.php");
@@ -67,7 +67,7 @@ GLOBAL $CFG, $db, $ME;
 				$arrayCitas[$fecha][$hora].=" (Mesa " . $numMesapromotor["mesa"] . ")";
 			}			
 
-			$desde+=60*15;
+			$desde+=60*20;
 		}
 	}
 	
@@ -78,7 +78,7 @@ GLOBAL $CFG, $db, $ME;
 	$string.="</b></td></tr>";
 	$string.="<tr><th>Hora</th>";
 	foreach($arrayDias AS $key=>$val){
-		$string.="<th>" . strftime("%B %e de %Y",strtotime($key)) . "</th>";
+		$string.="<th>" . strftime("%B %d de %Y",strtotime($key)) . "</th>";
 	}
 	$string.="</tr>\n";
 	foreach($arrayHoras AS $key=>$val){
@@ -205,7 +205,7 @@ GLOBAL $CFG, $db, $ME;
 			}			
 					
 
-			$desde+=60*15;
+			$desde+=60*20;
 		}
 	}
 	
@@ -216,7 +216,7 @@ GLOBAL $CFG, $db, $ME;
 	$string.="</b></td></tr>";
 	$string.="<tr><th>Hora</th>";
 	foreach($arrayDias AS $key=>$val){
-		$string.="<th>" . strftime("%B %e de %Y",strtotime($key)) . "</th>";
+		$string.="<th>" . strftime("%B %d de %Y",strtotime($key)) . "</th>";
 	}
 	$string.="</tr>\n";
 	foreach($arrayHoras AS $key=>$val){

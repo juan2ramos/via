@@ -8,7 +8,7 @@
                     </button>
                     <ul class="menus">
                         <li><a href="index.php"><span class="activate" >es</span></a></li>
-                        <li><a href="en.php"><span>en</span></a></li>
+                        <li><a href="en.php"><!--<span>en</span>-->&nbsp;</a></li>
                     </ul>
                     <figure id="logo">
                     <a href="http://www.festivaldeteatro.com.co" target="_blank">
@@ -17,10 +17,10 @@
                     <nav>
 
                             <a href="index.php">Programación<span>Agenda</span></a>
-                            <a href="http://via.festivaldeteatro.com.co/m/index.php?modo=inscripciones">Artistas<span>Artists</span></a>
-                            <a href="http://via.festivaldeteatro.com.co/m/index.php?modo=insPro">Profesionales<span>Professionals</span></a>
+                            <a href="http://via.festivaldeteatro.com.co/artistas.php">Artistas<span>Artists</span></a>
+                            <a href="http://via.festivaldeteatro.com.co/profesionales.php">Profesionales<span>Professionals</span></a>
                             <a target="_blank" href="http://www.bogota.gov.co/">Info Bogotá<span>Bogotá</span></a>
-                            <a href="contacto.php" class="activate">Contacto<span>Contact</span></a>
+                            <a href="contacto.php">Contacto<span>Contact</span></a>
 
                     </nav>
                     <ul class="menus network">
