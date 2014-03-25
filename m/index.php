@@ -67,7 +67,7 @@ else $tipo="teatro";
         
         <section >
         
-             <div class="titulo_page">AGENDAMIENTO</div>
+             <div class="titulo_page" style="text-align:center">AGENDAMIENTO</div>
         
         
              <div class="interna">
