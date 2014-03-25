@@ -66,7 +66,10 @@ else $tipo="teatro";
         </header>
         
         <section >
-             <div class="titulo_page">REGISTRO - REGISTRATION</div>
+        
+             <div class="titulo_page">AGENDAMIENTO</div>
+        
+        
              <div class="interna">
  			 <?php
                 if($frm["modo"]=="perfil"|| $frm["modo"]=="obras" || $frm["modo"]=="fotografias" || $frm["modo"]=="videos" || $frm["modo"]=="eventos"){ 
