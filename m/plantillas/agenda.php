@@ -393,8 +393,8 @@ if($id_nivel=="10"){//Promotor
 				$template.= "www.festivaldeteatro.com.co\n<br>";
 				$template.= "\n<br>";
 				$mail->Body = $template;
-				$mail->AddAddress("cesarvalencia11@gmail.com", '');
-				//$mail->AddAddress($result["email"], '');
+				//$mail->AddAddress("cesarvalencia11@gmail.com", '');
+				$mail->AddAddress($result["email"], '');
 				//$mail->AddCC('via@festivaldeteatro.com.co', '');
 				if($result["email"]!=""){
 				 $mail->Send(); 
