@@ -532,6 +532,7 @@ function revisar(frm){
                     <option value="1" <?php if($propuesta["id_pais"]==1){echo "selected";}else{}?>>Argentina</option>
                     <option value="2" <?php if($propuesta["id_pais"]==1){echo "selected";}else{}?>>Bolivia</option>
                     <option value="23" <?php if($propuesta["id_pais"]==23){echo "selected";}else{}?> >Brasil</option>
+                    <option value="23" <?php if($propuesta["id_pais"]==25){echo "selected";}else{}?> >Canada</option>
                     <option value="3" <?php if($propuesta["id_pais"]==3){echo "selected";}else{}?>>Chile</option>
                     <option value="4" <?php if($propuesta["id_pais"]==4){echo "selected";}else{}?>>Colombia</option>
                     <option value="5" <?php if($propuesta["id_pais"]==5){echo "selected";}else{}?>>Costa Rica</option>
