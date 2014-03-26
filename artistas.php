@@ -63,7 +63,7 @@
                     <?php }else{ ?>
                         <div id="imagen"><img src="http://via.festivaldeteatro.com.co/m/images/noimagen.png" border="0"></div>
                     <?php } ?>
-                    <div id="marca"><?  echo $gm["id"];?> PORTAFOLIOS</div>
+                    <div id="marca">PORTAFOLIOS</div>
                     <div id="pais_genero"><?php
 					    //busqueda del pais
 						$arrayPais=$db->consulta("SELECT * FROM paises WHERE id='".$gm["id_pais"]."'");

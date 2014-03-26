@@ -112,10 +112,15 @@
 						$c=0;
 						$contObras="";
 						while($datos_obras=mysql_fetch_array($obrasD)){
+							$archivosObra = $db->consulta("SELECT * FROM archivos_obras_teatro WHERE id_obras_teatro ='".$datos_obras["id"]."' and tipo='1'");
+							$nameArchivo="";
+							while($archivo=mysql_fetch_array($archivosObra)){
+	$nameArchivo.="<li><span class='caption'><img src='http://circulart.org/phpThumb/phpThumb.php?src=/home/redlat/public_html/circulart/tmp/".$archivo["id"]."_teatro_a_".$archivo["mmdd_archivo_filename"]."' width='250'></span></li>";
+	}
 							if($c==0){
-								if($datos_obras["obra"]!="")$contObras.="<div class='obras' id='obras_$c'><div class='espacio'>".utf8_encode($datos_obras["obra"])."<hr></div>";
+								if($datos_obras["obra"]!="")$contObras.="<div class='obras' id='obras_$c'><div class='espacio'>".utf8_encode($datos_obras["obra"])."<hr></div><div class='carousel'><div class='slider slider-reservas'><ul class='slides'>".$nameArchivo."</ul></div></div>";
 							}else{
-								if($datos_obras["obra"]!="")$contObras.="<div class='obras' id='obras_$c'><div class='espacio'>".utf8_encode($datos_obras["obra"])."<hr></div>";}
+								if($datos_obras["obra"]!="")$contObras.="<div class='obras' id='obras_$c'><div class='espacio'>".utf8_encode($datos_obras["obra"])."<hr></div><div class='carousel'><div class='slider slider-reservas'><ul class='slides'>".$nameArchivo."</ul></div></div>";}
 								if($datos_obras["resena"]!="")$contObras.="<div class='text'>".utf8_encode($datos_obras["resena"])."<br><br></div>";
 								if($datos_obras["anio"]!="")$contObras.="<div class='text'><strong>Año:</strong> ".utf8_encode($datos_obras["anio"])."<hr></div>";
 								if($datos_obras["autor"]!="")$contObras.="<div class='text'><strong>Autor:</strong> ".utf8_encode($datos_obras["autor"])."<hr></div>";
