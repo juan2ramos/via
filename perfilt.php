@@ -113,9 +113,9 @@
 						$contObras="";
 						while($datos_obras=mysql_fetch_array($obrasD)){
 							$archivosObra = $db->consulta("SELECT * FROM archivos_obras_teatro WHERE id_obras_teatro ='".$datos_obras["id"]."' and tipo='1'");
-							$nameArchivo="<div class='carousel'><div class='slider slider-reservas'><ul class='slides'>";
+							$nameArchivo="<div class='carousel'><div class='slider slider-reservas' style='height:300px'><ul class='slides'>";
 							while($archivo=mysql_fetch_array($archivosObra)){
-	$nameArchivo.="<li style='height:250px'><span class='caption'><img src='http://circulart.org/phpThumb/phpThumb.php?src=/home/redlat/public_html/circulart/tmp/".$archivo["id"]."_teatro_a_".$archivo["mmdd_archivo_filename"]."' width='250'></span></li>";
+	$nameArchivo.="<li><span class='caption'><img src='http://circulart.org/phpThumb/phpThumb.php?src=/home/redlat/public_html/circulart/tmp/".$archivo["id"]."_teatro_a_".$archivo["mmdd_archivo_filename"]."' width='250'></span></li>";
 	}
 		$nameArchivo.="</ul></div></div>";
 					        if($c==0){
