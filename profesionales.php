@@ -65,7 +65,7 @@
 					<?php }?>
                     <div id="marca">PORTAFOLIOS</div>
                     <div id="pais_genero"><?php echo utf8_encode($gm["pais"])." / ".utf8_encode($nombreEmpresa); ?></div>
-                    <div id="nombre"><?=utf8_encode($gm["nombre"])."".utf8_encode($gm["apellido"]);?></div>
+                    <div id="nombre"><?=utf8_encode($gm["nombre"])." ".utf8_encode($gm["apellido"]);?></div>
                     </div>
                     </a>
                 <?php
