@@ -7,7 +7,7 @@
 <html lang="es">
     <head> 
 
-        <title>Via2</title>
+        <title>Via</title>
 
         <!-- Meta -->
         <meta charset="utf-8">
