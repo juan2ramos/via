@@ -77,7 +77,7 @@
 				    echo utf8_encode($enlace)?><hr></div>
                   <div id="trayectoria" class="text"><strong>trayectoria: </strong><a href="http://circulart.org/admin/fileFS.php?table=grupos_teatro&field=trayectoria&id=<?=$gt["id"]?>">ver</a><hr></div>
                   <div id="resena" class="text"><strong>Reseña: </strong><hr> <?=utf8_encode($gt["resena_corta"])?></div>
-                  <div id="resena" class="text"><br><br>/<?=utf8_encode($gt["en_resena_corta"])?></div>
+                  <div id="resena" class="text"><br><br>/ <?=utf8_encode($gt["en_resena_corta"])?></div>
                   <div id="cont_redes">
                     <div id="redes">
                       <div class="r"><?
