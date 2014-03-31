@@ -28,5 +28,5 @@ td
 </head>
 
 <body>
-<p><img src="images/cabezote_mercado_23.jpg" width="884" height="139" /></p>
+<p><img src="images/cabezote_mercado_<?=$frm["id_mercado"]?>.jpg" width="884" height="139" /></p>
 
