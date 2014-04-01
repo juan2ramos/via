@@ -117,7 +117,7 @@ function verify_login($username, $password) {
 <? if (isset($errormsg)) echo $errormsg; ?>
 	     
 <form id="login" name="login" method="post" action="<?=$ME?>?mercado=<?=$mercado?>">
-	<input type="hidden" name="modo" value="login" />
+	<input type="hidden" name="modo" value="login" /><!--
 	<table width="285" border="0" align="left" cellpadding="5" cellspacing="5" style="margin-left:40px;">
     	<tr>
         	<td width="90" align="right" scope="col">
@@ -135,7 +135,7 @@ function verify_login($username, $password) {
             <td align="right"><label><input type="submit" value="Entrar"  style="cursor:pointer" id="button"/></label></td>
         </tr>
         
-  </table>
+  </table>-->
 </form></td>
   </tr>
 </table>
