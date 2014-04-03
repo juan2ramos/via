@@ -112,7 +112,7 @@
 					$obrasD = $db->consulta("SELECT * FROM obras_teatro WHERE id_grupos_teatro ='".$gt["id"]."' ORDER BY anio DESC");
 					while($datos_obras=mysql_fetch_array($obrasD)){$cont++;}
 					
-					//if($cont!=0){
+					if($cont!=0){
 						$obrasD = $db->consulta("SELECT * FROM obras_teatro WHERE id_grupos_teatro ='".$gt["id"]."' ORDER BY anio DESC");
 						$c=0;
 						$contObras="";
@@ -127,7 +127,7 @@
 							$nameVideo="";
 							while($videos=mysql_fetch_array($videosObra)){
 	$nameVideo.="<div style='margin-bottom:30px;'><div>".$videos["url"]."</div></div>";
-	//}
+	}
 	
 	
 	
