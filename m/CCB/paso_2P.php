@@ -263,7 +263,7 @@ textarea{
             <td width="39" rowspan="2" align="left" valign="top">&nbsp;</td>
             <td align="left" valign="top"><span>* </span>pasaporte<strong style="font-size:14px"> <br />
 -            passport</strong></td>
-            <td width="451" align="left" valign="top"><input name="pasaporte" type="text" id="pasaporte" size="50" value="<?=nvl($frm["pasaporte"])?>" onkeypress="return sololetras(event)" onblur="limpia()" /></td>
+            <td width="451" align="left" valign="top"><input name="pasaporte" type="text" id="pasaporte" size="50" value="<?=nvl($frm["pasaporte"])?>"/></td>
           </tr>
           <tr>
             <td align="left" valign="top"><span>* </span>Nombre<strong style="font-size:14px"> <br />
