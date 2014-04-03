@@ -109,15 +109,14 @@
                  </div>
 				 <?php 
 					$cont=0;
-					$obrasD = $db->consulta("SELECT * FROM obras_teatro WHERE id_grupos_teatro ='".$gt["id"]."'ORDER BY anio DESC");
+					$obrasD = $db->consulta("SELECT * FROM obras_teatro WHERE id_grupos_teatro ='".$gt["id"]."' ORDER BY anio DESC");
 					while($datos_obras=mysql_fetch_array($obrasD)){$cont++;}
 					
-					if($cont!=0){
-						$obrasD = $db->consulta("SELECT * FROM obras_teatro WHERE id_grupos_teatro ='".$gt["id"]."'ORDER BY anio DESC");
+					//if($cont!=0){
+						$obrasD = $db->consulta("SELECT * FROM obras_teatro WHERE id_grupos_teatro ='".$gt["id"]."' ORDER BY anio DESC");
 						$c=0;
 						$contObras="";
 						while($datos_obras=mysql_fetch_array($obrasD)){
-							
 							$archivosObra = $db->consulta("SELECT * FROM archivos_obras_teatro WHERE id_obras_teatro ='".$datos_obras["id"]."' and tipo='1'");
 							$nameArchivo="";
 							while($archivo=mysql_fetch_array($archivosObra)){
@@ -128,7 +127,7 @@
 							$nameVideo="";
 							while($videos=mysql_fetch_array($videosObra)){
 	$nameVideo.="<div style='margin-bottom:30px;'><div>".$videos["url"]."</div></div>";
-	}
+	//}
 	
 	
 	
