@@ -49,7 +49,7 @@ else $tipo="teatro";
                 <div id="logo"><a href="http://festivaldeteatro.com.co/" target="_blank"><img src="images/logo-festival-teatro.jpg" alt="XIV Festival iberoamericano de teatro de bogotá" borde="0" /></a></div>
                 <nav>                  
                     
-                        <a href="../index.php">Programaci&oacute;n<span>Agenda</span></a>
+                        <a href="../pdf/Prog_VIA.pdf" target="_blank">Programaci&oacute;n<span>Agenda</span></a>
 						<a href="../artistas.php">Artistas<span>Artists</span></a>
                         <a href="../profesionales.php">Profesionales<span>Professionals</span></a>
                         <a href="http://www.bogota.gov.co/" target="_blank">Info Bogot&aacute;<span>Bogot&aacute;</span></a>

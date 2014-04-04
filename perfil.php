@@ -77,6 +77,7 @@
 				    echo utf8_encode($enlace)?><hr></div>
                   <div id="trayectoria" class="text"><strong>trayectoria: </strong><a href="http://circulart.org/admin/fileFS.php?table=grupos_teatro&field=trayectoria&id=<?=$gt["id"]?>">ver</a><hr></div>
                   <div id="resena" class="text"><strong>Reseña: </strong><hr> <?=utf8_encode($gt["resena_corta"])?></div>
+                  <div id="resena" class="text"><br><br>/ <?=utf8_encode($gt["en_resena_corta"])?></div>
                   <div id="cont_redes">
                     <div id="redes">
                       <div class="r"><?
@@ -108,35 +109,25 @@
                  </div>
 				 <?php 
 					$cont=0;
-					$obrasD = $db->consulta("SELECT * FROM obras_teatro WHERE id_grupos_teatro ='".$gt["id"]."'ORDER BY anio DESC");
+					$obrasD = $db->consulta("SELECT * FROM obras_teatro WHERE id_grupos_teatro ='".$gt["id"]."' ORDER BY anio DESC");
 					while($datos_obras=mysql_fetch_array($obrasD)){$cont++;}
 					
 					if($cont!=0){
-						$obrasD = $db->consulta("SELECT * FROM obras_teatro WHERE id_grupos_teatro ='".$gt["id"]."'ORDER BY anio DESC");
+						$obrasD = $db->consulta("SELECT * FROM obras_teatro WHERE id_grupos_teatro ='".$gt["id"]."' ORDER BY anio DESC");
 						$c=0;
 						$contObras="";
 						while($datos_obras=mysql_fetch_array($obrasD)){
+							 $nameArchivo="";
+					         $nameVideo="";
 							
-							$archivosObra = $db->consulta("SELECT * FROM archivos_obras_teatro WHERE id_obras_teatro ='".$datos_obras["id"]."' and tipo='1'");
-							$nameArchivo="";
-							while($archivo=mysql_fetch_array($archivosObra)){
-	$nameArchivo.="<div style='margin-bottom:30px;'><div><img src='http://2013.circulart.org/m/admin/imagen.php?table=archivos_obras_teatro&amp;field=archivo&amp;id=".$archivo["id"]."' width='570px;'></div><div style='margin-top:-49px; padding:10px; text-align: left; background-color: black; position: relative; opacity: .8; width: 570px; font-size: 16px;'>".utf8_encode($archivo["etiqueta"])."</div></div>";
-	}
-	
-	$videosObra = $db->consulta("SELECT * FROM archivos_obras_teatro WHERE id_obras_teatro ='".$datos_obras["id"]."' and tipo='3'");
-							$nameVideo="";
-							while($videos=mysql_fetch_array($videosObra)){
-	$nameVideo.="<div style='margin-bottom:30px;'><div>".$videos["url"]."</div></div>";
-	}
-	
-	
-	
-	
+							
+
 							if($c==0){
 								if($datos_obras["obra"]!="")$contObras.="<div class='obras' id='obras_$c'><div class='espacio'>".utf8_encode($datos_obras["obra"])."<hr></div>";
 							}else{
 								if($datos_obras["obra"]!="")$contObras.="<div class='obras' id='obras_$c'><div class='espacio'>".utf8_encode($datos_obras["obra"])."<hr></div>";}
 								if($datos_obras["resena"]!="")$contObras.="<div class='text'>".utf8_encode($datos_obras["resena"])."<br><br></div>";
+								if($datos_obras["en_resena"]!="")$contObras.="<div class='text'>/ ".utf8_encode($datos_obras["en_resena"])."<br><br></div>";
 								if($datos_obras["anio"]!="")$contObras.="<div class='text'><strong>Año:</strong> ".utf8_encode($datos_obras["anio"])."<hr></div>";
 								if($datos_obras["autor"]!="")$contObras.="<div class='text'><strong>Autor:</strong> ".utf8_encode($datos_obras["autor"])."<hr></div>";
 								if($datos_obras["duracion"]!="")$contObras.="<div class='text'><strong>Duración:</strong> ".utf8_encode($datos_obras["duracion"])."<hr></div>";
@@ -149,11 +140,26 @@
 								if($datos_obras["direccion_regreso"]!="")$contObras.="<div class='text'><strong>Dirección regreso:</strong> ".utf8_encode($datos_obras["direccion_regreso"])."<hr></div>";
 								if($datos_obras["espacio"]!="")$contObras.="<div class='text'><strong>Espacio:</strong> ".utf8_encode($datos_obras["espacio"])."<hr></div>";
 								if($datos_obras["iluminacion"]!="")$contObras.="<div class='text'><strong>Iluminación:</strong> ".utf8_encode($datos_obras["iluminacion"])."<hr></div>";
-								if($datos_obras["sonido"]!="")$contObras.="<div class='text'><strong>Sonido:</strong> ".utf8_encode($datos_obras["sonido"])."<hr></div>".$nameArchivo.$nameVideo;
+								if($datos_obras["sonido"]!="")$contObras.="<div class='text'><strong>Sonido:</strong> ".utf8_encode($datos_obras["sonido"])."<hr></div>";
+
+								$archivosObra = $db->consulta("SELECT * FROM archivos_obras_teatro WHERE id_obras_teatro ='".$datos_obras["id"]."' and tipo='1'");
+							
+								while($archivo=mysql_fetch_array($archivosObra)){
+		$contObras.="<div style='margin-bottom:30px;'><div><img src='http://2013.circulart.org/m/admin/imagen.php?table=archivos_obras_teatro&amp;field=archivo&amp;id=".$archivo["id"]."' width='570px;'></div><div style='margin-top:-49px; padding:10px; text-align: left; background-color: black; position: relative; opacity: .8; width: 570px; font-size: 16px;'>".utf8_encode($archivo["etiqueta"])."</div></div>";
+		}
+	
+								$videosObra = $db->consulta("SELECT * FROM archivos_obras_teatro WHERE id_obras_teatro ='".$datos_obras["id"]."' and tipo='3'");
+								
+								while($videos=mysql_fetch_array($videosObra)){
+		$contObras.="<div style='margin-bottom:30px;'><div>".$videos["url"]."</div></div>";
+		}
+								
+								//echo $nameArchivo.$nameVideo;
 								$contObras.="</div>";
 							$c++;
 						}
 					   echo $contObras;
+					  
 					}
 				  }
 				}

@@ -79,11 +79,11 @@ function revisar(frm){
 		return(false);
 	}
 	
-	if(frm.nit.value.replace(/ /g, '') ==''){
+	/*if(frm.nit.value.replace(/ /g, '') ==''){
 		window.alert('Por favor ingrese el nit de la empresa');
 		frm.nit.focus();
 		return(false);
-	}
+	}*/
 	
 	if(frm.telefono_emp.value.replace(/ /g, '') ==''){
 		window.alert('Por favor ingrese el teléfono de la empresa');
@@ -247,8 +247,8 @@ textarea{
               <strong>- personal data </strong><div></td>
           </tr>
           <tr>
-            <td rowspan="5" align="left" valign="top">&nbsp;</td>
-            <td colspan="2" rowspan="4" align="left" valign="top"><iframe src="http://redlat.org/via/m/codigos/imagen.php?item=<?=$frm["id_programador"]?>" width="100%" height="300px" frameborder="0" scrolling="yes"></iframe></td>
+            <td rowspan="6" align="left" valign="top">&nbsp;</td>
+            <td colspan="2" rowspan="5" align="left" valign="top"><iframe src="http://redlat.org/via/m/codigos/imagen.php?item=<?=$frm["id_programador"]?>" width="100%" height="300px" frameborder="0" scrolling="yes"></iframe></td>
             <td width="39" align="left" valign="top">&nbsp;</td>
             <td colspan="2" align="left" valign="top"><span> * </span>Sr - <strong>Mr </strong>
             <? 
@@ -260,9 +260,14 @@ textarea{
             </td>
           </tr>
           <tr>
-            <td width="39" align="left" valign="top">&nbsp;</td>
-            <td align="left" valign="top"><span> * </span>Nombre<strong style="font-size:14px"> <br />
-            -            Name</strong></td>
+            <td width="39" rowspan="2" align="left" valign="top">&nbsp;</td>
+            <td align="left" valign="top"><span>* </span>pasaporte<strong style="font-size:14px"> <br />
+-            passport</strong></td>
+            <td width="451" align="left" valign="top"><input name="pasaporte" type="text" id="pasaporte" size="50" value="<?=nvl($frm["pasaporte"])?>"/></td>
+          </tr>
+          <tr>
+            <td align="left" valign="top"><span>* </span>Nombre<strong style="font-size:14px"> <br />
+-            Name</strong></td>
             <td width="451" align="left" valign="top"><input name="nombre" type="text" id="nombre" size="50" value="<?=nvl($frm["nombre"])?>" onkeypress="return sololetras(event)" onblur="limpia()" /></td>
           </tr>
           <tr>
@@ -457,7 +462,7 @@ textarea{
 							<td width="165"><span> * </span>Tipo de Entidad <br /><b>- Entity Type</b></td>
 							<td width="406"><select name="id_naturaleza"><?=$naturalezasOptions;?></select></td></tr>
 							<tr>
-							<td><span> * </span>Nit <br />
+							<td>Nit <br />
                               <b>- ID Institution</b></td><td><input size="30" type="text" name="nit" value="<?=$empresa["nit"]?>" onkeypress="return numeros(event)" onblur="limpia()"/></td></tr>
 							<tr>
 							  <td height="125" valign="top"><span> * </span>Direcci&oacute;n <br />

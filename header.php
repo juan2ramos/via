@@ -16,7 +16,7 @@
                     </figure>
                     <nav>
 
-                            <a href="index.php">Programación<span>Agenda</span></a>
+                            <a href="pdf/Prog_VIA.pdf" target="_blank">Programación<span>Agenda</span></a>
                             <a href="http://via.festivaldeteatro.com.co/artistas.php">Artistas<span>Artists</span></a>
                             <a href="http://via.festivaldeteatro.com.co/profesionales.php">Profesionales<span>Professionals</span></a>
                             <a target="_blank" href="http://www.bogota.gov.co/">Info Bogotá<span>Bogotá</span></a>

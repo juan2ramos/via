@@ -903,9 +903,9 @@ function mostrar_agenda_promotor_promotor($frm){
 						WHERE (id_promotor='" . $_SESSION[$CFG->sesion]["user"]["id"] . "' OR id_promotor='$frm[id_promotor]') AND desde='" . date("Y-m-d H:i:00",$desde) . "'
 					");
 					if($db->sql_numrows($qBloqueo)!=0){//Horario bloqueado
-					    echo "<tr class='linea' style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 14px; height: 35px;'><th scope=\"row\" style='text-align:left'>" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
-						echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 14px; height: 35px;'><strong>Bloqueado</strong></th>";
-						echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 14px; height: 35px;'><strong>Bloqueado</strong></th>\n";
+					    echo "<tr class='linea' style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 14px; height: 50px;'><th scope=\"row\" style='text-align:left'>" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
+						echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 14px; height: 50px; '><strong>Bloqueado</strong></th>";
+						echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 14px; height: 50px; '><strong>Bloqueado</strong></th>\n";
 					}
 					else{
 						$qCita=$db->sql_query("
@@ -1015,9 +1015,9 @@ $promotores=$db->sql_row("SELECT * FROM promotores WHERE id='$_GET[id_promotor2]
 						WHERE (id_promotor='" . $_SESSION[$CFG->sesion]["user"]["id"] . "' OR id_promotor='$frm[id_promotor2]') AND desde='" . date("Y-m-d H:i:00",$desde) . "'
 					");
 					if($db->sql_numrows($qBloqueo)!=0){//Horario bloqueado
-					    echo "<tr class='linea' style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 14px; height: 35px;'><th scope=\"row\" style='text-align:left'>" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
-						echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 14px; height: 35px;'><strong>Bloqueado</strong></th>";
-						echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 14px; height: 35px;'><strong>Bloqueado</strong></th>\n";
+					    echo "<tr class='linea' style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 14px; height: 50px;'><th scope=\"row\" style='text-align:left'>" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
+						echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 14px; height: 50px; '><strong>Bloqueado</strong></th>";
+						echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 14px; height: 50px; '><strong>Bloqueado</strong></th>\n";
 					}
 					else{
 						$qCita=$db->sql_query("
@@ -1450,13 +1450,13 @@ function mostrar_agenda_promotor($frm){
 				else{
 					$qBloqueo=$db->sql_query("SELECT * FROM excepciones_agenda WHERE id_promotor='$frm[id_promotor]' AND desde='" . date("Y-m-d H:i:00",$desde) . "'");
 					if($db->sql_numrows($qBloqueo)!=0){//Horario bloqueado
-					    echo "<tr style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 16px; height: 35px;'><th scope=\"row\">" . strftime("%H:%M ",$desde) . date("a",$desde);
+					    echo "<tr style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 16px; height: 50px;'><th scope=\"row\">" . strftime("%H:%M ",$desde) . date("a",$desde);
 						echo "&nbsp;&nbsp;<a style='border:none; background:none; text-decoration:underline; color:#ccc' href=\"" . simple_me($ME) . "?act=2&mercado=".$CFG->mercado."&modo=agenda&mode=desbloquear_agenda_promotor&fecha=" . urlencode($desde) . "&id_promotor=$_GET[id_promotor]\" title=\"Desbloquear\">Desbloquear horario</a>";
 						echo "</th>";
-						echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 16px; height: 35px;'></th>";
-						echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 16px; height: 35px;'></th>";
-						echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 16px; height: 35px;'></th>";
-						echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 16px; height: 35px;'></th>\n";
+						echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 16px; height: 50px;'></th>";
+						echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 16px; height: 50px;'></th>";
+						echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 16px; height: 50px;'></th>";
+						echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 16px; height: 50px;'></th>\n";
 						
 					}
 					else{
@@ -1739,7 +1739,7 @@ function mostrar_agenda_grupo($frm){
 			else{
 				$qBloqueo=$db->sql_query("SELECT * FROM excepciones_agenda WHERE id_grupo_$frm[tipo]='$frm[id_grupo]' AND desde='" . date("Y-m-d H:i:00",$desde) . "'");
 				if($db->sql_numrows($qBloqueo)!=0){//Horario bloqueado
-					echo "<tr><th scope=\"row\" style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 16px; height: 35px;'>" . strftime("%H:%M ",$desde) . date("a",$desde);
+					echo "<tr><th scope=\"row\" style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 16px; height: 50px;'>" . strftime("%H:%M ",$desde) . date("a",$desde);
 					echo "&nbsp;&nbsp;<a style='color:#ccc; border:none; background:none; text-decoration:underline;' href=\"" . simple_me($ME) . "?act=2&mercado=".$CFG->mercado."&modo=agenda&mode=desbloquear_agenda_grupo&tipo=$frm[tipo]&id_artista=$frm[id_grupo]&id_mercado=$frm[id_mercado]&fecha=" . urlencode($desde) . "\" title=\"Desbloquear\">Desbloquear Horario</a>";
 					echo "</th>";
 					echo "<th style='border:none; background:#1f1f1f'></th>";
@@ -1916,9 +1916,9 @@ function mostrar_agenda_grupo_promotor($frm){
 						WHERE (id_grupo_$frm[tipo]='$frm[id_grupo]' OR id_promotor='$frm[id_promotor]') AND desde='" . date("Y-m-d H:i:00",$desde) . "'
 					");
 					if($db->sql_numrows($qBloqueo)!=0){//Horario bloqueado
-					echo "<tr><th scope=\"row\" style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 14px; height: 35px;'>" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
-					echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 14px;'>Bloqueado</th>";
-					echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 14px;'>Bloqueado</th>\n";
+					echo "<tr><th scope=\"row\" style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 14px; height: 50px;'>" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
+					echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 14px; height: 50px;'>Bloqueado</th>";
+					echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 14px; height: 50px;'>Bloqueado</th>\n";
 					}
 					else{
 						echo "<tr><th scope=\"row\" class='linea'>" . strftime("%H:%M ",$desde) . date("a",$desde) . "</th>\n";
@@ -1995,9 +1995,9 @@ function mostrar_agenda_grupo_promotor($frm){
 			else{
 				$qBloqueo=$db->sql_query("SELECT * FROM excepciones_agenda WHERE id_grupo_$frm[tipo]='$frm[id_grupo]' AND desde='" . date("Y-m-d H:i:00",$desde) . "'");
 				if($db->sql_numrows($qBloqueo)!=0){//Horario bloqueado
-				echo "<tr><th scope=\"row\" style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 14px; height: 35px;'>" . strftime("%H:%M ",$desde) . date("a",$desde);
-					echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 14px; height: 35px;'>Bloqueado</th>";
-					echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 14px; height: 35px;'>Bloqueado</th>\n";
+				echo "<tr><th scope=\"row\" style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 14px; height: 50px;'>" . strftime("%H:%M ",$desde) . date("a",$desde);
+					echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 14px; height: 50px;'>Bloqueado</th>";
+					echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 14px; height: 50px;'>Bloqueado</th>\n";
 				}
 				else{
 					echo "<tr><th scope=\"row\" class='linea'>" . strftime("%H:%M ",$desde) . date("a",$desde);
