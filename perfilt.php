@@ -113,11 +113,7 @@
 						$c=0;
 						$contObras="";
 						while($datos_obras=mysql_fetch_array($obrasD)){
-							$archivosObra = $db->consulta("SELECT * FROM archivos_obras_teatro WHERE id_obras_teatro ='".$datos_obras["id"]."' and tipo='1'");
-							$nameArchivo="";
-							while($archivo=mysql_fetch_array($archivosObra)){
-	$nameArchivo.="<img src='http://circulart.org/phpThumb/phpThumb.php?src=/home/redlat/public_html/circulart/tmp/".$archivo["id"]."_teatro_a_".$archivo["mmdd_archivo_filename"]."' width='570px;'>";
-	}
+							
 					        if($c==0){
 								if($datos_obras["obra"]!="")$contObras.="<div class='obras' id='obras_$c'><div class='espacio'>".utf8_encode($datos_obras["obra"])."<hr></div>";
 							}else{
@@ -137,6 +133,20 @@
 								if($datos_obras["espacio"]!="")$contObras.="<div class='text'><strong>Espacio:</strong> ".utf8_encode($datos_obras["espacio"])."<hr></div>";
 								if($datos_obras["iluminacion"]!="")$contObras.="<div class='text'><strong>Iluminación:</strong> ".utf8_encode($datos_obras["iluminacion"])."<hr></div>";
 								if($datos_obras["sonido"]!="")$contObras.="<div class='text'><strong>Sonido:</strong> ".utf8_encode($datos_obras["sonido"])."<hr></div>";
+								
+								$archivosObra = $db->consulta("SELECT * FROM archivos_obras_danza WHERE id_obras_danza ='".$datos_obras["id"]."' and tipo='1'");
+							
+								while($archivo=mysql_fetch_array($archivosObra)){
+									$contObras.="<div style='margin-bottom:30px;'><div><img src='http://2013.circulart.org/m/admin/imagen.php?table=archivos_obras_danza&amp;field=archivo&amp;id=".$archivo["id"]."' width='570px;'></div><div style='margin-top:-49px; padding:10px; text-align: left; background-color: black; position: relative; opacity: .8; width: 570px; font-size: 16px;'>".utf8_encode($archivo["etiqueta"])."</div></div>";
+								}
+	
+								$videosObra = $db->consulta("SELECT * FROM archivos_obras_danza WHERE id_obras_danza ='".$datos_obras["id"]."' and tipo='3'");
+								
+								while($videos=mysql_fetch_array($videosObra)){
+									$contObras.="<div style='margin-bottom:30px;'><div>".$videos["url"]."</div></div>";
+								}
+								
+								
 								$contObras.="</div>";
 							$c++;
 						}
