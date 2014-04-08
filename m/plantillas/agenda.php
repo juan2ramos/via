@@ -1411,7 +1411,7 @@ function mostrar_agenda_promotor($frm){
 				echo "<td class='linea'>$cita[mesa]</td>";
 				if($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==1) $estado="<span class='confirmado'>Aceptada</span>";
 				elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==0) $estado="<span class='porconfirmar'>Por confirmar</span>";
-				elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==1) $estado="<a href=\"" . simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=confirmar_cita_promotor".$_GET['id_promotor']."&id_cita=$cita[id]\" style='color:#ccc; text-decoration:underline'>Confirmar</a>";
+				elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==1) $estado="<a href=\"" . simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=confirmar_cita_promotor&id_promotor=".$_GET['id_promotor']."&id_cita=$cita[id]\" style='color:#ccc; text-decoration:underline'>Confirmar</a>";
 				else $estado="Eliminada";
 				echo "<td class='linea' style='text-align:center'>$estado</td>";
 				echo "<td class='linea' style='text-align: center;'><a style=\"border:none; background:none; cursor:pointer;\" href=\"" . simple_me($ME) . "?act=2&mercado=".$CFG->mercado."&modo=agenda&mode=rechazar_cita_promotor&id_cita=$cita[id]&id_promotor=$_GET[id_promotor]\"><img border=\"0\" src=\"../m/iconos/transparente/trash-x.png\"></a></td>";
