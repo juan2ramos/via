@@ -1733,30 +1733,30 @@ function mostrar_agenda_grupo($frm){
 				elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==1){ $estado="<span class='porconfirmar'>Por confirmar</span>"; $c++; $_SESSION[$CFG->sesion]["user"]["c"]=$c;}
 				elseif($cita["aceptada_promotor"]==1 && $cita["aceptada_grupo"]==0){ $estado="<a href=\"" . simple_me($ME) . "?act=2&id_mercado=$_GET[id_mercado]&id_artista=$_GET[id_artista]&tipo=musica&mercado=".$CFG->mercado."&modo=agenda&mode=confirmar_cita_grupo&id_cita=$cita[id]\" style='text-decoration:underline' class='porconfirmar'>Confirmar</a>"; $c++; $_SESSION[$CFG->sesion]["user"]["c"]=$c;}
 				echo "<td class='linea' style='text-align:center'>$estado</td>";
-				echo "<td class='linea' style='text-align: center;'><a style=\"border:none; background:none; cursor:pointer;\" href=\"" . simple_me($ME) . "?act=2&id_mercado=$_GET[id_mercado]&id_artista=$_GET[id_artista]&tipo=musica&mercado=$_GET[id_mercado]&modo=agenda&mode=rechazar_cita_grupo&id_cita=$cita[id]\"><img border=\"0\" src=\"../m/iconos/transparente/trash-x.png\"></a></td>";
+				//echo "<td class='linea' style='text-align: center;'><a style=\"border:none; background:none; cursor:pointer;\" href=\"" . simple_me($ME) . "?act=2&id_mercado=$_GET[id_mercado]&id_artista=$_GET[id_artista]&tipo=musica&mercado=$_GET[id_mercado]&modo=agenda&mode=rechazar_cita_grupo&id_cita=$cita[id]\"><img border=\"0\" src=\"../m/iconos/transparente/trash-x.png\"></a></td>";
 				
 			}
 			else{
 				$qBloqueo=$db->sql_query("SELECT * FROM excepciones_agenda WHERE id_grupo_$frm[tipo]='$frm[id_grupo]' AND desde='" . date("Y-m-d H:i:00",$desde) . "'");
 				if($db->sql_numrows($qBloqueo)!=0){//Horario bloqueado
 					echo "<tr><th scope=\"row\" style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 16px; height: 50px;'>" . strftime("%H:%M ",$desde) . date("a",$desde);
-					echo "&nbsp;&nbsp;<a style='color:#ccc; border:none; background:none; text-decoration:underline;' href=\"" . simple_me($ME) . "?act=2&mercado=".$CFG->mercado."&modo=agenda&mode=desbloquear_agenda_grupo&tipo=$frm[tipo]&id_artista=$frm[id_grupo]&id_mercado=$frm[id_mercado]&fecha=" . urlencode($desde) . "\" title=\"Desbloquear\">Desbloquear Horario</a>";
+					//echo "&nbsp;&nbsp;<a style='color:#ccc; border:none; background:none; text-decoration:underline;' href=\"" . simple_me($ME) . "?act=2&mercado=".$CFG->mercado."&modo=agenda&mode=desbloquear_agenda_grupo&tipo=$frm[tipo]&id_artista=$frm[id_grupo]&id_mercado=$frm[id_mercado]&fecha=" . urlencode($desde) . "\" title=\"Desbloquear\">Desbloquear Horario</a>";
 					echo "</th>";
 					echo "<th style='border:none; background:#1f1f1f'></th>";
 					echo "<th style='border:none; background:#1f1f1f'></th>";
 					echo "<th style='border:none; background:#1f1f1f'></th>";
-					echo "<th style='border:none; background:#1f1f1f'></th>\n";
+					//echo "<th style='border:none; background:#1f1f1f'></th>\n";
 					
 				}
 				else{
 					$_SESSION[$CFG->sesion]["user"]["c"]=$c;
 					echo "<tr><th scope=\"row\" class='linea'>" . strftime("%H:%M ",$desde) . date("a",$desde);
-					echo "&nbsp;&nbsp;<a style='color:#ccc; border:none; background:none; text-decoration:underline;' href=\"" . simple_me($ME) . "?act=2&mercado=".$CFG->mercado."&modo=agenda&mode=bloquear_agenda_grupo&tipo=$frm[tipo]&id_artista=$frm[id_grupo]&id_mercado=$frm[id_mercado]&fecha=" . urlencode($desde) . "\" title=\"Bloquear\">Bloquear horario</a>";
+					//echo "&nbsp;&nbsp;<a style='color:#ccc; border:none; background:none; text-decoration:underline;' href=\"" . simple_me($ME) . "?act=2&mercado=".$CFG->mercado."&modo=agenda&mode=bloquear_agenda_grupo&tipo=$frm[tipo]&id_artista=$frm[id_grupo]&id_mercado=$frm[id_mercado]&fecha=" . urlencode($desde) . "\" title=\"Bloquear\">Bloquear horario</a>";
 					echo "</th>\n";
 					echo "<th class='linea'></th>";
 					echo "<th class='linea'></th>";
 					echo "<th class='linea'></th>";
-					echo "<th class='linea'></th>\n";
+					//echo "<th class='linea'></th>\n";
 				}
 			}
 			echo "</tr>\n";
