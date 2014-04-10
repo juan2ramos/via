@@ -120,8 +120,8 @@
             </figure>
         </div>
         <div class="title">
-            <h2>AGENDAMIENTO</h2>
-                <a class="" href="http://via.festivaldeteatro.com.co/m/index.php?modo=login">INGRESAR</a>
+           <!-- <h2>AGENDAMIENTO</h2>
+                <a class="" href="http://via.festivaldeteatro.com.co/m/index.php?modo=login">INGRESAR</a>-->
                 <!--<h2>Registro para Artistas</h2>
                 <a class="" href="http://via.festivaldeteatro.com.co/m/index.php?modo=inscripciones">REGISTRARME</a>-->
                 <h1>via</h1>
