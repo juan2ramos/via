@@ -1500,7 +1500,7 @@ function detalle_mercado($frm){
 			$qGrupo=$db->sql_query("SELECT * FROM grupos_$frm[tipo] WHERE id='$frm[id_artista]'");
 			$grupo=$db->sql_fetchrow($qGrupo);
 			$string.= '<div class="nombre_profesional">Bienvenido artista / grupo: '.$grupo["nombre"].'<a href="index.php?modo=login"><div>Salir [X]</div></a></div><br>';
-			$string.='<div style="margin-left:5px; margin-top:-17px; color:#FF0"><strong>Se�or artista recuerde que tiene como m�ximo 6 citas por d�a, en total 18 durante el proceso de agendamiento.</strong></div>';
+			//$string.='<div style="margin-left:5px; margin-top:-17px; color:#FF0"><strong>Se�or artista recuerde que tiene como m�ximo 6 citas por d�a, en total 18 durante el proceso de agendamiento.</strong></div>';
 			$string.= "<br><a class='oculto'  id='lista_portafolios_dos' href='index.php?act=1&tipo=musica&modo=agenda&tipo=$tipo&id_mercado=".$CFG->mercado."&id_artista=".$grupo["id"]."&mercado=".$CFG->mercado."'>Profesionales</a><a id='miAgenda' class='oculto' href='index.php?act=2&modo=agenda&tipo=$tipo&id_mercado=".$CFG->mercado."&id_artista=".$grupo["id"]."&mercado=".$CFG->mercado."'>Administraci&oacute;n de mi agenda</a><p></p>";
 		}
 		elseif($frm["mode"]=="agenda_promotor"){
@@ -1667,7 +1667,7 @@ function listar_promotores($frm){
 			WHERE pa.id_area IN (SELECT id_area FROM pr_promotores_areas WHERE id_promotor='" . $id_promotor . "') 
 		)";*/
 	}
-    echo "<div id='contenido_listapro'><div>Profesionales:</div>";
+    echo "<div id='contenido_listapro' style='display: none;'><div>Profesionales:</div>";
 	$qPromotores=$db->sql_query("SELECT p.* FROM mercado_promotores mp LEFT JOIN promotores p ON mp.id_promotor=p.id WHERE $condicion ORDER BY nombre");
 	$j=1;
 	while($promotor=$db->sql_fetchrow($qPromotores)){ 
