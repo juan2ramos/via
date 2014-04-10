@@ -110,20 +110,20 @@ function verify_login($username, $password) {
         <br />
       <!--Cualquier inquietud puede comunicarse   al correo electr&oacute;nico <a href="mailto:via@festivaldeteatro.com.co" style="border:none; background:none; color:red; padding:0"><strong>via@festivaldeteatro.com.co</strong></a> asistencia a profesionales y al correo electr&oacute;nico <a href="mailto:via@circulart.org" style="border:none; background:none; color:red; padding:0"><strong>via@circulart.org</strong></a> &nbsp asistencia para artistas. </p>
 <p>&nbsp;</p>-->
-Estimados artistas participantes en VIA 2014.
+Estimados artistas participantes en VIA 2014.<br><br>
 
 En este momento se encuentra cerrado el sistema de agendamiento de citas para la Rueda de Negocios. Agradecemos a todos su inter&eacute;s. Los esperamos el pr&oacute;ximo domingo 13 de abril a partir de las 9:00 a.m. en el Edificio Residencias Tequendama, piso 30 (Centro Internacional)
 Les recordamos que las citas que no fueron eliminadas o declinadas, el sistema las acept&oacute; autom&aacute;ticamente. En un lapso de 24 horas estar&aacute;n recibiendo su agenda definitiva v&iacute;a correo electr&oacute;nico.
-Saludos, 
+Saludos, <br><br>
 
 Equipo VIA 2014
 
 <hr>
 
-Dear VIA 2014 Professionals and Artists,
+Dear VIA 2014 Professionals and Artists,<br>
 The system for appointment scheduling in the Business Matchmaking is closed. We thank everyone for your interest. We hope to see you next Sunday, April 13th at 8:30 am in the Tequendama Suites Building, 30th floor (International Centre).
 Remember that the citations that were not eliminated or declined, the system will automatically accept them. In a period of 24 hours you must be receiving an e-mail with your final agenda.
-Best regards,
+Best regards,<br>
 VIA 2014 Team
 
     </div>
