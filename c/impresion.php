@@ -103,7 +103,7 @@ GLOBAL $CFG, $db, $ME;
 
 	setlocale (LC_TIME, "es_ES");
 	$qDatosBasicos=$db->sql_query("
-		SELECT CONCAT(prom.nombre, ' ', prom.apellido) as promotor, m.nombre as mercado
+		SELECT CONCAT(prom.nombre, ' ', prom.apellido) as promotor, m.nombre as mercado, mp.mesa as mesa
 		FROM mercado_promotores mp LEFT JOIN mercados m ON mp.id_mercado=m.id
 			LEFT JOIN promotores prom ON mp.id_promotor=prom.id
 		WHERE mp.id_promotor='$frm[id_promotor]' AND mp.id_mercado='$frm[id_mercado]'
@@ -212,7 +212,8 @@ GLOBAL $CFG, $db, $ME;
 	$string="<br><br><table border=\"1\" width=\"100%\">\n";
 	$string.="<tr><td colspan=\"" . (sizeof($arrayDias)+1) . "\"><b>";
 	$string.=$datosBasicos["mercado"] . "<br>\n";
-	$string.=$datosBasicos["promotor"] . "\n";
+	$string.=$datosBasicos["promotor"] . "<br>\n";
+	$string.="Mesa: ".$datosBasicos["mesa"] . "\n";
 	$string.="</b></td></tr>";
 	$string.="<tr><th>Hora</th>";
 	foreach($arrayDias AS $key=>$val){

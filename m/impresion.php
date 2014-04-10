@@ -212,8 +212,8 @@ GLOBAL $CFG, $db, $ME;
 	$string="<br><br><table border=\"1\" width=\"100%\">\n";
 	$string.="<tr><td colspan=\"" . (sizeof($arrayDias)+1) . "\"><b>";
 	$string.=$datosBasicos["mercado"] . "<br>\n";
-	$string.=$datosBasicos["promotor"] . "\n";
-	$string.="mesa: ".$datosBasicos["mesa"] . "\n";
+	$string.=$datosBasicos["promotor"] . "<br>\n";
+	$string.="Mesa: ".$datosBasicos["mesa"] . "\n";
 	$string.="</b></td></tr>";
 	$string.="<tr><th>Hora</th>";
 	foreach($arrayDias AS $key=>$val){

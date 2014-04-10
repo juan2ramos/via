@@ -1611,9 +1611,9 @@ function listar_grupos($frm){
 	$tipo_anterior="";
 	
 	//l�nea de codigo que muestra los enlaces de listado de artistas, litado de profesionales y la administraci�n de las agendas para profesionales.
-	echo "<a id='lista_portafolios' href='index.php?act=0&modo=agenda&id_mercado=".$CFG->mercado."&id_promotor=".$promotor["id"]."&mercado=".$CFG->mercado."'>Listado artistas</a>";
+	echo "<a class='oculto' id='lista_portafolios' href='index.php?act=0&modo=agenda&id_mercado=".$CFG->mercado."&id_promotor=".$promotor["id"]."&mercado=".$CFG->mercado."'>Listado artistas</a>";
 	echo "<a class='oculto' id='lista_portafolios_dos' href='index.php?act=1&modo=agenda&id_mercado=".$CFG->mercado."&id_promotor=".$promotor["id"]."&mercado=".$CFG->mercado."'>listado de profesionales</a>";
-	echo "<a id='miAgenda' href='index.php?act=2&modo=agenda&id_mercado=".$CFG->mercado."&id_promotor=".$promotor["id"]."&mercado=".$CFG->mercado."'>Administraci&oacute;n de mi agenda</a>";
+	echo "<a class='oculto' id='miAgenda' href='index.php?act=2&modo=agenda&id_mercado=".$CFG->mercado."&id_promotor=".$promotor["id"]."&mercado=".$CFG->mercado."'>Administraci&oacute;n de mi agenda</a>";
 	
 	//codigo que muestra a los grupos o artistas en la parte del Profesional
 	echo "<br><br><div id='contenido_lista' ><div>Artista:</div>";
