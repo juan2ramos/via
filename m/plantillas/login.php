@@ -106,7 +106,9 @@ function verify_login($username, $password) {
 
     <div style="font-size:28px;"><strong>AGENDAS</strong></div>
     <div class="azul">
-    	 Ingresando con sus datos podr&aacute;n imprimir su agenda definitiva para la Rueda de Negocios VIA 2014.
+Ingresando con sus datos podr&aacute;n ver e imprimir su agenda definitiva para la Rueda de Negocios VIA 2014.<br><br>
+
+By submitting your login and password, you can view and print your final agenda for VIA 2014 Business Matchmaking.
       <!--<p><span style="font-size:18px;">AGENDAS</span><br />
         <br />
       Cualquier inquietud puede comunicarse   al correo electr&oacute;nico <a href="mailto:via@festivaldeteatro.com.co" style="border:none; background:none; color:red; padding:0"><strong>via@festivaldeteatro.com.co</strong></a> asistencia a profesionales y al correo electr&oacute;nico <a href="mailto:via@circulart.org" style="border:none; background:none; color:red; padding:0"><strong>via@circulart.org</strong></a> &nbsp asistencia para artistas. </p>
