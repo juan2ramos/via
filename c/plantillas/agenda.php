@@ -1616,7 +1616,7 @@ function listar_grupos($frm){
 	echo "<a class='oculto' id='miAgenda' href='index.php?act=2&modo=agenda&id_mercado=".$CFG->mercado."&id_promotor=".$promotor["id"]."&mercado=".$CFG->mercado."'>Administraci&oacute;n de mi agenda</a>";
 	
 	//codigo que muestra a los grupos o artistas en la parte del Profesional
-	echo "<br><br><div id='contenido_lista' ><div>Artista:</div>";
+	echo "<br><br><div id='contenido_lista' class='oculto'><div>Artista:</div>";
 	$j=1;
 	echo "\n<table>";
 	echo "<tr><td>";
@@ -1690,7 +1690,7 @@ function listar_promotores($frm){
 function mostrar_agenda_grupo($frm){
 	GLOBAL $CFG,$db,$ME;
     
-	echo "<div id='contenido_miAgenda'>";
+	echo "<div id='contenido_miAgenda' style='display:inline'>";
 	echo "<div style='padding:5px; margin:2px;'>Para imprimir <b>la agenda</b>, haga click en este icono <img src=\"../m/iconos/transparente/printer.png\" style=\"cursor:pointer\" onClick=\"popup('impresion.php?mercado=".$CFG->mercado."&modo=agenda&mode=agenda_artista&id_grupo=$frm[id_grupo]&tipo=$frm[tipo]&id_mercado=$frm[id_mercado]')\" title=\"Imprimir Agenda\"></div>";
 	
 	$qSesiones=$db->sql_query("
