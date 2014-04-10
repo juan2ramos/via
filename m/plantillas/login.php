@@ -119,7 +119,7 @@ Saludos, <br><br>
 Equipo VIA 2014
 
 <hr>
-
+<br><br>
 Dear VIA 2014 Professionals and Artists,<br><br>
 The system for appointment scheduling in the Business Matchmaking is closed. We thank everyone for your interest. We hope to see you next Sunday, April 13th at 8:30 am in the Tequendama Suites Building, 30th floor (International Centre).
 Remember that the citations that were not eliminated or declined, the system will automatically accept them. In a period of 24 hours you must be receiving an e-mail with your final agenda.
