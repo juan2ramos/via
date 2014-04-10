@@ -1443,7 +1443,7 @@ function mostrar_agenda_promotor($frm){
 						 }
 					}else{ $estado="Eliminada";};
 					echo "<td class='linea' style='text-align:center'>$estado</td>";
-					//echo "<td class='linea' style='text-align: center;'><a style=\"border:none; background:none; cursor:pointer;\" href=\"" . simple_me($ME) . "?act=2&mercado=".$CFG->mercado."&modo=agenda&mode=rechazar_cita_promotor_promotor&id_cita=$cita[id]&id_promotor=$_GET[id_promotor]\"><img border=\"0\" src=\"../m/iconos/transparente/trash-x.png\"></a></td>";
+					echo "<td class='linea' style='text-align: center;'><a style=\"border:none; background:none; cursor:pointer;\" href=\"" . simple_me($ME) . "?act=2&mercado=".$CFG->mercado."&modo=agenda&mode=rechazar_cita_promotor_promotor&id_cita=$cita[id]&id_promotor=$_GET[id_promotor]\"><img border=\"0\" src=\"../m/iconos/transparente/trash-x.png\"></a></td>";
 					
 
 				}
@@ -1456,7 +1456,7 @@ function mostrar_agenda_promotor($frm){
 						echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 16px; height: 50px;'></th>";
 						echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 16px; height: 50px;'></th>";
 						echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 16px; height: 50px;'></th>";
-						//echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 16px; height: 50px;'></th>\n";
+						echo "<th style='border:none; background:#1f1f1f; text-align: left; color:#ccc; font-size: 16px; height: 50px;'></th>\n";
 						
 					}
 					else{
@@ -1466,7 +1466,7 @@ function mostrar_agenda_promotor($frm){
 						echo "<th class='linea'></th>";
 						echo "<th class='linea'></th>";
 						echo "<th class='linea'></th>";
-						//echo "<th class='linea'></th>\n";
+						echo "<th class='linea'></th>\n";
 					}
 				}
 			}
