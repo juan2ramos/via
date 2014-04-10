@@ -104,11 +104,11 @@ function verify_login($username, $password) {
     <td width="490" valign="top" style="padding-left:20px"><br />
 <br />
 
-    <div style="font-size:28px;"><strong>Entrada de agendamiento</strong></div>
+    <div style="font-size:28px;"><strong>AGENDAS</strong></div>
     <div class="azul">
-      <p><span style="font-size:18px;">AGENDAS</span><br />
+      <!--<p><span style="font-size:18px;">AGENDAS</span><br />
         <br />
-      <!--Cualquier inquietud puede comunicarse   al correo electr&oacute;nico <a href="mailto:via@festivaldeteatro.com.co" style="border:none; background:none; color:red; padding:0"><strong>via@festivaldeteatro.com.co</strong></a> asistencia a profesionales y al correo electr&oacute;nico <a href="mailto:via@circulart.org" style="border:none; background:none; color:red; padding:0"><strong>via@circulart.org</strong></a> &nbsp asistencia para artistas. </p>
+      Cualquier inquietud puede comunicarse   al correo electr&oacute;nico <a href="mailto:via@festivaldeteatro.com.co" style="border:none; background:none; color:red; padding:0"><strong>via@festivaldeteatro.com.co</strong></a> asistencia a profesionales y al correo electr&oacute;nico <a href="mailto:via@circulart.org" style="border:none; background:none; color:red; padding:0"><strong>via@circulart.org</strong></a> &nbsp asistencia para artistas. </p>
 <p>&nbsp;</p>-->
 <!--Estimados artistas participantes en VIA 2014.<br><br>
 
