@@ -28,7 +28,7 @@ else $tipo="teatro";
         <meta charset="iso-8859-1">
         <meta name="author" content="" />       
         <meta name="description" content="Inicio" />       
-        <!-- Si hay diseño responsive
+        <!-- Si hay diseï¿½o responsive
         <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1" />
         -->
 
@@ -46,7 +46,7 @@ else $tipo="teatro";
          </div>
         <header>
             <div  class="content-head">
-                <div id="logo"><a href="http://festivaldeteatro.com.co/" target="_blank"><img src="images/logo-festival-teatro.jpg" alt="XIV Festival iberoamericano de teatro de bogotá" borde="0" /></a></div>
+                <div id="logo"><a href="http://festivaldeteatro.com.co/" target="_blank"><img src="images/logo-festival-teatro.jpg" alt="XIV Festival iberoamericano de teatro de bogotï¿½" borde="0" /></a></div>
                 <nav>                  
                     
                         <a href="../pdf/Prog_VIA.pdf" target="_blank">Programaci&oacute;n<span>Agenda</span></a>
@@ -67,7 +67,7 @@ else $tipo="teatro";
         
         <section >
         
-             <div class="titulo_page" style="text-align:center">AGENDAMIENTO</div>
+             <div class="titulo_page" style="text-align:center">AGENDAS</div>
         
         
              <div class="interna">
