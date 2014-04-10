@@ -31,7 +31,7 @@ if (isset($_POST["username"])) {
 			
 			if(!$inMercado)
 			{
-				echo "Este usuario no está registrado en el mercado.";
+				echo "Este usuario no estï¿½ registrado en el mercado.";
 				echo "<script>setTimeout(\"location.href='m/index.php?modo=login&mercado=".$mercado."'\", 3000)</script>";
 				die;
 			}
@@ -51,7 +51,7 @@ if (isset($_POST["username"])) {
 						$tipo="teatro";
 					}
 					else{
-						die("Este usuario no tiene ningún grupo relacionado.");
+						die("Este usuario no tiene ningï¿½n grupo relacionado.");
 					}
 				}
 			}
@@ -66,7 +66,7 @@ if (isset($_POST["username"])) {
 		die();
 	}
 	else {
-		$errormsg = "Login inválido, por favor intente de nuevo.";
+		$errormsg = "Login invï¿½lido, por favor intente de nuevo.";
 		$frm["username"] = $_POST["username"];
 	}
 }
@@ -108,8 +108,24 @@ function verify_login($username, $password) {
     <div class="azul">
       <p><span style="font-size:18px;">AGENDA ARTISTAS/GRUPOS Y PROFESIONALES</span><br />
         <br />
-      Cualquier inquietud puede comunicarse   al correo electr&oacute;nico <a href="mailto:via@festivaldeteatro.com.co" style="border:none; background:none; color:red; padding:0"><strong>via@festivaldeteatro.com.co</strong></a> asistencia a profesionales y al correo electr&oacute;nico <a href="mailto:via@circulart.org" style="border:none; background:none; color:red; padding:0"><strong>via@circulart.org</strong></a> &nbsp asistencia para artistas. </p>
-<p>&nbsp;</p>
+      <!--Cualquier inquietud puede comunicarse   al correo electr&oacute;nico <a href="mailto:via@festivaldeteatro.com.co" style="border:none; background:none; color:red; padding:0"><strong>via@festivaldeteatro.com.co</strong></a> asistencia a profesionales y al correo electr&oacute;nico <a href="mailto:via@circulart.org" style="border:none; background:none; color:red; padding:0"><strong>via@circulart.org</strong></a> &nbsp asistencia para artistas. </p>
+<p>&nbsp;</p>-->
+Estimados artistas participantes en VIA 2014.
+
+En este momento se encuentra cerrado el sistema de agendamiento de citas para la Rueda de Negocios. Agradecemos a todos su inter&eacute;s. Los esperamos el pr&oacute;ximo domingo 13 de abril a partir de las 9:00 a.m. en el Edificio Residencias Tequendama, piso 30 (Centro Internacional)
+Les recordamos que las citas que no fueron eliminadas o declinadas, el sistema las acept&oacute; autom&aacute;ticamente. En un lapso de 24 horas estar&aacute;n recibiendo su agenda definitiva v&iacute;a correo electr&oacute;nico.
+Saludos, 
+
+Equipo VIA 2014
+
+<hr>
+
+Dear VIA 2014 Professionals and Artists,
+The system for appointment scheduling in the Business Matchmaking is closed. We thank everyone for your interest. We hope to see you next Sunday, April 13th at 8:30 am in the Tequendama Suites Building, 30th floor (International Centre).
+Remember that the citations that were not eliminated or declined, the system will automatically accept them. In a period of 24 hours you must be receiving an e-mail with your final agenda.
+Best regards,
+VIA 2014 Team
+
     </div>
     </td>
     <td width="435" valign="top"><br />
@@ -118,7 +134,7 @@ function verify_login($username, $password) {
 	     
 <form id="login" name="login" method="post" action="<?=$ME?>?mercado=<?=$mercado?>">
 	<input type="hidden" name="modo" value="login" />
-	<table width="285" border="0" align="left" cellpadding="5" cellspacing="5" style="margin-left:40px;">
+	<!--<table width="285" border="0" align="left" cellpadding="5" cellspacing="5" style="margin-left:40px;">
     	<tr>
         	<td width="90" align="right" scope="col">
               <strong>Login</strong>:
@@ -135,7 +151,7 @@ function verify_login($username, $password) {
             <td align="right"><label><input type="submit" value="Entrar"  style="cursor:pointer" id="button"/></label></td>
         </tr>
         
-  </table>
+  </table>-->
 </form></td>
   </tr>
 </table>
