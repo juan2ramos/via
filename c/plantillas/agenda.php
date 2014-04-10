@@ -1382,7 +1382,7 @@ function mostrar_agenda_promotor($frm){
 		setlocale(LC_ALL,"es_ES@euro","es_ES","esp","es");
 		echo "<strong>Fecha:</strong> " . strftime("%A %d de %B", strtotime($sesion["fecha_inicial"])) . "</p>\n";
 		echo "<table border=\"0\" cellpadding=\"5\" cellspacing=\"5\" width=\"100%\">\n";
-		echo "<tr style='font-size:14px; color:#cc0'><th width=\"100\">Hora</th><th width=\"208\">Artista</th><th width=\"50\">Mesa</th><th width=\"90\">Estado</th></tr>\n";
+		echo "<tr style='font-size:14px; color:#cc0'><th width=\"100\">Hora</th><th width=\"208\">Artista</th><th width=\"50\">Mesa</th><th width=\"90\">Estado</th><th ></th></tr>\n";
 			
 		$desde=strtotime($sesion["fecha_inicial"]);
 		$hasta=strtotime($sesion["fecha_final"]);
@@ -1414,7 +1414,7 @@ function mostrar_agenda_promotor($frm){
 				elseif($cita["aceptada_promotor"]==0 && $cita["aceptada_grupo"]==1) $estado="<a href=\"" . simple_me($ME) . "?mercado=".$CFG->mercado."&modo=agenda&mode=confirmar_cita_promotor&id_promotor=".$_GET['id_promotor']."&id_cita=$cita[id]\" style='color:#ccc; text-decoration:underline'>Confirmar</a>";
 				else $estado="Eliminada";
 				echo "<td class='linea' style='text-align:center'>$estado</td>";
-				//echo "<td class='linea' style='text-align: center;'><a style=\"border:none; background:none; cursor:pointer;\" href=\"" . simple_me($ME) . "?act=2&mercado=".$CFG->mercado."&modo=agenda&mode=rechazar_cita_promotor&id_cita=$cita[id]&id_promotor=$_GET[id_promotor]\"><img border=\"0\" src=\"../m/iconos/transparente/trash-x.png\"></a></td>";
+				echo "<td class='linea' style='text-align: center;'><a style=\"border:none; background:none; cursor:pointer;\" href=\"" . simple_me($ME) . "?act=2&mercado=".$CFG->mercado."&modo=agenda&mode=rechazar_cita_promotor&id_cita=$cita[id]&id_promotor=$_GET[id_promotor]\"><img border=\"0\" src=\"../m/iconos/transparente/trash-x.png\"></a></td>";
 
 			}
 			else{
