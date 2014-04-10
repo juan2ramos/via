@@ -1364,7 +1364,7 @@ function mostrar_agenda_promotor_promotor_recordatorio($frm){
 /**************************************************/
 function mostrar_agenda_promotor($frm){
 	GLOBAL $CFG,$db,$ME;
-    echo "<div id='contenido_miAgenda'>";
+    echo "<div id='contenido_miAgenda' style='display: block;'>";
 	echo "<div>Para imprimir <b>la agenda</b>, haga click en este icono <img src=\"../m/iconos/transparente/printer.png\" style=\"cursor:pointer\" onClick=\"popup('impresion.php?mode=agenda_promotor&id_promotor=$frm[id_promotor]&id_mercado=$frm[id_mercado]')\" title=\"Imprimir Agenda\"></div>";
 	$qSesiones=$db->sql_query("
 		SELECT s.id as id_sesion, s.id_rueda, s.lugar, r.nombre, r.duracion_cita, s.fecha_inicial, fecha_final
