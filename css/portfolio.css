@@ -122,6 +122,9 @@ a .item {
 .perfil .text, .obras .text{
 	font-weight:300;
 	font-size: .7em;}	
+.perfil .text.pequeno, .obras .text.pequeno{
+	text-decoration: lowercase;
+}	
 .perfil #resena{
 	padding-right:20px;}
 
