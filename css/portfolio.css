@@ -127,9 +127,8 @@ a .item {
 }	
 .perfil .texto strong, .obras .texto strong{
 	font-size:14px;
+    text-transform:uppercase;
 }	
-
-
 .perfil #resena{
 	padding-right:20px;}
 
