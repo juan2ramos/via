@@ -119,8 +119,8 @@
 								if($datos_obras["obra"]!="")$contObras.="<div class='obras' id='obras_$c'><div class='espacio'>".utf8_encode($datos_obras["obra"])."<hr></div>";
 							}else{
 								if($datos_obras["obra"]!="")$contObras.="<div class='obras' id='obras_$c'><div class='espacio'>".utf8_encode($datos_obras["obra"])."<hr></div>";}
-								if($datos_obras["resena"]!="")$contObras.="<div class='text'>".utf8_encode($datos_obras["resena"])."<br><br></div>";
-								if($datos_obras["en_resena"]!="")$contObras.="<div class='text'>/ ".utf8_encode($datos_obras["en_resena"])."<br><br></div>";
+								if($datos_obras["resena"]!="")$contObras.="<div class='text pequeno'>".utf8_encode($datos_obras["resena"])."<br><br></div>";
+								if($datos_obras["en_resena"]!="")$contObras.="<div class='text pequeno'>/ ".utf8_encode($datos_obras["en_resena"])."<br><br></div>";
 								if($datos_obras["anio"]!="")$contObras.="<div class='text'><strong>Año:</strong> ".utf8_encode($datos_obras["anio"])."<hr></div>";
 								if($datos_obras["autor"]!="")$contObras.="<div class='text'><strong>Autor:</strong> ".utf8_encode($datos_obras["autor"])."<hr></div>";
 								if($datos_obras["duracion"]!="")$contObras.="<div class='text'><strong>Duración:</strong> ".utf8_encode($datos_obras["duracion"])."<hr></div>";
