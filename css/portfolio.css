@@ -122,7 +122,7 @@ a .item {
 .perfil .text, .obras .text{
 	font-weight:300;
 	font-size: .7em;}	
-.perfil .text.pequeno, .obras .text.pequeno{
+.perfil .pequeno, .obras .pequeno{
 	text-decoration: lowercase;
 }	
 .perfil #resena{
