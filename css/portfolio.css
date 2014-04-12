@@ -124,8 +124,12 @@ a .item {
 	font-size: .7em;}	
 .perfil .pequeno, .obras .pequeno{
 	text-transform: lowercase;
-	font-size: .7em;
 }	
+.perfil .texto strong, .obras .texto strong{
+	font-size:14px;
+}	
+
+
 .perfil #resena{
 	padding-right:20px;}
 
