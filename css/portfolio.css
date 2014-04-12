@@ -125,7 +125,7 @@ a .item {
 .perfil .pequeno, .obras .pequeno{
 	text-transform: lowercase;
 }	
-.perfil .texto strong, .obras .texto strong{
+.perfil .texto.pequeno strong, .obras .texto.pequeno strong{
 	font-size:14px;
     text-transform:uppercase;
 }	
