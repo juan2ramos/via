@@ -35,34 +35,29 @@
                    
                       <li>
                         <span class="caption">
-                          <img src="images/slide/img1.jpg">
+                          <img src="images/slide/imagen1.jpg">
                           
                         </span>
                       </li>
                       <li>
                         <span class="caption">
-                          <img src="images/slide/img2.jpg">
+                          <img src="images/slide/imagen2.jpg">
                           
                         </span>
                       </li>
                       <li>
                         <span class="caption">
-                          <img src="images/slide/img3.jpg">
+                          <img src="images/slide/imagen3.jpg">
                           
                         </span>
                       </li>
                       <li>
                         <span class="caption">
-                          <img src="images/slide/img4.jpg">
+                          <img src="images/slide/imagen4.jpg">
                           
                         </span>
                       </li>
-                      <li>
-                        <span class="caption">
-                          <img src="images/slide/img5.jpg">
-                          
-                        </span>
-                      </li>
+
                     
                   </ul>
                 </div>
