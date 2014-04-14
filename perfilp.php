@@ -66,7 +66,7 @@
                    <div id="ciudad" class="text"><strong>Organización: </strong> <?=utf8_encode($nombreEmpresa)?><hr></div>
                    <div id="cargo" class="text"><strong>Cargo: </strong> <?=utf8_encode($promotor["cargo"])?><hr></div>
                    <div class="text"><strong>Reseña: </strong></div>
-                   <div id="resena" class="text pequeno"><hr> <?=utf8_encode($resenaEmpresa)?></div>
+                   <div id="resena" class="text"><hr> <?=utf8_encode($resenaEmpresa)?></div>
                </div>       
                <?php
 				   }
